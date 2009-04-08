@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<criteria xmlns:tal="http://xml.zope.org/namespaces/tal"
+          tal:define="info options/info;
+                     "
+>
+ <criterion criterion_id="GROUP_ID"
+            type="PREDICATE"
+            field="TITLE"
+            tal:repeat="criterion info/criteria"
+            tal:attributes="criterion_id criterion/criterion_id;
+                            type criterion/type;
+                            field criterion/field;
+                       ">
+  <attribute name="NAME" value="VALUE"
+             tal:repeat="attr criterion/attributes"
+             tal:attributes="name python:attr[0];
+                             value python:attr[1];
+                            " />
+ </criterion>
+</criteria>

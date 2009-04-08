@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<portlets>
+
+ <!-- Portlet type registrations -->
+
+ <portlet
+   addview="AssignmentPortlet.AssignmentPortlet"
+   title="Assignment Portlet"
+   description="A portlet that displays a user's the status of their assignments."
+   />
+
+</portlets>

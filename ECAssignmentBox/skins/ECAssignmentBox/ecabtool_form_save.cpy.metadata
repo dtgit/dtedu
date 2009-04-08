@@ -1,0 +1,6 @@
+[validators]
+validators=
+
+[actions]
+action.failure=traverse_to:string:ecabtool_form
+action.success=redirect_to:string:ecabtool_form

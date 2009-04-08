@@ -1,0 +1,8 @@
+Changelog for TWBSkin
+
+    (name of developer listed in brackets)
+
+TWBSkin 1.0 - Unreleased
+
+    - Generated skeleton product from DIYPloneStyle 3.0.
+      [generator]

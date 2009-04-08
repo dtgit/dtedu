@@ -1,0 +1,52 @@
+# Mario Amelung <amelung@iws.cs.uni-magdeburg.de>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: ECLecture\n"
+"POT-Creation-Date: 2006-04-01 12:00+0000\n"
+"PO-Revision-Date: 2006-04-01 12:00+0000\n"
+"Last-Translator: Mario Amelung <amelung@iws.cs.uni-magdeburg.de>\n"
+"Language-Team: WDOK <amelung@iws.cs.uni-magdeburg.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: de\n"
+"Language-Name: Deutsch\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: plone\n"
+"X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
+
+#. Default: "Lecture"
+#: 
+msgid "Lecture"
+msgstr "Lehrveranstaltung"
+
+#. Default: "Participants"
+#: 
+msgid "Participants"
+msgstr "Teilnehmer"
+
+#. Default: "A folder containing details about a lecture."
+#: 
+msgid "description_edit_eclecture"
+msgstr "Ein Ordner, der Informationen über eine Lehrveranstaltung enthält."
+
+#. Default: "Lectures view"
+#: skins/ECLecture/folder_lectures_view.pt.metadata
+msgid "Lectures view"
+msgstr "Lehrveranstaltungen"
+
+#. Default: "English"
+#:
+msgid "English"
+msgstr "Englisch"
+
+#. Default: "German"
+#:
+msgid "German"
+msgstr "Deutsch"
+
+#. Default: "French"
+#:
+msgid "French"
+msgstr "Französisch"

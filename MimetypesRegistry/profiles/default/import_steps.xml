@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<import-steps>
+ <import-step id="mimetypes-registry-various" version="20070309-01"
+              handler="Products.MimetypesRegistry.setuphandlers.setupMimetypesRegistry"
+              title="MimetypesRegistry setup">
+  <dependency step="componentregistry"/>
+    MimetypesRegistry installation step.
+ </import-step>
+</import-steps>

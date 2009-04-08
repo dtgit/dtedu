@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<kupu:feature
+    name="save"
+    implementation="plone"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:kupu="http://kupu.oscom.org/namespaces/dist"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    i18n:domain="kupu"
+    >
+<kupu:id>$Id save.kupu (not yet in svn) $</kupu:id>
+
+  <kupu:part name="buttons">
+    <span class="kupu-tb-buttongroup" tal:condition="not:context/checkCreationFlag|python:True">
+      <button type="button" class="kupu-save" id="kupu-save-button"
+              title="Save" i18n:attributes="title title_save;"
+	      tal:condition="filter/save-button">&#160;</button>
+    </span>
+  </kupu:part>
+
+  <!-- We will have the button tool configuration here, too, once we
+       do tool definitions in XML config. -->
+
+</kupu:feature>

@@ -1,0 +1,93 @@
+Changelog for statusmessages
+
+   (name of developer listed in brackets)
+
+statusmessages 3.0.3 - Released November 24, 2007
+
+     - Use binascii.b2a_base64 instead of base64.encodestring; the former
+       doesn't inject newlines every 76 characters, which makes it easier to
+       strip just the last one (slightly faster). This fixes tickets #7323
+       and #7325.
+       [mj]
+
+statusmessages 3.0.2 - Released November 6, 2007
+
+    - Fixed encoding format for the cookie value. The former format imposed
+      a serious security risk. The full security issue is tracked at:
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5741.
+      This also fixes http://dev.plone.org/plone/ticket/6943.
+      [hannosch, witsch, mj]
+
+statusmessages 3.0.1 - Released October 7, 2007
+
+    - Added the IAttributeAnnotatable interface assignment for the request
+      to this package as well as the inclusion of the zope.annotation, as we
+      rely on it.
+      [hannosch]
+
+statusmessages 3.0 - Released August 9, 2007
+
+    - No changes.
+      [hannosch]
+
+statusmessages 3.0rc1 - Released July 10, 2007
+
+    - Removed useless setup.cfg.
+      [hannosch]
+
+statusmessages 3.0b2 - Released March 23, 2007
+
+    - Fixed duplicate message bug. Showing identical messages to the end user
+      more than once, doesn't make any sense. This closes
+      http://dev.plone.org/plone/ticket/6109.
+      [hannosch]
+
+    - Added 's support for statusmessages without a redirect. This uses
+      annotations on the request instead of direct values, so we avoid the
+      possibility of sneaking those in via query strings.
+      [tomster, hannosch]
+
+statusmessages 3.0b1 - Released March 5, 2007
+
+    - Converted to a package in the Products namespace.
+      [hannosch]
+
+    - Added explicit translation of statusmessages before storing them in the
+      cookie. This makes sure we have a reasonable context to base the
+      translation on.
+      [hannosch]
+
+    - Changed license to BSD, to make it possible to include it as a dependency
+      in Archetypes.
+      [hannosch]
+
+statusmessages 2.1 - Released October 25, 2006
+
+    - Updated test infrastructure, removed custom testrunner.
+      [hannosch]
+
+    - Fixed deprecation warning for the zcml content directive.
+      [hannosch]
+
+statusmessages 2.0 - Released May 15, 2006
+
+    - Total reimplementation using cookies instead of a server-side in-memory
+      storage to store status messages. The reasoning behind this change is that
+      the former approach didn't play well with web caching strategies and added
+      an additional burden in ZEO environments (having to use load-balancers,
+      which are able to identify users and keep them connected to the same ZEO
+      server).
+      [hannosch]
+
+statusmessages 1.1 - Released February 13, 2006
+
+    - Added tests for ThreadSafeDict.
+      [hannosch]
+
+    - Fixed serious memory leak and did some code improvements.
+      [hannosch] [alecm]
+
+statusmessages 1.0 - Released January 26, 2006
+
+    - Initial implementation
+      [hannosch]

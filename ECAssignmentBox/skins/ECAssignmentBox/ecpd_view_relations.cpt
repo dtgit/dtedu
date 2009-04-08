@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+                      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="eduComponents">
+
+  <metal:block fill-slot="top_slot">
+    <metal:block
+      tal:define="dummy python:request.RESPONSE.setHeader('Cache-Control',
+                        'no-cache, no-store, must-revalidate, post-check=0,
+                        pre-check=0');
+                  dummy python:request.set('enable_border', 1);" />
+  </metal:block>
+
+  <metal:calendar fill-slot="javascript_head_slot">
+    <!-- ECMAScript calendar -->
+    <style type="text/css" media="all"
+            tal:content="string:@import url($portal_url/jscalendar/calendar-system.css);"></style>
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/jscalendar/calendar_stripped.js"></script>
+    <script type="text/javascript" charset="iso-8859-1"
+            tal:condition="exists: portal/jscalendar/calendar-en.js"
+            tal:attributes="src string:$portal_url/jscalendar/calendar-en.js"></script>
+  </metal:calendar>
+
+  <body>
+    <metal:block fill-slot="css_slot">
+      <style type="text/css" media="screen"
+          tal:content="string: @import url($portal_url/ecabstyles.css);" />
+    </metal:block>
+
+    <div metal:fill-slot="main"
+		tal:define="errors  options/state/getErrors;
+				all_paths python:request.get('paths', []);
+				all_objects python:here.getObjectsFromPathList(all_paths, batch=True);
+				paths python:['/'.join(o.getPhysicalPath())
+						for o in all_objects if here.ecab_utils.isAssignmentBoxType(o)];
+				batch python:here.getObjectsFromPathList(paths, batch = True);
+				">
+
+	<h1 class="documentFirstHeading">Relations for choosen Assignments</h1>
+
+	<!--Form-->
+	<form method="post" tal:attributes="action template/id;">
+
+	<!--Show Torc image-->
+
+	<div tal:condition="request/SESSION/results|nothing">
+			 <label i18n:translate="label_torc">Torc:</label>
+			 <div class="formHelp" i18n:translate="label_torc_help">
+			 			The Torc representation shows similarity relations by connecting similar texts with lines.
+			 </div>
+			 <center>
+			 <img src=""
+			 			tal:attributes="src string: ${context/absolute_url}/createTorc"
+			 >
+			 </center>
+	</div>
+	
+	<!--Show Intensity Heatmap image-->
+
+	<div tal:condition="request/SESSION/results|nothing">
+			 <label i18n:translate="label_intensity_heatmap">Intensity Heatmap:</label>
+			 <div class="formHelp" i18n:translate="label_intensity_heatmap_help">
+			 			The Intensity Heatmap gives an overview of similarity degrees between the compared texts.
+			 </div>
+			 <center>
+			 <img src=""
+			 			tal:attributes="src string: ${context/absolute_url}/createIntensityHeatmap"
+			 >
+			 </center>
+	</div>
+
+	<!--Show Cluster Heatmap image-->
+	
+	<div tal:condition="request/SESSION/results|nothing">
+			 <label i18n:translate="label_cluster_heatmap">Cluster Heatmap:</label>
+			 <div class="formHelp" i18n:translate="label_cluster_heatmap_help">
+			 			The Cluster Heatmap represents an overview of possible plagiarism groups by marking texts of the same group with the same color.
+			 </div>
+			 <center>
+			 <img src=""
+			 			tal:attributes="src string: ${context/absolute_url}/createClusterHeatmap"
+			 >
+			 </center>
+	</div>
+	
+	<!--Show all selected Assignments sorted according to their groups-->
+	<div class="field"
+			 tal:condition="request/SESSION/results|nothing"
+			 tal:attributes="class python:test(error_selected_results, 'field error', 'field')"
+			 tal:define="error_selected_results errors/selected_results|nothing;"
+			 >
+	<div tal:condition="error_selected_results">
+			 <b>Error: </b>
+			 <tal:block i18n:translate=""
+			 						content="error_selected_results">
+									Error
+			 </tal:block>
+	</div>
+	<label i18n:translate="label_result_list">Result List:</label>
+  <div class="formHelp" i18n:translate="label_result_list_help">
+			The Result List lists all search results with the computed similarity and indications on possible plagiarism depending on the used tresholds.<br/>
+			To inspect results check the corrensponding entities and click the direct compare button.
+	</div>
+	
+	<table summary="Result List Options" border="0" bgcolor="#cccccc">
+			<tr>
+				 <td><label i18n:translate="label_options">Options:</label></td>
+				 <td><input type="checkbox" name="only_positive_results" value="only_positive_results"
+				 						tal:attributes="checked python:request.get('only_positive_results', None)"
+				 						/>Only Positive Results</td>
+				 <td><input type="checkbox" name="group_view" value="group_view"
+				 						tal:attributes="checked python:request.get('group_view', None)"
+				 						/>Group View</td>
+				 <td bgcolor="#ffffff"><input class="context" type="submit" name="form.button.RefreshButton"	value="Refresh"/></td>
+			</tr>
+	</table>
+	
+<!--	<tal:block>
+	     <tal:block tal:condition="request/only_positive_results|nothing"
+			 					  tal:define="tmp request/SESSION/results;
+															pos_results python: [r for r in tmp if r.isSuspectPlagiarism()];
+			 						 					  act_results pos_results|tmp"/>
+	</tal:block>-->
+	
+	<tal:block tal:condition="python: request.SESSION.get('groups', None)"
+						 tal:define="groups python:request.SESSION.get('groups', None)">
+						 <div tal:repeat="group groups">
+						 <label tal:define="nb repeat/group/index;
+						 										grpnb python: nb + 1"
+						 				tal:content="string: Group ${grpnb}">Group</label>
+	<table summary="All Results" class="listing">
+				 <thead>
+				 <tr>
+				     <th class="nosort">
+               <input class="noborder"
+                type="checkbox"
+                src="select_all_icon.gif"
+                name="selectButton"
+                title="Select all items"
+                onClick="toggleSelect(this, 'selected_results:list');"
+                tal:attributes="src string:$portal_url/select_all_icon.gif"
+                alt="Select all items"
+                i18n:attributes="title label_select_all_items; alt label_select_all_items;"
+               />
+          	 </th>
+				 		 <th>Similarity</th>
+						 <th>Assignment 1</th>
+						 <th>Assignment 2</th>
+						 <th>Suspected Plagiarism</th>
+				 </tr>
+				 </thead>
+				 <tbody>
+				 <tal:block tal:repeat="item group">
+				 <tr tal:define="oddrow      repeat/item/odd;"
+						 tal:attributes="class python: test(oddrow, 'odd', 'even')">
+						 <!--X Checkboxes X-->
+             <td>
+               <input type="checkbox"
+              		class="noborder"
+              		name="selected_results:list" 
+              		id="#"
+              		value=""
+              		tal:attributes="value python: context.getIdentifier(item)[0]+','+context.getIdentifier(item)[1];
+  		                id      python:context.getIdentifier(item)[0]+','+context.getIdentifier(item)[1];
+  		                checked python:test(request.get('ids_checked', False), 'checked', None);
+  		                " />
+             </td>
+				 		 <td tal:content="python: context.getSimilarity(item)">Sim</td>
+						 <td tal:content="python: context.getIdentifier(item)[0]">Id1</td>
+						 <td tal:content="python: context.getIdentifier(item)[1]">Id2</td>
+						 <td tal:content="python: context.isSuspectPlagiarism(item)">Suspected Plagiarism</td>
+				 </tr>
+				 </tal:block>
+				 </tbody>
+				 </table>
+						 </div>
+	</tal:block>
+
+	<div tal:condition="not: request/SESSION/groups|nothing">
+	<tal:block tal:condition="python: request.SESSION.get('act_results', None)">
+						 <p tal:omit-tag="" tal:define="global act_results python:request.SESSION.get('act_results', None)"/>
+	</tal:block>
+	<tal:block tal:condition="not: python: request.SESSION.get('act_results', None)">
+						 <p tal:omit-tag="" tal:define="global act_results python: request.SESSION.get('results', None)"/>
+	</tal:block>
+	
+<!-- <tal:block tal:repeat="item request/SESSION/results">-->
+	<table summary="All Results" class="listing">
+				 <thead>
+				 <tr>
+				     <th class="nosort">
+               <input class="noborder"
+                type="checkbox"
+                src="select_all_icon.gif"
+                name="selectButton"
+                title="Select all items"
+                onClick="toggleSelect(this, 'selected_results:list');"
+                tal:attributes="src string:$portal_url/select_all_icon.gif"
+                alt="Select all items"
+                i18n:attributes="title label_select_all_items; alt label_select_all_items;"
+               />
+          	 </th>
+				 		 <th>Similarity</th>
+						 <th>Assignment 1</th>
+						 <th>Assignment 2</th>
+						 <th>Suspected Plagiarism</th>
+				 </tr>
+				 </thead>
+				 <tbody>
+				 <tal:block tal:repeat="item act_results">
+				 <tr tal:define="oddrow      repeat/item/odd;"
+						 tal:attributes="class python: test(oddrow, 'odd', 'even')">
+						 <!--X Checkboxes X-->
+             <td>
+               <input type="checkbox"
+              		class="noborder"
+              		name="selected_results:list" 
+              		id="#"
+              		value=""
+              		tal:attributes="value python: context.getIdentifier(item)[0]+','+context.getIdentifier(item)[1];
+  		                id      python:context.getIdentifier(item)[0]+','+context.getIdentifier(item)[1];
+  		                checked python:test(request.get('ids_checked', False), 'checked', None);
+  		                " />
+<!-- scheint immer alle PlagResults auszuwählen ...             
+               <input type="hidden" name="obj_paths:list" value=""
+							 				tal:attributes="value item" />--> <!--OO TODO: OO-->
+             </td>
+				 		 <td tal:content="python: context.getSimilarity(item)">Sim</td>
+						 <td tal:content="python: context.getIdentifier(item)[0]">Id1</td>
+						 <td tal:content="python: context.getIdentifier(item)[1]">Id2</td>
+						 <td tal:content="python: context.isSuspectPlagiarism(item)">Suspected Plagiarism</td>
+				 </tr>
+				 </tal:block>
+				 </tbody>
+				 </table>
+				 </div><!--END TAL CONDITION not: ...groups-->
+	</div>
+	
+	<hr/>
+
+	<!--Ok Button-->
+
+	<div class="formControls">
+		<!--Show OK Button-->
+		<input class="context"
+			type="submit"
+			name="form.button.OkButton"
+			value="Ok"
+		>
+
+		<!--Direct Compare Button-->
+		<input class="context"
+			type="submit"
+			name="form.button.directCompareButton"
+			value="Direct Compare"
+		>
+	</div>
+
+	<!-- DEBUG -->
+<!--	    <h1>Debug information</h1>
+  <h2>CONTEXTS</h2>
+  <ul>
+    <tal:block
+        tal:repeat="item CONTEXTS">
+    <li
+        tal:condition="python: item != 'request'"
+        tal:define="context CONTEXTS;">
+            <b tal:content="item" />
+            <span tal:replace="python: context[item]" />
+    </li>
+    </tal:block>
+  </ul>
+  <h2>REQUEST</h2>
+  <p tal:replace="structure request" />-->
+
+	<div class="formControls" i18n:domain="plone">
+	  <input class="context"
+		 type="submit"
+		 name="form.button.Return"
+		 value="Return"
+		 i18n:attributes="value label_ok;"
+		 tal:attributes="tabindex tabindex/next;"
+		 tal:condition="request/paths|nothing"/>
+	</div>
+
+<!--	<tal:block tal:define="assignments python: [o for o in context.objectValues() if hasattr(o, 'getFile')]"
+						 tal:repeat="item assignments">
+			 <p tal:content="item/pretty_title_or_id"></p>
+			 <input type="hidden" name="identifier:list" value=""
+			 				tal:attributes="value item/pretty_title_or_id"
+			 />
+ 			 <input type="hidden" name="assignment_texts:list" value=""
+			 				tal:attributes="value python: item.getFile()"
+			 />
+
+	</tal:block>-->	
+	
+	<!--Hidden Button-->
+	<input type="hidden" name="form.submitted" value="1" />
+	<input type="hidden" name="objectValues" value=""
+				 tal:attributes="value python: context.objectValues()"
+	/>
+	</form>
+
+    </div>
+
+  </body>
+</html>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

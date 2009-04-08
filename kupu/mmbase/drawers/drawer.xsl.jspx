@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+##############################################################################
+#
+# Copyright (c) 2003-2005 Kupu Contributors. All rights reserved.
+#
+# This software is distributed under the terms of the Kupu
+# License. See LICENSE.txt for license text. For a list of Kupu
+# Contributors see CREDITS.txt.
+#
+##############################################################################
+
+XSL transformation from Kupu Library XML to HTML for the image library
+drawer.
+
+$Id: drawer.xsl,v 1.12 2005/09/16 19:47:56 michiel Exp $
+-->
+<xsl:stylesheet
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  >
+  <mm:link absolute="true" page="../../common/kupudrawers/drawer.xsl">
+    <!-- Must be absolute, or otherwise IE chokes -->
+    <xsl:import href="${_}" />
+  </mm:link>    
+  
+
+  <!-- 
+       Overridden to use the 'showupload' parameter always, if an 'uploadbutton' tab is present 
+  -->
+  <xsl:template match="*" mode="panel">
+    <xsl:choose>
+      <xsl:when test="$drawertype='image'">
+        <xsl:if test="//resource[@selected]">
+          <xsl:apply-templates
+              select="/libraries/*[@selected]//resource[@selected]"
+              mode="image-properties"/>
+        </xsl:if>
+      </xsl:when>
+      <xsl:when test="$drawertype='link'">
+        <xsl:apply-templates
+            select="/libraries/*[@selected]//resource[@selected]"
+            mode="link-properties"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates
+            select="//resource[@selected]"
+            mode="properties"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    <xsl:if test="$showupload='yes'">
+      <xsl:apply-templates
+          select="/libraries/*[@selected]/uploadbutton"
+          mode="upload"/>
+    </xsl:if>
+  </xsl:template>
+
+  <!--
+      Just overridden to rename it, because we use upload also for attachments, not only for images 
+      (Called in 'panel' mode)
+  -->
+  <xsl:template match="uploadbutton" mode="upload">
+    <xsl:apply-templates select="." mode="image-upload" />
+  </xsl:template>
+
+
+  <!--
+      Overridden to remove 'target', we're not interested in that.
+  -->
+  <xsl:template match="resource|collection" mode="link-properties">
+    <xsl:apply-templates select="." mode="base-properties"/>
+  </xsl:template>
+
+  <!-- 
+       We know height and width beforehand, so we don't use the 'kupuFixImage' function.         
+       That works faster and more reliable.
+       They are added as attributes on all tags (icon, preview and uri).
+  -->
+  <xsl:template match="icon">
+    <img src="{.}" alt="{../title}">
+      <xsl:if test="@height">
+        <xsl:attribute name="height"><xsl:value-of select="@height" /></xsl:attribute>
+      </xsl:if>
+      <xsl:if test="@width">
+        <xsl:attribute name="width"><xsl:value-of select="@width" /></xsl:attribute>
+      </xsl:if>
+    </img>
+  </xsl:template>
+  
+  <xsl:template match="resource|collection" mode="image-view">
+    <xsl:choose>
+      <xsl:when test="preview">
+        <img src="{preview}" title="{title}"  width="{preview/@width}" height="{preview/@height}"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <img width="{uri/@width}" height="{uri/@height}" src="{uri}" title="{title}"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
+  <xsl:template name="mystyle">
+    <link type="text/css" rel="stylesheet" media="all">
+      <xsl:attribute name="href">mydrawerstyle.css</xsl:attribute>
+    </link>
+  </xsl:template>
+
+</xsl:stylesheet>

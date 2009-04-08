@@ -1,0 +1,1 @@
+<tal:styles define="view context/@@plone|nothing" replace="structure provider:plone.resourceregistries.styles" />

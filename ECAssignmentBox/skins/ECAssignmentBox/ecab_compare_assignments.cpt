@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+                      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="eduComponents">
+
+  <metal:block fill-slot="top_slot">
+    <metal:block
+      tal:define="dummy python:request.RESPONSE.setHeader('Cache-Control',
+                        'no-cache, no-store, must-revalidate, post-check=0,
+                        pre-check=0');
+                  dummy python:request.set('enable_border', 1);" />
+  </metal:block>
+
+  <metal:calendar fill-slot="javascript_head_slot">
+    <!-- ECMAScript calendar -->
+    <style type="text/css" media="all"
+            tal:content="string:@import url($portal_url/jscalendar/calendar-system.css);"></style>
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/jscalendar/calendar_stripped.js"></script>
+    <script type="text/javascript" charset="iso-8859-1"
+            tal:condition="exists: portal/jscalendar/calendar-en.js"
+            tal:attributes="src string:$portal_url/jscalendar/calendar-en.js"></script>
+  </metal:calendar>
+
+  <body>
+    <metal:block fill-slot="css_slot">
+      <style type="text/css" media="screen"
+          tal:content="string: @import url($portal_url/ecabstyles.css);" />
+    </metal:block>
+
+    <div metal:fill-slot="main"
+         tal:define="errors 		options/state/getErrors;
+                     review_state 	wf_state;
+                     all_paths 		python:request.get('paths', []);
+                     all_objects 	python:here.getObjectsFromPathList(all_paths, batch=True);
+                     paths 			python:['/'.join(o.getPhysicalPath()) for o in all_objects];
+                     batch 			python:here.getObjectsFromPathList(paths, batch=True);
+                     came_from 		python:request.get('HTTP_REFERER', here.absolute_url()).split('?')[0];
+                     dummy 			python:request.set('orig_template', came_from);
+                     ">
+
+	<!-- PlagDetector MODIFICATION 
+		TODO: Check this!
+					paths 		python:['/'.join(o.getPhysicalPath()) for o in all_objects if here.ecab_utils.isAssignmentBoxType(o)];
+	-->
+
+      <metal:block tal:condition="python: paths and not batch"
+                   tal:replace="python:here.redirectToReferrer('The item(s) you selected are no longer available.')"/>
+
+      <metal:block tal:condition="python: len(paths) != 2"
+	tal:content="python:here.redirectToReferrer(here.translate(domain='eduComponents',
+	msgid='err_select_compare_assignments', default='You need to select exactly two assignments for this action.'))"/>
+
+      <h1 i18n:domain="plone" i18n:translate="">Compare Assignments</h1>
+
+	<!-- PlagDetector modifications -->
+	<form id="edit_form"
+		  name="edit_form"
+          method="post"
+          action="modify_boxes"
+          tal:attributes="action string:$here_url/$template_id"
+		  tal:condition="python: not(paths and not batch) and (len(paths) == 2)">
+			<!-- tal:condition="not:python:paths and not batch"> -->
+
+	<div>
+		<label i18n:translate="label_dotplot">Dotplot Overview:</label>
+	 	<div class="formHelp" i18n:translate="label_dotplot_help">
+			The Dotplot overview shows similarties between texts by plotting dots at the similar parts.<br/>One texts is horizontal (start:left, end:right) and the other vertical(start:top, end:bottom) aligned. Lines indicate longer similarities and therefore possible plagiarism. 
+	 	</div>
+		<img src=""
+			tal:define="obj1 python: here.restrictedTraverse(paths[0]).getFile(); obj2 python: here.restrictedTraverse(paths[1]).getFile();"
+			tal:attributes="src string: ${context/absolute_url}/createDotplot?assignment1=%22${obj1}%22&assignment2=%22${obj2}%22"/>
+	</div>
+	<div class="field" tal:condition="batch">
+		<label i18n:translate="label_choosen_assignments_for_inspectation">Choosen Assignments For Inspectation:</label>
+		<div class="formHelp" i18n:translate="label_choosen_assignments_for_inspectation2_help">
+			 			 The selected assignments used in the comparision.
+		</div>
+		<div tal:define="dummy python:request.set('ids_checked', 1);">
+			<table summary="Affected content" i18n:attributes="summary summary_affected_content;"
+		   metal:use-macro="here/folder_contents/macros/folder_listing">
+			</table>
+		</div>
+	</div>
+	<table summary="" width="100%"
+		tal:define="strList python: here.restrictedTraverse(paths[0]).diff(here.restrictedTraverse(paths[1]))"
+		tal:condition="python: strList"	>
+		<tr>
+			<td align="center" width="50%">
+				<label tal:content="python: here.restrictedTraverse(paths[0]).pretty_title_or_id()"/><br/>
+				<div style="height: 250px; width: auto; overflow: auto; border-width:1px; border-style:solid;  border-color:black;  padding:2.5em;  text-align:justify;" tal:content="structure python: strList[0]">Text1</div>
+			</td>
+			<td align="center" width="50%"> 
+				<label tal:content="python: here.restrictedTraverse(paths[1]).pretty_title_or_id()"/><br/>
+				<div style="height: 250px; width: auto; overflow: auto; border-width:1px; border-style:solid;  border-color:black;  padding:2.5em;  text-align:justify;" tal:content="structure python: strList[1]">Text2</div>
+			</td>
+		</tr>
+	</table>
+
+	<!-- before PlagDetector
+	<div class="field" tal:condition="batch">
+	  <label for="" i18n:domain="plone"
+		 i18n:translate="label_affected_content">Affected content</label>
+	  <div tal:define="dummy python:request.set('ids_checked', 1);">
+	    <table summary="Affected content" i18n:attributes="summary summary_affected_content;"
+		   metal:use-macro="here/folder_contents/macros/folder_listing">
+	    </table>
+	  </div>
+    </div>
+  	-->
+
+	<!-- PlagDetector modification END-->
+
+	<pre
+	  tal:content="structure python: here.restrictedTraverse(paths[0]).diff(here.restrictedTraverse(paths[1]))"/>
+
+	<div class="formControls" i18n:domain="plone">
+	  <input class="context"
+		 type="submit"
+		 name="form.button.Return"
+		 value="Return"
+		 i18n:attributes="value label_ok;"
+		 tal:attributes="tabindex tabindex/next;"
+		 tal:condition="request/paths|nothing"/>
+	</div>
+
+
+	<span tal:replace="nothing">
+	  ##### HIDDEN VARIABLES FOR THE FORM_TOOL -- CUT AND PASTE
+	  THESE INTO YOUR FORM ####
+	</span>
+	<input type="hidden" name="form.submitted" value="1" />
+	<input type="hidden" name="orig_template"
+	       tal:condition="request/orig_template|nothing"
+	       tal:attributes="value request/orig_template"/>
+
+      </form>
+
+      <div tal:condition="not: request/paths|nothing">
+
+        <div metal:use-macro="here/document_byline/macros/byline">
+            Get the byline - contains details about author and modification date.
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

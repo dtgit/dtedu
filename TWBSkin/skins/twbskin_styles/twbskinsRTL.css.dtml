@@ -1,0 +1,47 @@
+/*
+  This file is based on the ploneCustom.css.dtml shipped with Plone.
+
+  <dtml-with base_properties> (do not remove this)
+  <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either)
+*/
+
+/* YOUR CSS RULES START HERE */
+
+#portal-globalnav
+{
+float:none;
+margin-top: 6px;
+}
+
+#portal-siteactions
+{
+float:left;
+padding-left: 10px;
+}
+
+#portal-personaltools-wrapper
+{
+clear: none;
+border-bottom: none;
+}
+
+
+#portal-searchbox
+{
+height: 70px;
+width: 200px;
+position: absolute;
+left: 20px;
+top: 50px;
+}
+
+.contentViews li a {
+height: 100%;
+}
+
+/* YOUR CSS RULES STOP HERE */
+
+/* </dtml-with> */
+
+/* Latest version of the documentation on pre-defined properties from Plone 
+   can be found in CMFPlone/skins/plone_styles/ploneCustom.css.dtml */

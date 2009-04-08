@@ -1,0 +1,13 @@
+TODO.txt
+
+1.1+ - Future ideas
+
+- An error should be thrown if Salesforce PFG Adapter product is installed and no Salesforce Base Connector
+  object has been added to the site.
+- fix i18n support for DataGridField column names, and implement the translation
+- Take our type out of the types menu in Plone 3.0 (Awaiting fix to: https://dev.plone.org/plone/ticket/7370)
+- UI and pattern for chaining adapters together, so that relational inserts to SF can be made
+- Eggify
+- Handle here or at other levels in the stack: 
+   SoapFaultError: 'UNKNOWN_EXCEPTION' 'UNKNOWN_EXCEPTION: 
+   Server unavailable due to scheduled maintenance'

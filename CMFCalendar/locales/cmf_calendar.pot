@@ -1,0 +1,230 @@
+##############################################################################
+#
+# Copyright (c) 2006 Zope Corporation and Contributors. All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+##############################################################################
+msgid ""
+msgstr ""
+"Project-Id-Version: CMF 2.1\n"
+"POT-Creation-Date: $Date: 2006-11-03 18:22:43 +0100 (Fri, 03 Nov 2006) $\n"
+"Language-Team: CMF Developers <zope-cmf@zope.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: CMFCalendar/browser/event.py:102
+msgid "URL"
+msgstr ""
+
+#: CMFCalendar/browser/event.py:108
+msgid "From"
+msgstr ""
+
+#: CMFCalendar/browser/event.py:111
+msgid "To"
+msgstr ""
+
+#: CMFCalendar/browser/event.py:114
+#: CMFCalendar/skins/zpt_calendar/event_edit_template.pt:160
+#: CMFCalendar/skins/zpt_calendar/event_view_template.pt:61
+msgid "Description"
+msgstr ""
+
+#: CMFCalendar/browser/event.py:68
+msgid "Title"
+msgstr ""
+
+#: CMFCalendar/browser/event.py:74
+#: CMFCalendar/skins/zpt_calendar/event_edit_template.pt:21
+#: CMFCalendar/skins/zpt_calendar/event_view_template.pt:16
+msgid "Contact Name"
+msgstr ""
+
+#: CMFCalendar/browser/event.py:80
+#: CMFCalendar/skins/zpt_calendar/event_edit_template.pt:29
+#: CMFCalendar/skins/zpt_calendar/event_view_template.pt:20
+msgid "Location"
+msgstr ""
+
+#: CMFCalendar/browser/event.py:86
+#: CMFCalendar/skins/zpt_calendar/event_edit_template.pt:35
+#: CMFCalendar/skins/zpt_calendar/event_view_template.pt:22
+msgid "Contact Email"
+msgstr ""
+
+#: CMFCalendar/browser/event.py:90
+msgid "Category"
+msgstr ""
+
+#: CMFCalendar/browser/event.py:96
+#: CMFCalendar/skins/zpt_calendar/event_edit_template.pt:56
+#: CMFCalendar/skins/zpt_calendar/event_view_template.pt:33
+msgid "Contact Phone"
+msgstr ""
+
+#: CMFCalendar/browser/templates/calendar_widgets.pt:13
+#: CMFCalendar/skins/zpt_calendar/calendarBox.pt:12
+msgid "CMF Calendar"
+msgstr ""
+
+#: CMFCalendar/browser/templates/calendar_widgets.pt:29
+#: CMFCalendar/browser/templates/calendar_widgets.pt:42
+#: CMFCalendar/skins/zpt_calendar/calendarBox.pt:28
+#: CMFCalendar/skins/zpt_calendar/calendarBox.pt:41
+#: CMFCalendar/skins/zpt_calendar/event_edit_template.pt:49
+#: CMFCalendar/skins/zpt_calendar/event_view_template.pt:31
+msgid "${DYNAMIC_CONTENT}"
+msgstr ""
+
+#: CMFCalendar/profiles/default/types/Event.xml:5
+msgid "Event"
+msgstr ""
+
+#: CMFCalendar/profiles/default/types/Event.xml:6
+msgid "Events are objects for use in Calendar topical queries on the catalog."
+msgstr ""
+
+#: CMFCalendar/setuphandlers.py:42
+msgid "Appointment"
+msgstr ""
+
+#: CMFCalendar/setuphandlers.py:43
+msgid "Convention"
+msgstr ""
+
+#: CMFCalendar/setuphandlers.py:44
+msgid "Meeting"
+msgstr ""
+
+#: CMFCalendar/setuphandlers.py:45
+msgid "Social Event"
+msgstr ""
+
+#: CMFCalendar/setuphandlers.py:46
+msgid "Work"
+msgstr ""
+
+#: CMFCalendar/skins/zpt_calendar/event_edit_control.py:11
+msgid "Event changed."
+msgstr ""
+
+#: CMFCalendar/skins/zpt_calendar/event_edit_form.py:50
+msgid "Change"
+msgstr ""
+
+#: CMFCalendar/skins/zpt_calendar/event_edit_form.py:51
+msgid "Change and View"
+msgstr ""
+
+#: CMFCalendar/skins/zpt_calendar/event_edit_template.pt:126
+#: CMFCalendar/skins/zpt_calendar/event_view_template.pt:52
+msgid "Start Time"
+msgstr ""
+
+#: CMFCalendar/skins/zpt_calendar/event_edit_template.pt:137
+#: CMFCalendar/skins/zpt_calendar/event_edit_template.pt:153
+msgid "am"
+msgstr ""
+
+#: CMFCalendar/skins/zpt_calendar/event_edit_template.pt:140
+#: CMFCalendar/skins/zpt_calendar/event_edit_template.pt:156
+msgid "pm"
+msgstr ""
+
+#: CMFCalendar/skins/zpt_calendar/event_edit_template.pt:142
+#: CMFCalendar/skins/zpt_calendar/event_view_template.pt:54
+msgid "Stop Time"
+msgstr ""
+
+#: CMFCalendar/skins/zpt_calendar/event_edit_template.pt:15
+#: CMFCalendar/skins/zpt_calendar/event_view_template.pt:14
+msgid "Event Name"
+msgstr ""
+
+#: CMFCalendar/skins/zpt_calendar/event_edit_template.pt:43
+#: CMFCalendar/skins/zpt_calendar/event_view_template.pt:29
+msgid "Event type"
+msgstr ""
+
+#: CMFCalendar/skins/zpt_calendar/event_edit_template.pt:5
+msgid "Edit: ${obj_title}"
+msgstr ""
+
+#: CMFCalendar/skins/zpt_calendar/event_edit_template.pt:64
+#: CMFCalendar/skins/zpt_calendar/event_view_template.pt:37
+msgid "Event URL"
+msgstr ""
+
+#: CMFCalendar/skins/zpt_calendar/event_edit_template.pt:72
+#: CMFCalendar/skins/zpt_calendar/event_view_template.pt:46
+msgid "Start Date"
+msgstr ""
+
+#: CMFCalendar/skins/zpt_calendar/event_edit_template.pt:98
+#: CMFCalendar/skins/zpt_calendar/event_view_template.pt:48
+msgid "Stop Date"
+msgstr ""
+
+msgid "Su"
+msgstr ""
+
+msgid "Mo"
+msgstr ""
+
+msgid "Tu"
+msgstr ""
+
+msgid "We"
+msgstr ""
+
+msgid "Th"
+msgstr ""
+
+msgid "Fr"
+msgstr ""
+
+msgid "Sa"
+msgstr ""
+
+msgid "January"
+msgstr ""
+
+msgid "February"
+msgstr ""
+
+msgid "March"
+msgstr ""
+
+msgid "April"
+msgstr ""
+
+msgid "May"
+msgstr ""
+
+msgid "June"
+msgstr ""
+
+msgid "July"
+msgstr ""
+
+msgid "August"
+msgstr ""
+
+msgid "September"
+msgstr ""
+
+msgid "October"
+msgstr ""
+
+msgid "November"
+msgstr ""
+
+msgid "December"
+msgstr ""

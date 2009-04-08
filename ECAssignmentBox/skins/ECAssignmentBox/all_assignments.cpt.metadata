@@ -1,0 +1,17 @@
+[default]
+title = View all assignments in a table on one page
+
+[security]
+View = 0:Authenticated
+
+[validators]
+validators=
+
+[actions]
+action.success..ToggleSuperseded=traverse_to:string:toggle_superseded
+action.success..ToggleFullText=traverse_to:string:toggle_full_text
+action.success..Change=traverse_to:string:assignments_change_state
+action.success..Cut=traverse_to:string:assignments_cut
+action.success..Delete=traverse_to:string:assignments_delete
+action.success=traverse_to:string:all_assignments
+action.failure=traverse_to:string:all_assignments

@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:page
+        for=".interface.archive.IArchivable"
+        name="zip"
+        class=".browser.archive.ArchiveView"
+        attribute="getZipFile"
+        permission="zope2.View"
+        />
+        
+    <!-- Enable next/previous links for folders -->
+    <adapter factory=".browser.nextprevious.ATFolderNextPrevious" />
+
+</configure>

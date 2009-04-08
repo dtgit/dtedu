@@ -1,0 +1,146 @@
+# Translation of atreferencebrowserwidget.pot to Greek
+# Nikos Papagrigoriou <nikos@papagrigoriou.gr>, 2005
+msgid ""
+msgstr ""
+"Project-Id-Version: ATReferenceBrowserWidget\n"
+"POT-Creation-Date: 2007-09-01 12:34+0000\n"
+"PO-Revision-Date: 2005-08-04 03:15-0200\n"
+"Last-Translator: Nikos Papagrigoriou <nikos@papagrigoriou.gr>\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: el\n"
+"Language-Name: Ελληνικά\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: atreferencebrowserwidget\n"
+
+#. Default: "Add..."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:177
+msgid "label_add"
+msgstr ""
+
+#. Default: "Browse..."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:212
+msgid "label_browse"
+msgstr "Αναζήτηση..."
+
+#. Default: "( Directory: ${directory})"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:47
+msgid "label_directory"
+msgstr ""
+
+#. Default: "Go"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:98
+msgid "label_go"
+msgstr ""
+
+#. Default: "Move bottom"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:201
+msgid "label_move_bottom"
+msgstr ""
+
+#. Default: "Move down"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:194
+msgid "label_move_down"
+msgstr ""
+
+#. Default: "Move top"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:180
+msgid "label_move_top"
+msgstr ""
+
+#. Default: "Move up"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:187
+msgid "label_move_up"
+msgstr ""
+
+#. Default: "No reference set. Click the browse button to select."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:136
+msgid "label_no_reference_set"
+msgstr "Καμιά αναφορά δεν ορίστηκε. Πιέστε στο κουμπί αναζήτηση για επιλογή."
+
+#. Default: "Remove reference"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:218
+msgid "label_remove_reference"
+msgstr "Απομάκρυνση αναφοράς"
+
+#. Default: "Remove selected items"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:225
+msgid "label_remove_selected_items"
+msgstr "Απομάκρυνση επιλεγμένων αντικειμένων"
+
+#. Default: "Back"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:77
+#, fuzzy
+msgid "referencebrowser_back"
+msgstr "πίσω"
+
+#. Default: "Browse"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:316
+msgid "referencebrowser_browse"
+msgstr ""
+
+#. Default: "Clear history"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:103
+msgid "referencebrowser_clearhistory"
+msgstr ""
+
+#. Default: "Close window"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:79
+#, fuzzy
+msgid "referencebrowser_close"
+msgstr "κλείσιμο παραθύρου"
+
+#. Default: "Search results"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:184
+msgid "referencebrowser_heading_search_results"
+msgstr "Αποτελέσματα αναζήτησης"
+
+#. Default: "History"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:90
+msgid "referencebrowser_history"
+msgstr ""
+
+#. Default: "Insert"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:311
+#, fuzzy
+msgid "referencebrowser_insert_reference"
+msgstr "εισαγωγή"
+
+#. Default: "No items found."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:235
+msgid "referencebrowser_no_items_found"
+msgstr "Κανένα αντικείμενο δεν βρέθηκε."
+
+#. Default: "Search index"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:127
+msgid "referencebrowser_search_index_label"
+msgstr "Δείκτης αναζήτησης"
+
+#. Default: "Search terms"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:152
+msgid "referencebrowser_search_term"
+msgstr "Όροι αναζήτησης"
+
+#. Default: "Search"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:133
+msgid "referencebrowser_search_terms"
+msgstr "Αναζήτηση"
+
+#. Default: "Added reference to:"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:174
+msgid "referencebrowser_text_added_reference"
+msgstr "Προστέθηκε αναφορά σε:"
+
+#. Default: "view"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:332
+msgid "referencebrowser_view"
+msgstr "προβολή"
+
+#. Default: "Home"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:202
+msgid "tabs_home"
+msgstr ""
+

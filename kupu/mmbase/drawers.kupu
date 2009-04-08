@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+<kupu:feature
+    name="drawers"
+    implementation="mmbase"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    xmlns:kupu="http://kupu.oscom.org/namespaces/dist"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    i18n:domain="kupu"
+    >
+  <kupu:id>$Id: drawers.kupu,v 1.15 2005/10/19 14:18:50 michiel Exp $</kupu:id>
+
+
+  <kupu:part name="styles">
+    <link href="${kupu_common}/kupudrawerstyles.css" rel="stylesheet" type="text/css" />
+  </kupu:part>
+  <kupu:part name="jsincludes">
+    <script type="text/javascript" src="${kupu_common}/kupudrawers.js"><jsp:text> </jsp:text></script>
+    <script type="text/javascript" src="mmbasedrawers.js"><jsp:text> </jsp:text></script>
+  </kupu:part>
+
+
+  <kupu:part name="buttons">
+    <span class="kupu-tb-buttongroup">
+      <button type="button" class="kupu-image"
+              id="kupu-imagelibdrawer-button"  title="image"
+              i18n:attributes="title title_image;">&#160;</button>
+      <button type="button" class="kupu-inthyperlink"
+              id="kupu-linklibdrawer-button"   title="link"
+              i18n:attributes="title title_link;">&#160;</button>
+      <button type="button" class="kupu-exthyperlink"
+              id="kupu-linkdrawer-button" title="external link"
+              i18n:attributes="title title_external_link;">&#160;</button>
+    </span>
+  </kupu:part>
+
+  <kupu:part name="xmlconfig">
+    <mm:import externid="link_nodetypes">urls,segments,attachments</mm:import>
+    <mm:import externid="librarysize">50</mm:import>
+    <image_xsl_uri>drawers/drawer.xsl.jspx</image_xsl_uri>
+    <link_xsl_uri>drawers/drawer.xsl.jspx</link_xsl_uri>
+    
+    <image_libraries_uri>drawers/libraries.jspx?nodetypes=images&amp;amp;source=${objectnumber}&amp;amp;librarysize=${librarysize}</image_libraries_uri>
+    <link_libraries_uri>drawers/libraries.jspx?nodetypes=${link_nodetypes}&amp;amp;source=${objectnumber}&amp;amp;librarysize=${librarysize}</link_libraries_uri>
+
+    <search_images_uri>drawers/search.library.jspx?kupubasedir=${kupubasedir}&amp;amp;link_nodetypes=images&amp;amp;source=${objectnumber}&amp;amp;librarysize=${librarysize}</search_images_uri>
+    <search_links_uri> drawers/search.library.jspx?kupubasedir=${kupubasedir}&amp;amp;link_nodetypes=${link_nodetypes}&amp;amp;source=${objectnumber}&amp;amp;librarysize=${librarysize}</search_links_uri>
+  </kupu:part>
+
+
+
+  <!-- Overridden just for the jsp:text, because otherwise the iframe collapes, and browsers get very confused -->
+  <kupu:part name="librarydrawer">
+    <div style="display:block;" class="kupu-librarydrawer-parent">
+      <iframe style="display:none" class="kupu-anchorframe" src="javascript:''"
+        onload="if(window.drawertool) window.drawertool.current_drawer.anchorframe_loaded();"><jsp:text>
+      </jsp:text>
+      </iframe>
+    </div>
+  </kupu:part>
+
+  <kupu:part name="linkdrawer">
+    <div id="kupu-linkdrawer" class="kupu-drawer kupu-linkdrawer">
+      <h1 i18n:translate="title_ext_link">External Link</h1>
+      <div id="kupu-linkdrawer-addlink" class="kupu-panels kupu-linkdrawer-addlink">
+        <table>
+        <tr><td><div class="kupu-toolbox-label">
+
+          <span i18n:translate="label_link_text">Link the highlighted text to this URL:</span>
+        </div>
+
+        <input class="kupu-toolbox-st kupu-linkdrawer-input" type="text" />
+        </td><td class="kupu-preview-button">
+        <button type="button"
+                onclick="drawertool.current_drawer.preview()"
+                i18n:translate="button_preview">Preview</button>
+        </td></tr>
+        <tr class="kupu-linkdrawer-anchors" style="display:none">
+          <td colspan="2">
+            <label
+                  i18n:translate="label_anchor">Anchor<select><option
+                  i18n:translate="opt_top_of_page" value="">top of page (default)</option></select></label> 
+          </td>
+        </tr>
+        <tr><td colspan="2" align="center">
+        <iframe frameborder="1" scrolling="auto" width="440" height="198"
+                class="kupu-linkdrawer-preview" src="${abs}/../../common/kupublank.html"><jsp:text>
+        </jsp:text>
+        </iframe>
+        </td></tr>
+        </table>
+        <div class="kupu-dialogbuttons">
+          <button type="button"
+                  onclick="drawertool.current_drawer.save()"
+                  i18n:translate="button_ok">Ok</button>
+          <button type="button" onclick="drawertool.closeDrawer()"
+                  i18n:translate="button_cancel">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+  </kupu:part>
+
+
+
+
+</kupu:feature>

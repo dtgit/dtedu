@@ -1,0 +1,11 @@
+[default]
+title = View ECAssignmentBox
+
+[validators]
+validators=eca_add_validate
+
+[actions]
+action.success..Submit=traverse_to:string:eca_add
+action.success..Cancel=redirect_to:string:ecab_view
+action.success=traverse_to:string:ecab_view
+action.failure=traverse_to:string:ecab_view

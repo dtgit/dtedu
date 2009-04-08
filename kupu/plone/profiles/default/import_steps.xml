@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<import-steps>
+ <import-step id="kupu-setup" version="20061211-01"
+              handler="Products.kupu.plone.exportimport.importKupuSettings"
+              title="Kupu Settings">
+    <dependency step="plone_various"/>
+  Import Kupu settings
+ </import-step>
+</import-steps>

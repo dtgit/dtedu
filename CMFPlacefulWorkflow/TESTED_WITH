@@ -1,0 +1,145 @@
+1.0.0-final - 2006-06-16
+========================
+
+This version has been tested successfuly with the following products.
+It may not depend on all those products but if you experience problems you may track this down.
+
+  * ATContentTypes 1.1.2-devel (SVN/UNRELEASED)
+  * ATReferenceBrowserWidget 1.5 (svn/unreleased)
+  * Archetypes 1.4.0-RC1
+  * CMFActionIcons CMF-1.6.1
+  * CMFCalendar CMF-1.6.1
+  * CMFCore CMF-1.6.1
+  * CMFDefault CMF-1.6.1
+  * CMFDynamicViewFTI 2.0.1 (svn/unreleased)
+  * CMFFormController 2.0.4 (svn/unreleased)
+  * CMFPlacefulWorkflow 1.0.0-final
+  * CMFPlone 2.5.0 (SVN/UNRELEASED)
+  * CMFQuickInstallerTool 1.6.0 (SVN/Unreleased)
+  * CMFSetup CMF-1.6.1
+  * CMFSquidTool 1.2.0
+  * CMFTopic CMF-1.6.1
+  * CMFUid CMF-1.6.1
+  * CemagrefSite 1.0
+  * DCWorkflow CMF-1.6.1
+  * ExtendedPathIndex 2.3
+  * ExternalEditor 0.9.1
+  * GenericSetup GenericSetup-1.1
+  * GroupUserFolder 3.52 CVS/SVN (UNRELEASED)
+  * Marshall 0.6.4-final
+  * MimetypesRegistry 1.4.0-RC1
+  * PageCacheManager 0.1 alpha
+  * PasswordResetTool 0.4
+  * PlacelessTranslationService 1.3.2 (svn/unreleased)
+  * PloneInstallation 0.2 (CVS HEAD/Unreleased)
+  * PloneLanguageTool 1.3 (svn/unreleased)
+  * PlonePAS 2.0
+  * PluggableAuthService PluggableAuthService-1.3
+  * PluginRegistry 1.1
+  * PolicyHTTPCacheManager 1.0.0
+  * PortalTransforms 1.4.0-RC1
+  * ResourceRegistries 1.3 (SVN/unreleased)
+  * SecureMailHost 1.0.5 (svn/unreleased)
+  * i18ndude 2.1 (SVN/Unreleased)
+  * kupu kupu 1.3.7-plone
+  * validation 1.4.0-RC1
+
+
+
+1.0rc3 - 2006-06-13
+===================
+
+This version has been tested successfuly with the following products.
+It may not depend on all those products but if you experience problems you may track this down.
+
+  * ATContentTypes 1.1.2-devel (SVN/UNRELEASED)
+  * ATReferenceBrowserWidget 1.5 (svn/unreleased)
+  * Archetypes 1.4.0-RC1
+  * CMFActionIcons CMF-1.6.1
+  * CMFCalendar CMF-1.6.1
+  * CMFCore CMF-1.6.1
+  * CMFDefault CMF-1.6.1
+  * CMFDynamicViewFTI 2.0.1 (svn/unreleased)
+  * CMFFormController 2.0.4 (svn/unreleased)
+  * CMFPlacefulWorkflow 1.0rc3
+  * CMFPlone 2.5.0 (SVN/UNRELEASED)
+  * CMFQuickInstallerTool 1.6.0 (SVN/Unreleased)
+  * CMFSetup CMF-1.6.1
+  * CMFSquidTool 1.2.0
+  * CMFTopic CMF-1.6.1
+  * CMFUid CMF-1.6.1
+  * CemagrefSite 1.0
+  * DCWorkflow CMF-1.6.1
+  * ExtendedPathIndex 2.3
+  * ExternalEditor 0.9.1
+  * GenericSetup GenericSetup-1.1
+  * GroupUserFolder 3.52 CVS/SVN (UNRELEASED)
+  * Marshall 0.6.4-final
+  * MimetypesRegistry 1.4.0-RC1
+  * PageCacheManager 0.1 alpha
+  * PasswordResetTool 0.4
+  * PlacelessTranslationService 1.3.2 (svn/unreleased)
+  * PloneInstallation 0.2 (CVS HEAD/Unreleased)
+  * PloneLanguageTool 1.3 (svn/unreleased)
+  * PlonePAS 2.0
+  * PluggableAuthService PluggableAuthService-1.3
+  * PluginRegistry 1.1
+  * PolicyHTTPCacheManager 1.0.0
+  * PortalTransforms 1.4.0-RC1
+  * ResourceRegistries 1.3 (SVN/unreleased)
+  * SecureMailHost 1.0.5 (svn/unreleased)
+  * i18ndude 2.1 (SVN/Unreleased)
+  * kupu kupu 1.3.7-plone
+  * validation 1.4.0-RC1
+
+
+
+1.0rc2 - 2006-06-02
+===================
+
+This version has been tested successfuly with the following products.
+It may not depend on all those products but if you experience problems you may track this down.
+
+  * ATContentTypes 1.1.0-devel (SVN/UNRELEASED)
+  * ATReferenceBrowserWidget 1.5 (svn/unreleased)
+  * Archetypes 1.4.0-beta1
+  * CMFActionIcons CMF-1.6.0
+  * CMFCalendar CMF-1.6.0
+  * CMFCore CMF-1.6.0
+  * CMFDefault CMF-1.6.0
+  * CMFDynamicViewFTI 2.0.1 (svn/unreleased)
+  * CMFFormController 2.0.3 (svn/unreleased)
+  * CMFPlacefulWorkflow 1.0rc2
+  * CMFPlone 2.5.0 (SVN/UNRELEASED)
+  * CMFQuickInstallerTool 1.6.0 (SVN/Unreleased)
+  * CMFSetup CMF-1.6.0
+  * CMFSquidTool 1.2.0
+  * CMFTopic CMF-1.6.0
+  * CMFUid CMF-1.6.0
+  * CemagrefSite 1.0
+  * DCWorkflow CMF-1.6.0
+  * ExtendedPathIndex 2.3
+  * ExternalEditor 0.9.1
+  * GenericSetup GenericSetup-1.1
+  * GroupUserFolder 3.52 CVS/SVN (UNRELEASED)
+  * Marshall 0.6.3-final
+  * MimetypesRegistry 1.4.0-beta2
+  * PageCacheManager 0.1 alpha
+  * PasswordResetTool 0.4
+  * PlacelessTranslationService 1.3.2 (svn/unreleased)
+  * PloneInstallation 0.2 (CVS HEAD/Unreleased)
+  * PloneLanguageTool 1.3 (svn/unreleased)
+  * PlonePAS 2.0-beta1
+  * PluggableAuthService PluggableAuthService-1.2
+  * PluginRegistry 1.1
+  * PolicyHTTPCacheManager 1.0.0
+  * PortalTransforms 1.4.0-beta2
+  * ResourceRegistries 1.3 (SVN/unreleased)
+  * SecureMailHost 1.0.5 (svn/unreleased)
+  * i18ndude 2.1 (SVN/Unreleased)
+  * kupu kupu 1.3.6-plone
+  * validation 1.4.0-beta2
+
+
+
+

@@ -1,0 +1,31 @@
+1.0.0 - 2007-11-07
+==================
+
+    - make demarshall of SchemaAttributes more verbose. Now it raises its
+      own Exception with information on which attribute and value it fails.
+      [jensens]
+
+    - Demote libxml2-python missing log message from "warning" to "info".
+      This warning has been a common source of confusion for new users
+      trying to track down real errors.
+      [smcmahon]
+
+1.0.0-b1 - 2007-04-28
+=====================
+
+    - In the ATNS marshaller, preserve the field order by not using
+      set.
+      [nouri]
+
+1.0.0-a1 - 2006-10-25
+=====================
+
+    - Fixed some deprecation warnings for guess_content_type.
+      [hannosch]
+
+    - Updated a test for generated XML export format.
+      [hannosch]
+
+    - Initial version, see README.txt for details.
+      [lots of people]
+

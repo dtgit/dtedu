@@ -1,0 +1,153 @@
+# Translation of atreferencebrowserwidget.pot to Dutch
+# See http://plone.org/Members/misja/i18n for more information
+# Misja Hoebe <misja@efobia.nl>, 2002-2005.
+# Eric Casteleijn <thisfred@wanadoo.nl>, 2002-2005.
+# Pim van Stam <pim@vanstam.info>, 2003-2005.
+# Roger Erens <roger@erens-krekels.net>, 2005
+# Jean-Paul Ladage <j.ladage@zestsoftware.nl>, 2005-2007.
+# Mark van Lent <m.vanlent@zestsoftware.nl>, 2007.
+# Maurits van Rees <m.van.rees@zestsoftware.nl>, 2007.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: ATReferenceBrowserWidget\n"
+"POT-Creation-Date: 2007-09-01 12:34+0000\n"
+"PO-Revision-Date: 2007-06-10 22:28+0100\n"
+"Last-Translator: Jean-Paul Ladage <j.ladage@zestsoftware.nl>\n"
+"Language-Team: <plone-nl@lists.plone.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: nl\n"
+"Language-Name: Nederlands\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: atreferencebrowserwidget\n"
+"X-Is-Fallback-For: nl-be nl-nl\n"
+
+#. Default: "Add..."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:177
+msgid "label_add"
+msgstr "Toevoegen..."
+
+#. Default: "Browse..."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:212
+msgid "label_browse"
+msgstr "Bladeren..."
+
+#. Default: "( Directory: ${directory})"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:47
+msgid "label_directory"
+msgstr "(Map: ${directory})"
+
+#. Default: "Go"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:98
+msgid "label_go"
+msgstr "Ga"
+
+#. Default: "Move bottom"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:201
+msgid "label_move_bottom"
+msgstr "Onderaan"
+
+#. Default: "Move down"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:194
+msgid "label_move_down"
+msgstr "Naar beneden"
+
+#. Default: "Move top"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:180
+msgid "label_move_top"
+msgstr "Bovenaan"
+
+#. Default: "Move up"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:187
+msgid "label_move_up"
+msgstr "Naar boven"
+
+#. Default: "No reference set. Click the browse button to select."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:136
+msgid "label_no_reference_set"
+msgstr "Geen verwijzingen opgegeven. Klik de knop \"Bladeren\" om een verwijzing toe te voegen."
+
+#. Default: "Remove reference"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:218
+msgid "label_remove_reference"
+msgstr "Verwijzing verwijderen"
+
+#. Default: "Remove selected items"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:225
+msgid "label_remove_selected_items"
+msgstr "Geselecteerde items verwijderen"
+
+#. Default: "Back"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:77
+msgid "referencebrowser_back"
+msgstr "Terug"
+
+#. Default: "Browse"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:316
+msgid "referencebrowser_browse"
+msgstr "Bladeren"
+
+#. Default: "Clear history"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:103
+msgid "referencebrowser_clearhistory"
+msgstr "Geschiedenis wissen"
+
+#. Default: "Close window"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:79
+msgid "referencebrowser_close"
+msgstr "Venster sluiten"
+
+#. Default: "Search results"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:184
+msgid "referencebrowser_heading_search_results"
+msgstr "Zoekresultaten"
+
+#. Default: "History"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:90
+msgid "referencebrowser_history"
+msgstr "Geschiedenis"
+
+#. Default: "Insert"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:311
+msgid "referencebrowser_insert_reference"
+msgstr "Invoegen"
+
+#. Default: "No items found."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:235
+msgid "referencebrowser_no_items_found"
+msgstr "Geen items gevonden."
+
+#. Default: "Search index"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:127
+msgid "referencebrowser_search_index_label"
+msgstr "Zoek index"
+
+#. Default: "Search terms"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:152
+msgid "referencebrowser_search_term"
+msgstr "Zoektermen"
+
+#. Default: "Search"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:133
+msgid "referencebrowser_search_terms"
+msgstr "Zoeken"
+
+#. Default: "Added reference to:"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:174
+msgid "referencebrowser_text_added_reference"
+msgstr "Toegevoegde verwijzingen:"
+
+# RE: Het zou ook om het werkwoord kunnen gaan; in dat geval is "bekijk" een betere vertaling.
+#. Default: "view"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:332
+msgid "referencebrowser_view"
+msgstr "bekijken"
+
+#. Default: "Home"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:202
+msgid "tabs_home"
+msgstr "Home"
+

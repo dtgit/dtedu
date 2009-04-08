@@ -1,0 +1,23 @@
+This documents errors you're likely to see with Kupu.
+
+"Couldn't set design mode. Kupu will not work with this	browser"
+
+  This occurs when the contents of the main <iframe> ends up being
+  something that doesn't smell like html. This could be because it
+  actually isn't html, or because it is being served with the wrong
+  content type.
+
+"no cleanup expressions configured"
+
+  This happens when the cleanup tool doesn't find any expressions in
+  the xml config block. It can be cured by either removing the cleanup
+  tool or inserting the sample expressions from the top of
+  kupucleanupexpressions.js into the <kupuconfig> xml block at the top
+  of your editing template.
+
+"Error loading kupudrawers/drawel.xsl:404"
+
+  This applies to any .xsl or .js file that returns a 404. It means
+  that the urls inside your editing template aren't being correctly
+  generated. View the source of your editing template, check where the
+  urls are pointing andadjust them so they actually find the right thing.

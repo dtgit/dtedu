@@ -1,0 +1,42 @@
+<mm:content
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    type="text/xml"
+    expires="-1">
+  <!--
+       $Id: library.jspx,v 1.13 2005/10/19 14:18:50 michiel Exp $
+  -->
+  <jsp:output omit-xml-declaration="yes" />
+
+  <mm:cloud method="asis">
+    <mm:import externid="nodetype">images</mm:import>
+    <mm:import externid="source" />
+    <mm:import externid="kupubasedir" />
+    <mm:import externid="librarysize">50</mm:import>
+    <mm:context scope="request" id="drawer">
+      <library id="${nodetype}">
+        <title>
+          <mm:nodeinfo nodetype="$nodetype" type="plural_guinodemanager" />
+        </title>
+        <icon height="12" width="16">${kupubasedir}mmbase/icons/map.gif</icon>
+        <mm:remove referid="query" />
+        <mm:listnodescontainer id="query" type="$nodetype">
+          <!-- a bit of a hack, we probably need a bit more sophisticated filter on version -->
+          <mm:hasfield nodetype="$nodetype" name="version">
+            <mm:constraint field="version" value="10000" />
+          </mm:hasfield>
+          <mm:present referid="source">
+            <mm:constraint field="number" inverse="true" value="${source}" />
+          </mm:present>
+          <mm:sortorder field="number" direction="down" />
+          <src><mm:url referids="nodetype,kupubasedir,source?,librarysize@max" page="drawers/collection.jspx" /></src>
+        </mm:listnodescontainer>
+        <mm:compare referid="nodetype" valueset="images,attachments">
+          <uploadbutton type="${nodetype}">
+            <uri>drawers/upload.jspx?nodetype=${nodetype}</uri>
+          </uploadbutton>
+        </mm:compare>
+      </library>
+    </mm:context>
+  </mm:cloud>
+</mm:content>

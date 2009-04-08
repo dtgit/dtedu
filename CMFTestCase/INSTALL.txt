@@ -1,0 +1,22 @@
+
+Installation Instructions for CMFTestCase
+
+    Requires Python 2.1 and Zope 2.6 or higher.
+
+    Requires CMF 1.4 or higher.
+
+    Requires ZopeTestCase 0.9.9 or higher.
+
+    1. Extract the tarball into the 'Products' directory of a
+       Zope instance with CMF 1.4, 1.5, 1.6, 2.0 or 2.1 installed.
+
+    2. Run the CMFTestCase tests
+
+       Zope 2.6::
+
+        python /path/to/Zope/utilities/testrunner.py -qid Products/CMFTestCase
+
+      Zope 2.7 and higher::
+
+       ./bin/zopectl test --dir Product/CMFTestCase
+

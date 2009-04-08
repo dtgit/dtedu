@@ -1,0 +1,12 @@
+[default]
+title = Create a new result for the candidate [ECQ].
+proxy = Manager, Authenticated
+
+[security]
+View = 0:Authenticated
+
+[validators]
+validators=
+
+[actions]
+action.failure=traverse_to:string:insufficient_privileges

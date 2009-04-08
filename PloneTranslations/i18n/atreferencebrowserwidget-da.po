@@ -1,0 +1,153 @@
+# Translation of atreferencebrowserwidget.pot to Danish
+# Jonas Nielsen <jonasn@mail.tele.dk>, 2003
+# Nanna Seidelin <nanna@dharana.dk>, 2003
+# Bo Overby <overby@opentobusiness.com>, 2003
+# Martin Bigum <martin@headnet.dk>, 2004
+# Anton Stonor <stonor@giraffen.dk>, 2004
+# Sune Toft <sune@headnet.dk>, 2003-2004
+# Jacob Vestergaard <jacobv@headnet.dk>, 2007
+msgid ""
+msgstr ""
+"Project-Id-Version: ATReferenceBrowserWidget\n"
+"POT-Creation-Date: 2007-09-01 12:34+0000\n"
+"PO-Revision-Date: 2005-07-30 23:11+0100\n"
+"Last-Translator: Jacob Vestergaard - Headnet <jacobv@headnet.dk>\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: da\n"
+"Language-Name: Danish\n"
+"Preferred-Encodings: latin1\n"
+"Domain: atreferencebrowserwidget\n"
+
+#. Default: "Add..."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:177
+msgid "label_add"
+msgstr "Tilføj"
+
+#. Default: "Browse..."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:212
+msgid "label_browse"
+msgstr "Gennemse..."
+
+#. Default: "( Directory: ${directory})"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:47
+#, fuzzy
+msgid "label_directory"
+msgstr "Mappe"
+
+#. Default: "Go"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:98
+msgid "label_go"
+msgstr "Gå til"
+
+#. Default: "Move bottom"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:201
+msgid "label_move_bottom"
+msgstr "Flyt til bund"
+
+#. Default: "Move down"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:194
+msgid "label_move_down"
+msgstr "Flyt ned"
+
+#. Default: "Move top"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:180
+msgid "label_move_top"
+msgstr "Flyt til top"
+
+#. Default: "Move up"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:187
+msgid "label_move_up"
+msgstr "Flyt op"
+
+#. Default: "No reference set. Click the browse button to select."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:136
+msgid "label_no_reference_set"
+msgstr "Ingen referencer valgt. Klik 'Gennemse' for at vælge reference(r)"
+
+#. Default: "Remove reference"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:218
+msgid "label_remove_reference"
+msgstr "Fjern reference"
+
+#. Default: "Remove selected items"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:225
+msgid "label_remove_selected_items"
+msgstr "Fjern valgte indholdsobjekter"
+
+#. Default: "Back"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:77
+#, fuzzy
+msgid "referencebrowser_back"
+msgstr "Tilbage"
+
+#. Default: "Browse"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:316
+msgid "referencebrowser_browse"
+msgstr "Gennemse"
+
+#. Default: "Clear history"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:103
+msgid "referencebrowser_clearhistory"
+msgstr "Fjern historik"
+
+#. Default: "Close window"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:79
+#, fuzzy
+msgid "referencebrowser_close"
+msgstr "Luk vindue"
+
+#. Default: "Search results"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:184
+msgid "referencebrowser_heading_search_results"
+msgstr "Søgeresultater"
+
+#. Default: "History"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:90
+msgid "referencebrowser_history"
+msgstr "Historik"
+
+#. Default: "Insert"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:311
+#, fuzzy
+msgid "referencebrowser_insert_reference"
+msgstr "indsæt"
+
+#. Default: "No items found."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:235
+msgid "referencebrowser_no_items_found"
+msgstr "Ingen indholdsobjekter fundet"
+
+#. Default: "Search index"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:127
+msgid "referencebrowser_search_index_label"
+msgstr "Søgeindeks"
+
+#. Default: "Search terms"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:152
+msgid "referencebrowser_search_term"
+msgstr "Søgeord"
+
+#. Default: "Search"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:133
+msgid "referencebrowser_search_terms"
+msgstr "Søg"
+
+#. Default: "Added reference to:"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:174
+msgid "referencebrowser_text_added_reference"
+msgstr "Tilføjet reference til:"
+
+#. Default: "view"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:332
+msgid "referencebrowser_view"
+msgstr "vis"
+
+#. Default: "Home"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:202
+msgid "tabs_home"
+msgstr "Forside"
+

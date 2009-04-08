@@ -1,0 +1,77 @@
+- Add a template for exporting a single piece of content from the
+  browser (document action?)
+
+- Ensure that unicode data roundtrips correctly. See SF#1105363
+
+- Import/export of boolean fields. (currently False fields exports as
+  False which imports as True).
+
+- Export of empty fields (e.g. unset dates) currently exported as
+  None.
+
+- Allow import and export of primary fields.
+
+- Add an encoding attribute to the <field> tag to allow for base64
+  encoding binary fields such as images.
+
+- Should eventually have a Plone UI (in Plone Setup, now Site Setup)
+  to configure the Marshall tool
+
+- Currently the tool functioning is based on 'rules' which control
+  what marshaller gets used an when.
+
+- I would like to see the Marshall tool be an action provider and have
+  dynamic 'document_actions' being generated that would map to calling
+  the marshalling layer with special params to use a specific export
+  So it would work more or less like:
+
+  - Having a 'ical export' 'document_action' (icons next to 'send
+    to a friend' and 'external edit')
+
+  - The link for this action would pass an argument in a request
+    variable to the Marshall tool
+
+  - The Marshall tool (and the ControlledMarshaller) would then look
+    at this variable and select the 'ical' marshaller.
+
+  - This is a very high-level description, I will write more on it
+    later and help implementing it if needed.
+
+- Move code for importing/exporting ical from Calendaring to Marshall
+  as a marshaller
+
+- See about the xbel (bookmarks) product out there and if it's already
+  a marshaller just test it, otherwise also move it to Marshall
+
+- There's a CSV (comma separated values) product somewhere in the
+  Collective too. Should see about moving parts of it's code to a
+  marshaller.
+
+- Marshall currently has a hard dependency on libxml2. Needs to be
+  made so it doesn't fail to import if libxml2 is not installed
+
+- Kapil has a branch with improvements to the xml marshaller. I think
+  Cignex agreed to give him time to merge the branch, but this is
+  unrelated to these guys work.
+
+- Nate Aune has lots of cool ideas of how this should work and areas
+  where improvement is needed. He should be replying to this email
+  with some plan.
+
+- We should probably write PLIPs for all of this so more people can
+  contribute.
+
+- All checkins should come with tests. There are some good example
+  tests in Marshall itself. Please read them and use them as a start
+  for your tests.
+
+- Batch import/export ideas:
+
+  - Having Marshall work with Folders. Basically mix PUT and
+    manage_FTPget from BaseContent.
+
+  - Having a 'search and export'. Do a search in Plone and have a
+    'export results as:' with a checkbox and multiple formats.
+
+- Here's a message from Nate Aune that triggered most of this TODO:
+  http://thread.gmane.org/gmane.comp.web.zope.plone.user/31065

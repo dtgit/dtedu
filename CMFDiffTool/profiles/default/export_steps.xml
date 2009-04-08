@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<export-steps>
+ <export-step id="difftool"
+              handler="Products.CMFDiffTool.exportimport.difftool.exportDiffTool"
+              title="Diff Tool">
+  Export CMFDiffTool settings
+ </export-step>
+</export-steps>

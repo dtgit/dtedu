@@ -1,0 +1,7 @@
+<a metal:define-macro="portal_logo"
+   id="portal-logo"
+   accesskey="1"
+   href="http://twbtools.com"
+   i18n:domain="plone">
+    <img src="logo.jpg" alt=""
+         tal:replace="structure view/logo_tag" /></a>

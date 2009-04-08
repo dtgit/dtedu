@@ -1,0 +1,11 @@
+[default]
+title = View a result [ECQ].
+
+[security]
+View = 0:Authenticated
+
+[validators]
+validators=
+
+[actions]
+action.failure=traverse_to:string:insufficient_privileges

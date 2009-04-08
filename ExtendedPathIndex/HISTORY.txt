@@ -1,0 +1,41 @@
+Changelog for ExtendedPathIndex
+
+   (name of developer listed in brackets)
+
+2.4 - Released September 11, 2006
+
+    - Relaxed a check for path only allowing strings so far. Now we except all
+      basestrings. This closes http://dev.plone.org/plone/ticket/5617.
+      [hannosch]
+
+    - Converted log infrastructure to use Python's logging module instead zLOG.
+      [hannosch] 
+
+2.3 - Released December 18, 2005
+
+    - Added some extra debug information when an improper path is cataloged.
+      [sidnei]
+
+2.2 - Released October 7, 2005
+
+    - Add seperate index structures on the parent path and the full path of all
+      objects.  This significantly improves scaling for navtrees, breadcrumbs,
+      and listings.
+      [alecm]
+
+    - Assume that EPI is used inside same container as content and use relative
+      search instead of absolute - basically transforming / plonesite search
+      to / search with startlevel set to 1 instead of 0.
+      [tesdal]
+
+2.1 - Released May 20, 2005
+
+    - Implement 'indexed_attrs' support for ExtendedPathIndex.
+
+    - Prevent navigation tree queries from stopping prematurely if the
+      queried-for path does not actually exist in the index, but its parents do.
+
+1.0
+
+    - Path index capable of generating a navigation tree structure from
+      cataloged data.

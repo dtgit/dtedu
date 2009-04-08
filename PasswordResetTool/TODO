@@ -1,0 +1,10 @@
+
+- unit tests!
+
+- add note about initial mail in README
+
+- error message on email failure?
+
+- BTree request holder, instead of dictionary (no more _p_changed!)
+
+- have an upgrade method, when necessary

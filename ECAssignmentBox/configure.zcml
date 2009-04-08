@@ -1,0 +1,26 @@
+<configure
+	xmlns="http://namespaces.zope.org/zope"
+	xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+	xmlns:cmf="http://namespaces.zope.org/cmf"
+	xmlns:five="http://namespaces.zope.org/five"
+	i18n_domain="eduComponents">
+
+	<!-- Register the GenericSetup extension profile so that we can
+		install the product -->
+
+	<!-- <five:deprecatedManageAddDelete
+		class=".ECABTool.ECABTool"/> -->
+
+	<cmf:registerDirectory
+		name="skins"
+		directory="skins"
+		recursive="true"/>
+
+	<genericsetup:registerProfile
+		name="default"
+		title="ECAssignmentBox"
+		directory="profiles/default"
+		description="Allows the creation, submission and grading of online assignments (excercises, homework)"
+		provides="Products.GenericSetup.interfaces.EXTENSION"/>
+
+</configure>

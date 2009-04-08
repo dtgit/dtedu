@@ -1,0 +1,55 @@
+0.9.7
+- Added PLONE31 and PLONE40 constants.
+- The PloneSite layer can now be set up more than once. Thanks to
+  Andreas Zeidler and Balazs Ree.
+
+0.9.6
+- Deal with new skin setup in CMF 2.1 and up.
+- Provide hasPackage and installPackage if ZopeTestCase supports it.
+- Changed license to GPL, cleaning up my act.
+- Use new stateless GenericSetup API in Plone 3.0 and up.
+
+0.9.4
+- Minor test fixes to cater for changes in PlonePAS and CMF.
+
+0.9.3
+- In 0.9.2 we accidentally lost the ability to override getPortal. Fixed.
+- Spell 'placefulSetup' like 'placefulSetUp' for consistency with
+  zope.app.testing.
+
+0.9.2
+- Improved support for the local component registry. We now register it
+  right after it has been created in Plone >= 3.0, as it is needed during
+  site setup. We also set the portal as a site whenever it is accessed
+  to get CMF skin acquisition to work.
+
+0.9.0
+- Prepared for switching ZopeTestCase to Zope3 interfaces.
+- Load etc/site.zcml lazily instead of using the wrapper.
+- Import extension profiles one by one to gain better control.
+- Added a PloneTestCase.addProfile() method that allows to import
+  extension profiles into the site. This is an alternative to
+  passing the 'extension_profiles' argument to setupPloneSite().
+- Create Plone site lazily using layer.PloneSite.
+- Renamed utils.py to five.py.
+
+0.8.6
+- Starting with Plone 3.0 the portal is a component registry as well. We
+  perform the necessary registration automatically now.
+- Made sure layer cleanup resets Five.zcml to "not initialized".
+
+0.8.4
+- Allow to pass a base profile to the setupPloneSite function.
+- Added PLONE30 constant.
+- Made application of StringIO monkey patch conditional, as it is part of
+  CMFPlone/patches starting with Plone 3.0
+- Added a ZCMLLayer to support recent Zopes and zope.testing.testrunner.
+  Thanks to Whit Morris.
+
+0.8.2
+- Added support for passing a list of GenericSetup extension profiles
+  to the setupPloneSite function.
+
+0.8.0
+- Added support for Plone 2.5.
+

@@ -1,0 +1,174 @@
+# Translation of linguaplone.pot to Catalan
+# Albert Lombarte <artomb-pCzzcW6XgXY@public.gmane.org>, 2004.
+msgid ""
+msgstr ""
+"Project-Id-Version: LinguaPlone\n"
+"POT-Creation-Date: 2007-05-12 11:23+0000\n"
+"PO-Revision-Date: 2007-10-18 00:50+0100\n"
+"Last-Translator: Lidia Esparraguera Vidal <lidia.esparraguera@gmail.com>\n"
+"Language-Team: Plone-i18n <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: ca\n"
+"Language-Name: Català\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: linguaplone\n"
+"X-Is-Fallback-For: ca-ad ca-es ca-fr ca-it\n"
+
+#. Default: "Select the language you want to change the content to."
+#: ./skins/LinguaPlone/manage_translations_form.pt:27
+msgid "description_change_language"
+msgstr "Seleccioneu l'idioma al que voleu canviar el contingut."
+
+#. Default: "The content you were viewing does not exist in the language you just selected. The site language has been switched to ${language} and you can keep browsing the site in this language."
+#: ./skins/LinguaPlone/not_available_lang.pt:35
+msgid "description_changed_translation_unavailable"
+msgstr "El contingut que esteu visualitzan no està disponible en l'idioma que heu seleccionat. S'ha canviat l'idioma a ${language} i podeu continuar navegant aquest lloc web en aquest idioma."
+
+#. Default: "Create ${language} translation of this item."
+#: ./skins/LinguaPlone/not_available_lang.pt:86
+msgid "description_create_language_translation"
+msgstr "Crea la traducció per ${language} d'aquest element."
+
+#. Default: "Here you can change the content language or remove existing translations."
+#: ./skins/LinguaPlone/manage_translations_form.pt:17
+msgid "description_manage_translations"
+msgstr "Aquí podeu canviar l'idioma del contingut o esborrar traduccions existents."
+
+#. Default: "There are no translations to remove."
+#: ./skins/LinguaPlone/manage_translations_form.pt:219
+msgid "description_no_removable_translations"
+msgstr "No hi ha cap traducció per esborrar."
+
+#. Default: "If you want to read the content of this document, you have to switch to one of the following languages:"
+#: ./skins/LinguaPlone/not_available_lang.pt:55
+msgid "description_read_translated_versions"
+msgstr "Si voleu llegir el contingut d'aquest document heu de canviar a un dels següents idiomes:"
+
+#. Default: "Select translations to remove."
+#: ./skins/LinguaPlone/manage_translations_form.pt:214
+msgid "description_remove_translations"
+msgstr "Seleccioneu les traduccions que s'han d'esborrar."
+
+#. Default: "Translating from ${from} to ${to}"
+#: ./skins/LinguaPlone/translate_item.cpt:95
+msgid "description_translating_from_to"
+msgstr "Traducció del ${from} al ${to}"
+
+#. Default: "This content does not exist in your current language, ${language}, but you can keep browsing the site in this language."
+#: ./skins/LinguaPlone/not_available_lang.pt:45
+msgid "description_translation_unavailable"
+msgstr "Aquest contingut no existeix en l'idioma actual, ${language}, però podeu continuar navegant aquest lloc en aquest idioma."
+
+#. Default: "Add content translation"
+#: ./skins/LinguaPlone/not_available_lang.pt:75
+msgid "header_add_content_translation"
+msgstr "Afegeix una traducció del contingut"
+
+#. Default: "Change content language"
+#: ./skins/LinguaPlone/manage_translations_form.pt:23
+msgid "header_change_language"
+msgstr "Canvia l'idioma del contingut"
+
+#. Default: "Manage translations"
+#: ./skins/LinguaPlone/global_languagemenu.pt:57
+msgid "header_manage_translations"
+msgstr "Gestiona traduccions"
+
+#. Default: "Remove translations"
+#: ./skins/LinguaPlone/manage_translations_form.pt:210
+msgid "header_remove_translations"
+msgstr "Esborra traduccions"
+
+#. Default: "Translation Unavailable"
+#: ./skins/LinguaPlone/not_available_lang.pt:27
+msgid "header_translation_unavailable"
+msgstr "Traducció no disponible"
+
+#. Default: "Add Translation"
+#: ./skins/LinguaPlone/not_available_lang.pt:103
+msgid "label_add_translation"
+msgstr "Afegeix una traducció"
+
+#. Default: "Change Language"
+#: ./skins/LinguaPlone/manage_translations_form.pt:73
+msgid "label_change_language"
+msgstr "Canvia l'idioma"
+
+#. Default: " (Content is language neutral)"
+#: ./skins/LinguaPlone/languageSelectorData.py:32
+msgid "label_content_is_language_neutral"
+msgstr "(El contingut és idiomàticament neutre)"
+
+#. Default: " (Content translation not available)"
+#: ./skins/LinguaPlone/languageSelectorData.py:37
+msgid "label_content_translation_not_available"
+msgstr "(Traducció del contingut no disponible)"
+
+#. Default: "Language settings..."
+#: ./skins/LinguaPlone/global_languagemenu.pt:50
+msgid "label_language_settings"
+msgstr "Paràmetres d'idioma..."
+
+#. Default: "Manage translations..."
+#: ./skins/LinguaPlone/global_languagemenu.pt:45
+msgid "label_manage_translations"
+msgstr "Gestiona les traduccions..."
+
+#. Default: "Neutral"
+#: ./skins/LinguaPlone/manage_translations_form.pt:52
+msgid "label_neutral"
+msgstr "Neutre"
+
+#. Default: "Switch language to ${language}"
+#: ./skins/LinguaPlone/languageSelectorData.py:24
+msgid "label_switch_language_to"
+msgstr "Canvieu l'idioma a ${language}"
+
+#. Default: "Translate into"
+#: ./skins/LinguaPlone/global_languagemenu.pt:22
+msgid "label_translate_into"
+msgstr "Tradueix al"
+
+#. Default: "Available languages"
+#: ./skins/LinguaPlone/manage_translations_form.pt:39
+msgid "legend_available_languages"
+msgstr "Idiomes disponibles"
+
+#. Default: "Existing translations"
+#: ./skins/LinguaPlone/manage_translations_form.pt:234
+msgid "legend_existing_translations"
+msgstr "Traduccions existents"
+
+#. Default: "Changed content language to ${language}."
+#: ./skins/LinguaPlone/changeLanguage.cpy:13
+msgid "message_content_changed_language_to"
+msgstr "S'ha canviat l'idioma del contingut a ${language}."
+
+#. Default: "'${title}' linked as ${language} translation for the current content."
+#: ./skins/LinguaPlone/linkTranslation.cpy:33
+msgid "message_content_linked_to"
+msgstr "'${title}' s'ha enllaçat com una traducció del ${language} pel contingut actual."
+
+#. Default: "Translation content not found."
+#: ./skins/LinguaPlone/linkTranslation.cpy:11
+msgid "message_content_not_found"
+msgstr "No s'ha trobat el contingut traduït."
+
+#. Default: "Invalid language."
+#: ./skins/LinguaPlone/linkTranslation.cpy:17
+msgid "message_invalid_language"
+msgstr "Idioma invàlid"
+
+#. Default: "Please select different values for each language."
+#: ./skins/LinguaPlone/validate_translate.vpy:14
+msgid "message_select_different_languages"
+msgstr "Seleccioneu diferents valors per a cada idioma."
+
+#. Default: "${type} has been created."
+#: ./skins/LinguaPlone/createTranslation.cpy:23
+msgid "message_type_has_been_created"
+msgstr "S'ha creat ${type}."
+

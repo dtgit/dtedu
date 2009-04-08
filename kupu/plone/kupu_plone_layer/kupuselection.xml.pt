@@ -1,0 +1,40 @@
+<tal:block define="charset here/portal_properties/site_properties/default_charset|here/portal_properties/default_charset|string:utf-8;
+        content_type python:request.RESPONSE.setHeader('Content-Type', 'text/xml;;charset=%s' % charset);"
+ replace='structure string:&lt;?xml version="1.0" encoding="${charset}" ?&gt;'>
+<?xml version="1.0"?>
+</tal:block>
+<!-- This library returns information about the currently selected item(s)
+e.g. Call: kupuselection.xml?src=someurl
+ -->
+<library
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="kupu"
+    tal:define="kupu context/kupu_library_tool;
+        objects kupu/getCurrentObject;
+        object python:objects and objects[0] or context;
+        lib python:kupu.getSingleLibrary(object,'_selection')">
+  <uri tal:content="template/absolute_url"/>
+  <icon
+       tal:content="lib/icon|string:${here/portal_url}/kupuimages/kupusearch_icon.gif"/>
+  <title tal:content="lib/title|default"><tal:content i18n:translate="heading_selected">Selected</tal:content></title>
+  <description i18n:translate="descr_selected">Current selection.</description>
+  <src
+      tal:content="string:${request/URL0}?${context/kupu_library_tool/query_string}"/>
+
+  <breadcrumbs class="kupu-locate">
+    <crumb
+      tal:define="url context/portal_url;
+        resource_type request/resource_type | string:mediaobject;"
+      tal:attributes="href string:${context/portal_url}/kupulocate.xml?resource_type=${resource_type}&amp;src=$$src$$"
+      i18n:translate="locate_content">
+      Locate
+    </crumb>
+  </breadcrumbs>
+  <items metal:use-macro="here/kupucollection.xml/macros/collectionItems">
+    <metal:slot fill-slot="defineItems">
+       <tal:var define="global items context/kupu_library_tool/getCurrentSelection"/>
+    </metal:slot>
+  </items>
+</library>

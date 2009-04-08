@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+                      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en" xml:lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="eduComponents">
+  
+  <body>
+    <metal:block fill-slot="css_slot">
+      <style type="text/css" media="screen" 
+             tal:content="string: @import url($portal_url/ecabstyles.css);" />
+    </metal:block>
+
+    <metal:main fill-slot="main">
+      <h1 class="documentFirstHeading" tal:content="here/title_or_id"/>
+
+      <a href=""
+	class="link-parent visualNoPrint"
+	tal:define="parent_url python:here.navigationParent(here, template_id)"
+	tal:condition="parent_url"
+	tal:attributes="href parent_url"
+	i18n:domain="plone"
+	i18n:translate="go_to_parent_url">
+	Up one level
+      </a>
+
+      <h3 i18n:translate="label_ecat_backlinks">Assignments referencing this task</h3>
+
+      <tal:block define="myUID  here/UID;
+	                 brains python: here.portal_catalog.searchResults(
+	                          isAssignmentBoxType = True,
+	                          getRawAssignment_reference = myUID,);">
+	<!-- <p tal:content="myUID"/> <p tal:content="brains"/> -->
+
+	<ul>
+	  <tal:foreach repeat="brain brains">
+	  <li>
+	    <a tal:content="python: brain.Title"
+	      tal:attributes="href python: brain.getPath()"/>
+	    (<span tal:replace="python: brain.getPath()"/>)
+	  </li>
+	  </tal:foreach>
+        </ul>
+      </tal:block>
+    </metal:main>
+  </body>
+</html>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

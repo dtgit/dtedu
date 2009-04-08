@@ -1,0 +1,46 @@
+<tal:nextPrevious define="enabled view/enabled|nothing;
+                          isViewTemplate view/isViewTemplate | nothing"
+                  condition="python:enabled and isViewTemplate">
+
+    <tal:block define="portal_url view/portal_url;">
+
+        <div class="listingBar"
+             tal:define="next view/next; 
+                         previous view/previous;
+			 isAnon python:not context.portal_membership.isAnonymousUser();"
+             tal:condition="python:previous is not None or next is not None">
+
+          <tal:previous condition="previous">
+            <a class="listingPrevious" href="" 
+               title="Go to previous item"
+               i18n:attributes="title title_previous_item"
+               tal:attributes="href previous/url">
+                <span i18n:translate="label_previous_item"
+                      tal:omit-tag="">
+                Previous</span> 
+            </a>
+          </tal:previous>
+
+
+            <a class="listingNext" href="" 
+               title="Go to next item"
+               i18n:attributes="title title_next_item"
+               tal:condition="next"
+               tal:attributes="href next/url">
+               <span>Next</span> 
+   
+            </a>
+
+
+
+	    <a href="" class="listingNext" tal:condition="python:isAnon and next" tal:attributes="href string:${here/absolute_url}/saveandcont">Save and Continue</a>
+
+	    <a href="" class="listingNext" tal:condition="isAnon" tal:attributes="href string:${here/absolute_url}/saveandexit">Save and Exit</a>
+
+	    &nbsp;
+
+       </div>
+
+   </tal:block>
+
+</tal:nextPrevious>

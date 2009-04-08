@@ -1,0 +1,10 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:five="http://namespaces.zope.org/five">
+
+  <include file="profiles.zcml"/>
+
+  <utility factory=".QuickInstallerTool.HiddenProducts"
+           name="Products.CMFQuickInstallerTool"
+    />
+
+</configure>

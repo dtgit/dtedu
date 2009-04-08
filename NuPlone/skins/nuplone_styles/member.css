@@ -1,0 +1,18 @@
+a.state-private {
+    color: #ff7664 !important;
+}
+a.state-visible {
+    color: #a3e63d !important;
+}
+a.state-published {
+    color: #7dabcf; !important;
+}
+a.state-pending {
+    color: orange !important;
+}
+a.state-expired {
+    color: silver !important;
+}
+a.syndicated {
+    color: #008000 !important;
+}

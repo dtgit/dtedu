@@ -1,0 +1,5 @@
+This is the maintenance branch for Plone 3.0
+All new features will be reverted.
+
+To add new features use the trunk.
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+                      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="eduComponents">
+
+  <body>
+    <metal:block fill-slot="css_slot">
+      <style type="text/css" media="screen"
+          tal:content="string: @import url($portal_url/ecabstyles.css);" />
+    </metal:block>
+
+    <metal:main fill-slot="main">
+      <tal:main-macro metal:define-macro="main"
+          tal:define="errors         options/state/getErrors | nothing;
+                      Iterator       python:modules['Products.Archetypes'].IndexIterator;
+                      readFieldNames here/getGradeModeReadFieldNames;
+                      editFieldNames here/getGradeModeEditFieldNames;">
+  
+        <!-- show header information -->
+        <metal:use use-macro="here/base_macros/macros/eca_view_head" />
+    
+        <!-- print all readonly fields -->    
+        <tal:fields repeat="fieldName readFieldNames">
+
+          <tal:field define="field python:here.getField(fieldName);">
+            <metal:use use-macro="here/base_macros/macros/base_view" />
+          </tal:field>
+        </tal:fields>
+    
+        <!-- print a form with all editable fields -->
+        <form name="edit_form"
+            method="post"
+            enctype="multipart/form-data"
+            class="enableUnloadProtection"
+            action="eca_grade"
+            tal:attributes="action string:${here/absolute_url}/${template/getId}">
+
+          <!-- all editable fields -->    
+          <tal:fields repeat="fieldName editFieldNames">
+            <tal:field tal:condition="python:fieldName == 'file'">
+              <!-- print file content -->
+              <div style="border: 1px solid black" tal:content="structure here/get_data|here/data|nothing" />
+            </tal:field>
+            <tal:field tal:condition="python:fieldName != 'file'">
+              <metal:use use-macro="python:here.widget(fieldName, mode='edit', use_label=1)" />
+            </tal:field>
+          </tal:fields>
+
+          <!-- submit button -->
+          <div class="formControls" i18n:domain="plone">
+            <input class="context"
+                tabindex=""
+                type="submit"
+                name="form.button.Submit"
+                value="Save"
+                i18n:domain="plone"
+                i18n:attributes="value"
+                tal:attributes="tabindex tabindex/next;"/>
+
+            <input class="standalone"
+                tabindex=""
+                type="submit"
+                name="form.button.Cancel"
+                i18n:domain="plone"
+                value="Cancel"
+                i18n:attributes="value"
+                tal:attributes="tabindex tabindex/next;"/>
+          </div>
+
+          <input type="hidden" name="form.submitted" value="1" />
+          <!--<input type="hidden" name="title" value="" tal:attributes="value here/title_or_id" />-->
+        </form>
+
+        <div metal:use-macro="here/document_byline/macros/byline" />
+
+      </tal:main-macro>
+    </metal:main>
+
+  </body>
+</html>

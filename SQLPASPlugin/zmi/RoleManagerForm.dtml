@@ -1,0 +1,44 @@
+<dtml-var manage_page_header>
+
+<h2> Add A Role Manager For PAS </h2>
+
+<p class="form-help">
+  install a SQL-based role manager.
+</p>
+
+<form action="manage_addSQLRoleManager" method="POST">
+
+<table>
+
+<tr>
+   <td class="form-label"> Id </td>
+   <td> <input type="text" name="id" /> </td>
+</tr>
+<tr>
+   <td class="form-label"> Title </td>
+   <td> <input type="text" name="title" /> </td>
+</tr>
+<tr>
+    <td class="form-label"> Database Connection: </td>
+    <td>
+        <select name="sql_connection">
+        <dtml-in "SQLConnectionIDs()">
+            <option value="<dtml-var sequence-item>">
+            <dtml-var sequence-key></option>
+        </dtml-in>
+        </select>
+     </td>
+</tr>
+<tr>
+   <td colspan="2">
+   <div class="form-element">
+    <input type="submit" value="add role manager"/>
+   </div>
+   </td>
+</tr>
+</table>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+SQLPASPlugin Encryption Support
+===============================
+
+Basically shows how the integration should behave in an installed
+PAS instance.
+
+Make sure the default encryption is 'plain'.
+
+  >>> plugin = self.getPAS().source_users
+  >>> plugin.default_encryption
+  'plain'
+
+We begin simply by ensuring standard authentication works.
+
+  >>> plugin.doAddUser('foo', 'bar')
+  True
+
+  >>> plugin.authenticateCredentials({'login': 'foo',
+  ...                                 'password': 'bar'})
+  ('foo', 'foo')
+
+  >>> [x[plugin.users_col_password] for x in plugin.sqlAuthUser(username='foo')]
+  ['bar']
+
+Now we test with an encryption we know isn't supported.
+
+  >>> plugin.default_encryption = 'rockyencrypt'
+
+  >>> plugin.doAddUser('foo2', 'bar2')
+  Traceback (most recent call last):
+    ...
+  LookupError: Could not find an encrypter for "rockyencrypt"
+
+Of course the SHA encryption should be working.
+
+  >>> plugin.default_encryption = 'sha'
+
+  >>> plugin.doAddUser('foo3', 'bar3')
+  True
+  >>> plugin.authenticateCredentials({'login': 'foo3',
+  ...                                 'password': 'bar3'})
+  ('foo3', 'foo3')
+
+  >>> [x[plugin.users_col_password] for x in plugin.sqlAuthUser(username='foo3')]
+  ['89c76b7fd66cd4b165d1c31d2482ef2e6a89c384']
+
+And the MD5 encryption should be working.
+
+  >>> plugin.default_encryption = 'md5'
+
+  >>> plugin.doAddUser('foo4', 'bar4')
+  True
+  >>> plugin.authenticateCredentials({'login': 'foo4',
+  ...                                 'password': 'bar4'})
+  ('foo4', 'foo4')
+
+  >>> [x[plugin.users_col_password] for x in plugin.sqlAuthUser(username='foo4')]
+  ['90f0b1eae66250e53b5ba13e70309916']
+
+As should SSHA.
+
+  >>> plugin.default_encryption = 'ssha'
+
+  >>> plugin.doAddUser('foo5', 'bar5')
+  True
+  >>> plugin.authenticateCredentials({'login': 'foo5',
+  ...                                 'password': 'bar5'})
+  ('foo5', 'foo5')
+
+  Since SSHA uses salt, we can't just compare.

@@ -1,0 +1,5 @@
+[default]
+title = View backlinks
+
+[security]
+View = 0:Owner

@@ -1,0 +1,17 @@
+<div>IE doesn't always quote attributes</div>
+<dl class="image-left captioned">
+  <dt>
+    <img src="http://nohost/plone/folder/gamma/image"
+        alt="Kupu Test Image" title="Kupu Test Image"
+        height="331" width="500" />
+  </dt>
+  <dd class="image-caption" style="width:500px">Test image caption</dd>
+</dl>
+<dl class="captioned">
+  <dt>
+    <img src="http://nohost/plone/folder/gamma/image"
+        alt="Kupu Test Image" title="Kupu Test Image"
+        height="331" width="500" />
+  </dt>
+  <dd class="image-caption" style="width:500px">Test image caption</dd>
+</dl>

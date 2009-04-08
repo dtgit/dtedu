@@ -1,0 +1,55 @@
+DONT USE ChangeLog - USE history.txt instead!
+
+2005-07-22 Hanno Schlichting <schlichting@bakb.net>
+
+    * Correct failing test due to changed return value (None -> True)
+
+2004-07-24  Christian Heimes <heimes@faho.rwth-aachen.de>
+
+    * Changed version to stick to Archetypes version.
+
+2004-05-21  Christian Heimes <heimes@faho.rwth-aachen.de>
+
+    * Added validators/SupplValidators with MaxSizeValidator
+
+2004-05-18  Christian Heimes <heimes@faho.rwth-aachen.de>
+
+    * Added ValidationChain class that allows chaining of multiple
+      validators. Each validator in a chain may be sufficient or
+      required.
+
+2004-04-20  Christian Heimes <heimes@faho.rwth-aachen.de>
+
+    * Added isEmpty validator
+
+2004-04-11  Christian Heimes <heimes@faho.rwth-aachen.de>
+
+    * Cleanup and refactoration
+    * Moved some files around
+
+2004-03-14  Christian Heimes <heimes@faho.rwth-aachen.de>
+
+    * Updated README to reflect the install location changes for newer releases
+      of Archetypes
+
+2003-09-13  Sidnei da Silva  <sidnei@plone.org>
+
+    * validators/validator.py (RegexValidator.__init__): Added title
+      and description to validators.
+
+    * service.py (Service.items): Improve the service a bit, to be
+      useable with the other registries.
+
+2003-08-04  Sylvain Thénault  <syt@logilab.fr>
+
+    * added minimal README file
+
+2003-07-30  Sylvain Thénault  <syt@logilab.fr>
+
+    * add distutils setup script and debian packaging files
+
+2003-05-14  Sidnei da Silva  <sidnei@x3ng.com>
+
+    * interface.py: Trying to normalize the way interfaces are
+      imported in different versions of Zope.
+

@@ -1,0 +1,21 @@
+<html i18n:domain="plone">
+
+<!-- wysiwyg multiplexing widget, this allows for both Epoz and Kupu to coexist -->
+
+<div metal:define-macro="wysiwygEditorBox">
+  <tal:block define="macros here/kupu_library_tool/getWysiwygmacros;">
+     <metal:block metal:use-macro="macros/wysiwygEditorBox">
+ </metal:block>
+ </tal:block>
+</div>
+
+
+<div metal:define-macro="textFormatSelector">
+  <tal:block define="macros here/kupu_library_tool/getWysiwygmacros;">
+ <metal:block metal:use-macro="macros/textFormatSelector">
+ </metal:block>
+ </tal:block>
+</div>
+
+
+</html>

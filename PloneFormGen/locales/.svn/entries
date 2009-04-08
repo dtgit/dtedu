@@ -1,0 +1,95 @@
+9
+
+dir
+82770
+https://svn.plone.org/svn/collective/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/locales
+https://svn.plone.org/svn/collective
+
+
+
+2008-10-16T03:44:38.149743Z
+73730
+smcmahon
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+db7f04ef-aaf3-0310-a811-c281ed44c4ad
+
+en
+dir
+
+pt
+dir
+
+da
+dir
+
+cs
+dir
+
+es
+dir
+
+fr
+dir
+
+de
+dir
+
+nl
+dir
+
+ja
+dir
+
+pl
+dir
+
+it
+dir
+
+ploneformgen.pot
+file
+
+
+
+
+2009-03-19T23:03:17.000000Z
+86121f4eae2651cab9e2a09693ec893a
+2008-06-15T00:34:12.286166Z
+66679
+smcmahon
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+31721
+

@@ -1,0 +1,261 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en" xml:lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="eduComponents">
+  
+  <body>
+    <metal:block fill-slot="css_slot">
+      <style type="text/css" media="screen" tal:content="string: @import url($portal_url/ecl_styles.css);">
+      </style>
+    </metal:block>
+
+    <div metal:fill-slot="main">
+      <div metal:define-macro="main"
+        tal:define="user_id python: member.getId();
+        global ecab_utils nocall: portal/ecab_utils;
+        resFlt python: {'user_id':request.get('user_id', None), 
+                                             'state':request.get('state', None), 
+                                             'show_superseded':request.get('show_superseded', None),
+                                             'show_full_text':request.get('show_full_text', None), };
+
+
+
+                  resFlt2           python: dict([(k,v) for k,v in resFlt.items() if v is not None]);
+                  userName          python: resFlt['user_id'];
+                  statesToShow      python: ecab_utils.getStatesToShow(resFlt['show_superseded'], resFlt['state']);
+                  mkUrl             python: lambda d : '%s/%s?%s' % (here.absolute_url(), template.getId(), ecab_utils.urlencode(dict(resFlt2.items() + d.items())));">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 class="documentFirstHeading" tal:content="here/title_or_id">
+          Title or id
+        </h1>
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <div class="documentDescription" tal:content="here/Description">
+            Description
+        </div>
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <div class="visualClear"></div>
+
+        <div tal:replace="structure here/getText"/>    
+
+        <div class="visualClear"></div>
+        <table class="vertical listing">
+          <tr tal:define="joinURL here/joinURL;"
+              tal:condition="joinURL">
+            <th i18n:translate="label_registration">Registration</th>
+            <td tal:define="canEnroll python:not here.hasEnrollmentLimitReached();
+                          isParticipant python:here.isParticipant(user_id);">
+
+                <!-- Anonymous user, please log in -->
+                <tal:if condition="python: isAnon">
+                  <a href=""
+                    class="link_plain"
+                    tal:attributes="href string:login_form;"
+                    i18n:translate="label_login_to_see_enrollment">
+                    Please login in to see if you are already enrolled in this course.
+                  </a>
+                </tal:if>
+
+                <!-- user isn't already enrolled but the enrollment limit has been reached -->
+                <tal:if condition="python: (not isAnon) and (not isParticipant) and (not canEnroll)">
+                  <span tal:attributes="style python:'color:red;;';" 
+                      i18n:translate="label_enrollment_limit_reached">
+                    The maximum number of participants has been reached.
+                  </span>
+                </tal:if>
+
+                <!-- user isn't already enrolled and enrollment limit has not been reached -->
+                <tal:if condition="python: (not isAnon) and (not isParticipant) and (canEnroll)">
+                  <a href=""
+                    class="link-plain" 
+                    tal:attributes="href here/getJoinURL;"
+                    i18n:translate="label_enroll">
+                    Click here to enroll in this course
+                  </a>
+                </tal:if>
+
+                <!-- user is enrolled; show link for cancellation of enrollment -->
+                <tal:if condition="python: (not isAnon) and (isParticipant)">
+                  <a href=""
+                    class="link-plain" 
+                    tal:attributes="href string:ecl_register;"
+                    i18n:translate="label_cancellation">
+                    Click here to cancel your enrollment in this course
+                  </a>
+                </tal:if>
+              
+            </td>
+          </tr>
+
+
+        </table>
+
+
+        <div class="visualClear"/>
+
+        <tal:block condition="python: not here.isParticipant(user_id)">
+          <tal:if condition="python: here.getJoinURL()
+            and not here.getMaxParticipants ()">
+            <p class="portalMessage"
+              i18n:translate="notice_registration">
+              Note: This course requires
+              <span i18n:name="registration">
+                <a i18n:translate="link_to_registration"
+                  href="#"
+                  tal:attributes="href  here/getJoinURL;
+                  class string:link-plain">enrollment</a>
+              </span>.
+            </p>
+          </tal:if>
+
+          <tal:if condition="python: not here.getJoinURL()
+            and here.getMaxParticipants()">
+            <p class="portalMessage"
+              i18n:translate="notice_limited">Note: There is an enrollment limit
+              for this course.
+            </p>
+          </tal:if>
+
+          <tal:if condition="python: here.getJoinURL()
+            and here.getMaxParticipants()">
+            <p class="portalMessage"
+              i18n:translate="notice_limited_registration">Note: There is an
+              enrollment limit for this course and
+              <span i18n:name="registration">
+                <a i18n:translate="link_to_registration"
+                  href="#"
+                  tal:attributes="href  here/getJoinURL;
+                  class string:link-plain">registration</a>
+              </span> is required.
+            </p>
+          </tal:if>
+        </tal:block>
+
+        <tal:block condition="python: here.isParticipant(user_id)">
+          <p class="ec-hint" i18n:translate="note_enrolled">
+            Note: You are enrolled in this course.</p>
+        </tal:block>
+
+        <div class="visualClear"/>
+
+
+        <div class="division-listing"
+	     tal:define="externalRes here/getAvailableResources;
+                        searchPath  python: '/'.join(here.getPhysicalPath());
+                        localRes    python: here.portal_catalog.searchResults(
+                        path={'query':searchPath, 'depth':1,}, 
+                        sort_on='getObjPositionInParent',
+			portal_type='ECAssignmentBox');"
+            tal:condition="python: externalRes or localRes"
+        >
+
+          <p class="division-title" i18n:translate="label_resources_legend">Assignments</p>
+
+            
+            <tal:resources repeat="resource localRes">
+              <div tal:define="oddrow repeat/resource/odd"
+			   tal:attributes="class python:oddrow and 'submission-listing even' or 'submission-listing odd';
+                                           style python:oddrow and 'background: #FFF' or 'background: #EEE'" >
+                <!-- link with icon of this protal type -->
+                
+                <div tal:attributes="class python: 'contenttype-' + normalizeString(resource.portal_type) + ' visualIconPadding'">
+                  <a href="" 
+                     class="link-plain" 
+                     title=""
+                     tal:attributes="href resource/getURL" 
+                     tal:content="resource/pretty_title_or_id">
+                    Link to the resource
+                  </a>
+                </div>
+                <tal:submissions tal:condition="here/isEnrolledCTM"
+                     tal:define="global ecab_utils nocall: portal/ecab_utils;
+                                 permission        python: modules['AccessControl'].getSecurityManager().checkPermission;
+                                 isOwner           python: user.has_role(['Owner', 'Reviewer', 'Manager'], resource);
+                                 isGrader          python: resource.portal_membership.checkPermission('eduComponents: Grade Assignments', context);
+                                 resFlt            python: {'user_id':request.get('user_id', None), 
+                                                            'state':request.get('state', None), 
+                                                            'show_superseded':request.get('show_superseded', None),
+                                                            'show_full_text':request.get('show_full_text', None), };
+                                 resFlt2           python: dict([(k,v) for k,v in resFlt.items() if v is not None]);
+                                 userName          python: resFlt['user_id'];
+                                 statesToShow      python: ecab_utils.getStatesToShow(resFlt['show_superseded'], resFlt['state']);
+                                 mkUrl             python: lambda d : '%s/%s?%s' % (resource.absolute_url(), template.getId(), ecab_utils.urlencode(dict(resFlt2.items() + d.items())));"
+                >
+
+                <tal:if condition="python: ecab_utils.isAssignmentBoxType(resource)">
+
+   <!-- display assignmentbox text in a collapsible box-->
+      <dl class="collapsible collapsedBlockCollapsible">
+        <dt class="collapsibleHeader"
+	  i18n:translate="view_submitted_assignments">View Submitted Assignments</dt>
+        <dd class="collapsibleContent">
+                  <tal:assignments tal:define="
+                          path   python: (hasattr(resource, 'getPath') and resource.getPath()) or '/'.join(resource.getPhysicalPath());
+                          all_brains python: (userName and resource.portal_catalog(path={'query':path, 'depth':1, }, 
+                                                                               sort_on = 'getObjPositionInParent', 
+                                                                               review_state=statesToShow, 
+                                                                               Creator=userName, ))
+                                         or 
+                                         (not userName and resource.portal_catalog(path={'query':path, 'depth':1, }, 
+                                                                                   sort_on = 'getObjPositionInParent', 
+                                                                                   review_state=statesToShow, ));
+                          brains python:here.restrictedTraverse('@@getCohortAssignments')(all_brains);
+                          grades python: [];">
+                    <p tal:condition="not: brains"
+                        class="visualIconPadding" style="margin: 0em 0em 1em 0em;"
+                        i18n:translate="no_submissions">There are no submissions in this assignment box.
+                    </p>
+                    <table class="listing" tal:condition="python: brains and not resFlt['show_full_text']"
+                           tal:define="item resource">
+                      <metal:use use-macro="here/all_assignments_macros/macros/all_assignments_thead" />
+                      <tal:block tal:define="wtool here/portal_workflow;
+                                         global has_items python: 1;">
+                        <metal:use use-macro="here/all_assignments_macros/macros/all_assignments_tbody" />
+                      </tal:block>
+                    </table>
+                    <table class="listing" tal:condition="python: brains and resFlt['show_full_text']">
+                      <metal:use use-macro="here/all_assignments_macros/macros/all_assignments_full_thead" />
+                      <tal:block tal:define="wtool here/portal_workflow;
+                                         global has_items python: 1;">
+                        <metal:use use-macro="here/all_assignments_macros/macros/all_assignments_full_tbody" />
+                      </tal:block>
+                    </table>
+                  </tal:assignments>
+        </dd>
+
+                </tal:if>
+
+
+                </tal:submissions>
+              </div>
+            </tal:resources>
+
+
+        </div>
+
+
+
+
+      </div>
+    </div>
+
+  </body>
+</html>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

@@ -1,0 +1,233 @@
+Changelog for CMFQuickInstallerTool
+
+    (name of developer listed in brackets)
+
+CMFQuickInstallerTool 2.0.4 - Released December 2, 2007
+
+    - Added metadata.xml to GenericSetup profile.
+      [hannosch]
+
+    - Avoid breakage for InstalledProduct instances without the left or
+      rightslots properties. Thx to Roberto Fontanarosa from the OpenCpi
+      division of Cpi Progetti Spa.
+      [hannosch]
+
+    - Fixed logging code in utils. This closes
+      http://dev.plone.org/plone/ticket/7093.
+      [bliles, hannosch]
+
+    - Reverted getUtility usage. Closes http://dev.plone.org/plone/ticket/7314.
+      [hannosch]
+
+    - Fixed class variables in InstalledProduct. All products would share the
+      same left slots and right slots properties. Thx to Saverio Mucci for
+      noting this.
+      [hannosch]
+
+    - Avoid an unneeded transaction savepoint.
+      [hannosch]
+
+CMFQuickInstallerTool 2.0.3 - Released July 9, 2007
+
+    - Use new GenericSetup features, so we don't have to change the current
+      setup tool context anymore.
+      [hannosch]
+
+CMFQuickInstallerTool 2.0.2b3 - Released May 1, 2007
+
+    - Back to getToolByName.
+      [wichert]
+
+    - Added uninstall support for utilities. All additional utilities installed
+      by a product are now recorded and uninstalled properly.
+      [hannosch]
+
+CMFQuickInstallerTool 2.0.2b2 - Released March 23, 2007
+
+    - Added new profile argument to the installProduct method to explicitly set
+      the profile which should be used for installation.
+      [hannosch]
+
+    - Marked the Products.CMFQI package as uninstallable as well.
+      [hannosch]
+
+    - Replaced all getToolByName calls by get/queryUtility.
+      [hannosch]
+
+CMFQuickInstallerTool 2.0.2b1 - Released March 5, 2007
+
+    - Don't show removed products in the standard listings.
+      [hannosch]
+
+    - Adjusted listInstallable and listInstalled methods to return the title of
+      the GenericSetup profile instead of the package name, for extension
+      profile based installation. These look a lot nicer ;) This fixes
+      http://dev.plone.org/plone/ticket/6129.
+      [hannosch]
+
+CMFQuickInstallerTool 2.0.1 - Released February 10, 2007
+
+    - Adjusted installProduct method to be compatible with CMF 2.1 (including
+      the conversion of tools as utilities).
+      [hannosch]
+
+    - Refactored ResourceRegistries support not to require the product itself to
+      be installed in QI.
+      [hannosch]
+
+    - Added the INonInstallable interface that is used to look up utilities
+      which provide a list of non-installable products. This allows applications
+      to exclude certain products from the list of installable products.
+      [hannosch]
+
+    - Added an option to omit snapshot creation which defaults to True to speed
+      up test runs and migrations.
+      [hannosch]
+
+    - We automatically create a GenericSetup snapshot before and after
+      installation now, so you can at least compare the changes a product did
+      during installation. We have no better uninstall yet, though.
+      [hannosch]
+
+CMFQuickInstallerTool 2.0.0 - Released October 25, 2006
+
+    - Slightly optimize for GenericSetup profile based installations.
+      [hannosch]
+
+    - Adjusted actions installation tracking to work with CMF 2.1+.
+      [hannosch]
+
+    - Made profile based installation work with CMF 2.1+. The profile id may use
+      the full package name now, instead of only the product name (for example:
+      Products.CMFCalendar instead of CMFCalendar).
+      [hannosch]
+
+    - Changed GS profile registration to be zcml based. Fixed some problems with
+      the logging calls. Removed some stale code from the tests.
+      [hannosch]
+
+    - Removed lots of unused and bbb code. This version requires at least CMF 1.6.
+      [hannosch]
+
+    - Added support for GenericSetup extension profile-based installation.
+      [hannosch]
+
+CMFQuickInstallerTool 1.6.1 - Released April 28, 2007
+
+    - Disabled postonly protection for product reinstall. This broke the reinstall
+      functionality on the Plone control panel. The postonly protection can be
+      enabled once the control panel is changed.
+      [hannosch]
+
+CMFQuickInstallerTool 1.6.0 - Released April 22, 2007
+
+    - Applied postonly protection to product uninstall and reinstall.
+      [alecm]
+
+CMFQuickInstallerTool 1.5.9 - Released June 1, 2006
+
+    - Fixed two missing imports in utils.py. This closes
+      http://dev.plone.org/plone/ticket/5529.
+      [hannosch]
+
+CMFQuickInstallerTool - 1.5.8 Released May 15, 2006
+
+    - Some general spring cleaning.
+      [hannosch]
+
+    - Avoid DeprecationWarning for product_name.
+      [hannosch]
+
+    - Added methods to display Products directory and debug mode (if enabled)
+      [joelburton]
+
+CMFQuickInstallerTool 1.5.7 - Released December 23, 2005
+
+    - Cook resources when new types were added and ResourceRegistries is
+      installed.
+      [fschulze]
+
+    - If we are reinstalling do not say the product is already installed if we
+      see an exception but show the real error message
+      [wichert]
+
+CMFQuickInstallerTool 1.5.6 - Released December 18, 2005
+
+    - Fix missing import in utils.py. This closes
+      http://trac.plone.org/plone/ticket/4817.
+      [hannosch]
+
+CMFQuickInstallerTool 1.5.5
+
+    - Keeping track of ResourceRegistries entries.
+      [zwork]
+
+CMFQuickInstallerTool 1.5.4
+
+    - listInstalledProducts and listInstallableProducts now return alphabetized
+      lists.
+      [geoffd]
+
+    - Catch errors where the product is there but install cannot by compiled,
+      this picks up syntax errors and adds the them to an errors dict.
+      When listInstallableProducts is called, the errors dict is repoulated.
+      Also added in a few except ConflictErrors.
+      [andym]
+
+    - Fixing plone bug #3113, where the "uninstall" button would raise an
+      exception if no items were selected; this makes the uninstallProducts()
+      method symmetric with the installProducts() method
+      [optilude]
+
+CMFQuickInstallerTool 1.5.3
+
+    - Added an Extensions.Install module and an initial test suite.
+      [stefan]
+
+    - Added optional reinstall argument to install() and uninstall() method
+      [tiran]
+
+    - Enabled uninstall of deleted products by making the parser.py handle
+      missing product directories slightly more gracefully.
+      [tesdal]
+
+    - Fixed multiple register bug
+
+      QI doesn't assign an object to a product when it is already registered
+      for another product. This fixes bugs like the removal of the archetype
+      tool when a product was removed which itself had had installed Archetypes.
+      [tiran]
+
+    - Added afterInstall / beforeUninstall hooks:
+
+      out = afterInstall(portal, reinstall=reinstall, qi_product)
+      out, cascade = beforeUninstall(portal, reinstall, qi_product, cascade)
+      [tiran]
+
+CMFQuickInstallerTool 1.4
+
+    - reinstall button
+
+      does the same as uninstall/install except that it does _not_ delete
+      objects that have been created on portal_level (portal_objects)
+
+    - product version info
+
+      added getProductVersion to the API
+      shows the version of the products
+      for installed products it also shows the version of the prod at install time
+
+    - By Andy McKay
+
+      Remove the except: pass from trying to make a External method, if there is
+      an error in the import log the error to ZLOG. Unfortunately there is a
+      string error we have to try and catch as well. That string error occurs
+      when the module cant be found, so we should ignore that.
+
+    - content type registry support 
+
+      QuickInstaller now also tracks entries in the content_type_registry.
+
+    - if products have been removed from disc, mark them in the installed list as 'removed'
+
+    - added a ChangeLog :)

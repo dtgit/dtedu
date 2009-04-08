@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+                      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="eduComponents">
+
+  <metal:block fill-slot="top_slot">
+    <metal:block
+      tal:define="dummy python:request.RESPONSE.setHeader('Cache-Control',
+                        'no-cache, no-store, must-revalidate, post-check=0,
+                        pre-check=0');
+                  dummy python:request.set('enable_border', 1);" />
+  </metal:block>
+
+  <metal:calendar fill-slot="javascript_head_slot">
+    <!-- ECMAScript calendar -->
+    <style type="text/css" media="all"
+            tal:content="string:@import url($portal_url/jscalendar/calendar-system.css);"></style>
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/jscalendar/calendar_stripped.js"></script>
+    <script type="text/javascript" charset="iso-8859-1"
+            tal:condition="exists: portal/jscalendar/calendar-en.js"
+            tal:attributes="src string:$portal_url/jscalendar/calendar-en.js"></script>
+  </metal:calendar>
+
+  <body>
+    <metal:block fill-slot="css_slot">
+      <style type="text/css" media="screen"
+          tal:content="string: @import url($portal_url/ecabstyles.css);" />
+    </metal:block>
+
+    <div metal:fill-slot="main"
+         tal:define="errors options/state/getErrors;
+                     review_state wf_state;
+                     all_paths python:request.get('paths', []);
+                     all_objects python:here.getObjectsFromPathList(all_paths, batch=True);
+                     paths python:['/'.join(o.getPhysicalPath())
+                           for o in all_objects if here.ecab_utils.isAssignmentBoxType(o)];
+                     batch python:here.getObjectsFromPathList(paths, batch=True);
+                     came_from python:request.get('HTTP_REFERER', here.absolute_url()).split('?')[0];
+                     dummy python:request.set('orig_template', came_from);
+                     ">
+
+      <metal:block tal:condition="python: paths and not batch"
+                   tal:replace="python:here.redirectToReferrer('The item(s) you selected are no longer available.')"/>
+
+      <metal:block tal:condition="python: len(paths) == 0"
+	tal:content="python:here.redirectToReferrer(here.translate(domain='eduComponents',
+	msgid='err_select_box', default='You need to select at least one assignment box for this action.'))"/>
+
+      <h1 i18n:domain="plone" i18n:translate="">Set Assignment Box Options</h1>
+
+      <form id="edit_form"
+            name="edit_form"
+            method="post"
+            action="modify_boxes"
+            tal:attributes="action string:$here_url/$template_id"
+            tal:condition="not:python:paths and not batch">
+
+	<div class="field" tal:condition="batch">
+	  <label for="" i18n:domain="plone"
+		 i18n:translate="label_affected_content">Affected content</label>
+	  <div tal:define="dummy python:request.set('ids_checked', 1);">
+	    <table summary="Affected content" i18n:attributes="summary summary_affected_content;"
+		   metal:use-macro="here/folder_contents/macros/folder_listing">
+	    </table>
+	  </div>
+	</div>
+
+	<p i18n:translate="description_selective_application">
+	  The settings below are applied if the box next to the title is
+	  checked.
+	</p>
+
+	<fieldset>
+	  <legend>
+	    <input type="checkbox"
+	      class="noborder"
+	      id="use_submission_period_start"
+	      name="use_submission_period_start"
+	      tabindex=""
+	      tal:attributes="tabindex tabindex/next;"/>
+	    <label for="use_submission_period_start"
+	      i18n:translate="label_submission_period_start">Start of Submission Period</label>
+	  </legend>
+
+	  <div class="field"
+	    tal:define="error errors/submission_period_start | nothing;">
+
+	    <div class="formHelp" i18n:translate="help_submission_period_start">
+	      Date after which students are allowed to submit their assignments</div>
+
+	    <div tal:content="error">Validation error output</div>
+
+	    <div class="field">
+	      <div tal:define="inputname  string:submission_period_start;
+		formname   string:edit_form;
+		inputvalue python:request.get('submission_period_start', '');
+		tabindex tabindex/next;"
+		tal:attributes="class python:test(error, 'field error', 'field');
+		onchange string:window.document.edit_form.use_submission_period_start.checked=true;">
+
+		<div metal:use-macro="here/calendar_macros/macros/calendarDatePickerBox">
+		  calendar pop-up
+		</div>
+	      </div>
+	    </div>
+	  </div>
+	</fieldset>
+
+
+	<fieldset>
+	  <legend>
+	    <input type="checkbox"
+	      class="noborder"
+	      id="use_submission_period_end"
+	      name="use_submission_period_end"
+	      tabindex=""
+	      tal:attributes="tabindex tabindex/next;"/>
+	    <label for="use_submission_period_end"
+	      i18n:translate="label_submission_period_end">End of Submission Period</label>
+	  </legend>
+
+	  <div class="field"
+	    tal:define="error errors/submission_period_end | nothing;">
+
+	    <div class="formHelp" i18n:translate="help_submission_period_end">
+	      Date after which assignments can no longer be submitted</div>
+
+	    <div tal:content="error">Validation error output</div>
+
+	    <div class="field">
+	      <div tal:define="inputname  string:submission_period_end;
+		formname   string:edit_form;
+		inputvalue python:request.get('submission_period_end', '');
+		tabindex tabindex/next;"
+		tal:attributes="class python:test(error, 'field error', 'field');
+		onchange string:window.document.edit_form.use_submission_period_end.checked=true;">
+
+		<div metal:use-macro="here/calendar_macros/macros/calendarDatePickerBox">
+		  calendar pop-up
+		</div>
+	      </div>
+	    </div>
+	  </div>
+	</fieldset>
+
+
+	<fieldset>
+	  <legend>
+	    <input type="checkbox"
+	      class="noborder"
+	      id="use_sendNotificationEmail"
+	      name="use_sendNotificationEmail"
+	      tabindex=""
+	      tal:attributes="tabindex tabindex/next;"/>
+	    <label for="use_sendNotificationEmail"
+	      i18n:translate="label_sendNotificationEmail">Send notification e-mail messages</label>
+	  </legend>
+
+	  <div class="field">
+	    <div class="formHelp" i18n:translate="help_sendNotificationEmail">
+	      If selected, the owner of this assignment box will receive an
+	      e-mail message each time an assignment is submitted.
+	    </div>
+
+	    <input type="checkbox"
+	      class="formElement"
+	      id="sendNotificationEmail"
+	      name="sendNotificationEmail"
+	      tabindex=""
+	      tal:attributes="tabindex tabindex/next;
+	      onchange string:window.document.edit_form.use_sendNotificationEmail.checked=true;"/>
+	  </div>
+	</fieldset>
+
+
+	<fieldset>
+	  <legend>
+	    <input type="checkbox"
+	      class="noborder"
+	      id="use_maxTries"
+	      name="use_maxTries"
+	      tabindex=""
+	      tal:attributes="tabindex tabindex/next;"/>
+	    <label for="use_maxTries"
+	      i18n:translate="label_max_tries">Maximum number of attempts</label>
+	  </legend>
+
+	  <div class="field">
+	    <div class="formHelp" i18n:translate="help_max_tries">
+	      Maximum number of attempts, 0 means unlimited
+	    </div>
+
+	    <input type="text"
+	      class="formElement"
+	      id="maxTries"
+	      name="maxTries"
+	      size="5"
+	      maxlength="255"
+	      tabindex=""
+	      tal:attributes="tabindex tabindex/next;
+	      onchange string:window.document.edit_form.use_maxTries.checked=true;"/>
+	  </div>
+	</fieldset>
+
+
+	<div class="formControls" i18n:domain="plone">
+	  <input class="context"
+		 type="submit"
+		 name="form.button.Modify"
+		 value="Save"
+		 i18n:attributes="value label_save;"
+		 tal:attributes="tabindex tabindex/next;"
+		 tal:condition="request/paths|nothing"/>
+	  <input class="standalone"
+		 type="submit"
+		 name="form.button.Cancel"
+		 value="Cancel"
+		 i18n:attributes="value label_cancel;"
+		 tal:attributes="tabindex tabindex/next;"/>
+	</div>
+
+
+	<span tal:replace="nothing">
+	  ##### HIDDEN VARIABLES FOR THE FORM_TOOL -- CUT AND PASTE
+	  THESE INTO YOUR FORM ####
+	</span>
+	<input type="hidden" name="form.submitted" value="1" />
+	<input type="hidden" name="orig_template"
+	       tal:condition="request/orig_template|nothing"
+	       tal:attributes="value request/orig_template"/>
+
+      </form>
+
+      <div tal:condition="not: request/paths|nothing">
+
+        <div metal:use-macro="here/document_byline/macros/byline">
+            Get the byline - contains details about author and modification date.
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

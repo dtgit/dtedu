@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xml:lang="en" lang="en"
+      i18n:domain="eduComponents">
+
+  <body>
+
+    <metal:define define-macro="search">
+      <metal:use use-macro="here/widgets/field/macros/edit" />
+    </metal:define>
+
+    <metal:define define-macro="edit">
+      <metal:use use-macro="here/widgets/file/macros/edit" />
+    </metal:define>
+
+
+    <metal:define define-macro="view">
+      <metal:use use-macro="here/answer_widget/macros/content" />
+      <metal:use use-macro="here/widgets/file/macros/view" />
+    </metal:define>
+
+    <metal:define define-macro="content">
+      <pre tal:define="file accessor;
+                       mime_type file/get_content_type | file/Format;
+                       cnt file/get_data;"
+           tal:condition="cnt"
+           tal:content="cnt">
+      </pre>
+    </metal:define>
+
+  </body>
+</html>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

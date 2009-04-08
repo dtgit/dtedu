@@ -1,0 +1,377 @@
+Local Site Manager
+==================
+
+We start from an empty folder. Since ``OFS.Folder``'s extend
+``ObjectSiteManager`` they all get to be ``IPossibleSite``'s.
+
+    >>> from OFS.Folder import Folder
+    >>> site = Folder('site')
+
+Of course we now need to transform that IPossibleSite into a real ISite.
+
+    >>> import zope.component
+    >>> from zope.app.component.hooks import setSite as setActiveSite
+    >>> from zope.app.component.hooks import clearSite
+
+    >>> from five.localsitemanager import make_objectmanager_site
+    >>> make_objectmanager_site(site)
+    >>> sitemanager = site.getSiteManager()
+    >>> sitemanager
+    <PersistentComponents ...>
+
+Make sure this site has it's ``__bases__`` configure appropriately.
+
+    >>> sitemanager.__bases__
+    (<BaseGlobalComponents ...>,)
+
+Utilities
+---------
+
+Utilities can now be registered with our site manager. We can confirm this by
+setting up a test utility.
+
+    >>> from OFS.SimpleItem import SimpleItem
+    >>> from zope import interface
+
+    >>> class ITestUtility(interface.Interface): pass
+    >>> class TestUtility(object):
+    ...     interface.implements(ITestUtility)
+    ...     def __init__(self, id):
+    ...         self.id = id
+    ...     def __repr__(self):
+    ...         return '<Utility %s "%s">' % (self.__class__.__name__, self.id)
+
+    >>> sitemanager.registerUtility(TestUtility('test'),
+    ...                             name=u'hello_world',
+    ...                             provided=ITestUtility)
+    >>> sitemanager.getUtility(ITestUtility, name=u'hello_world')
+    <Utility TestUtility "test">
+
+Make sure the utility lookup only works when the correct active site has
+been configured.
+
+    >>> setActiveSite(None)
+    >>> zope.component.queryUtility(ITestUtility, name=u'hello_world') is None
+    True
+
+    >>> setActiveSite(site)
+    >>> zope.component.queryUtility(ITestUtility, name=u'hello_world')
+    <Utility TestUtility "test">
+
+Adapters
+---------
+
+Adapters can now be registered with our site manager. We can confirm this by
+setting up a test adapter.
+
+    >>> from OFS.SimpleItem import SimpleItem
+    >>> from zope import interface
+
+    >>> class IFoo(interface.Interface): pass
+    >>> class Foo(object):
+    ...     interface.implements(IFoo)
+    ...     def __init__(self, id):
+    ...         self.id = id
+
+    >>> class ITestAdapter(interface.Interface): pass
+    >>> class TestAdapter(object):
+    ...     interface.implements(ITestAdapter)
+    ...     def __init__(self, context):
+    ...         self.context = context
+    ...     def __repr__(self):
+    ...         return '<Adapter %s adapting "%s">' % (self.__class__.__name__,
+    ...                                                self.context.id)
+
+    >>> sitemanager.registerAdapter(TestAdapter,
+    ...                             required=(IFoo,),
+    ...                             provided=ITestAdapter)
+    >>> sitemanager.getAdapter(Foo('foo'), ITestAdapter)
+    <Adapter TestAdapter adapting "foo">
+
+Make sure the adapter lookup only works when the correct active site has
+been configured.
+
+    >>> setActiveSite(None)
+    >>> zope.component.queryAdapter(Foo('foo'), ITestAdapter) is None
+    True
+
+    >>> setActiveSite(site)
+    >>> zope.component.queryAdapter(Foo('foo'), ITestAdapter)
+    <Adapter TestAdapter adapting "foo">
+    >>> ITestAdapter(Foo('foo'))
+    <Adapter TestAdapter adapting "foo">
+
+Acquisition
+-----------
+
+Now to mix a little required Zope 2 confusion into everything, we must ensure
+that the aq chain is predictable. And based on consensus we decided that the
+acquired parent of a returned utility should be the ``ISite`` that owns the
+``ISiteManager`` that returned the utility. We need to ensure all the ways of
+getting a utility have been covered. Of course this should only happen if the
+utility is acquisition aware to begin with.
+
+    >>> import Acquisition
+    >>> from Acquisition.interfaces import IAcquirer
+
+First off, our utility isn't aq-wrapped so asking it what is aq_parent is
+should return None.
+
+    >>> comp = sitemanager.queryUtility(ITestUtility, name=u'hello_world')
+    >>> Acquisition.aq_parent(comp) is None
+    True
+
+So now we setup a utility that is aq-aware.
+
+    >>> class AQTestUtility(Acquisition.Explicit, TestUtility): pass
+    >>> sitemanager.registerUtility(AQTestUtility('test'),
+    ...                             name=u'aq_wrapped',
+    ...                             provided=ITestUtility)
+
+And of course the aq parent should be the site now.
+
+    >>> comp = sitemanager.getUtility(ITestUtility, name=u'aq_wrapped')
+    >>> Acquisition.aq_parent(comp) is site
+    True
+
+And just to mix things up a bit. Getting back multiple utilities should allow
+us to test both aq and non-aq based components.
+
+We start with getUtilitiesFor():
+
+    >>> utils = [x for x in sitemanager.getUtilitiesFor(ITestUtility)]
+    >>> len(utils)
+    2
+
+    >>> nonaqutils = [(name, comp)
+    ...               for name, comp in utils if not IAcquirer.providedBy(comp)]
+    >>> len(nonaqutils)
+    1
+    >>> name, comp = nonaqutils[0]
+    >>> Acquisition.aq_parent(comp) is None
+    True
+
+    >>> aqutils = [(name, comp)
+    ...            for name, comp in utils if IAcquirer.providedBy(comp)]
+    >>> len(aqutils)
+    1
+    >>> name, comp = aqutils[0]
+    >>> Acquisition.aq_parent(comp) is site
+    True
+
+And then getAllUtilitiesRegisteredFor():
+
+    >>> utils = [x for x in
+    ...          sitemanager.getAllUtilitiesRegisteredFor(ITestUtility)]
+    >>> len(utils)
+    2
+
+    >>> nonaqutils = [comp for comp in utils if not IAcquirer.providedBy(comp)]
+    >>> len(nonaqutils)
+    1
+    >>> comp = nonaqutils[0]
+    >>> Acquisition.aq_parent(comp) is None
+    True
+
+    >>> aqutils = [comp for comp in utils if IAcquirer.providedBy(comp)]
+    >>> len(aqutils)
+    1
+    >>> comp = aqutils[0]
+    >>> Acquisition.aq_parent(comp) is site
+    True
+
+And registeredUtilities():
+
+    >>> utils = [ r.component for r in sitemanager.registeredUtilities() ]
+    >>> len(utils)
+    2
+
+    >>> nonaqutils = [comp for comp in utils if not IAcquirer.providedBy(comp)]
+    >>> len(nonaqutils)
+    1
+    >>> comp = nonaqutils[0]
+    >>> Acquisition.aq_parent(comp) is None
+    True
+
+    >>> aqutils = [comp for comp in utils if IAcquirer.providedBy(comp)]
+    >>> len(aqutils)
+    1
+    >>> comp = aqutils[0]
+    >>> Acquisition.aq_parent(comp) is site
+    True
+
+Nested Sites
+------------
+
+Whenever a component is queried using the component registry, the active
+component registry (ie site manager) needs to be smart enough to check all
+*parent* component registries as well.
+
+Implementation-wise this means that each component registry needs to have an
+appropriate ``__bases__`` attribute configured that is aware of containment
+and (in the case of Zope 2) acquisition to some respect.
+
+Start by creating some nested sites.
+
+    >>> from five.localsitemanager import update_sitemanager_bases
+
+    >>> folder1 = Folder('folder1')
+    >>> make_objectmanager_site(folder1)
+    >>> update_sitemanager_bases(folder1)
+
+    >>> folder1_1 = Folder('folder1_1')
+    >>> make_objectmanager_site(folder1_1)
+    >>> ignored = folder1._setObject('folder1_1', folder1_1)
+    >>> folder1_1 = folder1['folder1_1']
+    >>> update_sitemanager_bases(folder1_1)
+
+Now we check the actual next-site-lookup logic to make sure it's working.
+
+    >>> from five.localsitemanager import find_next_sitemanager, get_parent
+
+Needed to implement our own get_parent (zope3 has one) that is acquisition
+aware.
+
+    >>> get_parent(folder1)
+    Traceback (most recent call last):
+      ...
+    TypeError: ('Not enough context...
+
+    >>> get_parent(folder1_1)
+    <Folder at folder1>
+
+Any logic that sets up a site manager's ``__bases__`` will use the
+``find_next_sitemanager`` function to figure out the next closest place
+to look.
+
+    >>> find_next_sitemanager(folder1) is None
+    True
+
+    >>> find_next_sitemanager(folder1_1)
+    <PersistentComponents ...>
+
+Now we make sure that that the ``__bases__`` have been setup appropriately.
+
+    >>> folder1.getSiteManager().__bases__
+    (<BaseGlobalComponents base>,)
+
+    >>> folder1_1.getSiteManager().__bases__
+    (<PersistentComponents ...>,)
+
+
+Acquisition Context with Nested Sites
+-------------------------------------
+
+    >>> from zope.component import queryUtility
+
+Register a utility with both of the nested site managers:
+
+    >>> sm1 = folder1.getSiteManager()
+    >>> sm1.registerUtility(AQTestUtility('util1'),
+    ...                     name=u'util1',
+    ...                     provided=ITestUtility)
+
+    >>> sm1_1 = folder1_1.getSiteManager()
+    >>> sm1_1.registerUtility(AQTestUtility('util1_1'),
+    ...                           name=u'util1_1',
+    ...                           provided=ITestUtility)
+
+    >>> folder1_1.getSiteManager().__bases__
+    (<PersistentComponents ...>,)
+
+Lookup both utilities in the context of the first site manager:
+
+    >>> setActiveSite(folder1)
+    >>> util1 = queryUtility(ITestUtility, name=u'util1')
+    >>> util1
+    <Utility AQTestUtility "util1">
+
+    >>> util1.aq_chain
+    [<Utility AQTestUtility "util1">, <Folder at folder1>]
+
+The second utility isn't available in the first site manager:
+
+    >>> queryUtility(ITestUtility, name=u'util_1') is None
+    True
+
+Lookup both utilities in the context of the second site manager:
+
+    >>> setActiveSite(folder1_1)
+    >>> util1 = queryUtility(ITestUtility, name=u'util1')
+    >>> util1
+    <Utility AQTestUtility "util1">
+
+We expect to get wrapped in the context of the site manager the utility is
+registered with:
+
+    >>> util1.aq_chain
+    [<Utility AQTestUtility "util1">, <Folder at folder1>]
+
+    >>> util1_1 = queryUtility(ITestUtility, name=u'util1_1')
+    >>> util1_1
+    <Utility AQTestUtility "util1_1">
+
+    >>> util1_1.aq_chain
+    [<Utility AQTestUtility "util1_1">, <Folder at folder1/folder1_1>, <Folder at folder1>]
+
+
+Acquisition Context of Global Utilities
+---------------------------------------
+
+    >>> from zope.component import getGlobalSiteManager
+
+Register a utility with both of the nested site managers:
+
+    >>> gsm = getGlobalSiteManager()
+    >>> gsm.registerUtility(AQTestUtility('globalutil1'),
+    ...                     name=u'globalutil1',
+    ...                     provided=ITestUtility)
+
+    >>> sm1 = folder1.getSiteManager()
+    >>> sm1.registerUtility(AQTestUtility('localutil1'),
+    ...                     name=u'localutil1',
+    ...                     provided=ITestUtility)
+
+Lookup both utilities in the context of the global site manager:
+
+    >>> clearSite()
+    >>> globalutil1 = queryUtility(ITestUtility, name=u'globalutil1')
+    >>> globalutil1
+    <Utility AQTestUtility "globalutil1">
+
+    >>> getattr(globalutil1, 'aq_chain', None) is None
+    True
+
+The local utility isn't available in the global site manager:
+
+    >>> queryUtility(ITestUtility, name=u'localutil1') is None
+    True
+
+Lookup both utilities in the context of the local site manager:
+
+    >>> setActiveSite(folder1)
+    >>> globalutil1 = queryUtility(ITestUtility, name=u'globalutil1')
+    >>> globalutil1
+    <Utility AQTestUtility "globalutil1">
+
+We expect the global utility to get no Acquisition context:
+
+    >>> getattr(globalutil1, 'aq_chain', None) is None
+    True
+
+For the local utility we expect to get wrapped in the context of the local
+site manager:
+
+    >>> localutil1 = queryUtility(ITestUtility, name=u'localutil1')
+    >>> localutil1
+    <Utility AQTestUtility "localutil1">
+
+    >>> localutil1.aq_chain
+    [<Utility AQTestUtility "localutil1">, <Folder at folder1>]
+
+Clean up
+--------
+
+    >>> from zope.testing.cleanup import cleanUp
+    >>> clearSite()
+    >>> cleanUp()

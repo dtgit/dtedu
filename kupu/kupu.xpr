@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <meta>
+        <filters directoryPatterns="" filePatterns=""/>
+    </meta>
+    <projectTree name="kupu.xpr">
+        <folder name="kupu_plone_layer">
+            <folder name=".svn">
+                <folder name="prop-base">
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/contentUsesKupu.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/convertContentForKupu.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/emptypage.pt.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/kupuGetResourceTypes.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/kupuInfoForBrains.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/kupuMyItems.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/kupuRecentItems.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/kupuSearch.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/kupuUploadImage.py.metadata.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/kupuUploadImage.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/kupublank.html.html.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/kupucollection.xml.pt.metadata.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/kupucollection.xml.pt.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/kupulibraries.xml.pt.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/kupumyitems.xml.pt.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/kupuplone.css.dtml.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/kupuploneeditor.js.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/kupuploneinit.js.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/kupuploneui.js.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/kupurecentitems.xml.pt.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/kupusaveonpart.js.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/kupusearch.xml.pt.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/resolveuid.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/sample-kupu-customisation-policy.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/prop-base/wysiwyg_support.pt.svn-base"
+                    />
+                </folder>
+                <folder name="props">
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/contentUsesKupu.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/convertContentForKupu.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/emptypage.pt.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/kupuGetResourceTypes.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/kupuInfoForBrains.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/kupuMyItems.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/kupuRecentItems.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/kupuSearch.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/kupuUploadImage.py.metadata.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/kupuUploadImage.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/kupublank.html.html.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/kupucollection.xml.pt.metadata.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/kupucollection.xml.pt.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/kupulibraries.xml.pt.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/kupumyitems.xml.pt.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/kupuplone.css.dtml.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/kupuploneeditor.js.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/kupuploneinit.js.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/kupuploneui.js.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/kupurecentitems.xml.pt.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/kupusaveonpart.js.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/kupusearch.xml.pt.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/resolveuid.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/sample-kupu-customisation-policy.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/props/wysiwyg_support.pt.svn-work"
+                    />
+                </folder>
+                <folder name="text-base">
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/contentUsesKupu.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/convertContentForKupu.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/emptypage.pt.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/kupuGetResourceTypes.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/kupuInfoForBrains.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/kupuMyItems.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/kupuRecentItems.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/kupuSearch.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/kupuUploadImage.py.metadata.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/kupuUploadImage.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/kupublank.html.html.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/kupucollection.xml.pt.metadata.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/kupucollection.xml.pt.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/kupulibraries.xml.pt.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/kupumyitems.xml.pt.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/kupuplone.css.dtml.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/kupuploneeditor.js.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/kupuploneinit.js.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/kupuploneui.js.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/kupurecentitems.xml.pt.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/kupusaveonpart.js.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/kupusearch.xml.pt.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/resolveuid.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/sample-kupu-customisation-policy.py.svn-base"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/text-base/wysiwyg_support.pt.svn-base"
+                    />
+                </folder>
+                <folder name="tmp">
+                    <folder name="prop-base"/>
+                    <folder name="props"/>
+                    <folder name="text-base"/>
+                    <folder name="wcprops"/>
+                </folder>
+                <folder name="wcprops">
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/contentUsesKupu.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/convertContentForKupu.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/emptypage.pt.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/kupuGetResourceTypes.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/kupuInfoForBrains.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/kupuMyItems.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/kupuRecentItems.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/kupuSearch.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/kupuUploadImage.py.metadata.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/kupuUploadImage.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/kupublank.html.html.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/kupucollection.xml.pt.metadata.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/kupucollection.xml.pt.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/kupulibraries.xml.pt.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/kupumyitems.xml.pt.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/kupuplone.css.dtml.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/kupuploneeditor.js.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/kupuploneinit.js.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/kupuploneui.js.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/kupurecentitems.xml.pt.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/kupusaveonpart.js.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/kupusearch.xml.pt.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/resolveuid.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/sample-kupu-customisation-policy.py.svn-work"/>
+                    <file
+                        name="plone/kupu_plone_layer/.svn/wcprops/wysiwyg_support.pt.svn-work"
+                    />
+                </folder>
+                <file name="plone/kupu_plone_layer/.svn/README.txt"/>
+                <file name="plone/kupu_plone_layer/.svn/dir-prop-base"/>
+                <file name="plone/kupu_plone_layer/.svn/dir-props"/>
+                <file name="plone/kupu_plone_layer/.svn/dir-wcprops"/>
+                <file name="plone/kupu_plone_layer/.svn/empty-file"/>
+                <file name="plone/kupu_plone_layer/.svn/entries"/>
+                <file name="plone/kupu_plone_layer/.svn/format"/>
+            </folder>
+            <folder name="plonekupuimages">
+                <folder name=".svn">
+                    <folder name="prop-base">
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/anchor.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/bgcolor.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/bold.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/center.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/definitionlist.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/delete_icon.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/hr.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/hyperlink.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/indent.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/italic.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/left_just.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/list.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/numbered_list.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/outdent.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/redo.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/right_just.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/space.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/strikethrough.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/subscript.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/superscript.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/table.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/textcolor.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/tools.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/underline.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/undo.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/unformat.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/prop-base/view-source.gif.svn-base"
+                        />
+                    </folder>
+                    <folder name="props">
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/anchor.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/bgcolor.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/bold.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/center.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/definitionlist.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/delete_icon.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/hr.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/hyperlink.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/indent.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/italic.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/left_just.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/list.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/numbered_list.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/outdent.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/redo.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/right_just.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/space.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/strikethrough.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/subscript.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/superscript.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/table.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/textcolor.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/tools.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/underline.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/undo.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/unformat.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/props/view-source.gif.svn-work"
+                        />
+                    </folder>
+                    <folder name="text-base">
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/anchor.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/bgcolor.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/bold.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/center.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/definitionlist.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/delete_icon.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/hr.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/hyperlink.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/indent.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/italic.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/left_just.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/list.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/numbered_list.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/outdent.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/redo.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/right_just.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/space.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/strikethrough.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/subscript.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/superscript.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/table.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/textcolor.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/tools.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/underline.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/undo.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/unformat.gif.svn-base"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/text-base/view-source.gif.svn-base"
+                        />
+                    </folder>
+                    <folder name="tmp">
+                        <folder name="prop-base"/>
+                        <folder name="props"/>
+                        <folder name="text-base"/>
+                        <folder name="wcprops"/>
+                    </folder>
+                    <folder name="wcprops">
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/anchor.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/bgcolor.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/bold.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/center.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/definitionlist.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/delete_icon.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/hr.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/hyperlink.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/indent.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/italic.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/left_just.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/list.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/numbered_list.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/outdent.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/redo.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/right_just.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/space.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/strikethrough.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/subscript.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/superscript.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/table.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/textcolor.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/tools.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/underline.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/undo.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/unformat.gif.svn-work"/>
+                        <file
+                            name="plone/kupu_plone_layer/plonekupuimages/.svn/wcprops/view-source.gif.svn-work"
+                        />
+                    </folder>
+                    <file
+                        name="plone/kupu_plone_layer/plonekupuimages/.svn/README.txt"/>
+                    <file
+                        name="plone/kupu_plone_layer/plonekupuimages/.svn/dir-wcprops"/>
+                    <file
+                        name="plone/kupu_plone_layer/plonekupuimages/.svn/empty-file"/>
+                    <file
+                        name="plone/kupu_plone_layer/plonekupuimages/.svn/entries"/>
+                    <file
+                        name="plone/kupu_plone_layer/plonekupuimages/.svn/format"
+                    />
+                </folder>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/anchor.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/bgcolor.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/bold.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/center.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/definitionlist.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/delete_icon.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/hr.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/hyperlink.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/indent.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/italic.gif"/>
+                <file name="plone/kupu_plone_layer/krb_drawer.xsl.pt"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/left_just.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/list.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/numbered_list.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/outdent.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/redo.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/right_just.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/space.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/strikethrough.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/subscript.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/superscript.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/table.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/textcolor.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/tools.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/underline.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/undo.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/unformat.gif"/>
+                <file
+                    name="plone/kupu_plone_layer/plonekupuimages/view-source.gif"
+                />
+            </folder>
+            <file name="plone/kupu_plone_layer/contentUsesKupu.py"/>
+            <file name="plone/kupu_plone_layer/convertContentForKupu.py"/>
+            <file name="plone/kupu_plone_layer/emptypage.pt"/>
+            <file name="plone/kupu_plone_layer/kupuGetResourceTypes.py"/>
+            <file name="plone/kupu_plone_layer/kupuInfoForBrains.py"/>
+            <file name="plone/kupu_plone_layer/kupuMyItems.py"/>
+            <file name="plone/kupu_plone_layer/kupuRecentItems.py"/>
+            <file name="plone/kupu_plone_layer/kupuSearch.py"/>
+            <file name="plone/kupu_plone_layer/kupuUploadImage.py"/>
+            <file
+                name="plone/kupu_plone_layer/kupuUploadImage.py.metadata"/>
+            <file
+                name="plone/kupu_plone_layer/kupu_wysiwyg_support.html"/>
+            <file name="plone/kupu_plone_layer/kupublank.html.html"/>
+            <file name="plone/kupu_plone_layer/kupucollection.xml.pt"/>
+            <file
+                name="plone/kupu_plone_layer/kupucollection.xml.pt.metadata"/>
+            <file name="plone/kupu_plone_layer/kupulibraries.xml.pt"/>
+            <file name="plone/kupu_plone_layer/kupumyitems.xml.pt"/>
+            <file name="plone/kupu_plone_layer/kupuplone.css.dtml"/>
+            <file name="plone/kupu_plone_layer/kupuploneeditor.js"/>
+            <file name="plone/kupu_plone_layer/kupuploneinit.js"/>
+            <file name="plone/kupu_plone_layer/kupuploneui.js"/>
+            <file name="plone/kupu_plone_layer/kupurecentitems.xml.pt"/>
+            <file name="plone/kupu_plone_layer/kupusaveonpart.js"/>
+            <file name="plone/kupu_plone_layer/kupusearch.xml.pt"/>
+            <file name="plone/kupu_plone_layer/referencebrowser.js"/>
+            <file name="plone/kupu_plone_layer/referencebrowser.pt"/>
+            <file name="plone/kupu_plone_layer/resolveuid.py"/>
+            <file
+                name="plone/kupu_plone_layer/sample-kupu-customisation-policy.py"/>
+            <file name="plone/kupu_plone_layer/wysiwyg_support.pt"/>
+        </folder>
+        <folder name="kupudrawers">
+            <file name="common/kupudrawers/allimages.xml"/>
+            <file name="common/kupudrawers/drawer.xsl"/>
+            <file name="common/kupudrawers/drawer.xsl.metadata"/>
+            <file name="common/kupudrawers/imagelibrary.xml"/>
+            <file name="common/kupudrawers/kupubuttons.xml"/>
+            <file name="common/kupudrawers/libraries.rng"/>
+            <file name="common/kupudrawers/linklibrary.xml"/>
+            <file name="common/kupudrawers/logos.xml"/>
+            <file name="common/kupudrawers/test-drawer.xsl"/>
+        </folder>
+    </projectTree>
+</project>

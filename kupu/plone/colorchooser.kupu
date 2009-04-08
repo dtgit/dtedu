@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<kupu:feature
+    name="colorchooser"
+    implementation="plone"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:kupu="http://kupu.oscom.org/namespaces/dist"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    i18n:domain="kupu"
+    >
+  <kupu:part name="buttons">
+    <span class="kupu-tb-buttongroup" tal:condition="filter/bg-colorchooser">
+      <button type="button" class="kupu-forecolor" id="kupu-forecolor-button"
+              tal:condition="filter/forecolor-button"
+              title="text color: alt-f"
+              i18n:attributes="title title_text_color;" 
+              accesskey="f">&#160;</button>
+      <button type="button" class="kupu-hilitecolor" id="kupu-hilitecolor-button"
+              tal:condition="filter/hilitecolor-button"
+              title="background color: alt-h"
+              i18n:attributes="title title_back_color;"
+              accesskey="h">&#160;</button>
+    </span>
+  </kupu:part>
+
+  <!-- We will have the button tool configuration here, too, once we
+       do tool definitions in XML config. -->
+
+</kupu:feature>

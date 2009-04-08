@@ -1,0 +1,33 @@
+<!--
+    Produces: 'items' for images
+    Needs: a request context 'drawer', containing a listcontainer 'query'.
+-->
+<mm:context
+    xmlns:jsp="http://java.sun.com/JSP/Page" 
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0" 
+    id="drawer" scope="request">
+  <jsp:output omit-xml-declaration="yes" />
+  <mm:import externid="kupubasedir" reset="true" />
+  <mm:content type="text/xml">
+    <mm:listnodescontainer referid="query">
+      <items>
+        <mm:context>
+          <mm:listnodes id="text">
+            <mm:nodeinfo type="nodemanager" id="nm" write="false" />
+            <resource id="${text.number}">          
+              <uri>mmbase://${nm}/${text.number}</uri>
+              <title><mm:hasfunction name="icon" inverse="true"><mm:nodeinfo type="guinodemanager" />: </mm:hasfunction><mm:function name="gui" write="true"><mm:isempty><mm:field name="number" /></mm:isempty></mm:function></title>
+              <description><mm:nodeinfo type="guitype" />: <mm:function name="gui" /></description>
+              <mm:hasfunction name="icon">
+                <icon><mm:function name="icon" /></icon>
+              </mm:hasfunction>
+              <mm:hasfunction name="icon" inverse="true">
+                <icon>${kupubasedir}/common/kupuimages/document.png</icon>
+              </mm:hasfunction>
+            </resource>
+          </mm:listnodes>
+        </mm:context>
+      </items>
+    </mm:listnodescontainer>
+  </mm:content>
+</mm:context>

@@ -1,0 +1,227 @@
+<tal:block replace="nothing">
+## CMFPlacefulWorkflow
+## Copyright (C)2005 Ingeniweb
+
+## This program is free software; you can redistribute it and/or modify
+## it under the terms of the GNU General Public License as published by
+## the Free Software Foundation; either version 2 of the License, or
+## (at your option) any later version.
+
+## This program is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+## GNU General Public License for more details.
+
+## You should have received a copy of the GNU General Public License
+## along with this program; see the file COPYING. If not, write to the
+## Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+Workflow policy mapping template
+
+# $Source: /cvsroot/ingeniweb/CMFPlacefulWorkflow/skins/CMFPlacefulWorkflow/prefs_workflow_policy_mapping.pt,v $
+# $Id: prefs_workflow_policy_mapping.pt 41245 2007-04-28 10:28:26Z limi $
+</tal:block>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/prefs_main_template/macros/master"
+      i18n:domain="cmfplacefulworkflow">
+
+    <metal:block fill-slot="top_slot"/>
+
+    <div metal:fill-slot="prefs_configlet_content"
+         tal:define="type_list python:here.portal_types.listTypeInfo();
+                     type_list python: sequence.sort(type_list, (('Title', 'nocase', 'asc'),));
+                     wfpid python:request.get('wfpid');
+                     wf_policy python:here.portal_placeful_workflow.getWorkflowPolicyById(wfpid);
+                     wf_list here/portal_workflow/objectIds;"
+         class="configlet">
+
+        <span tal:define="dummy python:request.response.setHeader('pragma','no-cache')" />
+
+        <div id="content" class="documentEditable"
+             tal:condition="python:checkPermission('Manage portal', here)">
+
+            <h5 class="hiddenStructure">Views</h5>
+
+            <ul class="contentViews">
+                <li id="contentview-workflow-advanced" class="plain">
+                    <a href="prefs_workflow_advanced"
+                       i18n:translate="label_workflow_global_type_mapping">
+                        Global Content Type to Workflow Mapping
+                    </a>
+                </li>
+                <li id="contentview-workflow-localpolicies" class="selected">
+                    <a href="prefs_workflow_localpolicies_form"
+                       i18n:translate="label_workflow_local_type_mapping">
+                        Local Content Type to Workflow Mapping
+                    </a>
+                </li>
+            </ul>
+
+            <div class="contentActions">
+                &nbsp;
+            </div>
+
+            <div class="documentContent" id="region-content">
+
+                <a name="documentContent"></a>
+
+                <h1>
+                    <span tal:content="wfpid" />
+                    <span tal:condition="python:wf_policy.getTitle()">
+                        (<span tal:content="python:wf_policy.getTitle()" />)
+                    </span>
+                </h1>
+    
+                <a href=""
+                   class="link-parent"
+                   tal:attributes="href string: $portal_url/prefs_workflow_localpolicies_form"
+                   i18n:translate="label_up_to_placeful_workflow">
+                    Up to Placeful Workflow
+                </a>
+    
+                <p i18n:translate="description_workflow_custom_mapping">
+                    Custom workflow policy which maps content types to workflows.
+                </p>
+                <form name="prefs_workflow_policy_mapping_set"
+                      action="prefs_workflow_policy_mapping_set"
+                      method="post">
+    
+                    <fieldset>
+    
+                        <legend i18n:translate="legend_workflow_policy_details">
+                            Workflow Policy Details
+                        </legend>
+    
+                        <div class="field">
+    
+                            <label for="title"
+                                   i18n:domain="plone"
+                                   i18n:translate="label_title">
+                                Title
+                            </label>
+    
+                            <span class="fieldRequired"
+                                  title="Required"
+                                  i18n:domain="plone"
+                                  i18n:attributes="title title_required;"
+                                  i18n:translate="label_required">
+                                (Required)
+                            </span>
+                            <br />
+    
+                            <input type="text"
+                                   id="title"
+                                   name="title"
+                                   value=""
+                                   size="40"
+                                   tal:attributes="value python:request.get('title',wf_policy.getTitle())" />
+                        </div>
+    
+                        <div class="field">
+    
+                            <label for="description"
+                                   i18n:domain="plone"
+                                   i18n:translate="label_description">
+                                Description
+                            </label>
+    
+                            <div class="formHelp"
+                                 i18n:translate="help_workflow_policy_description">
+                                A brief description of the workflow policy.
+                            </div>
+    
+                            <textarea cols="80"
+                                      rows="2"
+                                      id="description"
+                                      name="description"
+                                      tal:content="python:request.get('description',wf_policy.getDescription())">
+                                Workflow Policy Description.
+                            </textarea>
+    
+                        </div>
+    
+                        <div class="field">
+    
+                            <label for="default_workflow_id"
+                                   i18n:translate="label_default_workflow">
+                                Default Workflow
+                            </label>
+    
+                            <div class="formHelp"
+                                 i18n:translate="help_default_workflow_for_types">
+                                Default workflow for content types.
+                            </div>
+    
+                            <select id="select_workflow"
+                                    name="default_workflow_id">
+    
+                                <option tal:repeat="wf wf_list"
+                                        tal:attributes="value wf;
+                                                        selected python:test((wf,)==wf_policy.getDefaultChain(here), 'selected', None)"
+                                        tal:content="wf">
+                                    example_workflow
+                                </option>
+                            </select>
+                        </div>
+    
+                        <div class="field">
+    
+                            <label for="workflow_id"
+                                   i18n:translate="label_workflow_by_type">
+                                Workflows by type
+                            </label>
+    
+                            <div class="formHelp" i18n:translate="help_workflow_assign_all_types">
+                                You can assign a workflow for all content types.
+                            </div>
+    
+                            <table class="field"
+                                   summary="Workflow to content type mapping."
+                                   i18n:attributes="summary summary_workflow_type_mapping;">
+                                <tal:ctype tal:repeat="ctype type_list">
+                                    <tr tal:define="ctype_title ctype/Title;
+                                                    ctype_id ctype/getId;
+                                                    chain python:wf_policy.getChainFor(ctype_id, managescreen=True) or ('backward compatibility',);
+                                                    ">
+                                        <td valign="top">
+                                            <img src="" alt="" width="16" height="16"
+                                                 tal:attributes="src string:$portal_url/${ctype/getIcon}" />
+                                            <label tal:content="ctype_title"
+                                                   i18n:domain="plone"
+                                                   i18n:translate="">Title</label>
+                                        </td>
+                                        <td valign="top">
+                                            <select id="select_workflow" name="workflow_id"
+                                                    tal:attributes="name string:wf.${ctype_id}:record;" >
+                                                <option value=""></option>
+                                                <option value="(Default)"
+                                                        tal:attributes="value string:(Default);
+                                                                        selected python:test('(Default)' == chain, 'selected', None);"
+                                                                        >(Default)</option>
+                                                <option tal:repeat="wf wf_list"
+                                                        tal:attributes="value wf;
+                                                                        selected python:test(wf != '(Default)' and wf in chain, 'selected', None)"
+                                                        tal:content="wf">workflow_id</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </tal:ctype>
+                            </table>
+                            <input type="hidden" value="" name="wfpid" tal:attributes="value wfpid" />
+                        </div>
+                        <div class="formControls">
+                            <input class="context"
+                                   type="submit"
+                                   name="submit"
+                                   value="Save"
+                                   i18n:domain="plone"
+                                   i18n:attributes="value label_save;" />
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</html>

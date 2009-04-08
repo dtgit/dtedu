@@ -1,0 +1,145 @@
+# Gettext Message File for ATReferenceBrowserWidget
+msgid ""
+msgstr ""
+"Project-Id-Version: ATReferenceBrowserWidget\n"
+"POT-Creation-Date: 2007-09-01 12:34+0000\n"
+"PO-Revision-Date: 2005-05-20 19:51+0200\n"
+"Last-Translator: Tiberiu Ichim <tibi@life.org.ro>\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: ro\n"
+"Language-Name: Romanian\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: atreferencebrowserwidget\n"
+
+#. Default: "Add..."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:177
+msgid "label_add"
+msgstr ""
+
+#. Default: "Browse..."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:212
+msgid "label_browse"
+msgstr "Cauta..."
+
+#. Default: "( Directory: ${directory})"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:47
+msgid "label_directory"
+msgstr ""
+
+#. Default: "Go"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:98
+msgid "label_go"
+msgstr ""
+
+#. Default: "Move bottom"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:201
+msgid "label_move_bottom"
+msgstr ""
+
+#. Default: "Move down"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:194
+msgid "label_move_down"
+msgstr ""
+
+#. Default: "Move top"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:180
+msgid "label_move_top"
+msgstr ""
+
+#. Default: "Move up"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:187
+msgid "label_move_up"
+msgstr ""
+
+#. Default: "No reference set. Click the browse button to select."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:136
+msgid "label_no_reference_set"
+msgstr "Nu are o referinta selectate. Fa click pe butonul Cauta pentru a selecta."
+
+#. Default: "Remove reference"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:218
+msgid "label_remove_reference"
+msgstr "Sterge referinta"
+
+#. Default: "Remove selected items"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:225
+msgid "label_remove_selected_items"
+msgstr "Sterge elementele selectate"
+
+#. Default: "Back"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:77
+#, fuzzy
+msgid "referencebrowser_back"
+msgstr "inapoi"
+
+#. Default: "Browse"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:316
+msgid "referencebrowser_browse"
+msgstr ""
+
+#. Default: "Clear history"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:103
+msgid "referencebrowser_clearhistory"
+msgstr ""
+
+#. Default: "Close window"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:79
+#, fuzzy
+msgid "referencebrowser_close"
+msgstr "inchide fereastra"
+
+#. Default: "Search results"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:184
+msgid "referencebrowser_heading_search_results"
+msgstr "Rezultate cautare"
+
+#. Default: "History"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:90
+msgid "referencebrowser_history"
+msgstr ""
+
+#. Default: "Insert"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:311
+#, fuzzy
+msgid "referencebrowser_insert_reference"
+msgstr "insereaza"
+
+#. Default: "No items found."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:235
+msgid "referencebrowser_no_items_found"
+msgstr "Nici un element nu a fost gasit."
+
+#. Default: "Search index"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:127
+msgid "referencebrowser_search_index_label"
+msgstr "Index cautare"
+
+#. Default: "Search terms"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:152
+msgid "referencebrowser_search_term"
+msgstr "Termeni de cautare"
+
+#. Default: "Search"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:133
+msgid "referencebrowser_search_terms"
+msgstr "Cauta"
+
+#. Default: "Added reference to:"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:174
+msgid "referencebrowser_text_added_reference"
+msgstr "Referinta adaugata pentru:"
+
+#. Default: "view"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:332
+msgid "referencebrowser_view"
+msgstr "vezi"
+
+#. Default: "Home"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:202
+msgid "tabs_home"
+msgstr ""
+

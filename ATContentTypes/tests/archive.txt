@@ -1,0 +1,177 @@
+=================================
+tests for archive adapter usage
+=================================
+
+There are two kinds of archiver. One for folderish content, one for non-folderish content. We test them both separately below, based on the same hiearchy.
+
+Create the hierarchy to contain some documents for testing the archive machinery
+
+  >>> folder = self.folder
+  >>> folder.invokeFactory('Folder', 'f1')
+  'f1'
+  >>> folder.f1.invokeFactory('Folder', 'subf1_1')
+  'subf1_1'
+  >>> folder.f1.invokeFactory('Folder', 'subf1_2')
+  'subf1_2'
+  >>> folder.f1.subf1_2.invokeFactory('Folder', 'subsubf1_2_1')
+  'subsubf1_2_1'
+  
+Add a selection of documents
+
+  >>> folder.f1.invokeFactory('Document', 'd1')
+  'd1'
+  >>> folder.f1.d1.setText("A nice text")
+  >>> folder.f1.subf1_1.invokeFactory('Document', 'd2')
+  'd2'
+  >>> folder.f1.subf1_1.d2.setText("A nice text")
+  >>> folder.f1.subf1_1.invokeFactory('Document', 'd3')
+  'd3'
+  >>> folder.f1.subf1_1.d3.setText("A nice text")
+  >>> folder.f1.subf1_2.subsubf1_2_1.invokeFactory('Document', 'd4')
+  'd4'
+
+=========================================
+1. Recursive archive on folderish content
+=========================================
+
+Note: We don't need to test the view for the archive, since all it does is call the adapter. So we call the adapter in the same way as archive view does it.
+
+Import the interface
+  
+  >>> from Products.ATContentTypes.interface.archive import IArchiver
+  
+As specified in configure.zcml, here:
+
+  <adapter
+      for=".interface.interfaces.IATFolder"
+      factory=".adapters.archive.FolderishArchiver"
+      provides=".interface.archive.IArchiver"
+      />
+                          
+invoking the IArchiver interface on a folder (which is folderish ;) will create a folderish archiver adapter
+
+  >>> folderishArchiver = IArchiver(folder.f1)
+
+Then get the raw archive on the top level folder. By default the archive will be recursive.
+
+  >>> zipFile = folderishArchiver.getRawArchive()
+
+Create the zip file from the raw value
+
+  >>> from zipfile import ZipFile
+  >>> from cStringIO import StringIO
+  >>> zip = ZipFile(StringIO(zipFile),"r",8)
+
+Now check that the contents of the zip file match the original hierarchy
+
+Did we get all the structure?
+
+  >>> zip.namelist()
+  ['f1/subf1_1/d2', 'f1/subf1_1/d3', 'f1/subf1_2/subsubf1_2_1/d4', 'f1/d1']
+
+And is the file content the same as we inserted
+
+  >>> zip.read('f1/d1')
+  'A nice text'
+ 
+  >>> zip.read('f1/subf1_1/d2')
+  'A nice text'
+
+============================================
+2.Non-recursive archive on folderish content
+============================================
+
+Build the archive. Note that recursive=0 paramter to getRawArchive. This forces archiving of the top level folder and its immediate contents only.
+
+  >>> zipFile = folderishArchiver.getRawArchive(recursive=0)
+  >>> from zipfile import ZipFile
+  >>> from cStringIO import StringIO
+  >>> zip = ZipFile(StringIO(zipFile),"r",8)
+
+Check that we get just the top folder and the single contained file - no sub folders
+
+  >>> zip.namelist()
+  ['f1/d1']
+
+            
+===================================
+3. Archive on non-folderish content
+===================================
+
+===================================
+3.1 Document
+===================================
+
+Create a single document and some content
+
+  >>> folder.invokeFactory('Document', 'd5')
+   'd5'
+  >>> folder.d5.setText('A nice text')
+
+As specified in configure.zcml, here:
+
+  <adapter
+      for=".interface.interfaces.IATDocument"
+      factory=".adapters.archive.NonFolderishArchiver"
+      provides=".interface.archive.IArchiver"
+      />
+                          
+invoking the IArchiver interface on a document (which is non-folderish) will create a non-folderish archiver adapter
+
+  >>> nonFolderishArchiver = IArchiver(folder.d5)
+
+Get a zip file to look at
+
+  >>> zipFile = nonFolderishArchiver.getRawArchive()
+  >>> from zipfile import ZipFile
+  >>> from cStringIO import StringIO
+  >>> zip = ZipFile(StringIO(zipFile),"r",8)
+
+Check that the document exists with no hierarchy
+
+  >>> zip.namelist()
+  ['d5']
+
+And that its content is as we expect
+
+  >>> zip.read('d5')
+  'A nice text'
+ 
+============================
+4. Test the Zip accumulator
+============================
+
+Create an accumulator
+
+  >>> from Products.ATContentTypes.adapters.archive import ZipAccumulator
+  >>> accu = ZipAccumulator(folder.d5)
+
+Test that it starts off empty
+
+  >>> rawArchive = accu.getRaw()
+  >>> zip = ZipFile(StringIO(rawArchive),"r",8)
+  >>> zip.namelist()
+  []
+
+Add some very simple fils
+
+  >>> accu.setFile('folder1/file1', 'abc')
+  >>> accu.setFile('folder1/file2', 'xyz')
+  >>> accu.setFile('folder2/file1', '123')
+  >>> accu.setFile('folder2/folder3/file1', 'ABC')
+  >>> accu.setFile('folder2/folder3/file2', 'XYZ')
+
+Test that the hierarchy is in the archive
+  >>> rawArchive = accu.getRaw()
+  >>> zip = ZipFile(StringIO(rawArchive),"r",8)
+  >>> zip.namelist()
+  ['folder1/file1', 'folder1/file2', 'folder2/file1', 'folder2/folder3/file1', 'folder2/folder3/file2']
+
+Spot check the file contents
+
+  >>> zip.read('folder1/file1')
+  'abc'
+
+  >>> zip.read('folder2/folder3/file2')
+  'XYZ'
+  

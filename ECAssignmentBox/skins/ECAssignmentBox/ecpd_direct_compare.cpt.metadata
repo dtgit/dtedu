@@ -1,0 +1,15 @@
+[default]
+title = Set Submission Period
+
+[security]
+View = 0:Authenticated
+
+[validators]
+validators=
+
+[actions]
+action.success..compareButton = traverse_to:string:ecpd_direct_compare_script
+action.success = redirect_to:string:folder_contents
+action.success..Cancel = redirect_to:string:folder_contents
+action.success..OkButton = traverse_to:string:ecpd_view_relations
+action.failure = redirect_to:string:ecpd_direct_compare

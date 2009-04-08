@@ -1,0 +1,7 @@
+=====================
+Spellchecking in Kupu
+=====================
+
+After Kupu 1.3 was released, Guido began support for a spellchecker.
+This document explains how the spellchecker works and collects ideas
+for improving it.

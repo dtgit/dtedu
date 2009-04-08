@@ -1,0 +1,132 @@
+==============================================================================
+Doctest for images upload 
+Based on the test tutorial: http://plone.org/documentation/tutorial/testing/doctests 
+and the AddMoveAndDeleteDocument.txt doc test from CMFPlone
+==============================================================================
+
+Create the browser object we'll be using.
+
+Read more about the browser object in top of UploadAttachment.txt
+
+    >>> from Products.Five.testbrowser import Browser
+    >>> browser = Browser()
+    >>> browser.open('http://nohost/plone')
+    >>> 'Welcome to Plone' in browser.contents
+    True
+    
+Log into Plone
+    
+    >>> browser.getControl('Login Name').value = 'test_user_1_'
+    >>> browser.getControl('Password').value = 'secret'
+    >>> browser.getControl('Log in').click()
+    >>> 'You are now logged in' in browser.contents
+    True
+    
+Go the member folder and add a Rich document    
+
+    >>> browser.getLink('My Folder').click()
+    >>> browser.getLink('Add new').click()
+    >>> 'Add new item' in browser.contents
+    True
+
+    >>> browser.getControl('Rich document').click()
+    >>> browser.getControl('Add').click()
+    >>> #'Edit Page' in browser.contents # ouch, Plone has <span> around 'Page'
+    >>> browser.url
+    'http://nohost/plone/Members/test_user_1_/portal_factory/RichDocument/.../edit'
+
+Edit simple stuff like title and description
+
+    >>> browser.getControl('Title').value = 'Rich document'
+    >>> browser.getControl('Description').value = 'This is a rich document'
+    >>> browser.getControl('Save').click()
+    >>> browser.open('http://nohost/plone/Members/test_user_1_/rich-document')
+    >>> 'Rich document' in browser.contents
+    True
+
+Prepare image upload, create a fake image file.
+Based on:
+http://mail.zope.org/pipermail/zope3-users/2006-July/003830.html
+http://wiki.zope.org/zope3/FAQ#how-to-test-file-upload-using-zope-testbrowser
+
+    >>> import StringIO
+    >>> myPhoto = StringIO.StringIO('my photo')
+
+Lets upload an image
+
+    >>> browser.getLink('Edit').click()
+    >>> browser.getControl(name='imageTitle').value = 'Image 1'
+    >>> control = browser.getControl(name='imageFile')
+    >>> fileControl = control.mech_control
+    >>> fileControl.add_file(myPhoto, filename='myPhoto.gif')
+    >>> browser.getControl(name='form.button.UploadImage').click()
+
+
+For now lets always show images in a download box
+TODO: This feature appears to be broken download box seems always to be shown. Integrate a test for this in the current test or in a separate test. Also set up a test for the image tag it self when selecting the alternative page template "float first image" like done in the zope 3 image example
+.. >>> imgTag =
+.. 'src="http://nohost/plone/Members/test_user_1_/rich-document/myPhoto.gif"'
+.. >>> imgTag in user.contents
+.. True
+
+    >>> browser.getControl('Display images download box').selected = True
+    >>> browser.getControl('Save').click()
+
+
+Lets check if the image was uploaded at all
+
+    >>> browser.open('http://nohost/plone/Members/test_user_1_/rich-document')
+    >>> 'Image 1' in browser.contents
+    True
+    
+And check that the image is available for download
+        
+    >>> browser.getLink('Image 1').click()
+    >>> browser.url
+    'http://nohost/plone/Members/test_user_1_/rich-document/myPhoto.gif'
+
+
+Lets add a second image with an identical file name as the first image
+
+    >>> browser.open('http://nohost/plone/Members/test_user_1_/rich-document')
+    >>> browser.getLink('Edit').click()
+    >>> browser.getControl(name='imageTitle').value = 'Image 2'
+    >>> control = browser.getControl(name='imageFile')
+    >>> fileControl = control.mech_control
+    >>> fileControl.add_file(myPhoto, filename='myPhoto.gif')
+    >>> browser.getControl(name='form.button.UploadImage').click()
+    >>> browser.open('http://nohost/plone/Members/test_user_1_/rich-document')
+
+Lets check if the image was uploaded at all
+
+    >>> 'Image 2' in browser.contents
+    True
+
+And check that the image is available for download
+    
+    >>> browser.getLink('Image 2').click()
+    >>> browser.url
+    'http://nohost/plone/Members/test_user_1_/rich-document/myPhoto.0.gif'
+
+Lets add a third image with an identical file name as the first and second image
+This should crash the plone site / the test
+
+    >>> browser.open('http://nohost/plone/Members/test_user_1_/rich-document')
+    >>> browser.getLink('Edit').click()
+    >>> browser.getControl(name='imageTitle').value = 'Image 3'
+    >>> control = browser.getControl(name='imageFile')
+    >>> fileControl = control.mech_control
+    >>> fileControl.add_file(myPhoto, filename='myPhoto.gif')
+    >>> browser.getControl(name='form.button.UploadImage').click()
+
+Lets check if the image was uploaded at all
+
+    >>> browser.open('http://nohost/plone/Members/test_user_1_/rich-document')
+    >>> 'Image 3' in browser.contents
+    True
+    
+And check that the image is available for download
+    
+    >>> browser.getLink('Image 3').click()
+    >>> browser.url
+    'http://nohost/plone/Members/test_user_1_/rich-document/myPhoto.1.gif'

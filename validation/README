@@ -1,0 +1,17 @@
+validator
+=========
+
+Data validation package for Archetypes.
+
+Installation
+------------
+
+* Extract the tarball 
+
+* Add it to you Zope Products Directory. 
+
+Mailing-list
+------------
+Discussion about this package occurs to the archetypes mailing list :
+http://sourceforge.net/mail/?group_id=75272
+or on the #plone channel of irc.freenode.net.

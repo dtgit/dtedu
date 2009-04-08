@@ -1,0 +1,103 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: ECLecture\n"
+"POT-Creation-Date: 2006-04-03 13:38+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: eduComponents\n"
+
+#. Default: "Title"
+#: ECLecture.py
+msgid "Title"
+msgstr ""
+
+#. Default: "URL"
+#: ECLecture.py
+msgid "URL"
+msgstr ""
+
+#. Default: "Icon"
+#: ECLecture.py
+msgid "Icon"
+msgstr ""
+
+#. Default: "once"
+#: ECLecture.py
+msgid "once"
+msgstr ""
+
+#. Default: "daily"
+#: ECLecture.py
+msgid "daily"
+msgstr ""
+
+#. Default: "weekly"
+#: ECLecture.py
+msgid "weekly"
+msgstr ""
+
+#. Default: "monthly"
+#: ECLecture.py
+msgid "monthly"
+msgstr ""
+
+#. Default: "yearly"
+#: ECLecture.py
+msgid "yearly"
+msgstr ""
+
+#. Default: "Monday"
+#: ECLecture.py
+msgid "Monday"
+msgstr ""
+
+#. Default: "Tuesday"
+#: ECLecture.py
+msgid "Tuesday"
+msgstr ""
+
+#. Default: "Wednesday"
+#: ECLecture.py
+msgid "Wednesday"
+msgstr ""
+
+#. Default: "Thursday"
+#: ECLecture.py
+msgid "Thursday"
+msgstr ""
+
+#. Default: "Friday"
+#: ECLecture.py
+msgid "Friday"
+msgstr ""
+
+#. Default: "Saturday"
+#: ECLecture.py
+msgid "Saturday"
+msgstr ""
+
+#. Default: "Sunday"
+#: ECLecture.py
+msgid "Sunday"
+msgstr ""
+
+#. Default: "Slides"
+#: ECLecture.py
+msgid "default_slides_title"
+msgstr ""
+
+#. Default: "Assignments"
+#: ECLecture.py
+msgid "default_assignments_title"
+msgstr ""

@@ -1,0 +1,90 @@
+# Gettext Message File for Plone
+# Alexander Limi <limi@plone.org>, 2002-2004
+# Dorneles Treméa <dorneles@x3ng.com.br>, 2003-2004
+msgid ""
+msgstr ""
+"Project-Id-Version: Plone\n"
+"POT-Creation-Date: 2008-10-20 16:11+0000\n"
+"PO-Revision-Date: 2004-11-10 05:10+0000\n"
+"Last-Translator: Dorneles Treméa <dorneles@x3ng.com.br>\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: plone\n"
+"X-Is-Fallback-For: en-au en-bz en-ca en-ie en-jm en-nz en-ph en-za en-tt en-gb en-us en-zw\n"
+
+#. Default: "- Simple workflow that is useful for basic web sites. - Things start out as a private draft, and can be  published directly. - The creator of a content item can edit the item even after it is published."
+#: ../profiles/openocw/workflows/two_step_workflow/definition.xml
+msgid "- Simple workflow that is useful for basic web sites. - Things start out as a private draft, and can be  published directly. - The creator of a content item can edit the item even after it is published."
+msgstr ""
+
+#. Default: "- Simple workflow that is useful for basic web sites. - Things start out as a private draft, and can be published directly. - All users can edit the content when Published."
+#: ../profiles/openocw/workflows/open_workflow/definition.xml
+msgid "- Simple workflow that is useful for basic web sites. - Things start out as a private draft, and can be published directly. - All users can edit the content when Published."
+msgstr ""
+
+#. Default: "A file stored on the File System."
+#: ../profiles/default/types/FSSFile.xml
+#: ../profiles/openocw/types/FSSFile.xml
+msgid "A file stored on the File System."
+msgstr ""
+
+#. Default: "A folder designed to capture feedback via a form."
+#: ../profiles/default/types/Feedback.xml
+#: ../profiles/openocw/types/Feedback.xml
+msgid "A folder designed to capture feedback via a form."
+msgstr ""
+
+#. Default: "An automatically updated stored search that can be used to display a course listing"
+#: ../profiles/default/types/CoursesTopic.xml
+#: ../profiles/openocw/types/CoursesTopic.xml
+msgid "An automatically updated stored search that can be used to display a course listing"
+msgstr ""
+
+#. Default: "Course List"
+#: ../profiles/default/types/CoursesTopic.xml
+#: ../profiles/openocw/types/CoursesTopic.xml
+msgid "Course List"
+msgstr ""
+
+#. Default: "Feedback"
+#: ../profiles/default/types/Feedback.xml
+#: ../profiles/openocw/types/Feedback.xml
+msgid "Feedback"
+msgstr ""
+
+#. Default: "Large File"
+#: ../profiles/default/types/FSSFile.xml
+#: ../profiles/openocw/types/FSSFile.xml
+msgid "Large File"
+msgstr ""
+
+#. Default: "Make Private"
+#: ../profiles/openocw/workflows/open_workflow/definition.xml
+#: ../profiles/openocw/workflows/two_step_workflow/definition.xml
+msgid "Make Private"
+msgstr ""
+
+#. Default: "Owner publishes content"
+#: ../profiles/openocw/workflows/open_workflow/definition.xml
+#: ../profiles/openocw/workflows/two_step_workflow/definition.xml
+msgid "Owner publishes content"
+msgstr ""
+
+#. Default: "Private Draft"
+#: ../profiles/openocw/workflows/open_workflow/definition.xml
+#: ../profiles/openocw/workflows/two_step_workflow/definition.xml
+msgid "Private Draft"
+msgstr ""
+
+#. Default: "eduCommons OpenOCW Workflow"
+#: ../profiles/openocw/workflows/open_workflow/definition.xml
+#: ../profiles/openocw/workflows/two_step_workflow/definition.xml
+msgid "eduCommons OpenOCW Workflow"
+msgstr ""
+

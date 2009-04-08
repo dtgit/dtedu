@@ -1,0 +1,63 @@
+# Changes in release 1.4 (2008-XX-XX)
+
+- Plone-3 compatibility added and deprecation warning removed
+
+- Partly migration to GenericSetup
+
+# Changes in release 1.3 (2007-06-27)
+
+- ECFolders and assignment boxes now have an "analysis" tab which 
+  provides more information about contained assignments, e.g., number
+  of attempts users needed for an assignment or number of submissions 
+  per day.
+
+- The "assignments (full)" view (shows the full text of all assignments
+  on one page) is now integrated in the "assignments" tab.
+
+- New content type ECAssignmentTask, which can be used to build a
+  repository of assignments; ECAssignmentTask objects can be
+  referenced from ECAssignmentBoxes.
+
+- If an assignment box is located inside an ECLecture object which
+  requires registration, submissions are only allowed for users
+  enrolled in the course.
+
+# Changes in release 1.2 (2007-02-28)
+
+- Added field "Maximum number of attempts" to ECAssignmentBox to
+  restrict the number of resubmissions.
+
+- Implemented issue #118: For box owners and managers it is now
+  possible make submissions even if the assignment box is in state
+  'public draft' or 'private', and to make any number of
+  resubmissions.
+
+- In the "assignments" view:
+
+  - If there is more than one assignment box inside an ECFolder one
+    will see a table for each box.  Clicking the check box in one of
+    the tables' header will check or uncheck all entries inside this
+    table only and *not* all entries in all tables.
+
+  - Now it is possible to toggle the view of superseded assignments.
+
+  - Added clickable workflow states (assignments can now be filtered
+    by workflow state).
+
+  - Added delete button and polished the "change state" controls.
+
+- As addition to the "assignments" view, owners and managers can use
+  the "assignments (full)" tab to see the full text of all assignments
+  on one page.
+
+- If the parent of an assignment box is an ECFolder and this ECFolder
+  contains directions, the directions will be shown inside a
+  collapsible box on top of the assignment box.
+
+- Fixed issue #119: Uploads can now be any size.
+
+- Fixed issue #120: Students do not see shared assignments of other
+  users in the "statistics" view.
+
+- Performance improvements: We are now using portal_catalog where
+  possible.

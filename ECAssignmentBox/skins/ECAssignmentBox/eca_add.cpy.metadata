@@ -1,0 +1,12 @@
+[default]
+title = Add ECAssignment
+proxy = Manager, Authenticated
+
+[security]
+View = 0:Authenticated
+
+[validators]
+validators=
+
+[actions]
+action.failure=traverse_to:string:ecab_view

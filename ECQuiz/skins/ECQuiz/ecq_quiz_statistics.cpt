@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+                      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="ECQuiz"
+      metal:use-macro="here/main_template/macros/master">
+      
+ <body>
+  <metal:block fill-slot="css_slot">
+   <style type="text/css" media="screen"
+    tal:content="string: @import url($portal_url/ecqstyles.css);"></style>
+  </metal:block>
+
+  <div metal:fill-slot="main"
+   tal:define="
+   ecq_tool  nocall:portal/ecq_tool;
+   tabindex    python:Iterator();
+   ">
+   <div metal:use-macro="here/document_actions/macros/document_actions">
+    Document actions (print, sendto, etc.)
+   </div>
+
+   <h1>
+    <span i18n:translate="statistics_for" tal:omit-tag="">Statistics for</span>
+    <span tal:replace="here/title_or_id"/>
+   </h1>
+
+   <metal:use use-macro="here/ecq_tools/macros/up_one_level">
+    Up one level
+   </metal:use>
+
+   <!-- debugging output -->
+   <tal:suppress replace="nothing">
+    <h2>getItemStatistics</h2>
+    <div tal:define="items python: here.getItemStatistics(keepQuestionGroups=False)">
+     <tal:block tal:repeat="cand python: items.keys()">
+      <h5 tal:content="cand"/>
+      <p tal:content="python: items[cand]"/>
+     </tal:block>
+    </div>
+
+    <h2>getItemStatistics2</h2>
+    <div tal:define="items python: here.getItemStatistics2(keepQuestionGroups=False)">
+     <tal:block tal:repeat="cand python: items.keys()">
+      <h5 tal:content="cand"/>
+      <p tal:content="python: items[cand]"/>
+     </tal:block>
+    </div>
+
+    <h2>getItemStatisticsW</h2>
+    <div tal:define="items python: here.getItemStatisticsW()">
+     <tal:block tal:repeat="item items">
+      <p tal:content="item"/>
+     </tal:block>
+    </div>
+
+    <h2>getResultsAsList</h2>
+    <div tal:define="items python: here.getResultsAsList()">
+     <tal:block tal:repeat="item items">
+      <p tal:content="item"/>
+     </tal:block>
+    </div>
+
+    <h2>getItemStatistics3</h2>
+    <div tal:define="items python: here.getItemStatistics3()">
+     <tal:block tal:repeat="item items">
+      <p tal:content="item"/>
+     </tal:block>
+    </div>
+
+    <h2>getItemStatisticsTable</h2>
+    <div tal:define="items python: here.getItemStatisticsTable(keepQuestionGroups=False)">
+     <tal:block tal:repeat="item items">
+      <p tal:content="item"/>
+     </tal:block>
+    </div>
+
+    <div
+     tal:define="table python: here.getItemStatisticsTable(keepQuestionGroups=False)">
+     <table class="listing" id="sortable">
+      <thead>
+       <tr>
+	<th/>
+	<tal:block tal:repeat="qTitle python: table[0][1:]">
+	 <th tal:content="qTitle"/>
+	</tal:block>
+       </tr>
+      </thead>
+      <tbody>
+       <tal:block tal:repeat="candRow python: table[3:]">
+	<tr>
+	 <td tal:content="python: candRow[0]"/>
+	 <tal:block tal:repeat="score python: candRow[1:]">
+	  <td tal:content="score"/>
+	 </tal:block>
+	</tr>
+       </tal:block>
+      </tbody>
+     </table>
+    </div>
+
+    <h2>getDetailedScores</h2>
+    <div tal:define="items python: here.getDetailedScores()">
+     <tal:block tal:repeat="item items">
+      <p tal:content="item"/>
+     </tal:block>
+    </div>
+   </tal:suppress>
+
+   <!-- -->
+
+   <tal:block define="
+    table         python: here.getDetailedScores();
+    empty         python: not table[1:];
+    haveGrades    python: table[0][1:] and (not table[0][1][1]);
+    contentOffset python: (haveGrades and 2) or 1;
+    ">
+    <!-- Nobody has taken this quiz -->
+    <p tal:condition="empty"
+     i18n:translate="no_graded_results">
+     There are no graded results for this quiz.
+    </p>
+
+    <tal:if_have_results condition="not: empty">
+     <table class="listing" id="sortable">
+      <thead>
+       <tr>
+	<tal:block tal:repeat="title python: table[0]">
+	 <th tal:content="python: title[0]"/>
+	</tal:block>
+       </tr>
+
+       <tr>
+	<tal:block tal:repeat="title python: table[0]">
+	 <td style="text-align: left">
+	  <a tal:content="python: title[1]"
+	   i18n:domain="plone" i18n:translate=""
+           tal:condition="python: title[1]"
+	   tal:attributes="href python: title[2]"/>
+	 </td>
+	</tal:block>
+       </tr>
+      </thead>
+
+      <tfoot>
+       <tal:block tal:repeat="candRow python: table[-4:]">
+	<tr>
+	 <td tal:content="python: candRow[0]"/>
+         <tal:if_have_grades condition="haveGrades">
+          <td tal:content="python: candRow[1]"/>
+         </tal:if_have_grades>
+	 <tal:block tal:repeat="score python: candRow[contentOffset:]">
+	  <td style="text-align: right"
+	   tal:content="python: ecq_tool.localizeNumber('%.2f', score)"/>
+	 </tal:block>
+	</tr>
+       </tal:block>
+      </tfoot>
+
+      <tbody>
+       <tal:block tal:repeat="candRow python: table[1:-4]">
+	<tr tal:define="oddrow repeat/candRow/odd;"
+	 tal:attributes="class python: test(oddrow, 'odd', 'even')">
+	 <td tal:content="python: ecq_tool.getFullNameById(candRow[0])"/>
+         <tal:if_have_grades condition="haveGrades">
+          <td style="text-align:right;"
+           tal:define="
+           number        python:candRow[1];
+           isFloatOrNone python:(number is None) or same_type(number, 1.1);
+           ">
+           <tal:if condition="isFloatOrNone">
+            <metal:use use-macro="here/ecq_quiz_results/macros/display_number">
+             Grade
+            </metal:use>
+           </tal:if>
+           <tal:else condition="not: isFloatOrNone">
+            <span tal:replace="number">Grade</span>
+           </tal:else>
+          </td>
+         </tal:if_have_grades>
+	 <tal:block tal:repeat="score python: candRow[contentOffset:]">
+	  <td style="text-align: right"
+	   tal:content="python: ecq_tool.localizeNumber('%.2f', score)"/>
+	 </tal:block>
+	</tr>
+       </tal:block>
+      </tbody>
+     </table>
+
+     <div class="formControls">
+      <!-- Export Button -->
+      <form name="exportItemStatistics" 
+       action="#" 
+       method="post"
+       tal:attributes="action here_url">
+       <input class="context"
+	tabindex="#"
+	type="submit"
+	name="ecq_quiz_statistics_export:method"
+	value="Export"
+	tal:attributes="tabindex tabindex/next;"
+	i18n:attributes="value"
+	/>
+      </form>
+     </div>
+    </tal:if_have_results>
+   </tal:block>
+
+  </div>
+ </body>
+</html>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:1
+sgml-indent-data:t
+indent-tabs-mode:nil
+fill-column:79
+End:
+-->

@@ -1,0 +1,7 @@
+Installation Instructions
+=========================
+
+- Use the QuickInstaller tool or Plone's Control Panel 'Add/Remove
+  Products' feature to install Flon
+- Visit the marshaller_registry tool and add Marshalling Predicates as desired.
+

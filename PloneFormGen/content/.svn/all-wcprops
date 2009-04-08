@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/collective/!svn/ver/80947/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/content
+END
+saveDataAdapter.py
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/content/saveDataAdapter.py
+END
+actionAdapter.py
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/content/actionAdapter.py
+END
+formMailerAdapter.py
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/collective/!svn/ver/73729/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/content/formMailerAdapter.py
+END
+likertField.py
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/content/likertField.py
+END
+fieldset.py
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/content/fieldset.py
+END
+fieldsBase.py
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/content/fieldsBase.py
+END
+formLikertField.py
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/collective/!svn/ver/80947/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/content/formLikertField.py
+END
+validationMessages.py
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/content/validationMessages.py
+END
+form.py
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/content/form.py
+END
+thanksPage.py
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/content/thanksPage.py
+END
+fields.py
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/content/fields.py
+END

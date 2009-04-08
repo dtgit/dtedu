@@ -1,0 +1,39 @@
+# Changes in release 1.1 (2007-07-16)
+
+- New question type: Scale questions can be used for Likert scales and
+  similar response types.  Each answer is assigned a certain
+  percentage of the total score for the question.  Scale questions can
+  be displayed horizontally or vertically.
+
+- New "Quick Edit" function: Quick Edit enables you to quickly edit a
+  complete quiz in textual form or to create it offline in a text
+  editor.
+
+- Initial check-in of some unit tests for ECQuiz
+
+- Fixed bug #126: imsmanifest.xml files are now valid wrt the XML
+  Schema.
+
+- Several other bug fixes
+
+- Compatibility with DataGridField 1.5
+
+- Italian translation
+
+# Changes in release 1.0 (2006-09-11)
+
+- New management of test results
+
+- References to questions and question groups from other tests
+
+- Tutor-graded questions
+
+- Extended text questions (always tutor-graded)
+
+- Each question/question group can be placed on a separate page;
+  navigation between pages can be disabled
+
+- Grading scale, allowing you to map test scores to grades (or other
+  categories)
+
+- Slovenian translation

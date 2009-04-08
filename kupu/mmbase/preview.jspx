@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions" 
+     xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0">
+  <jsp:output omit-xml-declaration="true" />
+  <mm:content type="text/html" expires="0">
+    <mm:import externid="objectnumber" />
+    <mm:cloud method="asis">
+      <mm:node referid="objectnumber">
+        <!--
+        <mm:formatter format="xhtml"> 
+          <mm:field name="body" />
+          <mm:listrelations type="object" role="idrel" searchdir="destination">
+            <mm:relatednode>
+              <mm:nodeinfo type="nodemanager">
+                <mm:compare value="blocks">
+                <mm:listrelations type="object" role="idrel" searchdir="destination" >
+                  <mm:relatednode />
+                </mm:listrelations>
+                </mm:compare>
+              </mm:nodeinfo>
+            </mm:relatednode>
+          </mm:listrelations>
+        </mm:formatter>
+        -->
+      </mm:node>    
+    </mm:cloud>
+  </mm:content>
+</div>

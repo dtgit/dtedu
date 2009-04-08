@@ -1,0 +1,62 @@
+<html metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+    <head>
+        <metal:block metal:fill-slot="css_slot">
+        <style type="text/css">
+            .pos_diff { color:green }
+            .neg_diff { color:red }
+        </style>
+        </metal:block>
+    </head>
+    <body>
+
+        <div metal:fill-slot="main">
+            <h1 i18n:translate="heading_diff_between">
+                Diff between
+                <span tal:content="options/obj1/getId" i18n:name="object1"/>
+                and
+                <span tal:content="options/obj2/getId" i18n:name="object2" />
+            </h1>
+        <div metal:define-macro="diff_view"
+             tal:define="obj1 nocall:options/obj1;
+                         obj2 nocall:options/obj2;
+                         schematas obj1/Schemata;
+                         fieldsets python:[key for key in schematas.keys() if (key != 'metadata') and (schematas[key].editableFields(here, visible_only=True))];
+                         default_fieldset python:(not schematas or schematas.has_key('default')) and 'default' or fieldsets[0];
+                         fieldset request/fieldset|options/fieldset|default_fieldset;
+                         widget_macros python:path('context/diff_widgets/macros');
+                         default_widget widget_macros/default;
+                         normalizeString python:here.plone_utils.normalizeString;
+                         diffs options/diffs">
+            <div id="archetypes-schemata-links" 
+                 tal:condition="fieldsets">
+              <tal:block repeat="set fieldsets">
+                <tal:current condition="python:set == fieldset and fieldsets != ['default']">
+                  <strong>[<span tal:content="set" i18n:translate="" />]</strong>
+                </tal:current>
+                <tal:others condition="python:set != fieldset">
+                  <a href="#" tal:attributes="href string:${here/absolute_url}/${template/getId}?fieldset=${set}">
+                  [<span tal:content="set" i18n:translate="" />]</a>
+                </tal:others>
+              </tal:block>
+            </div>
+            <div tal:repeat="diff diffs">
+                <tal:condition tal:condition="python:diff.schemata == fieldset">
+                    <h3 tal:content="diff/label">title</h3>
+                    <tal:define tal:define="diff_type python:normalizeString(diff.meta_type);
+                                            ndiff diff/ndiff;
+                                            widget python: path('widget_macros/%s | widget_macros/default' % diff_type);">
+                        <div metal:use-macro="widget" />
+                    </tal:define>
+
+                </tal:condition>
+            </div>
+            <input type="button" class="context" value="Previous"
+                    onclick="history.go(-1)"
+                    i18n:attributes="value label_previous;"
+                    />
+        </div>
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+                      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+  lang="en"
+  metal:use-macro="here/prefs_main_template/macros/master"
+  i18n:domain="eduComponents">
+
+  <metal:block fill-slot="top_slot"
+    tal:define="dummy python:request.set('disable_border', 1)" />
+
+  <body>
+    <div metal:fill-slot="prefs_configlet_main"
+        tal:define="errors  options/state/getErrors;
+            ecab_utils nocall:portal/ecab_utils;">
+
+      <h1 i18n:translate="heading_ecab_prefs">Assignment Box Settings</h1>
+
+      <a href=""
+        class="link-parent visualNoPrint"
+        tal:attributes="href string: $portal_url/plone_control_panel"
+        i18n:translate="label_up_to_plone_setup">
+        Up to Plone Setup
+      </a>
+
+      <p i18n:translate="description_ecab_prefs">Settings that affect the
+	behavior of all assignment boxes on this site.</p>
+
+      <form action=""
+          name="ecab_prefs"
+          method="post"
+          tal:attributes="action string:${here/absolute_url}/${template/getId}">
+
+        <fieldset>
+          <legend i18n:translate="legend_ecab_attr_mapping">
+            Student attributes mapping
+          </legend>
+
+	  <p i18n:translate="help_ecab_attr_mapping">Here you can specify user
+	    attributes which should be used to retrieve additional student
+	    information.  The available user attributes are listed in
+	    <code>portal_memberdata</code> in the Zope Management Interface.
+	    On your site, some of them are:
+
+	    <span i18n:name="properties" style="font-style: italic;"
+	      tal:content="python: ', '.join(filter(lambda p:
+	      here.portal_memberdata.getPropertyType(p) in ('string', 'int'),
+	      here.portal_memberdata.propertyIds()))"/>.
+	    
+	    Additional user attributes may be available, e.g., if the user data
+	    for your site is stored in an LDAP directory.
+	  </p>
+
+          <div class="field"
+	    tal:define="student_id_attr request/student_id_attr
+	                | portal_properties/ecab_properties/student_id_attr;
+	    error errors/student_id_attr | nothing;"
+	    tal:attributes="class python:test(error, 'field error', 'field');">
+
+            <label i18n:translate="label_student_id">Student ID</label>
+
+            <div class="formHelp" i18n:translate="help_student_id_attr">
+              The user attribute which stores the student ID.
+            </div>
+
+            <div tal:condition="error" 
+                i18n:translate="error_student_id_attr">Error message
+            </div>
+
+            <input name="student_id_attr" 
+                type="text" 
+                tal:attributes="value    student_id_attr;
+                                tabindex tabindex/next;"/>
+          </div>
+  
+          <div class="field"
+              tal:define="major_attr  request/major_attr
+	                  | portal_properties/ecab_properties/major_attr;
+                          error errors/major_attr | nothing;"
+              tal:attributes="class  python:test(error, 'field error', 'field');">
+        
+            <label i18n:translate="label_major">Major</label>
+
+            <div class="formHelp" i18n:translate="help_major_attr">
+              The user attribute which stores a student's major.
+            </div>
+
+            <div tal:condition="error" 
+                i18n:translate="error_major_attr">Error message
+            </div>
+    
+            <input name="major_attr" 
+                type="text" 
+                tal:attributes="value    major_attr;
+                                tabindex tabindex/next;"/>
+          </div>
+
+          <div class="field"
+	    tal:define="personal_title_attr  request/personal_title_attr
+	               | portal_properties/ecab_properties/personal_title_attr;
+	    error errors/personal_title_attr | nothing;"
+	    tal:attributes="class python:test(error, 'field error', 'field');">
+        
+            <label i18n:translate="label_personal_title">Title</label>
+
+            <div class="formHelp" i18n:translate="help_personal_title_attr">
+              The user attribute which stores a student's personal title (such
+              as &ldquo;Mr.&rdquo; or &ldquo;Ms.&rdquo;).
+            </div>
+
+            <div tal:condition="error" 
+                i18n:translate="error_personal_title_attr">Error message
+            </div>
+    
+            <input name="personal_title_attr" 
+                type="text" 
+                tal:attributes="value    personal_title_attr;
+                                tabindex tabindex/next;"/>
+          </div>
+
+          <div class="formControls">
+            <input class="context"
+              tabindex=""
+              type="submit"
+              name="form.button.Save"
+              value="Save"
+              i18n:domain="plone"
+              i18n:attributes="value"
+              tal:attributes="tabindex tabindex/next;"/>
+
+            <input class="standalone"
+              tabindex=""
+              type="submit"
+              name="form.button.Cancel"
+              value="Cancel"
+              i18n:domain="plone"
+              i18n:attributes="value"
+              tal:attributes="tabindex tabindex/next;"/>
+          </div>
+
+        </fieldset>
+        <input type="hidden" name="form.submitted" value="1" />
+      </form>
+    </div>
+  </body>
+</html>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

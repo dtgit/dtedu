@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<kupu-settings
+   xmlns:tal="http://xml.zope.org/namespaces/tal"
+                tal:define="info context/getTool;"
+                 >
+  <config
+          tal:attributes="linkbyuid info/getLinkbyuid;
+          captioning info/getCaptioning;
+          userefbrowser info/getRefBrowser;
+          filtersourceedit info/getFiltersourceedit;
+          installbeforeunload python:test(info.installBeforeUnload(),True,None);">
+    <table tal:repeat="klass info/getTableClassnames"
+           tal:content="klass" />
+    <style tal:repeat="style info/getParagraphStyles"
+           tal:content="style"/>
+    <filter tal:repeat="ex info/getHtmlExclusions" tal:attributes="tags python:' '.join(ex[0]);attributes python:' '.join(ex[1])" />
+    <filterstyle tal:repeat="st info/getStyleWhitelist" tal:content="st" />
+    <filterclass tal:repeat="cl info/getClassBlacklist" tal:content="cl" />
+  </config>
+  <library tal:repeat="lib info/zmi_get_libraries"
+           tal:attributes="id lib/id; title lib/title; uri lib/uri;
+           src lib/src;icon lib/icon">
+  </library>
+  <defaultlibrary tal:content="info/zmi_get_default_library" />
+  <resource tal:repeat="res info/export_resource_types"
+            tal:attributes="id res/name;mode res/mode">
+    <type tal:repeat="t res/types" tal:content="t"/>
+  </resource>
+  <defaultresource tal:content="info/getDefaultResource" />
+  <preview tal:repeat="t context/getPreviews"
+           tal:attributes="portaltype t/portal_type;
+           preview t/previewaction; normal t/normalaction; scalefield t/scalefield" />
+  <globaltoolbar tal:content="info/getGlobalButtonFilter" />
+  <toolbar>
+    <element tal:repeat="opt info/getFilterOptions"
+             tal:attributes="id opt/id; visible opt/visible; expression opt/override;" />
+  </toolbar>
+</kupu-settings>

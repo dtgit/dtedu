@@ -1,0 +1,141 @@
+# Gettext Message File for ECQuiz.
+# -*- coding: iso-8859-1 -*-
+msgid ""
+msgstr ""
+"Project-Id-Version: ECQuiz\n"
+"POT-Creation-Date: 2004-11-25 10:29 +0100\n"
+"PO-Revision-Date: 2007-06-27 19:28\n"
+"Last-Translator: Michael Piotrowski <mxp@iws.cs.uni-magdeburg.de>\n"
+"Language-Team: eduComponents <educomponents@uni-magdeburg.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: de\n"
+"Language-Name: Deutsch\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+"X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
+
+msgid "A multiple-choice question."
+msgstr "Eine Multiple-Choice-Frage."
+
+msgid "An online quiz."
+msgstr "Ein Online-Test."
+
+msgid "A question that allows the candidate to write a text answer."
+msgstr "Eine Textfrage."
+
+msgid "A reference to a question or a question group from another quiz."
+msgstr "Eine Referenz auf eine Frage aus einem anderen Test."
+
+msgid "Base Answer"
+msgstr "Basis-Antwort"
+
+msgid "Base Question"
+msgstr "Basis-Frage"
+
+msgid "Correct Answer"
+msgstr "Richtig/Falsch-Antwort"
+
+msgid "Extended Text Question"
+msgstr "Textfrage"
+
+msgid "Grade"
+msgstr "Benoten"
+
+# msgid "Pending"
+# msgstr ""
+msgid "Graded"
+msgstr "Benotet"
+
+msgid "Groups several questions into a unit."
+msgstr "Fasst mehrere Fragen zu einer Einheit zusammen."
+
+msgid "Import/Export"
+msgstr "Import/Export"
+
+msgid "Invalid"
+msgstr "Ungültig"
+
+msgid "Answer"
+msgstr "Antwort"
+
+msgid "Question"
+msgstr "Frage"
+
+msgid "Question Group"
+msgstr "Fragegruppe"
+
+msgid "Scale Question"
+msgstr "Skalenfrage"
+
+msgid "Reference"
+msgstr "Referenz"
+
+msgid "Result"
+msgstr "Ergebnis"
+
+# The type names and descriptions
+msgid "Quiz"
+msgstr "Quiz"
+
+msgid "Not Submitted"
+msgstr "Nicht eingereicht"
+
+msgid "Please use XHTML conformant markup."
+msgstr "Bitte verwenden Sie XHTML-konformes Markup."
+
+msgid "Points Question"
+msgstr "Punkte-Frage"
+
+msgid "Rating Question"
+msgstr "Bewertungsfrage"
+
+# Results
+msgid "Results"
+msgstr "Ergebnisse"
+
+# The edit tabs (such as 'Edit', 'Metadata', ...)
+# Script Upload
+msgid "Script Upload"
+msgstr "Script-Upload"
+
+msgid "Selection Answer"
+msgstr "Auswahl-Antwort"
+
+msgid "Selection Question"
+msgstr "Auswahl-Frage"
+
+msgid "Statistics"
+msgstr "Statistik"
+
+msgid "Superseded"
+msgstr "Ersetzt"
+
+msgid "description_edit_extextquestion"
+msgstr "Hier können sie eine Text-Frage erstellen."
+
+msgid "description_edit_scalequestion"
+msgstr "Ein Skalenfrage erfordert die Auswahl eines Punktes auf einer Skala, etwa einer Bewertung."
+
+msgid "description_edit_mcquestion"
+msgstr "Hier können sie eine Multiple-Choice-Frage erstellen."
+
+msgid "description_edit_mcquestiongroup"
+msgstr "Hier können Sie eine Fragegruppe erstellen."
+
+msgid "description_edit_mcreference"
+msgstr "Hier können Sie eine Referenz auf eine Frage oder eine Fragegruppe aus einem anderen  Test erstellen."
+
+msgid "description_edit_mctest"
+msgstr "Ein Online-Test."
+
+# Keep this comment at the end of the file
+
+# Local variables:
+# mode: apache
+# time-stamp-start: "\"PO-Revision-Date: "
+# time-stamp-end: "\\\\n\""
+# time-stamp-format: "%y-%02m-%02d %02H:%02M"
+# End:

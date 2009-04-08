@@ -1,0 +1,19 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:gs="http://namespaces.zope.org/genericsetup"
+   xmlns:five="http://namespaces.zope.org/five"
+   i18n_domain="SimpleAttachment">
+  
+  <!-- Register the GenericSetup extension profile so that we can
+       install the product
+    -->
+    <gs:registerProfile
+       name="SimpleAttachment"
+       title="Attachment support"
+       directory="profiles/default"
+       description="Simple attachment content types and widget"
+       provides="Products.GenericSetup.interfaces.EXTENSION"
+       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+       />
+    
+</configure>

@@ -1,0 +1,12 @@
+[default]
+title = Get extended superseeded analysis.
+
+[security]
+View = 0:Authenticated
+
+[validators]
+validators=
+
+[actions]
+action.success=redirect_to:request/orig_template|string:analysis
+action.failure=redirect_to:request/orig_template|string:analysis

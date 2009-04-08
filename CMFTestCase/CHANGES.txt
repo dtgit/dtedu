@@ -1,0 +1,62 @@
+0.9.7
+- The CMFSite layer can now be set up more than once.
+
+0.9.6
+- Deal with new skin setup in CMF 2.1 and up.
+- Provide hasPackage and installPackage if ZopeTestCase supports it.
+- Use new stateless GenericSetup API in CMF 2.1 and up.
+
+0.9.4
+- Minor test fixes to cater for changes in CMF.
+
+0.9.2
+- Added support for local component registries. We now call setSite() on the
+  portal before importing profiles and before each test.
+
+0.9.0
+- Added CMF21 constant.
+- Prepared for switching ZopeTestCase to Zope3 interfaces.
+- Load etc/site.zcml lazily instead of using the wrapper.
+- Import extension profiles one by one to gain better control.
+- Added a CMFTestCase.addProfile() method that allows to import
+  extension profiles into the site. This is an alternative to
+  passing the 'extension_profiles' argument to setupCMFSite().
+- Create the CMF site lazily using layer.CMFSite.
+- Renamed utils.py to five.py.
+
+0.8.6
+- Made sure layer cleanup resets Five.zcml to "not initialized".
+
+0.8.4
+- Allow to pass a base profile to the setupCMFSite function.
+- Added a ZCMLLayer to support recent Zopes and zope.testing.testrunner.
+  Thanks to Whit Morris.
+
+0.8.2
+- Added support for passing a list of GenericSetup extension profiles
+  to the setupCMFSite function.
+
+0.8.0
+- Updated to new portal creation process of CMF 1.6.
+
+0.7.0
+- Updated to CMF 1.5.
+- Added an API module, ctc.py.
+- Added an addProduct() method to CMFTestCase that allows to add a product
+  to the portal. This is as alternative to passing a 'products' argument
+  to setupCMFSite().
+- CMFTestCase now uses the version independend 'transaction' module provided
+  by ZopeTestCase >= 0.9.8.
+
+0.6.0 (not released)
+- setupCMFSite() now accepts a 'products' argument which allows to specify
+  a list of products that will be added to the portal by executing their
+  respective Extensions.Install.install() methods.
+- Removed setupCMFSkins() and the ability to setup a CMF site w/o skins.
+- Made the ZopeTestCase.utils module available as CMFTestCase.utils.
+- Added FunctionalTestCase base class for "functional" CMF tests.
+- Test classes now assert their interfaces.
+
+0.5.0
+- Package for testing CMF-based products and applications.
+

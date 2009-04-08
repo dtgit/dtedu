@@ -1,0 +1,36 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    >
+
+  <include file="adapters.zcml"/>
+  <include file="browser.zcml"/>
+  <include file="implements.zcml"/>
+
+  <include package=".exportimport" />
+  <include package="plone.i18n.normalizer" />
+
+  <five:deprecatedManageAddDelete
+      class=".content.document.ATDocument" />
+  <five:deprecatedManageAddDelete
+      class=".content.event.ATEvent" />
+  <five:deprecatedManageAddDelete
+      class=".content.favorite.ATFavorite" />
+  <five:deprecatedManageAddDelete
+      class=".content.file.ATFile" />
+  <five:deprecatedManageAddDelete
+      class=".content.folder.ATFolder" />
+  <five:deprecatedManageAddDelete
+      class=".content.folder.ATBTreeFolder" />
+  <five:deprecatedManageAddDelete
+      class=".content.image.ATImage" />
+  <five:deprecatedManageAddDelete
+      class=".content.link.ATLink" />
+  <five:deprecatedManageAddDelete
+      class=".content.newsitem.ATNewsItem" />
+  <five:deprecatedManageAddDelete
+      class=".content.topic.ATTopic" />
+  <five:deprecatedManageAddDelete
+      class=".criteria.base.ATBaseCriterion" />
+
+</configure>

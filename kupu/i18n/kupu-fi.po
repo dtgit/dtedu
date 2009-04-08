@@ -1,0 +1,995 @@
+# translation of kupu-fi.po to
+# Tarmo Toikkanen <tarmo.toikkanen@iki.fi>, 2007.
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: kupu-fi\n"
+"POT-Creation-Date: 2007-10-25 15:35+0000\n"
+"PO-Revision-Date: 2007-12-06 22:46+0200\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"Language-Team:  <en@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: kupu\n"
+"Language-code: fi\n"
+"Language-name: Finnish\n"
+"Preferred-encodings: utf-8 latin1\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#. Default: "Data"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "Data"
+msgstr "Data"
+
+#. Default: "Formatted"
+#: default\toolbar.kupu
+msgid "Formatted"
+msgstr "Muotoiltu"
+
+#. Default: "Grid"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "Grid"
+msgstr "Ruudukko"
+
+#. Default: "Heading 1"
+#: default\toolbar.kupu
+msgid "Heading 1"
+msgstr "Otsikkotaso 1"
+
+#. Default: "Heading 2"
+#: default\toolbar.kupu
+msgid "Heading 2"
+msgstr "Otsikkotaso 2"
+
+#. Default: "Heading 3"
+#: default\toolbar.kupu
+msgid "Heading 3"
+msgstr "Otsikkotaso 3"
+
+#. Default: "Heading 4"
+#: default\toolbar.kupu
+msgid "Heading 4"
+msgstr "Otsikkotaso 4"
+
+#. Default: "Heading 5"
+#: default\toolbar.kupu
+msgid "Heading 5"
+msgstr "Otsikkotaso 5"
+
+#. Default: "Heading 6"
+#: default\toolbar.kupu
+msgid "Heading 6"
+msgstr "Otsikkotaso 6"
+
+#. Default: "Listing"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "Listing"
+msgstr "Listaus"
+
+#. Default: "Normal paragraph"
+#: default\drawers.kupu
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#, fuzzy
+msgid "Normal"
+msgstr "Normaali"
+
+#. Default: "Plain"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "Plain"
+msgstr "Pelkkä"
+
+#. Default: "Anchors"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "anchordrawer_title"
+msgstr "Ankkurit"
+
+#. Default: "Add Column"
+#: default\toolboxes.kupu
+msgid "button_add_column"
+msgstr "Lisää sarake"
+
+#. Default: "Add Row"
+#: default\toolboxes.kupu
+msgid "button_add_row"
+msgstr "Lisää rivi"
+
+#. Default: "Add Table"
+#: default\toolboxes.kupu
+msgid "button_add_table"
+msgstr "Lisää taulukko"
+
+#. Default: "Cancel"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+#: common\kupudrawers\drawer.xsl
+msgid "button_cancel"
+msgstr "Peru"
+
+#. Default: "Fix Table"
+#: default\toolboxes.kupu
+msgid "button_fix_table"
+msgstr "Korjaa taulukko"
+
+#. Default: "Insert Image"
+#: default\toolboxes.kupu
+msgid "button_insert_image"
+msgstr "Lisää kuva"
+
+#. Default: "Make Link"
+#: default\toolboxes.kupu
+msgid "button_makelink"
+msgstr "Tee linkki"
+
+#. Default: "Ok"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+#: common\kupudrawers\drawer.xsl
+msgid "button_ok"
+msgstr "Ok"
+
+#. Default: "Preview"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "button_preview"
+msgstr "Esikatselu"
+
+#. Default: "Reload"
+#: common\kupudrawers\drawer.xsl
+msgid "button_reload"
+msgstr "Virkistä"
+
+#. Default: "Remove Column"
+#: default\toolboxes.kupu
+msgid "button_remove_column"
+msgstr "Poista sarake"
+
+#. Default: "Remove Row"
+#: default\toolboxes.kupu
+msgid "button_remove_row"
+msgstr "Poista rivi"
+
+#. Default: "Remove Table"
+#: default\toolboxes.kupu
+msgid "button_remove_table"
+msgstr "Poista taulukko"
+
+#. Default: "Convert to HTML and edit with the visual editor"
+#: plone\wysiwyg_support.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "convert-to-kupu"
+msgstr "Muunna HTML:ksi ja muokkaa visuaalisella editorilla."
+
+#. Default: "Anchors are created for checked paragraphs and removed for unchecked paragraphs when you press Ok. Anchors in use on this page may not be deleted."
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "create_anchor_help"
+msgstr "Ankkurit tehdään valituille kappaleille ja poistetaan kappaleista, joita et ole merkinnyt, kun napsautat Ok-painiketta. Käytössä olevia ankkureita ei voida poistaa."
+
+#. Default: "Select a paragraph style then choose a paragraph and Ok to insert a link to that location."
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "create_anchor_link_help"
+msgstr "Valitse ensin kappaleen tyyli, sitten kappale ja lopuksi napsauta Ok-painiketta, niin saat linkin haluamaasi kohtaan."
+
+#. Default: "Select one or two paragraph styles, then Ok to insert a table of contents."
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "create_toc_help"
+msgstr "Valitse yksi tai kaksi kappaletyyliä ja napsauta Ok-painiketta luodaksesi sisällysluettelon."
+
+#. Default: "You may use this box to insert custom snippets of HTML code. There is no guarantee that any code inserted in this way will be preserved when you save your edits. To select an existing object from IE click on the border, from Firefox double click it."
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "custom_html_help"
+msgstr "Voit käyttää tätä laatikkoa lisätäksesi omia HTML-merkintöjä. Merkintöjen säilymistä tallennusvaiheessa ei taata. Voit valita olemassaolevan kohteen IE:llä napsauttamalla kohteen reunaa, Firefoxissa kaksoisnapsauttamalla kohdetta."
+
+#. Default: "Drawer"
+#: common\kupudrawers\drawer.xsl
+msgid "default_drawer_title"
+msgstr ""
+
+#. Default: "My recently edited items."
+#: plone\kupu_plone_layer\kupumyitems.xml.pt
+msgid "descr_myitems"
+msgstr "Viimeiset muokkaukseni."
+
+#. Default: "Recently published items."
+#: plone\kupu_plone_layer\kupurecentitems.xml.pt
+msgid "descr_recentitems"
+msgstr "Viimeaikoina julkaistut."
+
+#. Default: "Search results."
+#: plone\kupu_plone_layer\kupusearch.xml.pt
+msgid "descr_search_results"
+msgstr "Hakutulokset."
+
+#. Default: "Current selection."
+#: plone\kupu_plone_layer\kupuselection.xml.pt
+msgid "descr_selected"
+msgstr "Nykyinen valinta."
+
+#. Default: "<em>...fetching anchors...</em>"
+#: common\kupudrawers\drawer.xsl
+msgid "fetching_anchors"
+msgstr "<em>...haetaan ankkureita...</em>"
+
+#. Default: "Edit with visual editor"
+#: plone\body.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "force-kupu"
+msgstr "Muokkaa visuaalisella editorilla"
+
+#. Default: "HTML"
+#: plone\wysiwyg_support.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "format_html"
+msgstr "HTML"
+
+#. Default: "My Items"
+#: plone\kupu_plone_layer\kupumyitems.xml.pt
+msgid "heading_myitems"
+msgstr "Omat merkintäni"
+
+#. Default: "Recent Items"
+#: plone\kupu_plone_layer\kupurecentitems.xml.pt
+msgid "heading_recentitems"
+msgstr "Viimeaikaiset"
+
+#. Default: "Selected"
+#: plone\kupu_plone_layer\kupuselection.xml.pt
+msgid "heading_selected"
+msgstr "Valitut"
+
+#. Default: "If you are unsure of which format to use, just select Plain Text and type the document as you usually do."
+#: plone\wysiwyg_support.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "help_format"
+msgstr "Jos et ole varma oikeasta muodosta, valitse \"Pelkkä teksti\" ja kirjoita sisältöä tavalliseen tapaan."
+
+#. Default: "Paste &lt;object&gt; or &lt;embed&gt; tag here:"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "help_paste_here"
+msgstr "Liitä &lt;object&gt;- tai &lt;embed&gt;-tagi tähän:"
+
+#. Default: "Alignment"
+#: common\kupudrawers\drawer.xsl
+msgid "image_alignment"
+msgstr "Tasaus"
+
+#. Default: "Caption"
+#: common\kupudrawers\drawer.xsl
+msgid "imagedrawer_caption_label"
+msgstr "Kuvateksti"
+
+#. Default: "Inline"
+#: common\kupudrawers\drawer.xsl
+msgid "imagedrawer_inline"
+msgstr "Sisennetty"
+
+#. Default: "Left"
+#: common\kupudrawers\drawer.xsl
+msgid "imagedrawer_left"
+msgstr "Vasen"
+
+#. Default: "Right"
+#: common\kupudrawers\drawer.xsl
+msgid "imagedrawer_right"
+msgstr "Oikea"
+
+#. Default: "( ${width} by ${height} )"
+#: common\kupudrawers\drawer.xsl
+msgid "imagedrawer_size"
+msgstr "( ${width} x ${height} )"
+
+#. Default: "Size"
+#: common\kupudrawers\drawer.xsl
+msgid "imagedrawer_size_2"
+msgstr "Koko"
+
+#. Default: "Style"
+#: common\kupudrawers\drawer.xsl
+msgid "imagedrawer_style"
+msgstr "Tyyli"
+
+#. Default: "Insert Image"
+#: common\kupudrawers\drawer.xsl
+msgid "imagedrawer_title"
+msgstr "Lisää kuva"
+
+#. Default: "Text equivalent"
+#: common\kupudrawers\drawer.xsl
+msgid "imagedrawer_upload_alt_text"
+msgstr "Tekstiselite"
+
+#. Default: "Description"
+#: common\kupudrawers\drawer.xsl
+msgid "imagedrawer_upload_desc_label"
+msgstr "Kuvaus"
+
+#. Default: "Select an image from your computer and click ok to have it automatically uploaded to selected folder and inserted into the editor."
+#: common\kupudrawers\drawer.xsl
+msgid "imagedrawer_upload_instructions"
+msgstr "Valitse kuva koneeltasi ja napsauta Ok-painiketta, jolloin se lisätään palvelimelle valitseemasi kansioon. Kuva ilmestyy tämän jälkeen editoriin."
+
+#. Default: "Upload image here..."
+#: common\kupudrawers\drawer.xsl
+msgid "imagedrawer_upload_link"
+msgstr "Lisää kuva tästä..."
+
+#. Default: "Title"
+#: common\kupudrawers\drawer.xsl
+msgid "imagedrawer_upload_title_label"
+msgstr "Otsikko"
+
+#. Default: "Upload to: ${folder} <input id=\"kupu-upload-file\" name=\"node_prop_image\" size=\"20\" type=\"file\"/>"
+#: common\kupudrawers\drawer.xsl
+msgid "imagedrawer_upload_to_label"
+msgstr "Lisää kansioon: ${folder} <input id=\"kupu-upload-file\" name=\"node_prop_image\" size=\"20\" type=\"file\"/>"
+
+#. Default: "Search"
+#: common\kupudrawers\drawer.xsl
+msgid "kupudrawer_search"
+msgstr "Hae"
+
+#. Default: "Anchor"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "label_anchor"
+msgstr "Ankkuri"
+
+#. Default: "Col Align:"
+#: default\toolboxes.kupu
+msgid "label_col_align"
+msgstr "Sarakkeen tasaus:"
+
+#. Default: "Columns:"
+#: default\toolboxes.kupu
+msgid "label_columns"
+msgstr "Sarakkeet:"
+
+#. Default: "Create"
+#: default\toolboxes.kupu
+msgid "label_create"
+msgstr "Luo"
+
+#. Default: "Description:"
+#: default\toolboxes.kupu
+msgid "label_description"
+msgstr "Kuvaus:"
+
+#. Default: "Format"
+#: plone\wysiwyg_support.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "label_format"
+msgstr "Muoto"
+
+#. Default: "Headings:"
+#: default\toolboxes.kupu
+msgid "label_headings"
+msgstr "Otsikot:"
+
+#. Default: "Image class:"
+#: default\toolboxes.kupu
+msgid "label_image_class"
+msgstr "Kuvan luokka:"
+
+#. Default: "Insert image at the following URL:"
+#: default\toolboxes.kupu
+msgid "label_insert_image_url"
+msgstr "Lisää kuva osoitteesta:"
+
+#. Default: "Link the highlighted text to this URL:"
+#: default\drawers.kupu
+#: default\toolboxes.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "label_link_text"
+msgstr "Linkitä valittu teksti osoitteeseen:"
+
+#. Default: "Links"
+#: default\toolboxes.kupu
+msgid "label_links"
+msgstr "Linkit"
+
+#. Default: "Numbering"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "label_numbering"
+msgstr "Numerointi"
+
+#. Default: "Rows:"
+#: default\toolboxes.kupu
+msgid "label_rows"
+msgstr "Rivit:"
+
+#. Default: "Select a cleanup action:"
+#: default\toolboxes.kupu
+msgid "label_select_cleanup"
+msgstr "Valitse siivoustoiminto:"
+
+#. Default: "Table Class:"
+#: default\toolboxes.kupu
+msgid "label_table_class"
+msgstr "Taulukon luokka:"
+
+#. Default: "Table style"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "label_table_style"
+msgstr "Taulukon tyyli"
+
+#. Default: "Title:"
+#: default\toolboxes.kupu
+msgid "label_title"
+msgstr "Nimike:"
+
+#. Default: "toggle all"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "label_toggle_all"
+msgstr "käännä kaikki"
+
+#. Default: "Link to anchor"
+#: common\kupudrawers\drawer.xsl
+msgid "linkdrawer_anchor"
+msgstr "Linkki ankkuriin"
+
+#. Default: "Name"
+#: common\kupudrawers\drawer.xsl
+msgid "linkdrawer_name_label"
+msgstr "Nimi"
+
+#. Default: "Target"
+#: common\kupudrawers\drawer.xsl
+msgid "linkdrawer_target_label"
+msgstr "Kohde"
+
+#. Default: "Insert Link"
+#: common\kupudrawers\drawer.xsl
+msgid "linkdrawer_title"
+msgstr "Lisää linkki"
+
+#. Default: "○"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "list-circle"
+msgstr ""
+
+#. Default: "1"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "list-decimal"
+msgstr ""
+
+#. Default: "●"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "list-disc"
+msgstr ""
+
+#. Default: "a"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "list-loweralpha"
+msgstr ""
+
+#. Default: "i"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "list-lowerroman"
+msgstr ""
+
+#. Default: "no bullet"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "list-nobullet"
+msgstr "ei luettelomerkintöjä"
+
+#. Default: "■"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "list-square"
+msgstr ""
+
+#. Default: "A"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "list-upperalpha"
+msgstr ""
+
+#. Default: "I"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "list-upperroman"
+msgstr ""
+
+#. Default: "Locate"
+#: plone\kupu_plone_layer\kupumyitems.xml.pt
+#: plone\kupu_plone_layer\kupurecentitems.xml.pt
+#: plone\kupu_plone_layer\kupusearch.xml.pt
+msgid "locate_content"
+msgstr "Paikallista"
+
+#. Default: "(optional 2nd style)"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "opt_2nd_style"
+msgstr "(valinnainen toinen tyyli)"
+
+#. Default: "Inline"
+#: default\toolboxes.kupu
+msgid "opt_inline"
+msgstr "rivillä"
+
+#. Default: "Left"
+#: default\toolboxes.kupu
+msgid "opt_left"
+msgstr "Vasemmalla"
+
+#. Default: "Right"
+#: default\toolboxes.kupu
+msgid "opt_right"
+msgstr "Oikealla"
+
+#. Default: "top of page (default)"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "opt_top_of_page"
+msgstr "Sivun ylälaidassa (oletus)"
+
+#. Default: "Perform action"
+#: default\toolboxes.kupu
+msgid "perform_action"
+msgstr "Suorita toiminto"
+
+#. Default: "[insert arbitrary HTML code here]"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "placeholder_html_code"
+msgstr "[lisää  HTML-merkintöjä tähän]"
+
+#. Default: "Plain Text"
+#: plone\wysiwyg_support.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "plain_text"
+msgstr "Pelkkä teksti"
+
+#. Default: "Structured Text"
+#: plone\wysiwyg_support.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "structured_text"
+msgstr "Rakenteinen teksti"
+
+#. Default: "Edit without visual editor"
+#: plone\body.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "suppress-kupu"
+msgstr "Muokkaa ilman visuaalista editoria"
+
+#. Default: "Embed external object"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tab_embed"
+msgstr "Liitä ulkoinen objekti"
+
+#. Default: "Link to url"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tab_link"
+msgstr "Linkki osoitteeseen"
+
+#. Default: "Link to anchor"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tab_link_anchor"
+msgstr "Linkki ankkuriin"
+
+#. Default: "Manage Anchors"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tab_manage_anchors"
+msgstr "Hallinnoi ankkureita"
+
+#. Default: "Table of contents"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tab_toc"
+msgstr "Sisällysluettelo"
+
+#. Default: "Add"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tabledrawer_add_button"
+msgstr "Lisää"
+
+#. Default: "Add Table"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tabledrawer_add_table_button"
+msgstr "Lisää taulukko"
+
+#. Default: "Current column alignment"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tabledrawer_alignment_label"
+msgstr "Nykyinen saraketasaus"
+
+#. Default: "Center"
+#: default\drawers.kupu
+#: default\toolboxes.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tabledrawer_center_option"
+msgstr "Keskitetty"
+
+#. Default: "Table Class"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tabledrawer_class_label"
+msgstr "Taulukon CSS-luokka"
+
+#. Default: "Close"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tabledrawer_close_button"
+msgstr "Sulje"
+
+#. Default: "Column"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tabledrawer_column_label"
+msgstr "Sarakkeita"
+
+#. Default: "Columns"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tabledrawer_columns_label"
+msgstr "Sarakkeet"
+
+#. Default: "Fix"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tabledrawer_fix_button"
+msgstr "Korjaa"
+
+#. Default: "Fix All Tables"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tabledrawer_fix_tables_button"
+msgstr "Korjaa kaikki taulukot"
+
+#. Default: "Create Headings"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tabledrawer_headings_label"
+msgstr "Lisää otsakerivi"
+
+#. Default: "Left"
+#: default\drawers.kupu
+#: default\toolboxes.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tabledrawer_left_option"
+msgstr "Vasen"
+
+#. Default: "Remove"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tabledrawer_remove_button"
+msgstr "Poista"
+
+#. Default: "Right"
+#: default\drawers.kupu
+#: default\toolboxes.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tabledrawer_right_option"
+msgstr "Oikea"
+
+#. Default: "Row"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tabledrawer_row_label"
+msgstr "Rivi"
+
+#. Default: "Rows"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tabledrawer_rows_label"
+msgstr "Rivejä"
+
+#. Default: "Table"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tabledrawer_table_label"
+msgstr "Taulukko"
+
+#. Default: "Table"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "tabledrawer_title"
+msgstr "Taulukko"
+
+#. Default: "Kupu Editor Test Page"
+#: default\body.kupu
+msgid "testpage_title"
+msgstr "Kupu-editorin testisivu"
+
+#. Default: "background color: alt-h"
+#: default\colorchooser.kupu
+#: plone\colorchooser.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_back_color"
+msgstr "taustaväri: alt-h"
+
+#. Default: "Bold: Access key (Alt or Ctrl) + B"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_bold"
+msgstr "Lihavoitu: toimintonäppäin (Alt tai Ctrl) + B"
+
+#. Default: "Center justify: Access key (Alt or Ctrl) + C"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_center"
+msgstr "Keskitys: toimintonäppäin (Alt tai Ctrl) + C"
+
+#. Default: "Check spelling"
+#: default\spellchecker.kupu
+msgid "title_check_spelling"
+msgstr "Tarkista oikeinkirjoitus"
+
+#. Default: "Cleanup expressions"
+#: default\toolboxes.kupu
+msgid "title_cleanup_expressions"
+msgstr "Siivouslausekkeet"
+
+#. Default: "Debug Log"
+#: default\toolboxes.kupu
+msgid "title_debug_log"
+msgstr "Debug-loki"
+
+#. Default: "Decrease quote level: Access key (Alt or Ctrl) + <"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_decrease_quote"
+msgstr "Vähennä sisennystä: toimintonäppäin (Alt tai Ctrl) + <"
+
+#. Default: "Definition list: Access key (Alt or Ctrl) + ="
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_deflist"
+msgstr "Määritysluettelo: toimintonäppäin (Alt tai Ctrl) + ="
+
+#. Default: "External Link"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_external_link"
+msgstr "Ulkoinen linkki"
+
+#. Default: "reload current page using kupu to edit this field"
+#: plone\body.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_force_kupu"
+msgstr "lataa nykyinen sivu käyttäen kupua tämän kentän muokkaukseen"
+
+#. Default: "Images"
+#: default\toolboxes.kupu
+msgid "title_images"
+msgstr "Kuvat"
+
+#. Default: "Increase quote level: Access key (Alt or Ctrl) + >"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_increase_quote"
+msgstr "Lisää sisennystä: toimintonäppäin (Alt tai Ctrl) + >"
+
+#. Default: "Insert anchors"
+#: default\drawers.kupu
+#: plone\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_insert_anchors"
+msgstr "Lisää ankkureita"
+
+#. Default: "Insert external link"
+#: default\drawers.kupu
+#: plone\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_insert_external_link"
+msgstr "Lisää ulkoinen linkki"
+
+#. Default: "Insert image"
+#: default\drawers.kupu
+#: plone\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_insert_image"
+msgstr "Lisää kuva"
+
+#. Default: "Insert internal link"
+#: default\drawers.kupu
+#: plone\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_insert_internal_link"
+msgstr "Lisää sisäinen linkki"
+
+#. Default: "Insert table"
+#: default\drawers.kupu
+#: plone\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_insert_table"
+msgstr "Lisää taulukko"
+
+#. Default: "Italic: Access key (Alt or Ctrl) + I"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_italic"
+msgstr "Kursiivi: toimintonäppäin (Alt tai Ctrl) + I"
+
+#. Default: "Left justify: Access key (Alt or Ctrl) + L"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_ljust"
+msgstr "Tasaus vasemmalle: toimintonäppäin (Alt tai Ctrl) + L"
+
+#. Default: "Kupu 1.4"
+#: default\toolbar.kupu
+msgid "title_logo"
+msgstr "Kupu 1.4"
+
+#. Default: "Numbered list: Access key (Alt or Ctrl) + #"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_numlist"
+msgstr "Numeroitu luettelo: toimintonäppäin (Alt tai Ctrl) + #"
+
+#. Default: "Properties"
+#: default\toolboxes.kupu
+msgid "title_properties"
+msgstr "Ominaisuudet"
+
+#. Default: "Redo: Access key (Alt or Ctrl) + Y"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_redo"
+msgstr "Toista: toimintonäppäin (Alt tai Ctrl) + Y"
+
+#. Default: "Remove image"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_removeimage"
+msgstr "Poista kuva"
+
+#. Default: "Remove link"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_removelink"
+msgstr "Poista linkki"
+
+#. Default: "Right justify: Access key (Alt or Ctrl) + R"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_rjust"
+msgstr "Tasaus oikealle: toimintonäppäin (Alt tai Ctrl) + R"
+
+#. Default: "Save"
+#: plone\save.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_save"
+msgstr "Tallenna"
+
+#. Default: "save: alt-s"
+#: default\save.kupu
+msgid "title_save_alts"
+msgstr "tallenna: alt-s"
+
+#. Default: "Check spelling"
+#: plone\spellchecker.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_spelling"
+msgstr "Tarkista oikeinkirjoitus"
+
+#. Default: "Subscript: Access key (Alt or Ctrl) + -"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_subscript"
+msgstr "Alaindeksi: toimintonäppäin (Alt tai Ctrl) + -"
+
+#. Default: "Superscript: Access key (Alt or Ctrl) + +"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_superscript"
+msgstr "Yläindeksi: toimintonäppäin (Alt tai Ctrl) + +"
+
+#. Default: "reload current page without kupu"
+#: plone\body.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_suppress_kupu"
+msgstr "lataa nykyinen sivu ilman kupua"
+
+#. Default: "Tables"
+#: default\toolboxes.kupu
+msgid "title_tables"
+msgstr "Taulukot"
+
+#. Default: "text color: alt-f"
+#: default\colorchooser.kupu
+#: plone\colorchooser.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_text_color"
+msgstr "tekstin väri: alt-f"
+
+#. Default: "Underline: Access key (Alt or Ctrl) + U"
+#: default\toolbar.kupu
+msgid "title_underline"
+msgstr "Alleviivaus: toimintonäppäin (Alt tai Ctrl) + U"
+
+#. Default: "Undo: Access key (Alt or Ctrl) + Z"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_undo"
+msgstr "Peru: toimintonäppäin (Alt tai Ctrl) + Z"
+
+#. Default: "Unordered list: Access key (Alt or Ctrl) + *"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_unorderedlist"
+msgstr "Järjestämätön luettelo: toimintonäppäin (Alt tai Ctrl) + *"
+
+#. Default: "Zoom: Access key (Alt or Ctrl) + X"
+#: default\toolbar.kupu
+#: plone\toolbar.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "title_zoom"
+msgstr "Zoomaus: toimintonäppäin (Alt tai Ctrl) + X"
+
+#. Default: "Switch between visual editor and HTML view"
+#: default\sourceedit.kupu
+#: plone\sourceedit.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "toggle_source_view"
+msgstr "Vaihda visuaalisen ja html-näkymän välillä"
+
+#. Default: "top of page (default)"
+#: common\kupudrawers\drawer.xsl
+msgid "top_of_page"
+msgstr "Sivun ylälaidassa (oletus)"
+
+#. Default: "Preview"
+#: default\drawers.kupu
+#: plone\kupu_plone_layer\kupu_wysiwyg_support.html
+msgid "watermark_preview"
+msgstr "Esikatselu"
+

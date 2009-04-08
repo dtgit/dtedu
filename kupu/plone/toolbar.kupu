@@ -1,0 +1,167 @@
+<kupu:feature
+    name="toolbar"
+    implementation="plone"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:kupu="http://kupu.oscom.org/namespaces/dist"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    i18n:domain="kupu"
+    >
+<kupu:id>$Id: toolbar.kupu 45621 2007-08-13 12:26:50Z duncan $</kupu:id>
+
+  <kupu:part name="toolbar">
+    <div class="kupu-tb" id="toolbar"
+         tal:define="tool context/kupu_library_tool;field field|nothing;filter python:tool.filterToolbar(context,field);">
+      <kupu:define-slot name="toolbar" />
+    </div>
+  </kupu:part>
+
+  <kupu:part name="logo">
+  </kupu:part>
+
+  <kupu:part name="zoom">
+    <span class="kupu-tb-buttongroup" style="float: right" id="kupu-zoom"
+          tal:condition="filter/zoom">
+      <button type="button" class="kupu-zoom" id="kupu-zoom-button"
+              i18n:attributes="title title_zoom;"
+              title="Zoom: Access key (Alt or Ctrl) + X" accesskey="x">&#160;</button>
+    </span>
+  </kupu:part>
+
+
+  <kupu:part name="buttongroup-basicmarkup">
+    <span class="kupu-tb-buttongroup" id="kupu-bg-basicmarkup" tal:condition="filter/bg-basicmarkup">
+      <button type="button" class="kupu-bold" id="kupu-bold-button"
+              title="Bold: Access key (Alt or Ctrl) + B"
+              tal:condition="filter/bold-button"
+              i18n:attributes="title title_bold;" accesskey="b">&#160;</button>
+      <button type="button" class="kupu-italic" id="kupu-italic-button"
+              title="Italic: Access key (Alt or Ctrl) + I"
+              tal:condition="filter/italic-button"
+              i18n:attributes="title title_italic;" accesskey="i">&#160;</button>
+    </span>
+  </kupu:part>
+  <kupu:part name="buttongroup-subsuper">
+    <span class="kupu-tb-buttongroup" id="kupu-bg-subsuper" tal:condition="filter/bg-subsuper">
+      <button type="button" class="kupu-subscript" id="kupu-subscript-button" title="Subscript: Access key (Alt or Ctrl) + -"
+              tal:condition="filter/subscript-button"
+              i18n:attributes="title title_subscript;" accesskey="-">&#160;</button>
+      <button type="button" class="kupu-superscript" id="kupu-superscript-button" title="Superscript: Access key (Alt or Ctrl) + +"
+              tal:condition="filter/superscript-button"
+              i18n:attributes="title title_superscript;" accesskey="+">&#160;</button>
+    </span>
+  </kupu:part>
+
+  <kupu:part name="buttongroup-justify">
+    <span class="kupu-tb-buttongroup" id="kupu-bg-justify" tal:condition="filter/bg-justify">
+      <button type="button" class="kupu-justifyleft" id="kupu-justifyleft-button" 
+              tal:condition="filter/justifyleft-button"
+              title="Left justify: Access key (Alt or Ctrl) + L" i18n:attributes="title title_ljust;"
+              accesskey="l">&#160;</button>
+      <button type="button" class="kupu-justifycenter" 
+              tal:condition="filter/justifycenter-button"
+              id="kupu-justifycenter-button" title="Center justify: Access key (Alt or Ctrl) + C" 
+              i18n:attributes="title title_center;" accesskey="c">&#160;</button>
+      <button type="button" class="kupu-justifyright" 
+              tal:condition="filter/justifyright-button"
+              id="kupu-justifyright-button" title="Right justify: Access key (Alt or Ctrl) + R"
+              i18n:attributes="title title_rjust;" accesskey="r">&#160;</button>
+    </span>
+  </kupu:part>
+
+  <kupu:part name="buttongroup-list">
+    <span class="kupu-tb-buttongroup" id="kupu-bg-list" tal:condition="filter/bg-list">
+      <!-- list button events are set on the list tool -->
+      <button type="button" class="kupu-insertorderedlist"
+              tal:condition="filter/list-ol-addbutton"
+              title="Numbered list: Access key (Alt or Ctrl) + #" id="kupu-list-ol-addbutton" 
+              i18n:attributes="title title_numlist;" accesskey="#">&#160;</button>
+      <button type="button" class="kupu-insertunorderedlist" 
+              tal:condition="filter/list-ul-addbutton"
+              title="Unordered list: Access key (Alt or Ctrl) + *" id="kupu-list-ul-addbutton" 
+              i18n:attributes="title title_unorderedlist;" accesskey="*">&#160;</button>
+              </span>
+  </kupu:part>
+
+  <kupu:part name="buttongroup-definitionlist">
+    <span class="kupu-tb-buttongroup" id="kupu-bg-definitionlist" tal:condition="filter/definitionlist">
+      <!-- list button events are set on the list tool -->
+      <button type="button" class="kupu-insertdefinitionlist" 
+              title="Definition list: Access key (Alt or Ctrl) + =" id="kupu-list-dl-addbutton" 
+              i18n:attributes="title title_deflist;" accesskey="=">&#160;</button>
+    </span>
+  </kupu:part>
+
+  <kupu:part name="buttongroup-indent">
+    <span class="kupu-tb-buttongroup" id="kupu-bg-indent" tal:condition="filter/bg-indent">
+      <button type="button" class="kupu-outdent" 
+              tal:condition="filter/outdent-button"
+              id="kupu-outdent-button" title="Decrease quote level: Access key (Alt or Ctrl) + &lt;"
+              i18n:attributes="title title_decrease_quote;" accesskey="&lt;">&#160;</button>
+      <button type="button" class="kupu-indent" 
+              tal:condition="filter/indent-button"
+              id="kupu-indent-button" title="Increase quote level: Access key (Alt or Ctrl) + &gt;"
+              i18n:attributes="title title_increase_quote;" accesskey="&gt;">&#160;</button>
+    </span>
+  </kupu:part>
+
+  <kupu:part name="buttongroup-undo">
+    <span class="kupu-tb-buttongroup" id="kupu-bg-undo" tal:condition="filter/bg-undo">
+      <button type="button" class="kupu-undo" 
+              tal:condition="filter/undo-button"
+              id="kupu-undo-button" title="Undo: Access key (Alt or Ctrl) + Z"
+              i18n:attributes="title title_undo;" accesskey="z">&#160;</button>
+      <button type="button" class="kupu-redo" 
+              tal:condition="filter/redo-button"
+              id="kupu-redo-button" title="Redo: Access key (Alt or Ctrl) + Y"
+              i18n:attributes="title title_redo;" accesskey="y">&#160;</button>
+    </span>
+  </kupu:part>
+
+  <kupu:part name="select-styles">
+    <select class="kupu-tb-styles"
+            tal:condition="filter/styles"
+            
+            tal:define="field field|nothing;styles python:tool.getStyleList(field);">
+      <option value="p" i18n:translate="Normal">Normal paragraph</option>
+      <tal:block condition="styles" repeat="style styles">
+        <option i18n:translate=""
+                tal:attributes="value style/value" tal:content="style/content"/>
+      </tal:block>
+    </select>
+  </kupu:part>
+
+  <kupu:part name="liststyles">
+    <select id="kupu-ulstyles" class="kupu-ulstyles" tal:condition="filter/ulstyles">
+      <option value="disc" i18n:translate="list-disc">&#9679;</option>
+      <option value="square" i18n:translate="list-square">&#9632;</option>
+      <option value="circle" i18n:translate="list-circle">&#9675;</option>
+      <option value="none" i18n:translate="list-nobullet">no bullet</option>
+    </select>
+    <select id="kupu-olstyles" class="kupu-olstyles" tal:condition="filter/olstyles">
+      <option value="decimal" 
+              i18n:translate="list-decimal">1</option>
+      <option value="upper-roman" 
+              i18n:translate="list-upperroman">I</option>
+      <option value="lower-roman" 
+              i18n:translate="list-lowerroman">i</option>
+      <option value="upper-alpha" 
+              i18n:translate="list-upperalpha">A</option>
+      <option value="lower-alpha" 
+              i18n:translate="list-loweralpha">a</option>
+    </select>
+  </kupu:part>
+
+  <kupu:part name="buttongroup-remove">
+    <span class="kupu-tb-buttongroup" id="kupu-bg-remove" tal:condition="filter/bg-remove">
+      <button type="button" class="kupu-removeimage invisible"
+              tal:condition="filter/removeimage-button"
+              id="kupu-removeimage-button" title="Remove image"
+              i18n:attributes="title title_removeimage;">&#160;</button>
+      <button type="button" class="kupu-removelink invisible"
+              tal:condition="filter/removelink-button"
+              id="kupu-removelink-button" title="Remove link"
+              i18n:attributes="title title_removelink;">&#160;</button>
+    </span>
+  </kupu:part>
+</kupu:feature>

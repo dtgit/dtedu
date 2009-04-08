@@ -1,0 +1,352 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+lang="en"
+metal:use-macro="here/kupu_config/macros/master"
+i18n:domain="kupuconfig">
+
+   <body>
+      <div class="documentContent" metal:fill-slot="kupu_content">
+         <h1 class="documentFirstHeading"
+             i18n:translate="heading_kupu_resource_types">Kupu Resource Types</h1>
+         <form action="" method="post" tal:attributes="action here/absolute_url"
+               tal:define="typestool context/portal_types;
+               typeinfos typestool/listTypeInfo;
+               typeinfos python:[(ti.Title(), ti.getId()) for ti in typeinfos];
+               dummy python:typeinfos.sort()">
+            <p i18n:translate="text_resource_types">While libraries provide abstract locations for objects of any type,
+               Kupu distinguishes objects by resource type. For example, a user might
+               request a library showing objects to link to or a library showing
+               objects to be inserted into a document. The abstract location
+               (library) might be the same, but the former library would contain
+               documents, the latter images.</p>
+            <p i18n:translate="text_resource_types2">This management screen allows you to define resource types using a
+               list of portal types. A special resource type, <code>collection</code>,
+               identifies portal types that are to be treated as collections.
+               The resource type <code>containsanchors</code> is used to list types which
+               may contain HTML anchors.</p>
+
+            <p i18n:translate="text_resource_types3">Also on this screen are urls
+               for each type which can be previewed as an image. The expression may
+               use <code>object_url</code> and <code>portal_type</code>, but should
+               not attempt to access the object directly. The resulting URL should
+               ideally return an image no larger than 128 pixels square.</p>
+
+            <fieldset>
+               <legend i18n:translate="legend_map_resource_types">Map resource types</legend>
+
+               <table summary="Resource definitions" class="listing nosort">
+                  <thead>
+                     <tr>
+                        <th colspan="3"
+                            i18n:translate="map_resource_types">Map resource types</th>
+                     </tr>
+                  </thead>
+
+                  <tal:loop tal:repeat="resource here/zmi_get_resourcetypes">
+                     <tbody
+                           tal:define="oddrow repeat/resource/odd;name resource/name; types resource/types;"
+                           tal:attributes="class python:test(oddrow, 'even', 'odd');"
+                           align="left"
+                           style="margin-top: 1em !important;"
+                           >
+                        <tr><td colspan="3">&nbsp;</td></tr>
+                        <tr tal:condition="repeat/resource/end">
+                           <td style="border-right:none;"></td>
+                           <td colspan="2"><em
+                           i18n:translate="help_add_resource">use this entry to add a new resource</em>
+                           </td></tr>
+                        <tr>
+                           <td>
+                              <input type="hidden" name="type_info.old_type:records"
+                                     tal:attributes="value name" />
+                              <input type="checkbox" name="resource_types:list"
+                                     tal:condition="name"
+                                     tal:attributes="value name" />
+                           </td>
+                           <th i18n:translate="resource_heading">Resource</th>
+                           <td>
+                              <input type="text" name="type_info.resource_type:records"
+                                     tal:attributes="value name" />
+                           </td>
+                        </tr>
+                        <tr>
+                           <td></td>
+                           <th i18n:translate="portal_types_heading">Portal Types</th>
+                           <td>
+                              <select
+                                     name="type_info.portal_types:list:records"
+                                     size="5" multiple="multiple"
+                                      tal:attributes="size python:max(5,len(types));">
+                                 <tal:block repeat="ti typeinfos">
+                                    <option tal:define="title python:ti[0]; id python:ti[1];
+                                            fulltitle python:title + test(title==id,'',' (%s)'%id);
+                                            selected python:id in types;"
+                                            tal:content="fulltitle"
+                                            tal:condition="selected"
+                                            tal:attributes="value id;"
+                                            selected="selected"></option>
+                                 </tal:block>
+                                 <tal:block repeat="ti typeinfos">
+                                    <option tal:define="title python:ti[0]; id python:ti[1];
+                                            fulltitle python:title + test(title==id,'',' (%s)'%id);
+                                            selected python:id in types;"
+                                            tal:content="fulltitle"
+                                            tal:condition="not:selected"
+                                            tal:attributes="value id;"></option>
+                                 </tal:block>
+                              </select>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td></td>
+                           <th i18n:translate="new_types_heading">New types</th>
+                           <td>
+                              <select name="type_info.newtypes:int:records" size="1"
+                                      tal:define="newtype python:context.getNewTypeHandler(name)">
+                                 <option value="0"
+                                         tal:attributes="selected python:test(newtype==0,True,None)"
+                                         i18n:translate="opt_exclusive">
+                                         are not added to selection</option>
+                                 <option value="1"
+                                         tal:attributes="selected python:test(newtype==1,True,None)"
+                                         i18n:translate="opt_inclusive">are added to selection</option>
+                              </select>
+                           </td>
+                        </tr>
+                        <tr><td colspan="3">&nbsp;</td></tr>
+                     </tbody>
+                  </tal:loop>
+                  <tbody>
+                     <tr>
+                        <td style="border-right:none;"></td>
+                        <td colspan="2"><em
+                        i18n:translate="default_reference_resource">specify a resource type to be used for reference fields with an empty list of allowed types</em>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td> </td>
+                        <th i18n:translate="default_resource_heading">Default resource</th>
+                        <td>
+                           <select name="default_resource" tal:define="current here/getDefaultResource">
+                              <tal:block repeat="resource here/zmi_get_resourcetypes">
+                                 <option tal:define="name resource/name;"
+                                         tal:attributes="value resource/name;selected python:current==name;"
+                                         tal:content="resource/name" />
+                              </tal:block>
+                           </select>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td  style="border-right: none;">&nbsp;</td>
+                        <td colspan="2" style="padding-top:0.5em;">
+                           <input class="context" type="submit"
+                                  name="zmi_update_resource_types:method"
+                                  value="Save"
+                                  i18n:attributes="value button_save;" />
+                           <input class="context" type="submit"
+                                  name="zmi_delete_resource_types:method"
+                                  value="Delete"
+                                  i18n:attributes="value button_delete;" />
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+
+               <table summary="Preview actions" class="listing nosort" width="90%"
+                      tal:define="previewable python:[(title,id) for (title,id) in typeinfos if context.getPreviewForType(id)];">
+                  <thead>
+                     <tr>
+                        <th colspan="4"
+                            i18n:translate="action_url_heading">Action URLs</th>
+                     </tr>
+                     <tr><th width="1%"></th>
+                        <th width="1%" i18n:translate="type_heading">Type</th>
+                        <th colspan="2" i18n:translate="url_heading">URL</th>
+                     </tr>
+                  </thead>
+
+                  <tal:loop tal:repeat="ti previewable">
+                     <tbody  tal:define="title python:ti[0];id python:ti[1];oddrow repeat/ti/odd;
+                             fulltitle python:title + test(title==id,'',' (%s)'%id);
+                             portal_type id;
+                             previewaction python:context.getPreviewForType(portal_type);
+                             normalaction python:context.getNormalViewForType(portal_type);
+                             scalefield python:context.getScaleFieldForType(portal_type);
+                             defscale python:context.getDefaultScaleForType(portal_type);
+                             classes python:context.getClassesForType(portal_type);
+                             mediatype python:context.getMediaForType(portal_type);"
+                             tal:condition="python:context.getPreviewForType(portal_type)"
+                             tal:attributes="class python:test(oddrow, 'even', 'odd');">
+                        <tr>
+                           <td rowspan="6">
+                              <input type="hidden" name="preview_action.marker:records" value="x" />
+                              <input type="hidden" name="preview_action.portal_type:records" tal:attributes="value id" />
+                              <input type="checkbox" name="preview_types:list"
+                                     tal:attributes="value id" />
+                           </td>
+                           <td rowspan="6" tal:content="fulltitle"></td>
+                           <td style="border-right: none;" width="1%"
+                               i18n:translate="preview_subheading">preview</td>
+                           <td>
+                              <input type="text" name="preview_action.expression:records"
+                                     style="width:90%"
+                                     tal:attributes="value previewaction" />
+                           </td>
+                        </tr>
+                        <tr>
+                           <td style="border-right: none;" width="1%"
+                               i18n:translate="normal_image">Normal&nbsp;image</td>
+                           <td>
+                              <input type="text" name="preview_action.normal:records"
+                                     style="width:90%"
+                                     tal:attributes="value normalaction" />
+                           </td>
+                        </tr>
+                        <tr>
+                           <td style="border-right: none;" width="1%"
+                               i18n:translate="fieldname_subheading">fieldname</td>
+                           <td>
+                              <input type="text" name="preview_action.scalefield:records"
+                                     style="width:90%"
+                                     tal:attributes="value scalefield" />
+                           </td>
+                        </tr>
+                        <tr>
+                           <td style="border-right: none;" width="1%"
+                               i18n:translate="defscale_subheading">default scale</td>
+                           <td>
+                              <input type="text"
+                                     name="preview_action.defscale:records"
+                                     style="width:90%"
+                                     tal:attributes="value defscale" />
+                           </td>
+                        </tr>
+                        <tr>
+                           <td style="border-right: none;" width="1%"
+                               i18n:translate="classes_subheading">classes</td>
+                           <td>
+                              <textarea name="preview_action.classes:records"
+                                     style="width:90%"
+                                     tal:content="python:'\n'.join(classes)" />
+                           </td>
+                        </tr>
+                        <tr>
+                           <td style="border-right: none;" width="1%"
+                               i18n:translate="type_subheading">type</td>
+                           <td>
+                              <select name="preview_action.mediatype:records" size="1">
+                                 <option value="image"
+                                         tal:attributes="selected python:mediatype=='image'"
+                                         i18n:translate="image_option">Image</option>
+                                 <option value="flash"
+                                         tal:attributes="selected python:mediatype=='flash'"
+                                         i18n:translate="flash_option">Flash</option>
+                              </select>
+                              <div style="height:1em;">&nbsp;</div>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </tal:loop>
+                  <tbody  tal:define="oddrow python:len(previewable)%2;"
+                          tal:attributes="class python:test(oddrow, 'even', 'odd');">
+                     <tr>
+                        <td rowspan="6">
+                           <input type="hidden" name="preview_action.marker:records" value="-"/>
+                        </td>
+                        <td rowspan="6">
+                           <select name="preview_action.portal_type:records" style="width:15em">
+                              <option i18n:translate="select_type" value="">(select type)</option>
+                              <tal:block repeat="ti typeinfos">
+                                 <option tal:define="title python:ti[0]; id python:ti[1];
+                                         fulltitle python:title + test(title==id,'',' (%s)'%id);"
+                                         tal:content="fulltitle"
+                                         tal:condition="not:python:context.getPreviewForType(id)"
+                                         tal:attributes="value id;"></option>
+                              </tal:block>
+                           </select>
+                        </td>
+                        <td style="border-right: none;" width="1%"
+                            i18n:translate="preview_subheading">preview</td>
+                        <td>
+                           <input type="text" name="preview_action.expression:records"
+                                  style="width:90%" value="" />
+                        </td>
+                     </tr>
+                     <tr>
+                        <td style="border-right: none;" width="1%"
+                            i18n:translate="normal_image">Normal&nbsp;image</td>
+                        <td>
+                           <input type="text" name="preview_action.normal:records"
+                                  style="width:90%" value="" />
+                        </td>
+                     </tr>
+                     <tr>
+                        <td style="border-right: none;" width="1%"
+                            i18n:translate="fieldname_subheading">fieldname</td>
+                        <td>
+                           <input type="text" name="preview_action.scalefield:records"
+                                  style="width:90%" value="image" />
+                        </td>
+                     </tr>
+                     <tr>
+                        <td style="border-right: none;" width="1%"
+                            i18n:translate="defscale_subheading">default scale</td>
+                        <td>
+                           <input type="text"
+                                  name="preview_action.defscale:records"
+                                  style="width:90%" value="image_preview" />
+                        </td>
+                     </tr>
+                     <tr>
+                        <td style="border-right: none;" width="1%"
+                            i18n:translate="classes_subheading">classes</td>
+                        <td>
+                           <textarea type="text" name="preview_action.classes:records"
+                                     style="width:90%"></textarea>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td style="border-right: none;" width="1%"
+                            i18n:translate="type_subheading">type</td>
+                        <td>
+                           <select name="preview_action.mediatype:records" size="1">
+                              <option value="image"
+                                      selected="selected"
+                                      i18n:translate="image_option">Image</option>
+                              <option value="flash"
+                                      i18n:translate="flash_option">Flash</option>
+                           </select>
+                        </td>
+                     </tr>
+                  </tbody>
+                  <tbody>
+                     <tr>
+                        <td style="border-right: none;">&nbsp;</td>
+                        <td style="padding-top:0.5em;" colspan="3">
+                           <input class="context" type="submit"
+                                  name="zmi_update_resource_types:method"
+                                  value="Save"
+                                  i18n:attributes="value button_save;" />
+                           <input class="context" type="submit"
+                                  name="zmi_delete_resource_types:method"
+                                  value="Delete"
+                                  i18n:attributes="value button_delete;" />
+                        </td>
+                     </tr>
+                     <tr>
+                        <td colspan="4">
+                           <em i18n:translate="preview_action_help"><code>Preview</code> is an expression to use for the preview image in the drawer [default is no preview].
+                           <code>Normal image</code> is an expression to use for the normal view of a mediaobject [string:$object_url].
+                           <code>Fieldname</code> is the name of the field to use for scaled variants of the mediaobject [image].
+                           <code>Classes</code> is a list of classnames which may be selected when inserting the object as media.
+                           <code>Type</code> controls whether kupu inserts an img tag or an object tag to embed flash.
+                           </em>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+
+            </fieldset>
+         </form>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,29 @@
+/* Stylesheet for the 'TWBSkin' Plone theme (all media) */
+
+
+.top-nav {
+    position: absolute;
+    left: 190px;
+    top:0px;   
+}
+
+ul.top-nav {
+    display: inline;
+    float: left;
+    margin: 4px 0pt 0pt 0pt;
+    padding: 0pt 0pt 18px;
+}
+
+ul.top-nav li {
+    color:#FFFFCC;
+    float:left;
+    font-size:120%;
+    font-weight:bold;
+    line-height:13px;
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none;
+    padding:0pt 4px 0pt 10px;
+    margin-bottom: 0em;
+    display: block;
+}

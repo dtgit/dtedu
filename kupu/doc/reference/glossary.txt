@@ -1,0 +1,17 @@
+This is a list of terms and their meaning in a Kupu context.
+If you know any of the following to be wrong, or would like to see a
+definition for a particular term, please notify
+kupu-dev@codespeak.net! 
+
+toolbar
+
+  This is the bar of buttons at the top of a Kupu editing template.
+
+toolbox
+ 
+  These appear on the right of the Kupu editing template.
+
+drawer
+
+  A type of pop-up window that appears when you click on certain
+  buttons in the toolbar.

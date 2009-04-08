@@ -1,0 +1,16 @@
+<html i18n:domain="plone">
+    <head>
+    </head>
+    <body>
+        <div metal:define-macro="default"
+             tal:define="ndiff diff/ndiff;
+                         lines python: context.diffSpliter(ndiff);
+                        ">
+<pre><tal:repeat tal:repeat="l lines">
+<span tal:attributes="class l/css_class"
+      tal:content="structure l/line" />
+</tal:repeat></pre>
+        </div>
+    </body>
+</html>
+

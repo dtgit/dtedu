@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+                      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xml:lang="en"
+ lang="en"
+ xmlns:tal="http://xml.zope.org/namespaces/tal"
+ xmlns:metal="http://xml.zope.org/namespaces/metal"
+ xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+ i18n:domain="ECQuiz"
+ metal:use-macro="here/main_template/macros/master">
+ <body>
+  <metal:block fill-slot="css_slot">
+   <style type="text/css" media="screen"
+    tal:content="string: @import url($portal_url/ecqstyles.css);"></style>
+  </metal:block>
+
+  <div metal:fill-slot="main"
+   tal:define="answer   python:here;
+               question python:here.aq_parent;">
+   <metal:define-main-macro define-macro="main">
+
+    <metal:use use-macro="here/ecq_tools/macros/up_one_level">
+     Up one level
+    </metal:use>
+    
+    <metal:define-view-macro define-macro="view">
+     <metal:use use-macro="answer/ecq_selectionanswer_view/macros/view">
+      <metal:fill fill-slot="additional_edit_info">
+       <metal:define define-macro="show_comment">
+	<tal:condition condition="answer/getComment"> &mdash;
+	 <span class="answerComment"
+	  tal:content="structure python:answer.getComment(forceInline=True)">
+	  a witty comment for people who selected a wrong answer
+	 </span>
+	</tal:condition>
+       </metal:define>
+
+       <!-- additional_edit_info -->
+       <metal:define define-slot="additional_edit_info"/>
+       <metal:define define-macro="show_correct">
+	<tal:define define="correct answer/isCorrect | python:False">
+	 <tal:block condition="correct">
+	  [<span i18n:translate="true" tal:omit-tag="">true</span>]
+	 </tal:block>
+	 <tal:block condition="not: correct">
+	  [<span i18n:translate="false" tal:omit-tag="">false</span>]
+	 </tal:block>
+	</tal:define>
+       </metal:define>
+      </metal:fill>
+      <!-- End additional_edit_info -->
+      
+      <metal:fill fill-slot="post_answer">
+       <tal:condition define="showComment showComment | python:False" 
+	condition="python:(resultsView and showComment)">
+	<metal:use use-macro="answer/ecq_correctanswer_view/macros/show_comment"/>
+       </tal:condition>
+       <tal:condition condition="resultsView">
+	<metal:use use-macro="answer/ecq_correctanswer_view/macros/show_correct"/>
+       </tal:condition>
+       <metal:block define-slot="post_answer"/>
+      </metal:fill>
+     </metal:use>
+    </metal:define-view-macro>
+    
+    <div metal:use-macro="here/document_byline/macros/byline">
+     Get the byline - contains details about author and modification date.
+    </div>
+    
+   </metal:define-main-macro>
+  </div>
+ </body>
+</html>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:1
+sgml-indent-data:t
+indent-tabs-mode:nil
+fill-column:79
+End:
+-->

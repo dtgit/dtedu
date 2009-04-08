@@ -1,0 +1,53 @@
+Changelog for CMFDiffTool
+
+    (name of developer listed in brackets)
+
+CMFFiffTool 0.3.5 2007-12-02
+
+  - Don't assume there's a portal_type for objects.
+    Fixes http://dev.plone.org/plone/ticket/7295
+    [alecm]
+
+  - Fixed issue causing diffs to break for folders that switched between
+    inside and outside ref modifiers.
+    [alecm]
+
+  - Make ChangeSet compatible with CMF trunk.
+    [wiggy]
+
+  - Updated componentregisty.xml to new style.
+    [hannosch]
+
+CMFFiffTool 0.3.4 2007-06-08
+
+  - Fixed i18n markup in at_changeset.pt.
+    [hannosch]
+
+CMFFiffTool 0.3.3 2007-03-05
+
+  - Removed default config for ATCT types, it goes in Plone now
+    [alecm]
+    
+CMFFiffTool 0.3.2 2007-03-05
+
+  - Added default config for ATCT types
+    [alecm]
+    
+CMFDiffTool 0.3.1 2007-02-09
+
+    - Removed useless status message.
+      [hannosch]
+
+    - Added ZCML layer setup for tests
+      [alecm]
+
+CMFDiffTool 0.3 2006-10-02
+
+    - Product installation is now based on a GenericSetup extension profile.
+      [hannosch]
+
+    - Code modernization for Python 2.4 / CMF 1.6.
+      [hannosch]
+
+    - Initial version.
+      [brentmh]

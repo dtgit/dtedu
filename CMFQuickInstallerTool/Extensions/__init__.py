@@ -1,0 +1,1 @@
+"""Quickinstaller Extensions package"""

@@ -1,0 +1,49 @@
+<html metal:use-macro="context/main_template/macros/master">
+<body>
+
+<metal:slot metal:fill-slot="main">
+<h2>Topic Criteria: <span tal:replace="context/getId" /></h2>
+
+<form action="" method="post" tal:attributes="action context/absolute_url">
+<span tal:define="criteria context/listCriteria">
+    <span tal:repeat="criterion criteria">
+        <span tal:define="editform string:criterion/${criterion/getEditForm}"
+            tal:replace="structure python:path(editform)" />
+    </span>
+</span>
+<input type="submit" name="topic_editCriteria:action"
+       value=" Save changes " /> &nbsp;&nbsp;
+<input type="submit" name="topic_deleteCriteria:action"
+       value=" Delete selected " />
+<input type="hidden" name=":default_action" value="editCriteria" />
+</form>
+
+<form action="" method="post" tal:attributes="action string:${context/absolute_url}/topic_addCriterion">
+<h2> Add New Topic Criteria: </h2>
+<table class="FormLayout">
+<tr valign="top">
+    <th align="right"> Field id: </th>
+    <td>
+        <select name="field" tal:define="fields context/listAvailableFields">
+            <option value="" tal:repeat="field fields" tal:attributes="value field" tal:content="field">Field</option>
+        </select>
+    </td>
+</tr>
+<tr valign="top">
+    <th align="left"> Criteria type: </th>
+    <td>
+        <select name="criterion_type" tal:define="types context/listCriteriaTypes">
+            <option value="" tal:repeat="type types" tal:attributes="value type/name" tal:content="type/name">Type</option>
+        </select>
+    </td>
+</tr>
+<tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" value=" Add " /></td>
+</tr>
+</table>
+</form>
+</metal:slot>
+
+</body>
+</html>

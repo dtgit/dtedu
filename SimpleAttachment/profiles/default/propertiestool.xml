@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<object name="portal_properties">
+    <object name="site_properties">
+        <property name="typesUseViewActionInListings" type="lines" purge="False">
+           <element value="ImageAttachment"/>
+           <element value="FileAttachment"/>
+        </property>
+        <property name="types_not_searched" type="lines" purge="False">
+           <element value="ImageAttachment"/>
+           <element value="FileAttachment"/>
+        </property>
+    </object>
+</object>

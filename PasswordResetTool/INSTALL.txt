@@ -1,0 +1,80 @@
+Installing the Password Reset Tool
+
+  This product installs like almost any other CMF Product. Once
+  installed it will add a new tool, some new skin objects, and
+  override a few skin objects to replace the "mail forgotten
+  passwords" facility with a "reset password" facility. See the README
+  for details.
+
+  Add to Products Directory
+
+    Decompress the archive file in your Zope Products directory. In
+    some installations, this will be 'zope/lib/python/Products'. If
+    you have an INSTANCE_HOME setup (preferred) it will be at
+    'INSTANCE_HOME/Products'.
+
+  Install in Portal
+
+    In the portal object you wish to install the tool, you can install
+    it manually, use the Install script, or use the QuickInstaller.
+    The QuickInstaller (preferred) and a lot of other neat CMF
+    products can be found at
+    "The CMF Collective":http://sourceforge.net/projects/collective
+
+    QuickInstaller
+
+      Go into the QuickInstaller page you normally use
+      ('portal_quickinstaller' in the ZMI or the Plone Control Panel),
+      select 'PasswordResetTool', and click 'Install'. That's it.
+
+    Install Script
+
+      If you don't have a QuickInstaller, you can use the install
+      script manually. In your portal object, create an External Medthod
+      with
+
+          |-------------------------------------------|
+          | id            | install                   |
+          |-------------------------------------------|
+	  | Module Name   | PasswordResetTool.Install |
+          |-------------------------------------------|
+          | Function Name | install                   |
+          |-------------------------------------------|
+
+      Once created, click on the script and then click on the 'Test'
+      tab. The install script will run and tell you what it has done.
+
+    Manually
+
+      If you want, you can install the product manually. First,
+      install the tools in the root of your portal object by selecting
+      'PasswordResetTool' from the ZMI dropdown. Add the tool presented
+      there.
+
+      Then install the skins. Go into 'portal_skins' and select
+      'Filesystem Directory View' from the ZMI pulldown. Select the
+      path to the product skin directory, which is
+      'Products/PasswordResetTool/skins/PasswordReset'. Click 'Add'
+      without specifying a custom id. Next, in the 'Properties' tab,
+      add 'PasswordReset' into the skin paths of the skins you will or
+      may use. You should add it high in the path, preferrably just
+      after 'custom'.
+
+  Afterwards
+
+    The only thing you need to do after installation is to visit
+    http://localhost/passwordreset/123 (where 'localhost' is the name
+    of your server.) This will give a 404 the first time. See
+    README.txt for explanation.
+
+  Customization
+
+    PasswordResetTool is built for Plone, but should be usable in a
+    vanilla CMF site that is new enough to use ZPT. If you need to
+    customize the look of any pages, use the "Custom" mechanism. (If
+    you do install it in a non-Plone site, please write a quick note
+    back on how it went. See README for contact info.)
+
+    If you want to use the Password Reset Tool outside a CMF site, you
+    will have to make certain minor modifications. See the README for
+    details.

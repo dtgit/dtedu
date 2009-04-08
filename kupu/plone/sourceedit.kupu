@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<kupu:feature
+    name="sourceedit"
+    implementation="plone"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:kupu="http://kupu.oscom.org/namespaces/dist"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    i18n:domain="kupu"
+    >
+    <kupu:id>$Id: sourceedit.kupu 44538 2007-06-26 10:46:28Z duncan $</kupu:id>
+
+  <kupu:part name="jsincludes">
+  </kupu:part>
+  <kupu:part name="buttons">
+    <span class="kupu-tb-buttongroup kupu-source-span" id="kupu-source"
+          tal:condition="filter/source">
+      <button type="button"
+              class="kupu-source"
+              id="kupu-source-button"
+              title="Switch between visual editor and HTML view"
+              i18n:attributes="title toggle_source_view;"
+              accesskey="h"
+              >&#160;</button>
+    </span>
+  </kupu:part>
+
+</kupu:feature>

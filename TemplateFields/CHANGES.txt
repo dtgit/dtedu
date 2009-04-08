@@ -1,0 +1,14 @@
+Changelog
+=========
+
+1.1.3
+-----
+
+* Make sure to use a page template with acquisition context when
+  validating fields. Without this context variables such as
+  ``context`` and ``here`` were not available.
+  [wichert]
+
+* Cleanup REST syntax in the documentation and add a changelog.
+  [wichert]
+

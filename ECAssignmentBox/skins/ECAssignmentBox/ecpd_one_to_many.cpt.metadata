@@ -1,0 +1,14 @@
+[default]
+title = Set Submission Period
+
+[security]
+View = 0:Authenticated
+
+[validators]
+validators..directCompareButton = ecpd_one_to_many_validate
+
+[actions]
+action.success..directCompareButton = traverse_to:string:ecpd_otm_direct_compare
+action.success..OkButton = redirect_to:string:folder_contents
+action.success = redirect_to:string:folder_contents
+action.failure = traverse_to:string:ecpd_one_to_many

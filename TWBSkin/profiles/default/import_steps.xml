@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="twbskin-final" version="10070913-01"
+	       handler="Products.TWBSkin.setupHandlers.importFinalSteps"
+	       title="TWB Skin Final Steps Setup">
+  </import-step>
+</import-steps>

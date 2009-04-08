@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+                      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en" xml:lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="eduComponents">
+  
+  <body>
+    <metal:block fill-slot="css_slot">
+      <style type="text/css" media="screen"
+          tal:content="string: @import url($portal_url/ecabstyles.css);" />
+    </metal:block>
+
+    <metal:main fill-slot="main">
+      <tal:main-macro metal:define-macro="main"
+          define="fieldNames here/getViewModeReadFieldNames">
+
+        <!-- show header information -->
+        <metal:use use-macro="here/base_macros/macros/eca_view_head" />
+
+	<tal:block tal:condition="here/getAnswer">
+          <h3>Answer</h3>
+	  <div style="border: 1px solid black; padding: 3px" >
+	    <span tal:content="structure here/getAnswer" />
+	  </div>
+	</tal:block>
+
+	<tal:block tal:condition="here/getFeedback">
+	  <h3>Feedback</h3>
+	  <p tal:content="here/getFeedback" />
+	</tal:block>
+
+	<tal:block tal:condition="here/getGradeIfAllowed">
+	  <h3>Grade</h3>
+	  <p tal:content="here/getGradeIfAllowed" />
+	</tal:block>
+
+      </tal:main-macro>
+
+
+      <tal:block tal:condition="python:  user.has_permission('Review portal content', here) and
+				here.portal_workflow.getInfoFor(here, 'review_state') == 'inprogress'">
+
+	<div class="formControls"
+	     tal:define="url here/absolute_url">
+	  <p>When you are ready to submit your assignment for grading, click the button below. You will no longer be able to edit your assignment after submission.</p>
+	  <a class="context"
+	     style="text-decoration:none;"
+	     tal:attributes="href string: ${url}/content_status_modify?workflow_action=submit">
+	       Submit to Mentor
+	  </a>
+	</div>
+      </tal:block>
+
+
+    </metal:main>
+
+  </body>
+</html>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

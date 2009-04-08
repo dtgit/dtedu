@@ -1,0 +1,14 @@
+[default]
+title=CTM Mentor Management
+
+[security]
+View = 0:Authenticated
+
+[validators]
+validators =
+
+[actions]
+action.success..Search  = traverse_to:string:prefs_ctmmentors_overview
+action.success..Modify  = traverse_to:string:prefs_ctmmentors_manage
+action.success          = traverse_to:string:prefs_ctmmentors_overview
+

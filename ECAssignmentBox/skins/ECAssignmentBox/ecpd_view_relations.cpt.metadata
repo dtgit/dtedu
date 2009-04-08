@@ -1,0 +1,14 @@
+[default]
+title = Set Submission Period
+
+[security]
+View = 0:Authenticated
+
+[validators]
+validators..directCompareButton=ecpd_view_relations_validate
+
+[actions]
+action.success..OkButton = traverse_to:string:ecpd_compare_assignments
+action.success..directCompareButton = traverse_to:string:ecpd_direct_compare
+action.success..RefreshButton = traverse_to:string:ecpd_view_relations_script
+action.failure = traverse_to:string:ecpd_view_relations

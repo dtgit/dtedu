@@ -1,0 +1,6 @@
+[default]
+title = Upload/add image
+
+[validators]
+validators = 
+

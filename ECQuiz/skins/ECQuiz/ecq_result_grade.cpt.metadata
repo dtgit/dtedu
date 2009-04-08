@@ -1,0 +1,9 @@
+[default]
+title = Grade an ECQuiz Result
+
+[validators]
+validators=ecq_result_grade_validate
+
+[actions]
+action.success=traverse_to:string:ecq_result_grade_action
+action.failure=traverse_to:string:ecq_result_grade

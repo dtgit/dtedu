@@ -1,0 +1,230 @@
+<?xml version="1.0"?>
+<dc-workflow workflow_id="ec_assignment_workflow"
+             title="Assignment workflow [EC]"
+             state_variable="review_state"
+             initial_state="inprogress">
+ <permission>Access contents information</permission>
+ <permission>Manage properties</permission>
+ <permission>Modify portal content</permission>
+ <permission>Reply to item</permission>
+ <permission>Review portal content</permission>
+ <permission>View</permission>
+ <permission>List folder contents</permission>
+
+ <state state_id="inprogress" title="In Progress">
+  <exit-transition transition_id="submit"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="List folder contents"
+                  acquired="False">
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Reply to item"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>ECAssignment Viewer</permission-role>
+  </permission-map>
+  <permission-map name="Review portal content"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="View" acquired="True">
+   <permission-role>Owner</permission-role>
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>ECAssignment Viewer</permission-role>
+  </permission-map>
+ </state>
+ <state state_id="graded" title="Graded">
+  <exit-transition transition_id="revise"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="List folder contents"
+                  acquired="False">
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Reply to item"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>ECAssignment Viewer</permission-role>
+  </permission-map>
+  <permission-map name="View" acquired="False">
+   <permission-role>Anonymous</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>ECAssignment Viewer</permission-role>
+  </permission-map>
+ </state>
+ <state state_id="rejected" title="Rejected">
+  <exit-transition transition_id="retract"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="List folder contents"
+                  acquired="False">
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="View" acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>ECAssignment Viewer</permission-role>
+  </permission-map>
+ </state>
+ <state state_id="submitted" title="Submitted">
+  <exit-transition transition_id="grade"/>
+  <exit-transition transition_id="revise"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>ECAssignment Grader</permission-role>
+  </permission-map>
+  <permission-map name="List folder contents"
+                  acquired="False">
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>ECAssignment Grader</permission-role>
+  </permission-map>
+  <permission-map name="Manage properties" acquired="False">
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>ECAssignment Grader</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>ECAssignment Grader</permission-role>
+  </permission-map>
+  <permission-map name="View" acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>ECAssignment Grader</permission-role>
+   <permission-role>ECAssignment Viewer</permission-role>
+  </permission-map>
+ </state>
+ <transition transition_id="submit"
+             title="Author submits completed assignment"
+             new_state="submitted" trigger="USER"
+             before_script="" after_script="">
+  <action url="" category="workflow">Submit to Mentor</action>
+  <guard>
+   <guard-expression>python: user.has_permission("Review portal content", here) or user.has_role("Owner", here)</guard-expression>
+  </guard>
+ </transition>
+
+ <transition transition_id="grade"
+             title="Reviewer grades the assignment"
+             new_state="graded" trigger="USER"
+             before_script="" after_script="sendGradedEmail">
+  <action url="" category="workflow">Graded</action>
+  <guard>
+   <guard-expression>python: user.has_permission("Review portal content", here) or user.has_role("Owner", here.aq_parent)</guard-expression>
+  </guard>
+ </transition>
+ <transition transition_id="revise"
+             title="Assignment is reset to initial state"
+             new_state="inprogress" trigger="USER"
+             before_script="" after_script="">
+  <action url="" category="workflow">Revise</action>
+  <guard>
+   <guard-permission>eduComponents: Grade Assignments</guard-permission>
+  </guard>
+ </transition>
+ <variable variable_id="action" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>The last transition</description>
+  <default>
+   
+   <expression>transition/getId|nothing</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="actor" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>The ID of the user who performed the last transition</description>
+  <default>
+   
+   <expression>user/getUserName</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="comments" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>Comments about the last transition</description>
+  <default>
+   
+   <expression>python:state_change.kwargs.get('comment', '')</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="review_history" for_catalog="False"
+           for_status="False" update_always="False">
+  <description>Provides access to workflow history</description>
+  <default>
+   
+   <expression>state_change/getHistory</expression>
+  </default>
+  <guard>
+   <guard-permission>Request review</guard-permission>
+   <guard-permission>Review portal content</guard-permission>
+  </guard>
+ </variable>
+ <variable variable_id="time" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>Time of the last transition</description>
+  <default>
+   
+   <expression>state_change/getDateTime</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <script script_id="sendGradedEmail" type="External Method"
+         filename=""
+         module="ECAssignmentBox.eca_workflow_scripts"
+         function="sendGradedEmail"/>
+</dc-workflow>

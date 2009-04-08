@@ -1,0 +1,109 @@
+<div class="portlet"
+     i18n:domain="eduCommons">
+
+  <tal:block>
+    <p class="portletHeader" i18n:translate="">Assignment Info</p>
+
+    <div class="portletBody">
+      <table class="coursesummary" summary="Statiscal information" align="center" cellpadding="0" cellspacing="3">
+        <tbody>	  
+          <tal:items define="inpro view/getInprogressCount;
+			     subm view/getSubmittedCount;
+			     grad view/getGradedCount;
+			     nonc view/getUnsubmittedCount;
+			     total view/getTotalCount;">
+            <tr>
+              <td>
+                <a tal:attributes="title string:InProgress;
+				   href string: assignment_contents?query_type=inprogress"
+		   tal:content="string:InProgress">InProgress</a>
+              </td>
+              <td class="statecolumn">
+                <a tal:attributes="href string:assignment_contents?query_type=inprogress">
+		  <img alt="barchart" class="statecolumnimage"
+		       tal:attributes="width python:view.getStatePercent('Inprogress');
+				       src string:bargraphic.gif" />
+                </a>                               
+                </td>
+              <td class="coursetotals">
+                <a tal:attributes="title string:InProgress;
+				   href string:assignment_contents?query_type=inprogress"
+		   tal:content="python:inpro">0</a>
+                </td>
+              </tr>
+
+            <tr>
+              <td>
+                <a tal:attributes="title string:Submitted;
+				   href string:assignment_contents?query_type=submitted"
+		   tal:content="string:Submitted">Submitted</a>
+              </td>
+              <td class="statecolumn">
+                <a tal:attributes="href string:assignment_contents?query_type=submitted">
+		  <img alt="barchart" class="statecolumnimage"
+		       tal:attributes="width python:view.getStatePercent('Submitted');
+				       src string:bargraphic.gif" />
+                </a>                               
+                </td>
+              <td class="coursetotals">
+                <a tal:attributes="title string:Submitted;
+				   href string:assignment_contents?query_type=submitted"
+		   tal:content="python:subm">0</a>
+                </td>
+              </tr>
+
+            <tr>
+              <td>
+                <a tal:attributes="title string:Graded;
+				   href string:assignment_contents?query_type=graded"
+		   tal:content="string:Graded">Graded</a>
+              </td>
+              <td class="statecolumn">
+                <a tal:attributes="href string:assignment_contents?query_type=graded">
+		  <img alt="barchart" class="statecolumnimage"
+		       tal:attributes="width python:view.getStatePercent('Graded');
+				       src string:bargraphic.gif" />
+                </a>                               
+                </td>
+              <td class="coursetotals">
+                <a tal:attributes="title string:Graded;
+				   href string:assignment_contents?query_type=graded"
+		   tal:content="python:grad">0</a>
+                </td>
+              </tr>
+
+            <tr>
+              <td>
+                <a tal:attributes="title string:NotStarted;
+				   href string:assignment_contents?query_type=unsubmitted"
+		   tal:content="string:NotStarted">NotStarted</a>
+              </td>
+              <td class="statecolumn">
+                <a tal:attributes="href string:assignment_contents?query_type=unsubmitted">
+		  <img alt="barchart" class="statecolumnimage"
+		       tal:attributes="width python:view.getStatePercent('Unsubmitted');
+				       src string:bargraphic.gif" />
+                </a>                               
+                </td>
+              <td class="coursetotals">
+                <a tal:attributes="title string:Unsubmitted;
+				   href string:assignment_contents?query_type=unsubmitted"
+		   tal:content="python:nonc">0</a>
+                </td>
+              </tr>
+
+              <tr>
+		<td id="total" colspan="3" i18n:translate="">Total Objects: <tal:total i18n:name="total" replace="python:total">total</tal:total></td>
+              </tr>
+	    
+          </tal:items>
+	  
+        </tbody>
+          </table>
+    </div>
+    
+  </tal:block>
+</div>	
+
+
+

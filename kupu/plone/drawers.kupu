@@ -1,0 +1,63 @@
+<kupu:feature
+    name="drawers"
+    implementation="plone"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:kupu="http://kupu.oscom.org/namespaces/dist"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    i18n:domain="kupu"
+    >
+    <kupu:id>$Id: drawers.kupu 44538 2007-06-26 10:46:28Z duncan $</kupu:id>
+
+  <kupu:part name="styles">
+  </kupu:part>
+
+  <kupu:part name="jsincludes">
+  </kupu:part>
+
+  <kupu:part name="buttons">
+    <span class="kupu-tb-buttongroup" tal:condition="filter/bg-drawers">
+      <button type="button" class="kupu-image"
+              tal:condition="filter/imagelibdrawer-button"
+              id="kupu-imagelibdrawer-button"
+              title="Insert image" i18n:attributes="title title_insert_image;"
+        >&#160;</button>
+      <button type="button" class="kupu-inthyperlink"
+              tal:condition="filter/linklibdrawer-button"
+              id="kupu-linklibdrawer-button"
+              title="Insert internal link"
+        i18n:attributes="title title_insert_internal_link;">&#160;</button>
+      <button type="button" class="kupu-exthyperlink"
+              tal:condition="filter/linkdrawer-button"
+              id="kupu-linkdrawer-button"
+              title="Insert external link"
+        i18n:attributes="title title_insert_external_link;">&#160;</button>
+      <button type="button" class="kupu-anchors"
+              tal:condition="filter/anchors-button"
+              id="kupu-anchors"
+              title="Insert anchors" i18n:attributes="title title_insert_anchors;">&#160;</button>
+      <button type="button" class="kupu-table"
+              tal:condition="filter/tabledrawer-button"
+              id="kupu-tabledrawer-button"
+              title="Insert table" i18n:attributes="title title_insert_table;"
+        >&#160;</button>
+    </span>
+  </kupu:part>
+
+  <kupu:part name="xmlconfig">
+    <tal:var define="field field|nothing;
+            tool here/kupu_library_tool;
+            usecaptions python:tool.getCaptioning() and tool.canCaption(field);
+            base python:here.kupu_library_tool.getBaseUrl(here);
+            base kupu_base_override|base;">
+        <captions tal:condition="usecaptions">1</captions>
+        <xsl_uri tal:content="string:${portal_url}/kupudrawers/drawer.xsl" />
+        <image_resource>mediaobject</image_resource>
+        <link_resource>linkable</link_resource>
+        <lib_prefix tal:content="string:${base}/kupulibraries.xml?resource_type=" />
+        <search_prefix tal:content="string:${portal_url}/kupusearch.xml?resource_type=" />
+        <select_prefix tal:content="string:${portal_url}/kupuselection.xml?resource_type=" />
+    </tal:var>
+  </kupu:part>
+
+</kupu:feature>

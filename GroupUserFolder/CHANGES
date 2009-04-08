@@ -1,0 +1,375 @@
+v3.55.1 - 2007-11-08
+
+  * Fix #6984: Now GroupData verifies if it is related to GRUF group or PlonePAS
+    group.
+    [encolpe]
+
+v3.54.4 - 2007-04-29
+
+  * Death to tabindexes!
+    [limi]
+
+v3.54.3 - 2007-04-16
+
+  * Update methods to provide protection against XSS attacks via GET requests
+    [bloodbare, alecm]
+
+v3.54.2 - 2007-02-06
+
+  * Fix a bug in group removing in another group.
+    [encolpe]
+
+v3.54.1 - 2006-12-15
+
+  * Fix _getMemberIds for LDAPUserFolder 2.7 when groups are stored in LDAPUF
+    [encolpe]
+
+  * Got rid of zLOG in favor of logging.
+    [stefan]
+
+v3.54 - 2006-09-19
+  * Fix a bug with LDAPUserFolder where another UserFolder was returned when LUF
+    was requested [jvloothuis]
+
+v3.53 - 2006-09-08
+  * Removed refresh.txt. You should add this locally if you want to use it.
+    [hannosch]
+
+  * getUsers: efficiency improvement: anti-double user inclusion is done by
+    checking key presence in a dict instead of looking up name in a list
+    [b_mathieu]
+
+  * Fix searchUsersByAttribute returning twice the same user id when a second
+    source is present
+    [b_mathieu]
+
+v3.52 - 2006-05-30
+
+  * Plone 2.1 service release
+
+v3.51 - 2006-05-15
+
+  * Changed getLocalRolesForDisplay to check for 'Manage properties' instead of
+    'Access contents information'. This is still not perfect but at least
+    Anonymous can no longer get at local roles information this way.
+    Fixes http://dev.plone.org/plone/ticket/5492
+    [stefan]
+
+  * Remove some noise log message and the product name parameter from ToolInit.
+    [hannosch]
+
+  * Forces exact match with LDAP on user search
+
+v3.5 - 2005-12-20
+
+  * By default, uses title instead of meta_type in the source management
+    pages. [pjgrizel]
+
+  * It's now possible to search very quickly users from a group
+    in LDAP; long-awaited improvement! [pjgrizel]
+
+  * Correct some wrong security settings.
+    [hannosch]
+
+  * Fix some stupid failing tests so finally all tests pass again.
+    [hannosch]
+
+  * Fix encoding warning in GroupUserFolder.py
+    [encolpe]
+
+  * Made the GroupDataTool call notifyModified() on members who are
+    added or removed from a group
+    [bmh]
+
+v3.4 - 20050904
+
+  * Dynamically fixed the remaining bug in folder_localrole_form.
+
+  * Now the users tab in ZMI allow you to search a user (useful w/ LDAP)
+
+  * Fixed a bug in Plone 2.0 UI when searching a large set of users
+
+  * Added a 'wizard' tab to help in managing LDAP sources.
+
+  * Fixed getProperty in GroupDataTool not to acquire properties.
+    [panjunyong]
+
+[v3.3 - 20050725]
+
+  * Added an 'enable/disable' feature on the sources. Now, you can entierly
+    disable a users source without actually removing it. Very useful for
+    testing purposes!
+
+  * Removed an optimization when user is None in authenticate(), so
+    than you can use GRUF with CASUserFolder (thanks to Alexandre
+    Sauv?mr.lex@free.fr>)
+
+  * Fixed 1235351 (possible infinite recursion in an audit method)
+
+  * Fixed [ 1243323 ] GRUF: bug in createGrouparea() in GroupsTool.py
+
+[v3.23 - 20050724]
+
+  * Fixed unit tests. Now the unit tests are working with the latest ZTC
+    version.
+    [tiran]
+
+[v3.22 - 20050706]
+
+  * Fixed a missing import in GroupsTool.py (http://plone.org/collector/4209)
+    [hannosch]
+
+  * Fixed a nested groups issue with LDAPUserFolder. This is not a widely
+    used schema with ldap anyway.
+    [pjgrizel]
+
+  * Fixed LDAPUserFolderAdapter's search_by_dn bug: search by _login_attr
+    but not _rdnattr
+    [panjunyong]
+
+  * _getLocalRolesForDisplay was marking users as groups for groups that had
+    the same as users (http://plone.org/collector/3711).  Made unit tests run
+    even if LDAPUserFolder is not installed.
+    [alecm]
+
+[v3.2 - 20050307]
+
+  Service release.
+
+[v3.2RC2 - 20050305]
+
+  * Now your user sources (especially LUF) can have a 'portait' property which
+    will be used as your user's portrait. This works only in 'preview.txt'-mode.
+
+  * You can put a 'notifyGroupAreaCreated' in your 'groups' folder as you would
+    be able to put a 'notifyMemberAreaCreated' in your 'members' folder.
+    So you can execute some code at group area creation. Thanks to F. Carlier !
+
+  * Added a helper table on the sources tab to help managing LUF group mappings
+
+  * Fixed a bug in Zope 2.7 preventing the zope quickstart page to show up.
+    A hasUsers() method was missing from GRUF's API.
+
+  * Fixed a bug in ZMI which prevented LUF cached users to be individually
+    managed by GRUF.
+
+
+[v3.2RC1 - 20041215]
+
+  * _doChangeUser and _doChangeGroup lost existing groups if the groups argument
+    was omitted. Fixed these and the Zope 2.5-style APIs accordingly.
+    [stefan]
+
+  * Updated API to have a better conformance to the original Zope API.
+    Thanks to Stefan H Holek for this clever advice.
+
+  * Uncommented cache clearing code in _doChangeUser as it appears to be required.
+    [stefan]
+
+  * Added a Plone 2.0 optional patch to improve LDAP and groups management.
+    It's basically a preview of what will be done in Plone 2.1 for users managment.
+    For example, now, you can assign local roles to users in your LDAP directory,
+    EVEN if they're not in the cache in folder_localrole_form.
+    Other "preview" features will come later. Please read README and PloneFeaturePreview.py
+    files for more explanations on these.
+
+  * Made manage_GRUFUsers page a little faster with LDAP by preventing users count.
+
+  * Fixed [ 1051387 ] addGroup fails if type 'Folder' is not implicitly addable.
+
+  * Fixed other minor or cosmetic bugs
+
+  * Group mapping is automatically created by LDAPGroupFolder when you create a group
+    with its interface.
+
+v3_1_1 - 20040906
+
+  * Fixed a bug in getProperty() - it always returned None !
+
+  * Fixed a bug which caused AUTHENTICATED_USER source id to be invalid
+
+v3_1 - 20040831
+
+  * Group-to-role mapping now works for LDAPGroupFolder
+
+  * Debug mode now allows broken source not to be checken against
+
+  * Fixed getUser() bug with remote_user_mode (getUser(None) now returns None).
+    Thanks to Marco Bizzari.
+
+v3_0 - 20040623
+
+  * Minor interface changes
+
+  * Documentation update
+
+v3_0Beta2
+
+  * Various bug fixes
+
+  * Better support for Plone UI. PLEASE USE PLONE2's pjgrizel-gruf3-branch IN SVN!
+    See README-Plone for further explanation
+
+v3_0Beta1
+
+  * API REFACTORING
+
+  * FAR BETTER LDAP SUPPORT (see README-LDAP.stx)
+
+v2_0 - 20040302
+
+  * Reindexing new GroupSpace objects
+    2004/03/10 Maik Rder
+
+  * Speedup improvements by Heldge Tesdal
+
+  * Fixed ZMI overview refreshing bug
+
+  * GroupsTool method createGrouparea now calls the GroupSpace
+    method setInitialGroup with the group that it is created for.
+    In case this method does not exists, the default behaviour
+    is employed. This is done so that the GroupSpace can decide on its
+    own what the policy should be regarding the group that it is
+    initially created for.
+    See the implementation of GrufSpaces for an example of how this
+    can be used in order to give the initial group the role GroupMember.
+    2004/02/25 Maik Rder
+
+  * Removed GroupSpace code, which can now be found in
+    http://ingeniweb.sourceforge.net/Products/GrufSpaces
+    2004/02/25 Maik Rder
+
+v2_0Beta3 - 20040224
+
+  * Improved performance on LDAP Directories
+
+  * Fixed various Plone UI bugs (password & roles changing)
+
+  * Fixed "AttributeError: URL1" bug in ZMI
+
+v2_0Beta2 - 20031222
+
+  * Added GroupSpace object for Plone websites (see website/GroupSpaceDesign_xx.stx)
+
+  * Fixed __getattr__-related bug
+
+  * Fixed inituser-related bug
+
+  * Cosmetic fixes and minor bugs
+
+v2_0Beta1 - 20031026
+
+  * Include support for multi-sources
+
+v1_32 - 20030923
+
+  * Pass __getitem__ access onto user objects (XUF compatibility)
+
+  * Allow ZMI configuration of group workspaces (CMF Tool)
+
+  * Added security declarations to CMF tools
+
+  * new getPureUserNames() and getPurseUsers() methods to get user
+    objects without group objects
+
+v1_31 - 20030731
+
+  * Many performance improvements (tree and audit views)
+
+  * Fixed a recursion pb. on the left pane tree (!)
+
+  * Added a batch view for "overview" page when there's more than
+    100 users registered in the system
+
+v1_3 - 20030723
+
+  * GRUF NOW SUPPORTS NESTED GROUPS - Transparently, of course.
+
+  * Updated website information & screenshots
+
+  * Major ZMI improving, including everywhere-to-everywhere links,
+    edition of a single user or group, and minor cosmetic fixes
+
+  * The tree view in ZMI now show groups and user (if there's no more
+    than 50, to avoid having server outage)
+
+  * Improved performance
+
+  * Improved test plan
+
+  * Fixed a bug in password generation algorythm with non-iso Python installs
+
+  * Fixed a minor bug in group acquisition stack (it apparently had no side-effect)
+
+v1_21 - 20030710
+
+  * ZMI cosmetic fixes
+
+  * Fixed the bug that prevented LDAP-defined attributes to be acquired by GRUFUser.
+    This bug showed-up with LDAPUserFolder.
+
+v1_2 - 20030709
+
+  * HTML documentation
+
+  * Add a management tab on GRUF to allow users and groups to be created
+    at this top-level management interface.
+
+v1_1 - 20030702
+
+  * Security improvements
+
+  * Added an 'audit' tab to check what's going on
+
+  * GroupsTool and GroupDataTool added for Plone
+
+  * Improved Plone skins
+
+  * Improved Plone installation
+
+  * GRUF Users now 'inherit' from their underlying user object
+
+v1_0RC1 - 20030514
+
+  * Code cleaning
+
+  * Documentation improving
+
+  * API improving (added a few utility methods)
+
+  * UI improving (see skins changes)
+
+  * getId() bug fixing (see ChangeLog)
+
+v0_2 - 20030331
+
+  * Users are now acquired correctly, which prevents you from hotfixing anything !!! :-)
+
+  * This fixed Zope 2.5 w/ Plone bug
+
+  * Better log reporting
+
+  * Validated with LDAPUserFolder and SimpleUserFolder
+
+v0_1 - 20021126
+
+  * User creation is now supported
+
+  * Fixed a bug (with an axe) that prevented Zope module Owner.py code to work.
+    The Owner.py calls aq_inner and aq_parent methods on a User object to get its
+    security context. So it found the underlying User object instead of the GRUF
+    itself. So we fixed this by setting dummy UserFolder-context methods on the
+    GRUFUser objects. This is ugly and should be fixed later by acquiring the
+    underlying User object from a better context.
+
+  * Fixed getUserName in GRUFUser that returned group names without the "group"
+    prefix.
+
+  * Fixed various "cosmetic" bugs
+
+  * Documented the whole stuff
+
+v0_0 - 20021126
+
+  Started to work on this wonderful product.
+

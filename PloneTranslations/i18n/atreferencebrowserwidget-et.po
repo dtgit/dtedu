@@ -1,0 +1,146 @@
+# Translation of atreferencebrowserwidget.pot to Estonian
+# Mart Laanpere <MartL@tpu.ee>, 2003
+msgid ""
+msgstr ""
+"Project-Id-Version: ATReferenceBrowserWidget\n"
+"POT-Creation-Date: 2007-09-01 12:34+0000\n"
+"PO-Revision-Date: 2006-01-19 00:42+0200\n"
+"Last-Translator: mari <marip@tpu.ee>\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-13\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: et\n"
+"Language-Name: Estonian\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: atreferencebrowserwidget\n"
+
+#. Default: "Add..."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:177
+msgid "label_add"
+msgstr ""
+
+#. Default: "Browse..."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:212
+msgid "label_browse"
+msgstr "Browse..."
+
+#. Default: "( Directory: ${directory})"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:47
+msgid "label_directory"
+msgstr ""
+
+#. Default: "Go"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:98
+msgid "label_go"
+msgstr ""
+
+#. Default: "Move bottom"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:201
+msgid "label_move_bottom"
+msgstr ""
+
+#. Default: "Move down"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:194
+msgid "label_move_down"
+msgstr ""
+
+#. Default: "Move top"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:180
+msgid "label_move_top"
+msgstr ""
+
+#. Default: "Move up"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:187
+msgid "label_move_up"
+msgstr ""
+
+#. Default: "No reference set. Click the browse button to select."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:136
+msgid "label_no_reference_set"
+msgstr "Viidet referentsobjektile pole seatud. Klõpsa Browse nuppu objekti valikuks. "
+
+#. Default: "Remove reference"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:218
+msgid "label_remove_reference"
+msgstr "Eemalda viide"
+
+#. Default: "Remove selected items"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser.pt:225
+msgid "label_remove_selected_items"
+msgstr "Eemalda valitud objektid"
+
+#. Default: "Back"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:77
+#, fuzzy
+msgid "referencebrowser_back"
+msgstr "tagasi"
+
+#. Default: "Browse"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:316
+msgid "referencebrowser_browse"
+msgstr ""
+
+#. Default: "Clear history"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:103
+msgid "referencebrowser_clearhistory"
+msgstr ""
+
+#. Default: "Close window"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:79
+#, fuzzy
+msgid "referencebrowser_close"
+msgstr "sule aken"
+
+#. Default: "Search results"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:184
+msgid "referencebrowser_heading_search_results"
+msgstr "Otsingutulemused"
+
+#. Default: "History"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:90
+msgid "referencebrowser_history"
+msgstr ""
+
+#. Default: "Insert"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:311
+#, fuzzy
+msgid "referencebrowser_insert_reference"
+msgstr "lisa "
+
+#. Default: "No items found."
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:235
+msgid "referencebrowser_no_items_found"
+msgstr "Ühtegi objekti ei leitud"
+
+#. Default: "Search index"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:127
+msgid "referencebrowser_search_index_label"
+msgstr "Otsinguindeks"
+
+#. Default: "Search terms"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:152
+msgid "referencebrowser_search_term"
+msgstr "Otsisõnad"
+
+#. Default: "Search"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:133
+msgid "referencebrowser_search_terms"
+msgstr "Otsi"
+
+#. Default: "Added reference to:"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:174
+msgid "referencebrowser_text_added_reference"
+msgstr "Lisatud viide objektile:  "
+
+#. Default: "view"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:332
+msgid "referencebrowser_view"
+msgstr "Vaade"
+
+#. Default: "Home"
+#: ./skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:202
+msgid "tabs_home"
+msgstr ""
+

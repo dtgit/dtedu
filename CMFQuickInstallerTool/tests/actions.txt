@@ -1,0 +1,95 @@
+Tests for QuickInstaller Actions installation
+=============================================
+
+First we need to install quickinstaller itself:
+
+  >>> self.setRoles(['Manager'])
+  >>> self.addProduct('CMFQuickInstallerTool')
+
+  >>> from zope.component import getSiteManager
+  >>> from Products.CMFQuickInstallerTool.interfaces import IQuickInstallerTool
+
+Now set three convenience variables for later use:
+
+  >>> portal = self.app.cmf
+  >>> portal
+  <CMFSite at /cmf>
+
+  >>> qi = getattr(portal, 'portal_quickinstaller', None)
+  >>> qi
+  <QuickInstallerTool at /cmf/portal_quickinstaller>
+
+  >>> actions_tool = portal.portal_actions
+  >>> actions_tool
+  <ActionsTool at /cmf/portal_actions>
+
+And register the QI tool as a utility:
+
+  >>> sm = getSiteManager()
+  >>> sm.registerUtility(qi, IQuickInstallerTool)
+
+Install a product through an extension profile
+----------------------------------------------
+
+  >>> qi.installProducts(products=['CMFQuickInstallerTool'], forceProfile=True)
+  '...Installed Products...CMFQuickInstallerTool:ok:...'
+
+Make sure the actions were added:
+
+  >>> 'test1' in [a.id for a in actions_tool.listActions()]
+  True
+
+  >>> 'test2' in [a.id for a in actions_tool.listActions()]
+  True
+
+And we have an InstalledProduct instance in the QI tool which says the product
+is installed again:
+
+  >>> 'CMFQuickInstallerTool' in qi.objectIds()
+  True
+  
+  >>> qi['CMFQuickInstallerTool'].isInstalled()
+  True
+
+Uninstall the product
+---------------------
+
+  >>> qi.uninstallProducts(products=['CMFQuickInstallerTool'])
+
+Verify that all added entries were removed again:
+
+  >>> 'test1' in [a.id for a in actions_tool.listActions()]
+  False
+
+  >>> 'test2' in [a.id for a in actions_tool.listActions()]
+  False
+
+  >>> 'test_category' in actions_tool.objectIds()
+  False
+
+And we have an InstalledProduct instance in the QI tool which says the product
+is not installed anymore:
+
+  >>> 'CMFQuickInstallerTool' in qi.objectIds()
+  True
+  
+  >>> cmfqi = qi['CMFQuickInstallerTool']
+  >>> cmfqi.isInstalled()
+  False
+
+TearDown
+--------
+
+Make sure the QI tool is still there:
+
+  >>> qi = getattr(portal, 'portal_quickinstaller', None)
+  >>> qi
+  <QuickInstallerTool at /cmf/portal_quickinstaller>
+
+And mark QuickInstaller as installed again:
+
+  >>> qi['CMFQuickInstallerTool'].status = 'installed'
+
+  >>> cmfqi = qi['CMFQuickInstallerTool']
+  >>> cmfqi.isInstalled()
+  True

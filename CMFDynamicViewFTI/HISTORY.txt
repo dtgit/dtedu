@@ -1,0 +1,122 @@
+Changelog for CMFDynamicViewFTI
+
+   (name of developer listed in brackets)
+
+CMFDynamicViewFTI 3.0.1 - Released October 7, 2007
+
+    - Copied addWithPresettings.pt from GenericSetup 1.3 branch r79408. This
+      fixes a startup error in buildouts caused by the move to an egg.
+      [fschulze]
+
+    - Adding a Dynamic View FTI through ZMI is back. This closes
+      https://dev.plone.org/plone/ticket/6976
+      [glenfant]
+
+    - Removed migrate module, which didn't work in CMF 2.1 anymore. Use
+      GenericSetup profiles for handling portal types instead. This closes
+      http://dev.plone.org/plone/ticket/6899.
+      [hannosch]
+
+CMFDynamicViewFTI 3.0 - Released August 9, 2007
+
+    - No changes.
+      [hannosch]
+
+CMFDynamicViewFTI 3.0rc1 - Released July 9, 2007
+
+    - Removed some BBB code.
+      [hannosch]
+
+    - Removed five:registerPackage.
+      [hannosch]
+
+CMFDynamicViewFTI 3.0b1 - Released May 1, 2007
+
+    - Updated some import locations. We require a minimum of Zope 2.10 now.
+      [hannosch]
+
+    - Rename menus - turns out dotted names don't really work with the ZCML
+      magic that's creating interfaces on the fly (it's akin to having a
+      variable name with a dot in it)
+      [optilude]
+
+    - Use new displayviews menu to find view titles; rework Z3 view test to use
+      a test zcml file.
+      [mj]
+
+CMFDynamicViewFTI 2.1.2 - Released April 22, 2007
+
+    - Removed bogus test setup. All the stuff is done by the layer anyway.
+      [stefan]
+
+    - Removed tests/runalltests.py and tests/framework.py.
+      To run tests use Zope's testrunner:
+      ./bin/zopectl test --nowarn -s Products.CMFDynamicViewFTI
+      [stefan]
+
+CMFDynamicViewFTI 2.1.1 - Released February 10, 2007
+
+    - Removed the view alias of index.html, as this would block uploading of
+      files called index.html into folders. You can enable this in your own
+      types if you want.
+      [hannosch]
+
+CMFDynamicViewFTI 2.1.0 - Released September 8, 2006
+
+    - Implemented fallback to default view:
+      If a selected view (i.e. template) does not exist, return the
+      default view instead of - ultimately - NotFound. You can enable this
+      option by setting the FTI's new 'default_view_fallback' property to True.
+      [stefan]
+
+    - Converted dummy test sample types to be extension profile based. This
+      profile is only registered during test runs.
+      [hannosch]
+
+    - Slightly adjusted the tests to new CTC version.
+      [hannosch]
+
+CMFDynamicViewFTI 2.0.0 - Released May 15, 2006
+
+    - Merged z3-views-integration branch.
+      [svincic]
+
+    - Making use of Zope 3 interfaces with proper reverse bridges.
+      [optilude]
+
+    - Fix tests to pass if Five/Zope3 is installed.
+      [hannosch]
+
+CMFDynamicViewFTI 1.0.4 - Released March 19, 2006
+
+    - Made 'safe_callable' truly safe by using 'safe_hasattr'.
+    - Made tests use CMFTestCase. There is no Plone dependency whatsoever.
+    - Fixed a bug in getViewMethod. A present, but empty 'layout' attribute
+      now also returns the default view instead of ''. Returning the empty
+      string sends PortalContent.__call__() into a loop.
+      [stefan]
+
+CMFDynamicViewFTI 1.0.3 - Released February 25, 2006
+
+    - Added conditional import for typeClasses to make the code CMF1.6
+      compatible while staying CMF1.5 backwards compatible.
+      [hannosch]
+
+CMFDynamicViewFTI 1.0.2 - Released December 18, 2005
+
+    - Change getViewMethod's 'enforce_available' argument to default to False
+      instead of True. If someone goes to the trouble of either using python
+      or adding a property to indicate a specific template as the default
+      layout, we should let them.
+      [rafrombrc]
+
+CMFDynamicViewFTI 1.0.1 - Released August 9, 2005
+
+    - Improved Plone 2.1 integration: getDefaultPage. Replace try/except with a
+      better checking for Plone. Bonus: whitespaces cleanup.
+      [deo]
+
+    - Stop acquisation for default_page.
+      [panjunyong]
+
+CMFDynamicViewFTI 1.0.0 - Released July 29, 2005

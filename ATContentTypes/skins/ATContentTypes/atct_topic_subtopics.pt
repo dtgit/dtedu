@@ -1,0 +1,16 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    metal:use-macro="container/main_template/macros/master">
+
+<body>
+<div metal:fill-slot="main">
+
+        <tal:subtopics define="full_view python:False;
+                               view_title string:Contained Collections:;
+                               batch python:here.getFolderContents(batch=True, b_size=100)">
+            <metal:list metal:use-macro="here/old_folder_contents/macros/contents"/>
+        </tal:subtopics>
+
+</div>
+</body>
+</html>

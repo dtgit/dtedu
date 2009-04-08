@@ -1,0 +1,230 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="ECQuiz"
+      metal:use-macro="here/main_template/macros/master">
+ <body>
+  <metal:block fill-slot="css_slot">
+   <style type="text/css" media="screen" tal:content="string: @import url($portal_url/ecqstyles.css);"></style>
+  </metal:block>
+
+  <metal:fill fill-slot="main">
+   <div metal:use-macro="here/document_actions/macros/document_actions">
+    Document actions (print, sendto, etc.)
+   </div>
+
+   <tal:define_globals define=" 
+    candidateId       python:member.getId();
+    
+    hasSubmitted      python:here.hasSubmitted(candidateId);
+    isEmpty           here/isEmpty;
+    isPublic          here/isPublic;
+    mayResubmit       here/mayResubmit;
+    editView          python:here.userIsGrader(member);
+    submissionAllowed python:(not isEmpty) and mayResubmit;
+    headingLevel      python:1;
+    hasJustSubmitted  python:request.get('has_just_submitted', False);
+    "
+    >
+        
+    <tal:block condition="isPublic" define="headingText here/title_or_id;">
+     <metal:use use-macro="here/ecq_tools/macros/heading"/>
+    </tal:block>
+
+    <metal:use use-macro="here/ecq_tools/macros/up_one_level">
+     Up one level
+    </metal:use>
+    
+    <tal:define_heading_level define="headingLevel python:headingLevel+1;">
+
+     <!-- Show quiz form -->
+     <tal:if_submission_allowed condition="submissionAllowed">
+      <tal:define
+       define="
+       result           python:here.maybeMakeResult();
+       showAll          python:editView or (not here.isOnePerPage());
+       elemNoToShow     python:(not showAll) and result.getCurrentPageNum();
+       questionsInTest  python:(not showAll) and here.getQuestions(result);
+       questionGroups   python:here.getQuestionGroups();
+       pageItems        python:(not showAll) and questionsInTest+questionGroups;
+       numTestQuestions python:(not showAll) and len(questionsInTest);
+       numPages         python:(not showAll) and len(pageItems);
+       ">
+       
+       <form name="submit" action="#" method="post"
+        tal:attributes="action python:here_url + '/ecq_quiz_submit'">
+        <fieldset>
+         
+         <!-- List the questions -->
+         <!-- Everything on one page mode -->
+         <tal:if_all_on_one_page condition="showAll">
+          <tal:repeat repeat="questionContainer python:[here] + questionGroups">
+           <metal:use use-macro="
+            questionContainer/ecq_group_view/macros/view"
+            />
+          </tal:repeat>
+         </tal:if_all_on_one_page>
+         
+         <!-- One question per page mode -->
+         <tal:if_one_per_page condition="not: showAll">
+          <tal:i_have_to_define_this_in_a_child_element_because_define_attributes_of_elements_with_a_condition_attribute_are_evaluated_even_if_the_condition_is_false define="questionContainer python:((elemNoToShow < numTestQuestions) and here) or questionGroups[elemNoToShow - numTestQuestions];
+           ">
+           <metal:use use-macro="
+            questionContainer/ecq_group_view/macros/view"
+            />
+          </tal:i_have_to_define_this_in_a_child_element_because_define_attributes_of_elements_with_a_condition_attribute_are_evaluated_even_if_the_condition_is_false>
+         </tal:if_one_per_page>
+         
+         <!-- The submit button(s) -->
+         <div class="formControls">
+          <tal:if_one_per_page condition="not: showAll"
+           define="navDisabled python:not here.isOnePerPageNav();">
+           <table style="width:100%;">
+            <tr>
+             <td style="text-align:left;">
+              <input
+               tal:condition="not: navDisabled"
+               class="#"
+               disabled="#"
+               type="submit"
+               name="previous"
+               value="Previous"
+               i18n:attributes="value"
+               tal:define="disabled python:navDisabled or (elemNoToShow < 1);"
+               tal:attributes="
+               class    python:'navigation' + ['', '-disabled'][disabled];
+               disabled python:['', 'yes'][disabled];
+               "/>
+              
+              <tal:define define="
+               maxPages python:11;
+               offLeft  python:maxPages/2;
+               iBegin   python:((maxPages < numPages) and max(elemNoToShow-offLeft, 0)) or 0;
+               iEnd     python:min(iBegin+maxPages, numPages);
+               indices  python:range(iBegin, iEnd);
+               ">
+               
+               <span tal:condition="python:iBegin != 0"    >&#x2026;</span>
+               
+               <tal:repeat repeat="index indices">
+                <input tal:condition="python:index==elemNoToShow"
+                 class="navigation-active"
+                 disabled="yes"
+                 type="submit"
+                 name="active"
+                 value="#"
+                 tal:attributes="value python:index+1;"/>
+                
+                <input tal:condition="python:index!=elemNoToShow"
+                 class="#"
+                 disabled="#"
+                 type="submit"
+                 name="#"
+                 value="#"
+                 tal:attributes="
+                 name     python:'page_%d' % index;
+                 value    python:index+1;
+                 disabled python:['', 'yes'][navDisabled];
+                 class    python:'navigation' + (['', '-visited'][pageItems[index].haveCandidateAnswer(result)]) + (['', '-disabled'][navDisabled]);
+                 "/>
+               </tal:repeat>
+               
+               <span tal:condition="python:iEnd < numPages">&#x2026;</span>
+              </tal:define>
+              
+              <input
+               class="#"
+               disabled="#"
+               type="submit"
+               name="next"
+               value="Next"
+               i18n:attributes="value"
+               tal:define="disabled python:not (elemNoToShow < numPages-1);"
+               tal:attributes="
+               class    python:'navigation' + ['', '-disabled'][disabled];
+               disabled python:['', 'yes'][disabled];
+               "/>
+             </td>
+             
+             <td style="text-align:right">
+              <input 
+               class="context"
+               type="submit"
+               name="submit"
+               value="Submit Quiz"
+               i18n:attributes="value"
+               onclick="#"
+               tal:define="alert_msg python:here.translate(msgid='alert_really_submit',
+               domain=here.i18n_domain,
+               default='Do you really want to submit this quiz?');"
+               tal:attributes="
+               onclick string: confirmSubmit = confirm('${alert_msg}');; event.returnValue = confirmSubmit;; return confirmSubmit;;"
+               />
+             </td>
+            </tr>
+           </table>
+          </tal:if_one_per_page>
+
+          <tal:if_all_on_one_page condition="showAll">
+           <input 
+            class="context"
+            type="submit"
+            name="submit"
+            value="Submit"
+            i18n:domain="plone"
+            i18n:attributes="value"/>
+          </tal:if_all_on_one_page>
+         </div>
+        </fieldset>
+       </form>
+      </tal:define>
+     </tal:if_submission_allowed>
+     
+     <!-- Show results/repeat form -->
+     <tal:if_submission_not_allowed condition="not: submissionAllowed">
+      <!-- Tell people whether they have already taken this quiz or not,
+      unless they have just submitted the quiz (hasJustSubmitted ==
+      True), because in that case, our informative message would 
+      only confuse them.
+      -->
+      <!--       FIXME! -->
+      <p tal:condition="python: (not mayResubmit) and (not hasJustSubmitted)">
+       <span i18n:translate="test_taken"
+        tal:omit-tag="">You have already taken this quiz.
+       </span>
+       <span i18n:translate="no_repetition"
+        tal:omit-tag="">
+        You may not submit it again.
+       </span>
+      </p>
+     
+      <!-- Empty quiz -->
+      <p tal:condition="isEmpty" i18n:translate="no_questions">
+       This quiz contains no questions.
+      </p>
+     </tal:if_submission_not_allowed>
+    </tal:define_heading_level>
+    <!-- Navigation -->
+    <!--div metal:use-macro="here/batch_macros/macros/navigation" /-->
+   </tal:define_globals>
+   
+   <div metal:use-macro="here/document_byline/macros/byline">
+    Get the byline - contains details about author and modification date.
+   </div>
+  </metal:fill>
+ </body>
+</html>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:1
+sgml-indent-data:t
+indent-tabs-mode:nil
+fill-column:79
+End:
+-->

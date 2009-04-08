@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+<!-- Override to ensure parent is translated first -->
+
+  <browser:page 
+    for="Products.LinguaPlone.interfaces.ITranslatable"
+    name="translate"
+    class=".browser.translate.CreateTranslation"
+    permission="cmf.AddPortalContent" />
+        
+   <browser:viewlet
+     name="plone.app.i18n.locales.languageselector"
+     manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+     class=".browser.selector.TranslatableLanguageSelector"
+     permission="zope2.View"
+     for="Products.LinguaPlone.interfaces.ITranslatable"
+     />
+
+</configure>

@@ -1,0 +1,8 @@
+[validators]
+validators=
+
+[actions]
+action.failure=traverse_to:string:ecpd_direct_compare
+action.success=traverse_to:string:ecpd_direct_compare
+
+

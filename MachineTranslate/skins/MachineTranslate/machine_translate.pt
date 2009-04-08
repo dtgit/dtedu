@@ -1,0 +1,85 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="eduCommons">
+
+<head>
+    <metal:top fill-slot="top_slot">
+        <tal:border define="dummy python:request.set('disable_border', 1)"/>
+    </metal:top>
+</head>
+
+<body>
+
+<metal:main metal:fill-slot="main"
+            tal:define="langtool nocall:context/portal_languages;
+                        set_language request/set_language | nothing;
+                        lang_code langtool/getPreferredLanguage;
+                        lang_name python:langtool.getNameForLanguageCode(lang_code);">
+
+    <div metal:use-macro="here/document_actions/macros/document_actions">
+        Document actions (print, sendto etc)
+    </div>
+
+    <h1 i18n:translate="header_machine_translation">
+        Machine Translation
+    </h1>
+    <p i18n:translate="description_machine_translate">
+      This item can be machine translated. The Machine Translation will populate the Title, Description, Categories, and Body
+      fields of the translated item.
+    </p>
+
+        <h2 i18n:translate="header_add_machine_translation">
+            Add Machine Translated Content
+        </h2>
+
+        <form name="create"
+              method="post"
+              action=""
+              tal:attributes="action here/absolute_url">
+
+            <p i18n:translate="description_create_machine_translation">
+                Machine Translate this item into
+                <strong i18n:name="language" tal:content="lang_name" />
+                 by selecting the checkbox. If unselected, the translation will be created without pre-populated fields.
+            </p>
+
+            <div class="formControls">
+
+                <input type="hidden"
+                       name="newlanguage"
+                       value=""
+                       tal:attributes="value lang_code"
+                       />
+
+                <input type="hidden"
+                       name="checked"
+                       value="1"
+                       />
+
+		<input type="checkbox"
+		       id="machine_xlate"
+		       name="machine_xlate"
+		       value="1" />
+
+		<label for="machine_xlate"
+		       i18n:translate="label_machine_xlate">
+		  Select the checkbox if you would like the content to be machine translated
+		</label>
+
+		<br /><br />
+                <input class="context"
+                       type="submit"
+                       name="@@translate:method"
+                       i18n:attributes="value label_add_translation;"
+                       value="Add Translation"
+                       />
+            </div>
+
+         </form>
+
+</metal:main>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+[default]
+title = Toggle show assignments' full text
+
+[validators]
+validators=
+
+[actions]
+action.success=redirect_to:request/orig_template|string:all_assignments
+action.failure=redirect_to:request/orig_template|string:all_assignments

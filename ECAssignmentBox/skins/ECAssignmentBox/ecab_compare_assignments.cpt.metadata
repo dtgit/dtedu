@@ -1,0 +1,13 @@
+[default]
+title = Set Submission Period
+
+[security]
+View = 0:Authenticated
+
+[validators]
+validators=
+
+[actions]
+action.success = redirect_to:string:folder_contents
+action.success..Cancel = redirect_to:string:folder_contents
+action.failure = redirect_to:string:ecab_compare_assignments

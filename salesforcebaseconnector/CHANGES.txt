@@ -1,0 +1,69 @@
+Change history
+==============
+
+1.1 (unreleased)
+ 
+ - Remove deprecated parameter product_name from ToolInit call, this has been 
+   gone since before 2.5.5 which is our earliest Salesforce Base Connector 
+   version.
+   [andrewb]
+
+
+1.0.1 final (2009-01-20)
+
+ - Fixed packaging issue and contain sfconfig.py in released version 1.0 final
+   [andrewb]
+
+1.0 final (2009-01-13)
+
+ - Updated beatbox dependency to version 0.9.1.1
+   [davisagli]
+
+ - Don't use trademarked Salesforce.com icon.
+   [davisagli]
+
+1.0c1 (2008-12-22)
+
+ - Protect the base connector's query, queryMore, retrieve, getDeleted, and
+   getUpdated methods with the 'Manage portal' permission instead of making
+   them publicly traversable.  Note that this means any restricted Python
+   calling these methods (e.g. page templates or Python scripts) will need
+   to use a proxy role that has this permission in order to continue functioning.
+   [davisagli]
+
+ - Don't display a configured password in the configuration form. [davisagli]
+
+ - Refactored credentials check so that invalid credentials will result in a warning
+   shown to the user, rather than failing silently.  This closes issue #2. [andrewb, davisagli]
+   
+ - Integration test suites all based on CMFTestCase and creation of CMF Site,
+   rather than PloneTestCase and Plone site for performance reasons [andrewb]
+
+1.0-alpha3
+
+ - Added new publicly supported API "listFieldsRequiredForCreation" which
+   encapsulates some of the rules for which fields are required upon object
+   creation via the SOAP API for Salesforce.com.  The benefit being that 
+   additional packages need not reproduce the following, which may evolve 
+   anyway:
+   
+     not fieldData.nillable and \
+        not fieldData.defaultedOnCreate and \
+        fieldData.createable
+        
+    listFieldsRequiredForCreation accepts a Salesforce Object type as its
+    lone required argument (Jesse Snyder)
+
+ - Removing unneeded portal_skins FSDV (Jesse Snyder) 
+
+ - Improved docstrings for interfaces (Jesse Snyder)
+
+
+1.0-alpha2
+
+ - Updating CMFCore permission imports to work with CMF-2.1.0 (Emyr Thomas)
+ - Tested with Plone 3.0 final (Andrew Burkhalter)
+
+1.0-alpha1
+
+ - Initial import and creation of standalone product

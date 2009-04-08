@@ -1,0 +1,355 @@
+/*****************************************************************************
+ *
+ * Kupu plone styles
+ *
+ * Copyright (c) 2003-2005 Kupu Contributors. See CREDITS.txt
+ *
+ * Feel free to use whole or parts of this for your own designs, but
+ * give credit where credit is due.
+ *
+ *****************************************************************************/
+
+/* $Id: kupuplone.css 7217 2004-11-11 13:20:56Z duncan $ */
+/*
+/* <dtml-with base_properties>
+ * <dtml-let buttonhighlight="'Black'" buttonshadow="'Black'"> 
+ * <dtml-call "REQUEST.set('portal_url', portal_url())"> */
+
+.kupu a {
+    color: &dtml-linkColor; !important;
+    background-color: transparent;
+    text-decoration: none !important;
+    border-bottom: 1px #cccccc solid !important;
+}
+
+
+div.kupu-toolboxes {display: none}
+
+/*select.kupu-tb-styles {display: block}*/
+
+div.kupu-tb { margin: 0; }
+div.kupu-fulleditor { margin-right: 0; width:100%; }
+div.kupu-fulleditor .kupu-editorframe {
+  margin-right: 0;
+}
+
+.drawer {
+    left: 25%;
+}
+
+
+/* Kupu pulls in Plone stylesheets. If you want a paragraph to look
+different in Kupu from Plone, then don't add rules here, add them in
+ploneCustom.css and use the kupu class to distinguish them. e.g.
+
+.pullQuote { float: right; width: 30%; }
+.kupu .pullQuote { float:none; width: auto; }
+*/
+.kupu table.invisible { 
+  border:1px solid ThreeDLightShadow; 
+} 
+
+.kupu table.invisible tr td { 
+  border:1px solid ThreeDDarkShadow; 
+} 
+
+.kupu div.pageBreak {
+    border-top: 1px dotted #ccc;
+}
+
+
+/* Hide the 'target' field in the LinkLibraryDrawer 
+
+   I've used a class as an identifier here because somehow using id
+   doesn't seem to work (Mozilla doesn't seem to apply CSS defined for
+   an id when generating HTML using XSLT).
+*/
+.kupu-linkdrawer-target-row, .kupu-linkdrawer-name-row {
+  display: none
+}
+
+textarea { width: 90%; } /* Override buggy Plone setting */
+
+/* plone customizations regarding color and borders etc */
+
+/* hide the Plone table of contents if it is visible (inline edit) */
+dl.toc {
+    display: none;
+}
+
+.kupu-tb {
+  background-color:&dtml-contentViewBackgroundColor;;
+  padding-bottom:0px; margin:0;
+  width:99%;
+  border:1px solid &dtml-contentViewBorderColor;;
+}
+
+ul.kupu-tabs li {
+  background-color:&dtml-contentViewBackgroundColor;;
+  border:1px solid &dtml-contentViewBorderColor;;
+}
+ul.kupu-tabs {
+  border-bottom: 1px solid &dtml-contentViewBorderColor;;
+}
+
+div div.kupu-panels {
+  background-color: &dtml-contentViewBackgroundColor;;
+}
+
+.kupu-tb-styles, .kupu-ulstyles, .kupu-olstyles {
+  margin-top:3px;
+  margin-bottom:4px;
+}
+
+body.documentContent { padding: 1em !important; }
+
+html.kupu-html {
+  font-size: &dtml-fontBaseSize;;
+}
+
+iframe.kupu-editor-iframe{
+  border:1px solid &dtml-globalBorderColor;;
+  width:100%;
+  border-top:none;
+  margin-right: 0;
+}
+
+div.kupu-fulleditor-zoomed .kupu-editor-iframe {
+  border: none;
+  margin: 0;
+}
+
+.kupu-fulleditor-zoomed .kupu-tb {
+  width:100%;
+}
+
+/*  Button definitions - these use one image as a CSS sprite, and refer to the
+ *  image they need with an offset instead of loading 24 image files.
+ *  The sprite file has an empty space at the top to make sure that other
+ *  user-created buttons don't get any additional background bitmaps.
+ *  The original sprite file with the layers is the .pxi file - which 
+ *  unfortunately only runs on the Mac. It's the only open source pixel tool
+ *  that is fit for the purpose, but if you don't have access to it, you 
+ *  should be able to use the PNG directly.
+ */
+
+.kupu-tb-buttons button {
+  width: 24px;
+  height: 24px;
+  border-color:&dtml-contentViewBackgroundColor;;
+/*  background-color: &dtml-contentViewBackgroundColor;; 
+  background-position: center center;
+*/
+  margin-bottom:4px;
+  margin-right:-2px;
+
+        background: transparent url("&dtml-portal_url;/plonekupuimages/kupu_sprite.png") 0 0 no-repeat;
+
+}
+
+span.kupu-tb-buttons button:hover {
+  border:1px solid;
+  border-color:  &dtml-buttonhighlight; &dtml-buttonshadow; &dtml-buttonshadow; &dtml-buttonhighlight;;
+}
+
+div.kupu-tb-buttongroup {
+  margin-right:1px;
+}
+
+span.kupu-tb-buttons .kupu-bold-pressed,
+span.kupu-tb-buttons .kupu-italic-pressed,
+span.kupu-tb-buttons .kupu-subscript-pressed,
+span.kupu-tb-buttons .kupu-superscript-pressed,
+span.kupu-tb-buttons .kupu-underline-pressed {
+  border-color: &dtml-buttonshadow; &dtml-buttonhighlight; &dtml-buttonhighlight; &dtml-buttonshadow;;
+}
+
+button.kupu-anchors      { background-position: 0  -20px; }
+
+button.kupu-forecolor    { background-position: 0  -60px; }
+button.kupu-hilitecolor  { background-position: 0  -80px; }
+button.kupu-inthyperlink { background-position: 0 -100px; }
+button.kupu-inthyperlink-pressed { border-color: &dtml-buttonshadow; &dtml-buttonhighlight; &dtml-buttonhighlight; &dtml-buttonshadow;; }
+button.kupu-exthyperlink { background-position: 0 -120px; }
+button.kupu-exthyperlink-pressed { border-color: &dtml-buttonshadow; &dtml-buttonhighlight; &dtml-buttonhighlight; &dtml-buttonshadow;; }
+button.kupu-image        { background-position: 0 -140px; }
+button.kupu-indent       { background-position: 0 -160px; }
+button.kupu-outdent      { background-position: 0 -180px; }
+
+button.kupu-inserthorizontalrule {}
+
+button.kupu-insertorderedlist,
+button.kupu-insertorderedlist-pressed 
+                         { background-position: 0 -200px; }
+button.kupu-insertunorderedlist,
+button.kupu-insertunorderedlist-pressed 
+                         { background-position: 0 -220px; }
+button.kupu-insertdefinitionlist 
+                         { background-position: 0 -240px; }
+button.kupu-justifycenter,
+button.kupu-justifycenter-pressed
+                         { background-position: 0 -260px; }
+
+button.kupu-justifyleft,
+button.kupu-justifyleft-pressed 
+                         { background-position: 0 -280px; }
+button.kupu-justifyright,
+button.kupu-justifyright-pressed 
+                         { background-position: 0 -300px; }
+
+button.kupu-removelink,
+button.kupu-removeimage  { background-position: 0 -320px; }
+
+button.kupu-bold,
+button.kupu-bold-pressed { background-position: 0 -340px; }
+button.kupu-italic, 
+button.kupu-italic-pressed 
+                         { background-position: 0 -360px; }
+
+button.kupu-source       { background-position: 0 -380px; }
+button.kupu-table        { background-position: 0 -400px; }
+button.kupu-zoom         { background-position: 0 -420px; }
+button.kupu-zoom-pressed { background-position: 0 -440px; }
+
+
+button.kupu-save         { background-position: 0 -460px; display:none; }
+button.kupu-save-and-exit { }
+
+button.kupu-space {background-image: url("&dtml-portal_url;/plonekupuimages/space.gif");}
+button.kupu-spellchecker {background-image: url("&dtml-portal_url;/kupuimages/text-check.png");}
+button.kupu-subscript,
+button.kupu-subscript-pressed  {background-image: url("&dtml-portal_url;/plonekupuimages/subscript.gif");}
+button.kupu-superscript,
+button.kupu-superscript-pressed {background-image: url("&dtml-portal_url;/plonekupuimages/superscript.gif");}
+
+button.kupu-underline, 
+button.kupu-underline-pressed {background-image: url("&dtml-portal_url;/plonekupuimages/underline.gif");}
+
+button.kupu-undo {background-image: url("&dtml-portal_url;/plonekupuimages/undo.gif");}
+button.kupu-redo {background-image: url("&dtml-portal_url;/plonekupuimages/redo.gif");}
+button.kupu-logo {background-image: url("kupuimages/kupu_icon.gif");}
+
+
+div.kupu-drawer {
+  border: solid 1px &dtml-contentViewBorderColor;;
+  background-color: &dtml-contentViewBackgroundColor;;
+  font-family: &dtml.-fontFamily;;;
+}
+
+h1.kupu-drawer-title {
+  border: none;
+}
+
+div.kupu-drawer table td td {
+  font-size: 100%;
+}
+
+div.kupuoverride {
+    margin-left: 0.75em;
+}
+
+.forcekupu {
+    padding: 6px 6px 1px 0px;
+    text-transform: &dtml-textTransform;;
+    height: 32px; width: auto; 
+}
+
+.kupu-dialog-button {
+    background: transparent url(&dtml-portal_url;/linkTransparent.gif) 9px 1px no-repeat;
+    cursor: pointer;
+    font-size: &dtml-fontSmallSize;;
+    padding: 1px 1px 1px 15px;
+    text-transform: &dtml-textTransform;;
+    border: &dtml-borderWidth; solid &dtml-globalBorderColor;;
+    background-color: white;
+}
+#kupu-breadcrumbs {
+    text-transform: &dtml-textTransform;;
+}
+
+.kupu-reference { font-size:85%;
+    border: &dtml-borderWidth; solid &dtml-globalBorderColor;;
+}
+
+.kupu-reference .kupu-preview-row {
+   float: left;
+}
+
+.kupu-reference a .kupu-description-row {
+   display: none;
+}
+
+.kupu-reference a { position: relative; }
+
+.kupu-reference a:hover .kupu-description-row {
+   display: block;
+   position: absolute; top: 20px; left: 128px; width: 200px;
+   padding: 5px; margin: 10px; z-index: 100;
+   color: black; background: #ffffa0;
+   font: 10px Verdana, sans-serif;
+}
+
+.odd .kupu-preview-row {
+    background-color: &dtml-oddRowBackgroundColor;;
+}
+.even .kupu-preview-row {
+    background-color: &dtml-evenRowBackgroundColor;;
+}
+.kupu-progress {
+    background-color: white;;
+    border: &dtml-borderWidth; &dtml-borderStyle; &dtml-contentViewBorderColor;;
+    width: 90%; margin: 1em; position: relative;
+}
+.kupu-progressbar {
+    background-color: &dtml-contentViewBackgroundColor;;
+    width: 50%; position:absolute;top:0;
+}
+.kupu-progresstext {
+    text-align:center;position:absolute;top:0;width:100%;
+}
+/* Firefox makes Flash objects completely invisible.
+We need to force it to display something otherwise you cannot edit existing Flash.
+A wider border makes selection possible in IE. */
+.kupu-html object, .kupu-html embed {
+   display: block;
+   background-image: url(plonekupuimages/flash-placeholder.png);
+   border: 5px &dtml-contentViewBorderColor; dotted;
+}
+.kupu-html object embed, .kupu-html object object,
+.kupu-html embed embed, .kupu-html embed object {
+   display:none;
+}
+dd.image-caption {
+   text-align:left;
+   padding: 0;
+}
+dl.captioned {
+   padding: 10px;
+}
+
+/* Styling for documentation tab */
+.template-zmi_docs .contents {
+    float: right;
+    width: 30%;
+    font-size: 90%;
+    margin: 0 0 0.5em 0.5em; padding-top:0;
+    border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+}
+.template-zmi_docs ul.auto-toc, .template-zmi_docs ul.simple {
+  list-style: none;
+}
+.template-zmi_docs .topic-title {
+    background-color: &dtml-globalBackgroundColor;;
+    margin-top: 0;
+    padding: 0em 1em;
+    text-transform: &dtml-textTransform;;
+    font-weight: normal;
+    line-height: 1.6em;
+    border-bottom: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+}
+.template-zmi_docs .topic-title a {
+    color: &dtml-fontColor;;
+    border-bottom: none;
+}
+/* </dtml-let></dtml-with> */
+

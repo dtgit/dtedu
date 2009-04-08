@@ -1,0 +1,57 @@
+<mm:content
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    type="text/xml"
+    expires="-1">
+  <jsp:directive.page  errorPage="../error.jspx" />
+  <!--
+       $Id: search.library.jspx,v 1.3 2005/10/19 14:18:50 michiel Exp $
+  -->
+  <jsp:output omit-xml-declaration="yes" />
+
+  <mm:cloud method="asis">
+    <mm:import id="search" externid="SearchableText" required="true" />
+
+    <mm:import externid="librarysize">50</mm:import>
+    <mm:import externid="page">0</mm:import>
+    <mm:import vartype="list" externid="link_nodetypes">images</mm:import>
+    <mm:import externid="source" />
+
+    <mm:log>${nodetypes}</mm:log>
+    <library id="${nodetypes}_${search}">
+      <uri><mm:url referids="search,librarysize@max,link_nodetypes@nodetypes" page="drawers/collection.jspx" /></uri>
+      <title>"<mm:write referid="search" />"</title>
+      <icon>icons/map.gif</icon>
+
+      <mm:stringlist referid="link_nodetypes">
+        <mm:hasnodemanager name="$_">
+          <mm:context id="drawer" scope="request">
+            <mm:import externid="kupubasedir" reset="true" />
+            <mm:remove referid="nodetype" />
+            <mm:write id="nodetype" write="false" />
+            <mm:remove referid="query" />
+            <mm:listnodescontainer id="query" type="$nodetype">
+              <jsp:directive.include file="search.constraints.jspx" />
+              <mm:present referid="source">
+                <mm:constraint field="number" inverse="true" value="${source}" />
+              </mm:present>
+              <mm:sortorder field="number" direction="down" />
+              <mm:size id="size" write="false" />
+              <mm:maxnumber value="$librarysize" />
+              <mm:offset    value="${librarysize * page}" />
+              <mm:haspage page="${nodetype}.items.jspx">
+                <mm:include debug="xml" page="${nodetype}.items.jspx">
+                  <mm:param name="surpressupload" />
+                </mm:include>
+              </mm:haspage>
+              <mm:haspage page="${nodetype}.items.jspx" inverse="true">
+                <mm:include debug="xml" page="texts.items.jspx" />
+              </mm:haspage>
+            </mm:listnodescontainer>
+          </mm:context>
+        </mm:hasnodemanager>
+      </mm:stringlist>
+
+    </library>
+  </mm:cloud>
+</mm:content>

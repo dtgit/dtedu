@@ -1,0 +1,22 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="MachineTranslate.MachineTranslate.MachineTranslate">
+
+
+  <genericsetup:registerProfile
+     name="default"
+     title="Machine Translate"
+     directory="profiles/default"
+     description="Extension profile for Machine Translate Product"
+     provides="Products.GenericSetup.interfaces.EXTENSION"
+     />
+
+
+
+   <five:registerPackage package="." initialize=".initialize" />
+
+   <include package=".browser" />
+
+</configure>

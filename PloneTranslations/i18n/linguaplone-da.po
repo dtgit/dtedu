@@ -1,0 +1,174 @@
+# Translation of linguaplone.pot to Danish
+# Anton Stonor <stonor@giraffen.dk>, 2005
+# Jacob Vestergaard <jacobv@headnet.dk>, 2007
+msgid ""
+msgstr ""
+"Project-Id-Version: LinguaPlone\n"
+"POT-Creation-Date: 2007-05-12 11:23+0000\n"
+"PO-Revision-Date: 2005-10-24 20:28+0100\n"
+"Last-Translator: Jacob Vestergaard - Headnet <jacobv@headnet.dk>\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: da\n"
+"Language-Name: Danish\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: linguaplone\n"
+
+#. Default: "Select the language you want to change the content to."
+#: ./skins/LinguaPlone/manage_translations_form.pt:27
+msgid "description_change_language"
+msgstr "Vælg hvilket sprog, indholdet er skrevet i."
+
+#. Default: "The content you were viewing does not exist in the language you just selected. The site language has been switched to ${language} and you can keep browsing the site in this language."
+#: ./skins/LinguaPlone/not_available_lang.pt:35
+msgid "description_changed_translation_unavailable"
+msgstr "Indholdet, du kigger på, er ikke oversat til det sprog, du netop har valgt. Sproget er ændret til ${language} og du kan fortsætte med at besøge sitet på dette sprog."
+
+#. Default: "Create ${language} translation of this item."
+#: ./skins/LinguaPlone/not_available_lang.pt:86
+msgid "description_create_language_translation"
+msgstr "Opret en oversættelse af dette indhold på sproget ${language}."
+
+#. Default: "Here you can change the content language or remove existing translations."
+#: ./skins/LinguaPlone/manage_translations_form.pt:17
+msgid "description_manage_translations"
+msgstr "Her kan du ændre indholdets sprog eller fjerne eksisterende oversættelser."
+
+#. Default: "There are no translations to remove."
+#: ./skins/LinguaPlone/manage_translations_form.pt:219
+msgid "description_no_removable_translations"
+msgstr "Der er ingen oversættelser af fjerne."
+
+#. Default: "If you want to read the content of this document, you have to switch to one of the following languages:"
+#: ./skins/LinguaPlone/not_available_lang.pt:55
+msgid "description_read_translated_versions"
+msgstr "Hvis du ønsker at læse indholdet af dette dokument, skal du skifte til en af følgende sprog:"
+
+#. Default: "Select translations to remove."
+#: ./skins/LinguaPlone/manage_translations_form.pt:214
+msgid "description_remove_translations"
+msgstr "Vælg hvilke oversættelser, du vil fjerne."
+
+#. Default: "Translating from ${from} to ${to}"
+#: ./skins/LinguaPlone/translate_item.cpt:95
+msgid "description_translating_from_to"
+msgstr "Oversæt fra ${from} til ${to}"
+
+#. Default: "This content does not exist in your current language, ${language}, but you can keep browsing the site in this language."
+#: ./skins/LinguaPlone/not_available_lang.pt:45
+msgid "description_translation_unavailable"
+msgstr "Indholdet eksisterer ikke i dit nuværende sporg, ${language}, men du kan naturligvis fortsætte med at klikke rundt på sitet i det."
+
+#. Default: "Add content translation"
+#: ./skins/LinguaPlone/not_available_lang.pt:75
+msgid "header_add_content_translation"
+msgstr "Tilføj en oversættelse"
+
+#. Default: "Change content language"
+#: ./skins/LinguaPlone/manage_translations_form.pt:23
+msgid "header_change_language"
+msgstr "Skift indholdets sprog"
+
+#. Default: "Manage translations"
+#: ./skins/LinguaPlone/global_languagemenu.pt:57
+msgid "header_manage_translations"
+msgstr "Håndter oversættelser"
+
+#. Default: "Remove translations"
+#: ./skins/LinguaPlone/manage_translations_form.pt:210
+msgid "header_remove_translations"
+msgstr "Fjern oversættelser"
+
+#. Default: "Translation Unavailable"
+#: ./skins/LinguaPlone/not_available_lang.pt:27
+msgid "header_translation_unavailable"
+msgstr "Oversættelsen er ikke tilgængelig"
+
+#. Default: "Add Translation"
+#: ./skins/LinguaPlone/not_available_lang.pt:103
+msgid "label_add_translation"
+msgstr "Tilføj oversættelse"
+
+#. Default: "Change Language"
+#: ./skins/LinguaPlone/manage_translations_form.pt:73
+msgid "label_change_language"
+msgstr "Skift sprog"
+
+#. Default: " (Content is language neutral)"
+#: ./skins/LinguaPlone/languageSelectorData.py:32
+msgid "label_content_is_language_neutral"
+msgstr "(indholdet er sprogligt neutralt)"
+
+#. Default: " (Content translation not available)"
+#: ./skins/LinguaPlone/languageSelectorData.py:37
+msgid "label_content_translation_not_available"
+msgstr "(Indholdets oversættelse er ikke tilgængelig)"
+
+#. Default: "Language settings..."
+#: ./skins/LinguaPlone/global_languagemenu.pt:50
+msgid "label_language_settings"
+msgstr "Sprogindstillinger..."
+
+#. Default: "Manage translations..."
+#: ./skins/LinguaPlone/global_languagemenu.pt:45
+msgid "label_manage_translations"
+msgstr "Håndter oversættelser..."
+
+#. Default: "Neutral"
+#: ./skins/LinguaPlone/manage_translations_form.pt:52
+msgid "label_neutral"
+msgstr "Neutral"
+
+#. Default: "Switch language to ${language}"
+#: ./skins/LinguaPlone/languageSelectorData.py:24
+msgid "label_switch_language_to"
+msgstr "Skift sprog til ${language}"
+
+#. Default: "Translate into"
+#: ./skins/LinguaPlone/global_languagemenu.pt:22
+msgid "label_translate_into"
+msgstr "Oversæt til"
+
+#. Default: "Available languages"
+#: ./skins/LinguaPlone/manage_translations_form.pt:39
+msgid "legend_available_languages"
+msgstr "Tilgængelige sprog"
+
+#. Default: "Existing translations"
+#: ./skins/LinguaPlone/manage_translations_form.pt:234
+msgid "legend_existing_translations"
+msgstr "Eksisterende oversættelser"
+
+#. Default: "Changed content language to ${language}."
+#: ./skins/LinguaPlone/changeLanguage.cpy:13
+msgid "message_content_changed_language_to"
+msgstr "Indholdet sprog er nu ændret til ${language}."
+
+#. Default: "'${title}' linked as ${language} translation for the current content."
+#: ./skins/LinguaPlone/linkTranslation.cpy:33
+msgid "message_content_linked_to"
+msgstr "'${title}' er nu tilknyttet som ${language} oversættelse af dette indhold."
+
+#. Default: "Translation content not found."
+#: ./skins/LinguaPlone/linkTranslation.cpy:11
+msgid "message_content_not_found"
+msgstr "Oversættelsen blev ikke fundet."
+
+#. Default: "Invalid language."
+#: ./skins/LinguaPlone/linkTranslation.cpy:17
+msgid "message_invalid_language"
+msgstr "Ugyldigt sprog."
+
+#. Default: "Please select different values for each language."
+#: ./skins/LinguaPlone/validate_translate.vpy:14
+msgid "message_select_different_languages"
+msgstr "Vælg venligst forskellige værdier for hvert sprog."
+
+#. Default: "${type} has been created."
+#: ./skins/LinguaPlone/createTranslation.cpy:23
+msgid "message_type_has_been_created"
+msgstr "${type} er nu oprettet."
+

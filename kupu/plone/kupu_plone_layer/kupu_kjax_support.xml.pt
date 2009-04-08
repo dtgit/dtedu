@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tal:block
+          xmlns:tal="http://xml.zope.org/namespaces/tal"
+          xmlns:metal="http://xml.zope.org/namespaces/metal"
+          xmlns:html="http://www.w3.org/TR/REC-html40"
+          xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="atreferencebrowserwidget"
+          define="charset here/portal_properties/site_properties/default_charset|here/portal_properties/default_charset|string:utf-8;
+        content_type python:request.RESPONSE.setHeader('Content-Type', 'text/xml;;charset=%s' % charset);">
+<html
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:metal="http://xml.zope.org/namespaces/metal"
+     xmlns:html="http://www.w3.org/TR/REC-html40"
+     xmlns:kj="http://kupu.oscom.org/namespaces/kjax">
+  <body>
+    <div tal:condition="request/qlen|nothing"
+         tal:define="query python:context.kupu_library_tool.link_migration('query');
+         length python:len(context.portal_catalog.searchResults(**query));"
+         id="query_length"
+         kj:mode="replace">
+         <div tal:content="string: $length objects in catalog" />
+    </div>
+    <div tal:condition="nothing">
+      <metal:edit_macro define-macro="edit">
+        <div 
+             tal:define="multiVal multiVal|python:False;
+             multiVal python:int(multiVal);
+             fieldName fieldName|string:pathBrowser;
+             rFieldName python:repr(unicode(fieldName))[1:];
+             kupu context/kupu_library_tool;
+             lookupObject nocall:here/reference_catalog/lookupObject;
+             resource_type resource_type|string:collection;
+             rt python:kupu.getResourceType(resource_type);
+             label label|string:path;
+             rLabel python:repr(unicode(label))[1:];
+             value value|python:[];
+             uids python:same_type(value, []) and value or [value];
+             uids python:[u for u in uids if u];
+             useKupu python:kupu.isKupuEnabled(REQUEST=request);
+             required required|python:0;
+             referenced python:[ context.reference_catalog.lookupObject(uid) for uid in uids];
+             info python:kupu.infoForBrains(referenced,rt);
+             onchange onchange|nothing;
+             ">
+          <tal:kupu condition="useKupu">
+            <input type="hidden"
+                   value=""
+                   tal:condition="python:not required and multiVal"
+                   tal:attributes="name string:$fieldName:default:list"
+                   />
+
+            <div class="kupu-reference" tal:attributes="id string:${fieldName}_preview">
+              <em class="empty-ref" i18n:translate="label_no_reference_set"
+                  tal:condition="not:info">
+                No reference set. Click the browse button to select.
+              </em>
+              <em class="empty-ref" i18n:translate="label_no_reference_set"
+                  tal:condition="info" style="display:none">
+                No reference set. Click the browse button to select.
+              </em>
+              <tal:loop repeat="i info">
+                <div tal:define="odd repeat/i/odd" tal:attributes="class python:test(odd,'odd','even');">
+                  <a href="#" tal:attributes="href string:${i/url}/view;">
+                    <div class="kupu-preview-row" tal:condition="i/preview">
+                      <img tal:attributes="src i/preview; title i/title;"
+                           onload="kupuFixImage(this);" width="1" height="1"/>
+                    </div>
+                    <h1 class="kupu-title-row" tal:content="i/title" />
+                    <div class="kupu-description-row" tal:content="structure i/description" tal:condition="i/description"></div>
+                    <div style="clear:both;line-height:1px;">&#xa0;</div>
+                  </a>
+                </div>
+              </tal:loop>
+            </div>
+
+            <textarea style="display:none"
+                      tal:attributes="name string:${fieldName}:lines;
+                      id string:${fieldName};onchange onchange"
+                      tal:content="python:'\n'.join(uids)"></textarea>
+            <div>
+
+              <input type="button" 
+                     class="searchButton"
+                     value="Browse..." 
+                     onclick=""
+                     i18n:attributes="value label_browse;"
+                     tal:attributes="onclick string:referencebrowser_draweropen(event,$rFieldName,$rLabel,$multiVal,'$resource_type');;;" />
+
+              <input type="button" 
+                     class="destructive" 
+                     value="Remove reference" 
+                     onclick=""
+                     i18n:attributes="value label_remove_reference;"
+                     tal:condition="not: multiVal"
+                     tal:define="display python:test(uids,'','display:none');"
+                     tal:attributes="onclick string:referencebrowser_removeReference($rFieldName, $multiVal);;;
+                     style display;id string:${fieldName}_remove;" />
+            </div>          
+          </tal:kupu>
+        </div>
+    </metal:edit_macro>
+    </div>
+  </body>
+</html>
+</tal:block>

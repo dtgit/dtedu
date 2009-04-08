@@ -1,0 +1,170 @@
+<html><head><title>XXX/TODO/BBB-Comment report for ATContentTypes</title>
+</head>
+
+<body>
+<h1>ATContentTypes - Developer report tools: XXX/TODO/BBB comments</h1>
+<p>Generated on Fri, 22 Jul 2005 16:29:15 CEST</p>
+<hr>
+<h3>Summary</h3>
+<p>
+ There are currently 39 XXX/TODO/BBB comments.
+</p>
+<hr />
+<h3>Listing</h3>
+<ol><li><b>File: ATContentTypes/__init__.py:57</b><br /><pre># BBB aliases
+import Products.ATContentTypes.modulealiases
+
+# wire the add permission after all types are registered
+</pre></li><li><b>File: ATContentTypes/content/base.py:376</b><br /><pre>        # XXX what should be returned if no data is present?
+
+    security.declareProtected(View, 'get_data')
+    def get_data(self):
+</pre></li><li><b>File: ATContentTypes/content/base.py:550</b><br /><pre>        # XXX no error catching
+        fh, mimetype, filename, size = self.loadFileFromURL(value,
+                                           contenttypes=('image',))
+        mutator = self.getPrimaryField().getMutator(self)
+</pre></li><li><b>File: ATContentTypes/content/document.py:147</b><br /><pre>        # XXX this is ugly
+        # When an object is initialized the first time we have to 
+        # set the filename and mimetype.
+        # In the case the value is empty/None we must not set the value because
+</pre></li><li><b>File: ATContentTypes/content/event.py:187</b><br /><pre>                # XXX disabled for now, see
+                # https://sourceforge.net/tracker/index.php?func=detail&aid=974102&group_id=55262&atid=645337
+                #validators = ('isInternationalPhoneNumber',),
+                validators= (),
+</pre></li><li><b>File: ATContentTypes/content/event.py:379</b><br /><pre>            # XXX come up with a nice cmp for types
+            return cmp(self.Title(), other)
+
+    def __hash__(self):
+</pre></li><li><b>File: ATContentTypes/content/image.py:146</b><br /><pre>        BBB: ImageField.get_size() returns the size of the original image + all 
+        scales but we want only the size of the original image.
+        """
+        img = self.getImage()
+</pre></li><li><b>File: ATContentTypes/content/topic.py:274</b><br /><pre>        # XXX Sorting results in inconsistent order. Leave them in the order
+        # they were added.
+        #val.sort()
+        return val
+</pre></li><li><b>File: ATContentTypes/docs/CHANGELOG.txt:2680</b><br /><pre>	  up other XXX added security assertions fixed implementation of AT
+	  Event rewrote some doc strings
+
+2004-04-04 23:47  tiran
+</pre></li><li><b>File: ATContentTypes/docs/HISTORY.txt:397</b><br /><pre> * Merged the topic tool branch into 1.0 XXX: insert history here.
+   [tiran]
+
+ * Refactored ConstrainTypesMixin to support PLIP 78:
+</pre></li><li><b>File: ATContentTypes/docs/HISTORY.txt:470</b><br /><pre> * Added XXX report tool to ATCT. It's mostly a copy from the Zope3 XXX tools.
+   [tiran]
+
+ * Fixed [ 1049018 ] url field on Link doesn't allow mailto. Also added an
+</pre></li><li><b>File: ATContentTypes/lib/autosort.py:194</b><br /><pre>        # TODO: folderish first is missing, use the catalog to resort it!
+
+    security.declareProtected(ModifyPortalContent, 'moveObject')
+    def moveObject(self, id, position):
+</pre></li><li><b>File: ATContentTypes/lib/autosort.py:238</b><br /><pre>        # XXX: disabled
+        # we need a proper event system to make it work
+        #if item.aq_inner.aq_parent == self:
+        #    self.autoOrderItems()
+</pre></li><li><b>File: ATContentTypes/lib/constraintypes.py:76</b><br /><pre>        # XXX: AT doesn't support enforce on vocabs with int display list
+        #enforceVocabulary = True,
+        languageIndependent = True,
+        write_permissions = ATCTPermissions.ModifyConstrainTypes,
+</pre></li><li><b>File: ATContentTypes/lib/imagetransform.py:101</b><br /><pre>        # TODO: explicit check for Pdata or file handler
+        if isinstance(img, OFSImage):
+            data = str(img.data)
+        else:
+</pre></li><li><b>File: ATContentTypes/lib/urlupload.py:119</b><br /><pre>        # XXX no error catching
+        fh, mimetype, filename, size = self.loadFileFromURL(value,
+                                           contenttypes=('image',))
+        mutator = self.getPrimaryField().getMutator(self)
+</pre></li><li><b>File: ATContentTypes/migration/walker.py:195</b><br /><pre>                        # XXX: savepoints are invalidated once they are used
+                        savepoint = transaction.savepoint()
+                        continue
+                    else:
+</pre></li><li><b>File: ATContentTypes/migration/walker.py:280</b><br /><pre>        TODO: stop when no objects are left. Don't try to migrate until the walker
+              reaches max_depth
+        """
+        depth = self.depth
+</pre></li><li><b>File: ATContentTypes/tests/atcttestcase.py:69</b><br /><pre># BBB remove import from PloneLanguageTool later
+try:
+    from Products.CMFPlone.interfaces.Translatable import ITranslatable
+except ImportError:
+</pre></li><li><b>File: ATContentTypes/tests/atcttestcase.py:190</b><br /><pre>        # XXX more
+
+    def compareAfterMigration(self, migrated, mod=None, created=None):
+        self.failUnless(isinstance(migrated, self.klass),
+</pre></li><li><b>File: ATContentTypes/tests/atcttestcase.py:223</b><br /><pre>        # TODO: not a real test
+        self._ATCT.getObjPositionInParent()
+
+    def test_schema_marshall(self):
+</pre></li><li><b>File: ATContentTypes/tests/test_atfavorite.py:124</b><br /><pre>        # XXX more
+
+        self.failUnless(migrated.getRemoteUrl() == url, 'URL mismatch: %s / %s' \
+                        % (migrated.getRemoteUrl(), url))
+</pre></li><li><b>File: ATContentTypes/tests/test_atfile.py:105</b><br /><pre>        # TODO: more tests
+
+    def test_migration(self):
+        old = self._cmf
+</pre></li><li><b>File: ATContentTypes/tests/test_atfile.py:135</b><br /><pre>        # TODO: more tests
+
+    def test_schema_marshall(self):
+        atct = self._ATCT
+</pre></li><li><b>File: ATContentTypes/tests/test_atfolder.py:139</b><br /><pre>        # TODO: more tests
+
+    def test_migrator_doesnt_migrate_non_contentish_sub_objects(self):
+        # Test that we don't try to migrate conteaind non-content objects
+</pre></li><li><b>File: ATContentTypes/tests/test_atfolder.py:349</b><br /><pre>    # TODO: more tests
+
+tests.append(TestAutoSortSupport)
+
+</pre></li><li><b>File: ATContentTypes/tests/test_atlink.py:122</b><br /><pre>        # TODO: more tests
+
+        self.failUnless(migrated.getRemoteUrl() == url, 'URL mismatch: %s / %s' \
+                        % (migrated.getRemoteUrl(), url))
+</pre></li><li><b>File: ATContentTypes/tests/test_atnewsitem.py:120</b><br /><pre>        # XXX more
+
+    def test_get_size(self):
+        atct = self._ATCT
+</pre></li><li><b>File: ATContentTypes/tests/test_attopic.py:460</b><br /><pre>        # XXX not in the current version
+        return
+        dummy = self._dummy
+        field = dummy.getField('customView')
+</pre></li><li><b>File: ATContentTypes/tests/test_attopic.py:502</b><br /><pre>        # XXX not in the current version
+        return
+        dummy = self._dummy
+        field = dummy.getField('customViewFields')
+</pre></li><li><b>File: ATContentTypes/tests/test_browserdefaultmixin.py:49</b><br /><pre># XXX: This should probably move to the new CMFDynamicViewFTI
+class TestBrowserDefaultMixin(atcttestcase.ATCTSiteTestCase):
+    folder_type = 'Folder'
+    image_type = 'Image'
+</pre></li><li><b>File: ATContentTypes/tests/test_tool.py:92</b><br /><pre>        # XXX add a cmf based object before cataloging
+
+        result, time, ctime = t._catalogCMFtypes() 
+
+</pre></li><li><b>File: ATContentTypes/tests/test_versionMigration.py:139</b><br /><pre>        # XXX this relies on the current AttributeStorage implementation
+        updateIntegerCriteria(self.portal,[])
+        self.assertEqual(self.int_crit.value2,None)
+        self.assertEqual(self.int_crit.direction,'')
+</pre></li><li><b>File: ATContentTypes/tests/webdav.txt:145</b><br /><pre>  XXX: .event should be removed?
+  
+  >>> event = self.folder['test-event.event']
+  
+</pre></li><li><b>File: ATContentTypes/tests/webdav.txt:300</b><br /><pre>  XXX: Note that name mangeling for WebDAV PUTs are not supported at the
+  moment!
+  
+  >>> image = self.folder['test my image.gif']
+</pre></li><li><b>File: ATContentTypes/tests/webdav.txt:329</b><br /><pre>  XXX: .link should be removed?
+  
+  >>> link = self.folder['test-link.link']
+  
+</pre></li><li><b>File: ATContentTypes/tests/webdav.txt:356</b><br /><pre>  XXX: .news should be removed?
+  
+  >>> news = self.folder['test-newsitem.news']
+  
+</pre></li><li><b>File: ATContentTypes/tool/atct.py:522</b><br /><pre>            # TODO: not impelemented
+            raise NotImplementedError, "Migrating a subset of types is not implemented"
+        if isinstance(portal_types, basestring):
+            portal_types = (portal_types,)
+</pre></li><li><b>File: ATContentTypes/tool/atct.py:693</b><br /><pre>            # XXX: I consider passing an empty mt argument as bug
+            return [], 0, 0
+        
+        if not isinstance(mt, (list, tuple)):
+</pre></li><ol></body></html>

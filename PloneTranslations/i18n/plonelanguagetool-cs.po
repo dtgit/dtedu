@@ -1,0 +1,151 @@
+# Translation of plonelanguagetool.pot to Czech
+#
+# Please report bugs and omissions to recent authors. Thank you.
+#
+# You may get surprised when some string you found is translated its
+# way and is not following the original straight. Please double-check
+# the source, templates and test the software before you change it.
+# It is possible that the translation has its meaning. Thanks. ;-)
+#
+# License: GPL
+#
+# Package translators:
+#
+# David Pravec     <alekibango@zug.cz>      (2000-2003),
+# Radomil Pelisek  <pelisek@zug.cz>         (2001-2002),
+# Martina Pravcova <pravcova@vri.cz>        (2001-2002),
+# George Pejchal   <george@zug.cz>          (2002),
+# O. Auda          <auda@aow.cz>            (2002),
+# Sarka Neradilova                          (2003),
+# Radim Novotny    <r.novotny@elektrika.cz> (2004),
+# Vlada Macek      <tuttle@sandbox.cz>     (2004-2007).
+#
+# Translation funded by Hieronymus, s.r.o. (http://www.hieronymus.cz).
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: plonelanguagetool\n"
+"POT-Creation-Date: 2007-05-02 07:34+0000\n"
+"PO-Revision-Date: 2007-09-27 18:28+0100\n"
+"Last-Translator: Marta Macalkova <marta@corenet.cz>\n"
+"Language-Team: Vlada Macek\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language-Code: cs\n"
+"Language-Name: Czech\n"
+"Preferred-Encodings: utf-8 latin2\n"
+"Domain: plonelanguagetool\n"
+"X-Generator: KBabel 1.11.1\n"
+
+#. Default: "Select the languages that can be added in your portal."
+#: ./skins/LanguageTool/prefs_languages.pt:47
+msgid "description_allowed_languages"
+msgstr "Vyberte jazyky, které mají být přidány do portálu."
+
+#. Default: "Check the settings that apply to multilingual content."
+#: ./skins/LanguageTool/prefs_languages.pt:191
+msgid "description_content_settings"
+msgstr "Zaškrtněte nastavení týkající se vícejazyčných položek."
+
+#. Default: "If content requested is not available in the language the user requested, content will be presented in this default language."
+#: ./skins/LanguageTool/prefs_languages.pt:28
+msgid "description_default_language"
+msgstr "Pokud nejsou požadované položky k dispozici v jazyce, který uživatel požaduje, dojde k jejich zobrazení v jazyce výchozím."
+
+#. Default: "Settings related to interface languages and content translations."
+#: ./skins/LanguageTool/prefs_languages.pt:17
+msgid "description_language_settings"
+msgstr "Nastavení týkající se jazyků rozhraní a překladů položek."
+
+#. Default: "Check the language negotiation schemes that apply to this site."
+#: ./skins/LanguageTool/prefs_languages.pt:129
+msgid "description_negotiation_scheme"
+msgstr "Vyberte způsob rozhodnutí o výběru jazyka pro tento portál."
+
+#. Default: "Allowed languages"
+#: ./skins/LanguageTool/prefs_languages.pt:45
+msgid "heading_allowed_languages"
+msgstr "Povolené jazyky"
+
+#. Default: "Content Control Settings"
+#: ./skins/LanguageTool/prefs_languages.pt:190
+msgid "heading_content_settings"
+msgstr "Jazykové nastavení položek"
+
+#. Default: "Default language"
+#: ./skins/LanguageTool/prefs_languages.pt:27
+msgid "heading_default_language"
+msgstr "Výchozí jazyk"
+
+#. Default: "Language Settings"
+#: ./skins/LanguageTool/prefs_languages.pt:13
+msgid "heading_language_settings"
+msgstr "Jazyková nastavení"
+
+#. Default: "Negotiation Scheme"
+#: ./skins/LanguageTool/prefs_languages.pt:128
+msgid "heading_negotiation_scheme"
+msgstr "Způsob rozhodnutí"
+
+#. Default: "Examples: pt-br (Brazilian Portuguese), en-us (American English) etc."
+#: ./skins/LanguageTool/prefs_languages.pt:103
+msgid "help_allow_combined_language_codes"
+msgstr "Příklady: pt-bt (brazilská portugalština), en-us (americká angličtina) atp."
+
+#. Default: "(May be politically sensitive in some areas, do not use this unless you know that it is acceptable)."
+#: ./skins/LanguageTool/prefs_languages.pt:120
+msgid "help_display_flags"
+msgstr "(V některých oblastech může jít o politicky citlivou záležitost.)"
+
+#. Default: "Show country-specific language variants"
+#: ./skins/LanguageTool/prefs_languages.pt:99
+msgid "label_allow_combined_language_codes"
+msgstr "Zobrazit jazykové podvarianty"
+
+#. Default: "Allow content language fallback if the implementation supports it."
+#: ./skins/LanguageTool/prefs_languages.pt:215
+msgid "label_allow_content_language_fallback"
+msgstr "Povolit nouzový jazyk, pokud to implementace podporuje."
+
+#. Default: "Use browser language request negotiation."
+#: ./skins/LanguageTool/prefs_languages.pt:177
+msgid "label_browser_language_negotiation"
+msgstr "Vybírat jazyk podle jazykového požadavku od prohlížeče."
+
+#. Default: "Use the virtual hostname of the Plone site."
+#: ./skins/LanguageTool/prefs_languages.pt:165
+msgid "label_ccTLD_language"
+msgstr "Použít virtuální název hostitele portálu Plone."
+
+#. Default: "Use cookie for manual override."
+#: ./skins/LanguageTool/prefs_languages.pt:153
+msgid "label_cookies_for_override"
+msgstr "Použít ruční výběr souborem cookie."
+
+#. Default: "Display flags for language selection"
+#: ./skins/LanguageTool/prefs_languages.pt:116
+msgid "label_display_flags"
+msgstr "Zobrazit ikony vlajek pro výběr jazyka"
+
+#. Default: "Force different URLs for each language (redirect)."
+#: ./skins/LanguageTool/prefs_languages.pt:203
+msgid "label_force_different_urls"
+msgstr "Vnutit pro každý jazyk zvláštní adresu URL (přesměrováním)."
+
+#. Default: "Use language codes in URL path for manual override."
+#: ./skins/LanguageTool/prefs_languages.pt:141
+msgid "label_language_codes_in_url"
+msgstr "Použít ruční výběr kódem jazyka v adrese URL."
+
+#. Default: "Create content initially as neutral language."
+#: ./skins/LanguageTool/prefs_languages.pt:227
+msgid "label_start_neutral"
+msgstr "Vytvářet položky nejdříve v neutrálním jazyce."
+
+#. Default: "Default fallback (always enabled). This is the language specified as default above."
+#: ./skins/LanguageTool/prefs_languages.pt:182
+msgid "text_default_fallback"
+msgstr "Implicitní nouzové nastavení (vždy povolené). Jde o jazyk výše označený jako výchozí."
+

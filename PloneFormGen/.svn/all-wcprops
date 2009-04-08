@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/collective/!svn/ver/80949/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen
+END
+compile-locales.sh
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/collective/!svn/ver/73730/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/compile-locales.sh
+END
+TODO.txt
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/TODO.txt
+END
+version.txt
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/collective/!svn/ver/82771/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/version.txt
+END
+configure.zcml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/configure.zcml
+END
+CHANGES.txt
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/collective/!svn/ver/82771/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/CHANGES.txt
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/__init__.py
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/README.txt
+END
+config.py
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/config.py
+END

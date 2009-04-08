@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<import-steps>
+ <import-step id="simpleattachment" version="20070312-01"
+              handler="Products.SimpleAttachment.setuphandlers.setupAttachments"
+              title="Attachments view configuration">
+  <dependency step="properties"/>
+  <dependency step="types"/>
+    Set up display properties for FileAttachment and ImageAttachment types
+ </import-step>
+</import-steps>

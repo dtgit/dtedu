@@ -1,0 +1,12 @@
+<div>Simple text containing an embedded image</div>
+<dl class="image-left captioned">
+ <dt>
+  <a href="xyzzy" class="link">
+    <img src="http://nohost/plone/folder/gamma/image" alt="Kupu Test Image" title="Kupu Test Image"
+    height="331" width="500" />
+  </a>
+ </dt>
+ <dd class="image-caption" style="width:500px">
+  Test image caption
+ </dd>
+</dl>

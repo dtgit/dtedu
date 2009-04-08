@@ -1,0 +1,65 @@
+1.0 rc priorities:
+
+X - End-user documentation (screen shots for working field mapping, screencast, blog post, etc)
+X - Strip titles with extra space on the end as this provides some interesting UI behavior from the 
+    DataGridWidget such as duplicate fields
+X -  Look at various form field types and think about ways of mapping them to 
+     the Salesforce API's expected date type/format (complete)
+  
+        PFG Field = date/time field
+        Salesforce Field Type = Date/Time
+        Traceback:
+
+X - Noting required SObject fields in Field Mappings UI
+X - Write a test to ensure this business doesn't happen again, ugh:
+
+        'repeat': <Products.PageTemplates.Expressions.SafeMapping object at 0x7534b48>,
+        'request': <HTTPRequest, URL=http://127.0.0.1:8080/pfgsf/test-form/portal_factory/SalesforcePFGAdapter/salesforcepfgadapter.2007-11-09.1158048542/atct_edit>,
+        'root': <Application at >,
+        'template': <FSControllerPageTemplate at /pfgsf/atct_edit used for /pfgsf/test-form/portal_factory/SalesforcePFGAdapter/salesforcepfgadapter.2007-11-09.1158048542>,
+        'traverse_subpath': [],
+        'user': <PropertiedUser 'admin'>}
+        Module Products.PageTemplates.ZRPythonExpr, line 49, in __call__
+        - __traceback_info__: column_definition.getVocabulary(context)
+        Module PythonExpr, line 1, in <expression>
+        Module Products.DataGridField.SelectColumn, line 60, in getVocabulary
+        Module Products.salesforcepfgadapter.content.salesforcepfgadapter, line 223, in buildSFFieldOptionList
+        AttributeError: 'list' object has no attribute 'items'
+
+X - (All legit) Possible oddities(?) around required fields to investigate:
+    - Name required shows up on the Account object
+    - Name required on Campaign
+    - Name, StageName on Opportunity
+
+X - Better test coverage of the Salesforce PFG Adapter content object, ran 
+X - Investigate the interface required for our tabbers in the adapter to work correctly (IMultiPageSchema)
+X - Migration needs:
+    X - Salesforce PFG Adapter type?
+    X - Our data type switch from list to dict?
+
+           - URL: file:/opt/local/zope/salesforce-demo-buildout/parts/core-dependencies/DataGridField/skins/DataGridWidget/datagrid_select_cell.pt
+           - Line 12, Column 4
+           - Expression: <PythonExpr column_definition.getVocabulary(context)>
+           - Names:
+              {'container': <PloneSite at /pfgsf>,
+               'context': <SalesforcePFGAdapter at /pfgsf/test-form/lead-adapter>,
+               'default': <object object at 0x398528>,
+               'here': <SalesforcePFGAdapter at /pfgsf/test-form/lead-adapter>,
+               'loop': {u'columnd': <Products.PageTemplates.Expressions.PathIterator object at 0x8017350>,
+                        u'field': <Products.PageTemplates.Expressions.PathIterator object at 0x8092b50>,
+                        u'rows': <Products.PageTemplates.Expressions.PathIterator object at 0x8581170>},
+               'nothing': None,
+               'options': {'args': ()},
+               'repeat': <Products.PageTemplates.Expressions.SafeMapping object at 0x82ad8f0>,
+               'request': <HTTPRequest, URL=http://127.0.0.1:8080/pfgsf/test-form/lead-adapter/base_view>,
+               'root': <Application at >,
+               'template': <FSPageTemplate at /pfgsf/base_view used for /pfgsf/test-form/lead-adapter>,
+               'traverse_subpath': [],
+               'user': <PropertiedUser 'admin'>}
+          Module Products.PageTemplates.ZRPythonExpr, line 49, in __call__
+           - __traceback_info__: column_definition.getVocabulary(context)
+          Module PythonExpr, line 1, in <expression>
+          Module Products.DataGridField.SelectColumn, line 60, in getVocabulary
+          Module Products.salesforcepfgadapter.content.salesforcepfgadapter, line 240, in buildSFFieldOptionList
+        AttributeError: 'list' object has no attribute 'items'
+

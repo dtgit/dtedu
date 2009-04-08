@@ -1,0 +1,41 @@
+9
+
+dir
+82770
+https://svn.plone.org/svn/collective/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/examples/PFGDataGrid/i18n
+https://svn.plone.org/svn/collective
+
+
+
+2007-01-02T23:53:04.717836Z
+35287
+smcmahon
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+db7f04ef-aaf3-0310-a811-c281ed44c4ad
+
+small.pot
+file
+
+
+
+
+2009-01-11T19:17:26.000000Z
+bbfef8c0df7b0939cfd2f0d0ab4097d2
+2007-01-02T23:53:04.717836Z
+35287
+smcmahon
+has-props
+

@@ -1,0 +1,71 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="twbskin">
+
+        />
+
+     <browser:page
+	  for="*"
+	  name="xmlrpc_createMemberArea"
+	  class=".xmlrpc.XmlRpcMethods"
+	  attribute="xmlrpc_createMemberArea"
+	  permission="zope2.View"	
+	  />    
+
+     <browser:page
+ 	  for="*"
+ 	  name="addGroup"
+ 	  class=".managecohorts.GroupManager"
+ 	  attribute="addGroup"
+          permission="zope2.View"
+ 	  />
+
+     <browser:page
+ 	  for="*"
+ 	  name="addMemberToGroup"
+ 	  class=".managecohorts.GroupManager"
+ 	  attribute="addMemberToGroup"
+          permission="zope2.View"
+ 	  />
+
+     <browser:page
+          for="*"
+          name="addMemberToCTMMentors"
+          class=".managecohorts.GroupManager"
+          attribute="addMemberToCTMMentors"
+          permission="zope2.View"
+          />
+
+     <browser:page
+ 	  for="*"
+ 	  name="getCohortAssignments"
+ 	  class=".managecohorts.GroupManager"
+ 	  attribute="getCohortAssignments"
+          permission="zope2.View"
+ 	  />
+
+     <browser:page
+          for="*"
+          name="getCohortsWithoutMentor"
+          class=".managecohorts.GroupManager"
+          attribute="getCohortsWithoutMentor"
+          permission="zope2.View"
+          />
+
+
+    <!-- Resource directory for stylesheets -->
+    <browser:resourceDirectory
+        name="twbskin.stylesheets"
+        directory="stylesheets"
+        layer=".interfaces.IThemeSpecific"
+        />
+
+    <!-- Resource directory for images -->
+    <browser:resourceDirectory
+        name="twbskin.images"
+        directory="images"
+        layer=".interfaces.IThemeSpecific"
+        />
+
+</configure>

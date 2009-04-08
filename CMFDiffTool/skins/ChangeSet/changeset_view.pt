@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+  <body>
+    
+    <div metal:fill-slot="main">
+      
+      <h1>Change Set</h1>
+      <i tal:condition="here/same">No changes</i>
+      <tal:block tal:condition="not:here/same" tal:repeat="d here/getDiffs">
+    <div class="diff" tal:condition="not:d/same">
+      <b tal:content="d/field">[field]</b>
+      <pre tal:content="d/ndiff">[ndiff]</pre>
+    </div>
+      </tal:block>
+
+      <tal:block tal:condition="here/recursive">
+    <h2>Changed files</h2>
+    <i tal:condition="not:here/getSubDiffs">None</i>
+    <ul tal:condition="here/getSubDiffs">
+      <tal:block tal:repeat="cs here/getSubDiffs">
+        <li tal:condition="not:cs/same"><a tal:content="cs/id" tal:attributes="href cs/id">[filename]</a></li>
+      </tal:block>
+    </ul>
+
+    <h2>Removed files</h2>
+    <i tal:condition="not:here/getRemovedItems">None</i>
+    <ul tal:condition="here/getRemovedItems">
+      <li tal:repeat="id here/getRemovedItems" tal:content="id">[filename]</li>
+    </ul>
+
+    <h2>Added files</h2>
+    <i tal:condition="not:here/getAddedItems">None</i>
+    <ul tal:condition="here/getAddedItems">
+      <li tal:repeat="id here/getAddedItems"><a tal:content="id" tal:attributes="href id">[filename]</a></li>
+    </ul>
+      </tal:block>
+
+    </div>
+
+  </body>
+</html>

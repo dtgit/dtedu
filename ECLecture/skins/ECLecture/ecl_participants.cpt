@@ -1,0 +1,195 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en" xml:lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="eduComponents">
+  
+  <body>
+    <div metal:fill-slot="main">
+      <div metal:define-macro="main">
+
+        <div metal:use-macro="here/document_actions/macros/document_actions">
+	  Document actions (print, sendto etc)
+        </div>
+	
+        <h1 class="documentFirstHeading" tal:content="here/title_or_id">
+          Title or id
+        </h1>
+
+        <div metal:use-macro="here/document_byline/macros/byline">
+          Get the byline - contains details about author and modification date.
+        </div>
+
+	<div tal:define="groupname here/getAssociatedGroup|nothing;
+	  group python:gtool.getGroupById(groupname);
+	  grouptitle group/getGroupTitleOrName|groupname;
+	  groupMembers python: here.acl_users.haveLDAPGroupFolder() and
+	    here.getGroupMembers(groupname) or group.getGroupMembers();
+	  isGroup nocall:gtool/isGroup;
+	  ecab_utils nocall:portal/ecab_utils|nothing;">
+
+	  <table class="vertical listing">
+	    <tr>
+	      <th i18n:translate="label_associated_group">Associated group</th>
+	      <td tal:content="groupname"/>
+	    </tr>
+	    <tr>
+	      <th i18n:translate="label_number_participants"># Participants</th>
+	      <td tal:content="python: len(groupMembers)"/>
+	    </tr>
+	  </table>
+
+	  <form tal:condition="groupMembers"
+	    name="overview"
+	    action="#"
+	    method="post"
+	    tal:attributes="action here_url"
+	    i18n:domain="plone"
+	    >
+	    <table class="listing" summary="Group Members Listing"
+	      tal:define="student_id_attr portal_properties/ecab_properties/student_id_attr | nothing;
+	                  major_attr      portal_properties/ecab_properties/major_attr | nothing;">
+	      <thead>
+		<tr>
+		  <th class="nosort"><input class="noborder"
+		      type="checkbox"
+		      src="select_all_icon.gif"
+		      name="selectButton"
+		      title="Select all items"
+		      onClick="toggleSelect(this);"
+		      tal:attributes="src string:$portal_url/select_all_icon.gif"
+		      alt="Select all items"
+		      i18n:domain="plone"
+		      i18n:attributes="title alt"
+		      />
+		  </th>
+		  <!-- <th>#</th> -->
+		  <th i18n:translate="label_name">Group/User name</th>
+		  <th i18n:translate="listingheader_email_address">E-mail Address</th>
+		  <th i18n:translate="label_student_id" i18n:domain="eduComponents"
+		    tal:condition="student_id_attr">Student ID</th>
+		  <th i18n:translate="label_major" i18n:domain="eduComponents"
+		    tal:condition="major_attr">Major</th>
+		</tr>
+	      </thead>
+
+	      <tbody>
+		<tal:block tal:repeat="this_user groupMembers">
+		  <tr tal:define="oddrow repeat/this_user/odd"
+		    tal:attributes="class python:test(oddrow,'odd','even')">
+
+		    <td>
+		      <input type="checkbox" class="noborder" name="ids:list" value="#"
+			tal:attributes="
+			value    this_user/getId;
+			tabindex tabindex/next;"
+			/>
+		    </td>
+
+		    <!-- <td align="right" tal:content="repeat/this_user/number"/> -->
+
+		    <tal:block tal:condition="python: isGroup(this_user)">
+		      <td>
+			<img src="group.gif" alt=""/>
+			<a href=""
+			  tal:attributes="href string:prefs_group_details?groupname=${this_user/getGroupName}"
+			  tal:content="this_user/getGroupTitleOrName | default">
+			  <span i18n:translate="link_groupname_not_available">
+			    groupname not available</span>
+			</a>
+		      </td>
+		    </tal:block>
+
+		    <tal:block tal:condition="python: not isGroup(this_user)">
+		      <td tal:define="info python:mtool.getMemberInfo(this_user.getId())">
+			<img src="user.gif" alt=""/>
+			<a href=""
+			  tal:attributes="href string:prefs_user_details?userid=${this_user/getId}"
+			  tal:content="python: ecab_utils
+                                               and ecab_utils.getFullNameById(this_user.getId())
+			                       or info.get('fullname', default)">
+			  <span i18n:translate="link_username_not_available">
+			    username not available</span>
+			</a>
+		      </td>
+
+		      <td tal:define="email python: this_user.getProperty('email')">
+			<a href="#"
+			  tal:attributes="href string:mailto:${email}"
+			  title="Send a mail to this user"
+			  i18n:attributes="title title_send_mail_to_user;"
+			  tal:condition="email">
+			  <span tal:replace="email" />
+			</a>
+		      </td>
+
+		      <td tal:condition="student_id_attr"
+			tal:content="python: this_user.getProperty(student_id_attr)"/>
+
+		      <td tal:condition="major_attr"
+			tal:content="python: this_user.getProperty(major_attr)"/>
+
+		    </tal:block>
+		  </tr>
+		</tal:block>
+	      </tbody>
+	    </table>
+
+	    <div class="formControls visualNoPrint">                    
+	      <!-- Export Button -->
+	      <input class="context"
+		tabindex="#"
+		type="submit"
+		name="ecl_participants_export:method"
+		value="Export"
+		tal:attributes="tabindex tabindex/next;"
+		i18n:attributes="value"
+		/>
+	      <!-- Delete Button (Owner and Managers only) -->
+	      <!--
+	      <tal:if_manager condition="python:here.userIsManager(member)">
+	      <input class="context"
+	      tabindex="#"
+	      type="submit"
+	      name="ecq_quiz_results_delete:method"
+	      value="Delete"
+	      i18n:domain="plone"
+	      tal:attributes="tabindex tabindex/next;"
+	      i18n:attributes="value"
+	      />
+	    </tal:if_manager>
+	      -->
+	    </div>
+	  </form>
+
+	  <ul class="visualNoPrint">
+	    <li>
+	      <a href="#"
+		tal:attributes="href python: here.getGroupMembersMailto(groupMembers)"
+		i18n:translate="send_mail_to_all_participants">Send e-mail to
+		all participants</a>
+	    </li>
+	    <li>
+	      <a href="#"
+		tal:attributes="href python: here.getGroupMembersMailto(groupMembers, type='bcc')"
+		i18n:translate="send_mail_to_all_participants_bcc">Send e-mail
+		to all participants using Bcc:</a>
+	    </li>
+	  </ul>
+	</div>
+      </div>
+    </div>
+  </body>
+</html>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

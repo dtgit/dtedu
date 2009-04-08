@@ -1,0 +1,11 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:zcml="http://namespaces.zope.org/zcml">
+<adapter
+    zcml:condition="installed Products.GenericSetup"
+    factory=".exportimport"
+    provides="Products.GenericSetup.interfaces.IBody"
+    for=".interfaces.IPloneKupuLibraryTool
+         Products.GenericSetup.interfaces.ISetupEnviron"
+    />
+</configure>

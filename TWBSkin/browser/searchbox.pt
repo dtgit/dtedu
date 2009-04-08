@@ -1,0 +1,27 @@
+<ul class="top-nav">
+        <li class="first"><a href="http://twbtools.com/">Home</a></li>
+	<li><a href="http://twbtools.com/news/">News</a></li>
+	<li><a href="http://twb.enpraxis.net/">Courses</a></li>
+	<li><a href="http://twbtools.com/forums">Forums</a></li>
+	<li><a href="http://twbtools.com/wiki">Wiki</a></li>
+	<li><a href="http://twbtools.com/donate/">Donate</a></li> 
+	<li><a href="http://twbtools.com/contact-us/">Contact</a></li>
+</ul>	
+<div id="portal-searchbox"
+     i18n:domain="plone">
+    <form name="searchform"
+          action="search"
+          tal:attributes="action string:${view/portal_url}/search">
+
+        <input name="SearchableText"
+               type="text"
+               size="18"
+               value=""
+               title="Search"
+               accesskey="4"
+               i18n:attributes="title title_search_site;"
+               tal:attributes="value request/SearchableText|nothing;
+                               id view/search_input_id"
+               class="inputLabel" />
+    </form>
+</div>

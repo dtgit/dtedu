@@ -1,0 +1,15 @@
+# Changes in release 1.2.1 (2008-01-06)
+
+- Added Plone-3.0 compatibility / removed deprecation warnings
+
+# Changes in release 1.2 (2007-06-27)
+
+- Inherits from ECFolder (from the ECAssignmentBox product), if
+  available.  This enables the use of ECLecture as a top-level folder
+  for a course with the statistics and assignments listing functions
+  from ECFolder.
+
+- Internal registration support: If you enter "ecl_register" into the
+  Registration link field, ECLecture will handle registration to the
+  course.  Users who want to register must be known to Plone.  You
+  must also set an Associated group in ECLecture.

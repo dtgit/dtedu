@@ -1,0 +1,19 @@
+[default]
+title = Register
+proxy = Manager
+
+# Zope's proxy role support applies only to "executiable" objects, such as 
+# scripts and templates. Also, note that proxy roles *replace* the roles
+# of the authenticated user, rather than adding to them: you may
+# need to grant more than one proxy role to a script to make a
+# given use case work.
+
+[security]
+View = 0:Authenticated
+
+[validators]
+validators=
+
+[actions]
+action.success=traverse_to:string:ecl_view
+action.failure=traverse_to:string:ecl_view

@@ -1,0 +1,65 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="eduComponents">
+<body>
+<div metal:define-macro="portlet"
+     tal:define="results python:here.portal_catalog.searchResults(
+                 portal_type='ECLecture',
+                 end={'query': here.ZopeTime(),
+                      'range': 'min'},
+                 sort_on='getTimePeriod',
+                 review_state='published');"
+     tal:condition="results">
+
+      <tal:filter
+	define="result_objects   python: map(lambda (item): item.getObject(), results);
+	filtered_results python: filter(lambda (item): item.lectureTakesPlace(), result_objects)[:5]">
+
+	<dl tal:condition="filtered_results" class="portlet" id="portlet-ecl">
+
+	  <dt class="portletHeader">
+	    <span class="portletTopLeft"></span>
+	    <span i18n:translate="portlet_ecl_title">Today's Lectures</span>
+	    <span class="portletTopRight"></span>
+	  </dt>
+
+	  <tal:events tal:repeat="ecl filtered_results">
+
+	    <dd tal:condition="ecl/lectureTakesPlace"
+	      class="portletItem"
+	      tal:define="oddrow repeat/ecl/odd"
+	      tal:attributes="class python:test(oddrow, 'portletItem even', 'portletItem odd')">
+	      <a href="#"
+		class="tile"
+		tal:attributes="href ecl/getURL | ecl/absolute_url;
+		title ecl/Description">
+		<img src="#" alt="" tal:replace="structure here/eclecture.png" />
+		<span tal:replace="ecl/pretty_title_or_id">
+		  Some Event 
+		</span>
+		<span class="portletItemDetails">
+		  <tal:condition condition="ecl/location">
+		    <tal:location content="ecl/location">Location</tal:location>, <br />
+		  </tal:condition>
+		  <tal:time content="ecl/getTimePeriod">
+		    11:00-13:00
+		  </tal:time>
+		</span>
+	      </a>
+	    </dd>
+	  </tal:events>
+	</dl>
+      </tal:filter>
+    </div>
+  </body>
+</html>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

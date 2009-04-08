@@ -1,0 +1,103 @@
+============
+Requirements
+============
+
+Zope 2.10
+---------
+
+AT Content Types requires, Zope 2.10
+
+Python 2.4.3+
+-------------
+
+AT Content Types requires some new features of Python 2.4+.
+
+Archetypes 1.5.0+
+-----------------
+
+AT Content Types is tested with the following AT version
+
+ * AT 1.5.0 or newer releases of AT 1.5
+
+CMFQuickinstaller
+-----------------
+
+You have to install CMFQuickinstaller 1.5.9.
+
+Plone 3.0
+---------
+
+AT Content Types requires the templates and icon of CMFPlone for viewing the
+types and AT Folder requires some code from PloneFolder, too. It should be easy
+to seperate the dependecies if needed.
+
+ATContentTypes 1.2 is designed for Plone 3.0, whereas 1.1 is designed for
+Plone 2.5.
+
+ATReferenceBrowserWidget 1.4
+-----------------------------
+
+ATReferenceWidget 1.4 or higher is required for the related items field. 
+
+CMF 2.1.0+
+----------
+
+Plone 3.0 and ATContentTypes 1.2 require CMF 2.1.0 or newer.
+
+CMFDynamicViewFTI 1.0.4
+-----------------------
+
+A special new FTI for dynamic views. It is the successor of TemplateMixin.
+
+=====================
+Optional Requirements
+=====================
+
+mxTidy
+------
+
+Install egenix mxTidy to enable the validation of the body text of ATDocument.
+The text is checked and is rejected if it contains wrong xhtml syntax that may
+break the user interface of plone. 
+You can download mxTidy from http://www.egenix.com/files/python/mxTidy.htm
+
+TextIndexNG 2.0.8+
+------------------
+
+If you want to use TextIndexNG to index the SearchableText attribute you should
+install version 2.0.7 or higher. Only newer versions uses the special hook that
+allows indexing the containment of ATFile. You can download TextIndexNG from
+http://opensource.zopyx.biz/OpenSource/TextIndexNG
+
+PortalTransforms helper applications
+------------------------------------
+
+You should install all helpers application for PortalTransforms.
+For debian users:
+apt-get install lynx pdftohtml wv xsltproc tidy \
+                unrtf ppthtml xlhtml gs-common xpdf-utils catdoc
+
+Python Imaging Library (PIL) 1.1.5+
+-----------------------------------
+
+In order to enable the auto resizing feature of ATImage (Archetypes ImageField)
+you have to install PIL also known as python-imaging or Python Imaging Library.
+It's available under http://www.pythonware.com/products/pil/
+
+=======================
+Reconfiguration of Zope
+=======================
+
+You need to reconfigure Zope to make it play nice with Plone and AT Content
+Types.
+
+At first you need to set reST header level to 2. For Zope 2.8 change the 
+etc/zope.conf and adjust the environment section in the config file:
+
+<environment>
+    STX_DEFAULT_LEVEL 2
+</environment>
+
+For Zope 2.7 you also must set the rest-input-encoding and rest-out-encoding
+to the same encoding you are using as site-encoding for Plone. I suggest using
+utf-8 everywhere.

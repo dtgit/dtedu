@@ -1,0 +1,53 @@
+9
+
+dir
+82770
+https://svn.plone.org/svn/collective/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/locales/en/LC_MESSAGES
+https://svn.plone.org/svn/collective
+
+
+
+2007-08-03T20:58:00.575547Z
+46645
+smcmahon
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+db7f04ef-aaf3-0310-a811-c281ed44c4ad
+
+ploneformgen.mo
+file
+
+
+
+
+2009-01-11T19:17:16.000000Z
+ffb0747de5dcdc63fe72eecffb9e191a
+2007-08-03T20:58:00.575547Z
+46645
+smcmahon
+has-props
+
+ploneformgen.po
+file
+
+
+
+
+2009-01-11T19:17:16.000000Z
+9a7ee0810bfc5994d72ac9e76ac6b29a
+2007-01-13T16:53:33.105561Z
+35733
+smcmahon
+

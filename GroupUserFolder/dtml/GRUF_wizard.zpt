@@ -1,0 +1,127 @@
+    <h1 tal:replace="structure here/manage_page_header">Header</h1>
+    <h2 tal:define="manage_tabs_message options/manage_tabs_message | nothing"
+      tal:replace="structure here/manage_tabs">Tabs</h2>
+
+    <h4>The LDAP Wizard section</h4>
+    <ol>
+        <p class="form-help">
+          Here's the place where you can perform a few actions with your LDAP configuration.<br />
+          Of course, if you do not plan to use LDAP with Plone, you can move away from here.<br />
+          First of all, here's a little list of links that you may find useful:
+        </p>
+        <ul>
+          <li><a href="http://ingeniweb.sourceforge.net/Products/GroupUserFolder/doc/README-LDAP.html">The official GRUF+LDAPUserFolder documentation</a> (a must-read !)</li>
+          <li><a href="http://www.dataflake.org/software/ldapuserfolder">The official LDAPUserFolder page</a></li>
+        </ul>
+    </ol>
+
+
+    <tal:block define="
+      have_LDAPUF python: 'LDAPUserFolder' in [ s[0] for s in here.listAvailableUserSources() ];
+      LDAPUF_installed here/hasLDAPUserFolderSource;
+      areLUFGroupsLocal python: LDAPUF_installed and here.areLUFGroupsLocal();
+      ">
+
+
+      <tal:block condition="python: not have_LDAPUF">
+        <h4>LDAPUserFolder status</h4>
+        <ol>
+            <p>
+              Looks like you don't have LDAPUserFolder installed.<br />
+              Please download the latest version from <a href="http://www.dataflake.org/software/ldapuserfolder">The official LDAPUserFolder page</a>.
+            </p>
+        </ol>
+      </tal:block>
+
+      <tal:block condition="python: have_LDAPUF and not LDAPUF_installed">
+        <h4>LDAPUserFolder status</h4>
+        <ol>
+            <p>
+              It seems that you don't have LDAPUserFolder installed or configured as a source for GRUF.<br />
+              Return to the 'sources' tab and add it.
+            </p>
+        </ol>
+      </tal:block>
+
+      <tal:block condition="python: have_LDAPUF and LDAPUF_installed">
+        <h4>Groups status</h4>
+        <ol>
+          <tal:block condition="areLUFGroupsLocal">
+            Your groups are reported to be stored in ZODB.<br />
+            You can create groups with <a href="manage_groups">this link</a>.
+            Once you've created groups, don't forget to come back here and see the 'update mapping' section below.<br />
+            <tal:block condition="here/haveLDAPGroupFolder">
+
+            <font color="red">
+              <dl>
+                <dt><b>WARNING</b></dt>
+                <dd>It seems that your groups source is LDAPGroupFolder.<br />
+                  This is not recommanded since this groups source is only for managing groups when
+                  they are stored on your LDAP Server. Please go back to the sources tab and change it.<br />
+                  A regular UserFolder instead should do it.
+                </dd>
+              </dl>
+            </font>
+
+            </tal:block>
+          </tal:block>
+          <tal:block condition="not: areLUFGroupsLocal">
+            Your groups are reported to be stored in your LDAP database.
+          </tal:block>
+        </ol>
+
+        <h4>Groups mapping</h4>
+        <ol>
+            <p class="form-help">
+              To manage groups with a LDAPUserFolder, one must <b>map</b> LDAP groups to Zope Roles.<br />
+              You can do this mapping manually or click this button to have it done automatically.<br />
+              Please not that any previously existing ldap-group - to - zope-role mapping may be lost.
+            </p>
+
+        <tal:block condition="here/getInvalidMappings">
+          <p class="form-help">
+            <strong>You must do this even if your groups are not stored on your LDAP database</strong>
+          </p>
+          <p class="form-help">
+            To help you in this task, you can have a look at the following table, which summs up<br />
+            the mappings done (or not done!) in LDAPUserFolder.
+          </p>
+
+          <font color="red">
+            <dl>
+              <dt><b>WARNING</b></dt>
+              <dd>Your mapping doesn't look good... You surely need to click the 'update mapping' button.<br />
+              </dd>
+            </dl>
+          </font>
+        </tal:block>
+
+        <tal:block condition="not: here/getInvalidMappings">
+          Your mapping looks good. It's not necessary to update it.
+        </tal:block>
+
+        <table bgcolor="#FFFFFF">
+          <thead>
+            <th class="list-header">LDAP group</th>
+            <th class="list-header">is mapped to</th>
+            <th class="list-header">GRUF group</th>
+          </thead>
+          <tbody>
+            <tr tal:repeat="group_info here/listLDAPUserFolderMapping">
+              <td bgcolor="#EEEEEE" tal:content="python:group_info[1]"></td>
+              <td align="center" bgcolor="#EEEEEE">
+                =>
+              </td>
+              <td bgcolor="#EEEEEE" tal:content="python:group_info[0]"></td>
+            </tr>
+          </tbody>
+        </table>
+        <form action="updateLDAPUserFolderMapping">
+          <input type="submit" value="Update LDAP mapping" />
+        </form>
+      </ol>
+      </tal:block>
+      
+    </tal:block>
+
+    <h1 tal:replace="structure here/manage_page_footer">Footer</h1>

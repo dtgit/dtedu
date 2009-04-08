@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<html>
+<mm:content 
+    xmlns:jsp="http://java.sun.com/JSP/Page" 
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0" 
+    type="text/html" 
+    expires="-1">
+  <jsp:directive.page session="true" errorPage="../error.jspx" />
+  <head>
+  </head>
+
+    
+  <mm:cloud rank="basic user">
+    <mm:import externid="nodetype">images</mm:import>    
+    <mm:log>Uploading</mm:log>
+    <mm:import id="title" externid="node_prop_title" from="multipart"/>
+    <mm:import id="description" externid="node_prop_desc" from="multipart"/>
+    <mm:import id="file" externid="node_prop_image" from="multipart" vartype="fileitem"  />
+    <mm:createnode type="$nodetype" id="node">
+      <mm:hasfield name="title">
+        <mm:setfield name="title" valueid="title" />
+      </mm:hasfield>
+      <mm:hasfield name="name">
+        <mm:setfield name="name" valueid="title" />
+      </mm:hasfield>
+      <mm:hasfield name="subtitle">
+        <mm:setfield name="subtitle" valueid="description" />
+      </mm:hasfield>
+      <mm:hasfield name="description">
+        <mm:setfield name="description" valueid="description" />
+      </mm:hasfield>
+      <mm:hasfield name="filename">
+        <mm:setfield name="filename">${file.name}</mm:setfield>
+      </mm:hasfield>
+      <mm:setfield name="handle" valueid="file" />
+    </mm:createnode>
+    <mm:node referid="node">
+      <mm:function name="mimetype" id="mimetype" write="false" />
+      <mm:hasfunction name="cache">
+        <mm:image template="s(100x100&gt;)">
+          <body onLoad="window.parent.kupu.getTool('drawertool').current_drawer.finishUpload('${_}', '${mimetype}');">
+          </body>
+        </mm:image>
+      </mm:hasfunction>
+      <mm:hasfunction name="cache" inverse="true">
+        <mm:field name="number" write="false" id="number" />
+        <body onLoad="window.parent.kupu.getTool('drawertool').current_drawer.finishUpload('mmbase://${nodetype}/${number}', '${mimetype}');">
+        </body>
+      </mm:hasfunction>
+    </mm:node>
+  </mm:cloud>
+</mm:content>
+</html>

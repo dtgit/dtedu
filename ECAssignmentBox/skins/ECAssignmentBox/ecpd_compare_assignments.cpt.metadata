@@ -1,0 +1,15 @@
+[default]
+title = Set Submission Period
+
+[security]
+View = 0:Authenticated
+
+[validators]
+validators..searchButton = ecpd_search_validate
+
+[actions]
+action.success..directCompareButton = redirect_to:string:ecpd_direct_compare
+action.success..showRelationsButton = traverse_to:string:ecpd_view_relations
+action.success..searchButton = traverse_to:string:ecpd_searchplagscript
+action.success = redirect_to:string:folder_contents
+action.failure = traverse_to:string:ecpd_compare_assignments

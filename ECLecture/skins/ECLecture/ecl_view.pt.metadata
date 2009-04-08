@@ -1,0 +1,5 @@
+[default]
+title = View ECLecture
+
+[security]
+View = 0:Anonymous

@@ -1,0 +1,50 @@
+<!--
+    Produces: 'items' for images
+    Needs: a request context 'drawer', containing a listcontainer 'query'.
+-->
+<mm:context
+    xmlns:jsp="http://java.sun.com/JSP/Page" 
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0" 
+    id="drawer" scope="request">
+  <jsp:output omit-xml-declaration="yes" />
+  <mm:import externid="surpressupload" />
+  <mm:content type="text/xml">
+    <mm:notpresent referid="query">
+      <mm:cloud method="asis">
+        <mm:listnodescontainer id="query" type="images" />
+      </mm:cloud>
+    </mm:notpresent>
+    <mm:import externid="max">100</mm:import>
+    <mm:listnodescontainer referid="query">
+      <mm:sortorder field="number" direction="down" />
+      <items>
+        <mm:context>
+          <mm:notpresent referid="surpressupload">
+            <uploadbutton>yes</uploadbutton>
+          </mm:notpresent>
+          <mm:listnodes id="image">
+            <resource id="${image.number}">          
+              <mm:image template="s(100x100&gt;)">
+                <uri height="${dimension.height}" width="${dimension.width}">${mm:escape('text/xml', _)}</uri>
+              </mm:image>
+              <title><mm:field name="title" /></title>
+              <size><mm:field name="filesize" />b</size>
+              <mm:hasfield name="height">
+                <mm:image>
+                  <height>${dimension.height}</height>
+                  <width>${dimension.width}</width>
+                </mm:image>
+              </mm:hasfield>
+              <mm:image template="s(200x200&gt;)">
+                <preview height="${dimension.height}" width="${dimension.width}">${mm:escape('text/xml', _)}</preview>
+              </mm:image>
+              <mm:image template="s(40x40&gt;)">
+                <icon height="${dimension.height}" width="${dimension.width}">${mm:escape('text/xml', _)}</icon>
+              </mm:image>
+            </resource>
+          </mm:listnodes>
+        </mm:context>
+      </items>
+    </mm:listnodescontainer>
+  </mm:content>
+</mm:context>

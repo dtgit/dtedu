@@ -1,0 +1,68 @@
+(svn/unreleased)
+
+- Modification [developer's name]
+
+1.0 - released April 4, 2008
+
+- Added test coverage of onSuccess, the critical piece in ensuring that
+  our form values make their way into Salesforce.com as the appropriate
+  SFObject type with configured mapping.  I suppose test coverage of
+  the main functionality is okay during an rc cycle :) [andrewb]
+
+1.0rc2
+
+- Using proper Generic Setup API "runAllImportStepsFromProfile", rather
+  than deprecated "setImportContext".  For more information, see the very helpful:
+  http://www.nabble.com/Product-install-regression--td14165955.html#a14165955 [andrewb]
+
+- Cleaning up naughty "import *" statement within Install.py [andrewb]
+
+1.0rc1
+
+- Providing test and migration for legacy adapters that didn't have the 
+  capability to mark required fields in the UI [andrewb, jessesnyder]
+
+- Renaming the Salesforce PFG Adapter's archetype_name to Salesforce 
+  Adapter, in attempt to increase non-technical accessibility.
+  Provided migration for the same [andrewb, jessesnyder]
+
+ - Add zope security checks to methods in the SalesforcePFGAdapter class [jessesnyder]
+
+ - Tweaked i18n infrastructure and added German translation. [davisagli]
+
+ - Don't show extraneous schemata in Plone3 [jessesnyder]
+ 
+ - Ran Zope's test coverage feature against our code base and extended test coverage
+   to key parts of the public aspects of our code base [andrewb]
+
+ - Implement IMultiPageSchema so that schemata can be processed separately and in order, since
+   the field mapping schemata depends on the default schemata being submitted first. [jessesnyder]
+   
+ - Re-ordered the adapter's schemata to put 'field mapping' before
+   'overrides'. [davisagli]
+
+ - Worked around FGDateField issue to format submitted dates properly for Salesforce.com input.  
+   Used DateTime.HTML4() method on field value [ghnatiuk, davisagli]
+
+ - Adding labeling to the field mapping ui to show those fields for the 
+   chosen SFObject, which are non-nillable (i.e required) and don't have a 
+   computed value (i.e. as in a unique id, which is required but you have no 
+   control over) [jessesnyder, andrewb]
+   
+ - Sorting of fields that are required first, then those that are optional
+   second in the field mapping ui [jessesnyder, andrewb]
+
+1.0-alpha2
+
+ - Worked around issue where the DataGridField strips proceeding/trailing spaces for its FixedRow 
+   values, but our generateFormFieldRows method did not, thus each save of the adapter produced duplicate
+   mappings in the DataGridField UI [jessesnyder, andrewb]
+
+ - Providing custom mutator for the field map user interface, which now auto-cleans up those fields
+   that have been removed or re-titled [jessesnyder, andrewb]
+
+1.0-alpha1
+
+ - Initial import and creation of standalone product initially created at the following branch:
+   http://svn.plone.org/svn/collective/PloneFormGen/branches/salesforce_adapter_branch/
+

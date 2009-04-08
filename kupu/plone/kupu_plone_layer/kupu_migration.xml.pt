@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tal:block
+          xmlns:tal="http://xml.zope.org/namespaces/tal"
+          xmlns:metal="http://xml.zope.org/namespaces/metal"
+          xmlns:html="http://www.w3.org/TR/REC-html40"
+	  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+	  i18n:domain="kupuconfig"
+          define="charset here/portal_properties/site_properties/default_charset|here/portal_properties/default_charset|string:utf-8;
+          content_type python:request.RESPONSE.setHeader('Content-Type', 'text/xml;;charset=%s' % charset);">
+  <html
+       xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:kj="http://kupu.oscom.org/namespaces/kjax"
+
+       tal:define="pss modules/Products/PythonScripts/standard;
+       getToolByName nocall:modules/Products.CMFCore.utils/getToolByName;
+       kupu     python:getToolByName(context, 'kupu_library_tool');
+       wantform not:request/form.submitted|request/button|nothing;
+       uri string:${kupu/absolute_url_path}/${template/getId}">
+    <body>
+      <div id="target" kj:mode="replace" tal:condition="wantform">
+        <form action="kupu_migration.xml"
+              method="post"
+              name="options_form"
+              onsubmit="return kj.submitForm(this);"
+              tal:define="infouri string:${kupu/absolute_url_path}/kupu_kjax_support.xml;
+              uids request/SESSION/kupu_migrator/pathuids|python:[];"
+              >
+          <fieldset tal:define="state request/SESSION/kupu_migrator|nothing;
+                    current_fieldname state/fieldname|string:;
+                    current_portal_type state/portal_type|string:;
+                    current string:$current_portal_type.$current_fieldname;" >
+            <legend i18n:translate="type_and_fieldname_heading">Type (Field name)</legend>
+          <div tal:repeat="f kupu/getKupuFields">
+            <tal:var define="id string:type_radio_${repeat/f/index};
+                     first repeat/f/start;
+                     t string:${f/portal_type}.${f/name};
+                     checked python:test(t==current,'checked',current=='.' and first, 'checked', None);
+                     pt python:pss.url_quote(f['portal_type']);">
+            <input type="hidden" tal:attributes="value f/portal_type" name="fields.portal_type:records" />
+            <input type="hidden" tal:attributes="value f/type" name="fields.type:records" />
+            <input type="hidden" tal:attributes="value f/name" name="fields.name:records" />
+            <input type="hidden" tal:attributes="value f/label" name="fields.label:records" />
+            <input type="radio" name="fields.selected:records" value="1"
+                   tal:attributes="
+                   onclick string:kj.submitForm(this.form,'$infouri',{'qlen':1,'portal_type':'$pt'});
+                   id id;checked checked;" />
+            <label tal:attributes="for id;">
+              <span tal:omit-tag="" i18n:translate="" tal:content="f/type" />
+	       (<span i18n:translate="" tal:content="f/label"></span>)
+            </label>
+            <span tal:define="folderpaths python:'\n'.join(uids)"
+                  tal:attributes="kj:next string:$infouri?qlen=1&amp;portal_type=$pt&amp;folderpaths=$folderpaths"
+                  tal:condition="checked" />
+            </tal:var>
+          </div>
+          </fieldset>
+          <fieldset tal:define="fieldName string:folderpaths; label string:Paths;
+                    multiVal python:1; value request/SESSION/kupu_migrator/pathuids|python:[];
+                    onchange string:kj.submitForm(this.form,'$infouri',{'qlen':1});">
+            <legend i18n:translate="folders_heading">Folders</legend>
+            <div class="formHelp"
+                 i18n:translate="help_you_may_restrict_the_seach">
+              You may restrict the search to specific folders.
+            </div>
+            <div metal:use-macro="kupu/kupu_kjax_support.xml/macros/edit" />
+          </fieldset>
+          <fieldset>
+            <legend i18n:translate="info_heading">Info</legend>
+            <div id="query_length"></div>
+          </fieldset>
+          <input type="hidden" name="form.submitted" value="1" />
+          <input type="hidden" name="button" value="" />
+          <div class="formHelp"
+               i18n:translate="help_show_proposed_changes">
+            These commands will display proposed changes.
+            You will be given an opportunity to review and filter any changes before committing them.
+          </div>
+          <input type="submit" value="check links" name="checklinks"
+                 i18n:attributes="value button_check_links;"
+                onclick="this.form.button.value='check'" />
+          <input type="submit" value="relative path -> uids"
+                 name="touids"
+                 i18n:attributes="value button_rel_to_uid;"
+                 onclick="this.form.button.value='touid'" />
+          <input type="submit" value="uids -> relative path"
+                 name="topath"
+                 i18n:attributes="value button_uid_to_rel;"
+                 onclick="this.form.button.value='topath'" />
+        </form>
+      </div>
+      <div id="kupu-output" kj:mode="replace" tal:condition="wantform" />
+
+      <div tal:condition="not:wantform">
+        <tal:var tal:define="m python:kupu.link_migration();">
+          <div tal:condition="m/nexturi" tal:attributes="kj:next m/nexturi;kj:delay m/delay|nothing" />
+          <div id="kupu-output" kj:mode="replace" tal:condition="m/firstoutput" />
+          <div id="target" kj:mode="replace">
+            <!-- <pre tal:content="kupu/link_migration">current status</pre> -->
+            <div tal:condition="m/position|nothing">
+              <!-- progress bar -->
+              <div class="kupu-progress"><div class="kupu-progressbar"
+                      tal:attributes="style string:width:${m/percent}">&#xa0;</div>
+                 <div class="kupu-progresstext"
+                      tal:content="string:${m/position} of ${m/total}" />&#xa0;
+              </div>
+            </div>
+
+            <input type="button"
+                   value="&lt;&lt; back to form"
+                   i18n:attributes="value back_to_form;"
+                   tal:condition="not:m/nexturi"
+                   tal:attributes="onclick string:kj.newRequest('${uri}')" />
+
+            <h3>
+              <span tal:condition="m/action_check">Bad links</span>
+              <span tal:condition="m/action_touid">Convert links to resolveuid form</span>
+              <span tal:condition="m/action_topath">Convert links to relative path</span>
+              <span tal:condition="m/typename"
+                    tal:content="string:for ${m/typename} (${m/fieldlabel})" />
+            </h3>
+            <h3 tal:condition="m/action_check" tal:content="m/heading|nothing" />
+            <h3 tal:condition="m/heading|nothing" tal:content="m/heading|nothing" />
+	    <div class="discreet" tal:condition="m/action_check">
+	       Links listed below are not recognised by kupu as pointing to content
+	       within this Plone instance. There are several reasons why links which
+	       are valid may not be recognised by kupu: you may click on each link to
+	       verify whether it is indeed broken.
+	    </div>
+            <div id="kupu-message">
+              <div class="highlightedSearchTerm"
+                   style="text-align:center"
+                   tal:condition="m/dryrun">
+                Dry run only: no changes are being made to your data.
+              </div>
+              <div class="highlightedSearchTerm"
+                   style="text-align:center"
+                   tal:condition="m/commit_changes">
+                Content is being updated.
+              </div>
+            </div>
+          </div>
+          <div id="kupu-output" kj:mode="append"
+               tal:condition="m/objects">
+            <div tal:repeat="o m/objects">
+              <div style="margin-top:1em">
+                <input type="checkbox" name="uids:list"
+                       tal:condition="m/checkboxes"
+                       tal:attributes="value o/uid" checked="checked" />
+                <a tal:attributes="href o/url" tal:content="o/title" /> [<span tal:content="o/url" />]</div>
+              <ul tal:condition="o/info|nothing">
+                <li tal:repeat="link o/info"
+                    tal:define="portal_url python:getToolByName(context, 'portal_url')">
+                  <code>
+                  <span tal:content="link/before" /><a
+                     target="badlink"
+                     tal:attributes="href link/url"
+                     tal:content="link/text|default">
+                     <span i18n:translate="no_text_in_link">[no text in link]</span></a><span
+                     tal:content="link/after" />
+                  </code>
+                </li>
+              </ul>
+              <div>
+              <code 
+                   tal:content="structure o/diffs"
+                   tal:condition="o/diffs|nothing" />
+              </div>
+            </div>
+          </div>
+          <tal:if tal:condition="not:m/nexturi">
+            <div id="kupu-output" kj:mode="append" tal:condition="python:m['dryrun'] or not m['commit_changes']">
+              <div tal:condition="m/found">
+                Search found <span tal:replace="m/found" />
+                <span tal:content="m/typename" /> objects from <span
+                tal:content="m/total" /> searched.</div>
+              <div tal:condition="not:m/found">Sorry, nothing was found</div>
+            </div>
+            <div id="kupu-message" kj:mode="replace">
+              <div tal:condition="m/dryrun" class="formHelp" style="margin:1em">
+                Review the proposed changes and uncheck any which you do not wish to commit,
+                then press the 'commit selected changes' button.
+              </div>
+            </div>
+            <div id="kupu-output" kj:mode="append" tal:condition="m/commit_changes">
+              <div tal:condition="m/found">Updated <span tal:replace="m/found" />
+                <span tal:content="m/typename" /> objects.</div>
+              <div tal:condition="not:m/found">Sorry, nothing was found</div>
+            </div>
+            <div id="kupu-output" kj:mode="prepend" tal:condition="m/found">
+              <div tal:condition="m/checkboxes">
+                <input type="checkbox" checked="checked" onclick="toggleSelect(this, 'uids:list', true)" />
+                <span class="discreet"
+                      i18n:translate="toggle_selection">(toggle selection)</span>
+                <input type="hidden" tal:attributes="value m/action" name="button" />
+                <input type="hidden" name="commit:int" value="1" />
+                <input type="button"
+                       value="commit selected changes"
+                       i18n:attributes="value commit_changes;"
+                       onclick="kj.submitForm(this.form);"
+                       tal:condition="not:m/nexturi" />
+              </div>
+            </div>
+          </tal:if>
+        </tal:var>
+      </div>
+    </body>
+  </html>
+</tal:block>

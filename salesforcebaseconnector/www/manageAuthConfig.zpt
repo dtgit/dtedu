@@ -1,0 +1,32 @@
+<tal:block tal:replace="structure here/manage_page_header" />
+<tal:block tal:define="manage_tabs_message options/manage_tabs_message|nothing;
+                       management_view string:Manage Auth Config"
+           tal:replace="structure here/manage_tabs" />
+<div class="system-msg" 
+    tal:condition="request/portal_status_message|nothing"
+    tal:content="request/portal_status_message" />
+    
+<h3>Configure your <code>portal_salesforcebaseconnector</code> Tool </h3>
+
+<form action="manage_configSalesforceCredentials" method="post">
+    <div class="form-help">
+    Enter the username and password for your Salesforce instance. <br />
+    They will be tested and only stored if they can be authenticated.
+    </div>
+    <br/>
+    <div class="form-label">
+    Username:
+    </div>
+    <input tal:attributes="value here/getUsername" type="text" name="username" size="25" />
+    <br/><br/>
+    <div class="form-label">
+    Password:
+    </div>
+    <input type="password" name="password" size="25" value="" />
+    <br/><br/>
+    <div class="form-element">
+    <input class="form-element" type="submit" name="submit"
+     value=" Test/store Salesforce credentials " />
+    </div>
+</form>
+<tal:block tal:replace="structure here/manage_page_footer" />

@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+                      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="eduComponents">
+		
+<metal:block fill-slot="top_slot">
+	<metal:block tal:define="
+			dummy python: request.RESPONSE.setHeader('Cache-Control','no-cache,no-store,must-revalidate,post-check=0,pre-check=0'); 
+			dummy python: request.set('enable_border', 1);" />
+</metal:block>
+
+<metal:calendar fill-slot="javascript_head_slot">
+	<!-- ECMAScript calendar -->
+	<style type="text/css" media="all"
+			tal:content="string:@import url($portal_url/jscalendar/calendar-system.css);"></style>
+	<script type="text/javascript"
+			tal:attributes="src string:$portal_url/jscalendar/calendar_stripped.js"></script>
+	<script type="text/javascript" charset="iso-8859-1"
+			tal:condition="exists: portal/jscalendar/calendar-en.js"
+			tal:attributes="src string:$portal_url/jscalendar/calendar-en.js"></script>
+</metal:calendar>
+
+<script language="JavaScript">
+<!-- /* don't change anything */
+function popup(name,einstellungen) {{
+	window.open('',name,einstellungen);
+}
+//-->
+</script>
+
+
+<body>
+	<metal:block fill-slot="css_slot">
+		<style type="text/css" media="screen" tal:content="string: @import url($portal_url/ecabstyles.css);" />
+	</metal:block>
+
+    <div metal:fill-slot="main" tal:define="
+			all_paths 	python: request.get('paths', []);
+			all_objects python: here.getObjectsFromPathList(all_paths, batch=True);
+			paths 		python: ['/'.join(o.getPhysicalPath()) for o in all_objects];
+			batch 		python: here.getObjectsFromPathList(paths, batch = True); 
+			all_objs 	python: here.objectValues();
+			objects 	python: [o for o in all_objs if here.ecab_utils.isAssignmentBoxType(o)];">
+
+    <div metal:use-macro="here/document_actions/macros/document_actions" />
+		
+	<metal:use use-macro="here/all_assignments_macros/macros/all_assignments_heading" />
+
+	<!-- PlagDetector MODIFICATION
+		TODO: Check this!
+			paths 		python: ['/'.join(o.getPhysicalPath()) for o in all_objects if here.ecab_utils.isAssignmentBoxType(o)];
+	-->
+
+  	<!-- Start Form -->
+	<form method="post"
+		tal:define="errors options/state/getErrors"
+		tal:attributes="action template/id;">
+
+		<!-- Options to choose normalizer and algorithm -->
+		<h3 i18n:translate="heading_plagiarismsearch">Plagiarism Search</h3>
+
+		<table width="100%">
+			<tr>
+				<td width="75px"><u><label i18n:translate="label_options">Options:</label></u></td>
+				<td width="85px"><label i18n:translate="label_normalizer">Normalizer</label></td>
+				<td width="135px">
+					<!-- Normalizer Select -->
+					<select	name="normalizer_selection" size="1"
+							tal:attributes="tabindex tabindex/next;"
+							tal:define="normNames context/getNormalizerNames">
+						<option>Choose Normalizer</option>
+						<option tal:repeat="name normNames" tal:content="name" tal:attributes="value name"
+								i18n:domain="plone"	i18n:translate="">Normalizer Name</option>
+					</select>
+				</td>
+				<td>
+					<span class="fieldRequired" title="Required" i18n:translate="label_required">(Required)</span>
+				</td>
+				<td align="right">
+					<a href="javascript: alert('Choose a normalizer and an algorithm. Then click start search.\n\nOptional:\nSet Minimal Matching Length. (Minimal size in words for the searched matches.)\nSet treshold. (Lower bound indication value for marking an assignment as suspected plagiarism.)')">Help</a>			
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><label i18n:translate="label_algorithm">Algorithm</label></td>
+				<td>
+					<!-- Algorithm Select -->
+					<select	name="algorithm_selection" size="1"
+							tal:attributes="tabindex tabindex/next;"
+							tal:define="algNames context/getAlgorithmNames">
+						<option>Choose Algorithm</option>
+						<option tal:repeat="name algNames" tal:content="name" tal:attributes="value name"
+								i18n:domain="plone"	i18n:translate="">Algorithm Name</option>
+					</select>
+				</td>
+				<td>
+					<span class="fieldRequired" title="Required" i18n:translate="label_required">(Required)</span>
+				</td>
+				<td/>
+			</tr>
+			<tr>
+				<td></td>
+				<td><label i18n:translate="label_mml">Minimal Matching Length</label></td>
+				<td><input type="text" name="MML" tal:attributes="value request/MML|nothing" /></td>
+				<td>(int)</td>
+				<td><td/>
+			</tr>
+			<tr>
+				<td></td>
+				<td><label i18n:translate="label_treshold">Treshold</label></td>
+				<td><input type="text" name="treshold" tal:attributes="value request/treshold|nothing" /></td>
+				<td>(float)</td>
+				<td><td/>
+			</tr>
+			<!-- <tr>
+				<td></td><td/><td/>
+				<td align="right">
+					<div class="formControls">
+						<input class="context" type="submit" name="form.button.searchButton" value="Start Search">
+					</div>
+				</td>
+			</tr> -->
+		</table>
+		
+		<hr/>
+
+		<div class="formControls">
+			<input class="context" type="submit" name="form.button.OkButton" value="Cancel">
+			<!-- Search Button -->
+			<input class="context" type="submit" name="form.button.searchButton" value="Start Search">
+			<!--Show Relations Button-->
+			<!-- <input class="context"	type="submit" name="form.button.showRelationsButton" value="Show relations"> -->
+			<!--Direct Comparison Button-->
+			<!-- <input class="context"	type="submit" name="form.button.directCompareButton" value="Compare directly"> -->
+		</div>
+
+		<input type="hidden" name="form.submitted" value="1" />
+	</form>
+  	</div>
+
+</body>
+</html>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

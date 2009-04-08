@@ -1,0 +1,30 @@
+HOW TO INSTALL CMFDiffTool
+
+CMFDiffTool installs just as any other Plone product.
+
+Untar it in your Products directory with
+
+- tar -zxvf CMFDiffTool
+
+- Restart your Plone instance
+
+- Login as admin in your Plone-instance
+
+- use the portal_quickinstaller tool in the ZMI, or
+(Add/Remove Products) in your Plone Site Setup interface to install it.
+
+In the ZMI in your instance you will find a portal_diff tool already
+waiting for you.
+
+You can use the portal_diff tool to determine what properties of an object
+will be used to calculate diffs.  Select the Portal Type (ATFile, 
+Document, ..) by dropdown list, the Field Name (title,description, body, file)
+you wish to use (which you have to know by name), and the Diff Type 
+(Lines Diff, ..) by dropdown list to compare the different data.
+
+For contentypes built with archetypes, there is a special diff that will
+examine all fields described by the Schema.  To enable it select your type,
+put 'any' in the field name input, and select 'Compound diff for AT types'
+for the Diff Type.
+
+Congratulations and happy diff'ing

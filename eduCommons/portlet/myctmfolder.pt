@@ -1,0 +1,22 @@
+<dl class="portlet"
+    i18n:domain="eduCommons">
+
+  <dt class="portletHeader"
+      i18n:translate="">
+    My CTM Folder
+  </dt>
+
+  <tal:block tal:repeat="course view/getMyCTMFolder">
+    <dd class="portletItem"
+	tal:define="oddrow repeat/course/odd;
+		    courseURL python:course[0];
+		    courseTitle python:course[1];"
+	tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
+      <a href=""
+	 tal:attributes="href courseURL"
+	 tal:content="courseTitle">Course Name</a>
+    </dd>
+  </tal:block>
+
+</dl>
+

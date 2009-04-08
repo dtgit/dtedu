@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+                      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xml:lang="en" lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="eduComponents">
+
+  <body>
+    <metal:block fill-slot="css_slot">
+      <style type="text/css" media="screen" tal:content="string: @import url($portal_url/ecabstyles.css);"></style>
+    </metal:block>
+
+    <metal:main fill-slot="main">
+      <tal:main-macro metal:define-macro="main">
+
+        <div metal:use-macro="here/document_actions/macros/document_actions"/>
+        
+        <h1 class="documentFirstHeading" tal:content="here/title_or_id"/>
+
+        <a href=""
+           class="link-parent visualNoPrint"
+           tal:define="parent_url python:here.navigationParent(here, template_id)"
+           tal:condition="parent_url"
+           tal:attributes="href parent_url"
+           i18n:domain="plone"
+           i18n:translate="go_to_parent_url">
+          Up one level
+        </a>
+
+        <div class="documentDescription"
+          tal:content="structure here/Description"
+          tal:condition="here/Description"/>
+          
+        <tal:nothing condition="here/directions|nothing">
+          <div tal:content="structure here/getDirections"/>
+          <hr/>
+        </tal:nothing>
+      
+        <div tal:define="
+                global ecab_utils nocall:portal/ecab_utils;
+                auth_filter   nocall: modules/ZTUtils/LazyFilter;
+                default_types here/allowed_content_types;
+                types         types | here/show_content_types | default_types;
+                raw_items     python: here.contentValues(filter={'portal_type': types });
+                items         python: auth_filter(raw_items, skip='View');
+                use_view_action site_properties/typesUseViewActionInListings;"
+            tal:condition="items"
+        >
+
+          <p/>
+
+          <dl>
+            <tal:block tal:repeat="item items">
+              <div tal:define="
+		item_wf_state item/review_state
+		   | python: wtool.getInfoFor(item, 'review_state', '');
+		item_wf_state_class python:'state-' +
+		   normalizeString(item_wf_state);
+                is_published python: item_wf_state == 'published';
+		item_url item/getURL|item/absolute_url;
+		item_id item/getId|item/id;
+		item_title_or_id item/pretty_title_or_id;
+		item_description item/Description | nothing;
+		item_type item/portal_type;
+		item_type_class python: 'contenttype-' +
+		normalizeString(item_type);
+		item_ref item/getReference | nothing">
+                <dt>
+                  <span tal:attributes="class item_type_class"
+                         tal:condition="python:item_type != 'Link'">
+                    <a href="#" 
+                       tal:attributes="href python:test(item_type in use_view_action, item_url+'/view', item_url+'/');
+                       class string:$item_wf_state_class visualIconPadding"
+                        tal:content="item_title_or_id">
+                      Item Title
+                     </a>
+                  </span>
+                </dt>
+                <dd class="ec-listing">
+                  <tal:block tal:condition="python: ecab_utils.isAssignmentBoxType(item)">
+                    <div class="documentByLine"
+                         tal:condition="python: item.submission_period_end and item.isEffective() and not item.hasExpired()">
+                      <span i18n:translate="submission_period_ends">
+                        Submission period ends: 
+                      </span>
+                      <span tal:content="python: item.toLocalizedTime(item.getSubmission_period_end(), True)"/>
+                    </div>
+  
+                    <div class="documentByLine"
+                         tal:condition="python: item.submission_period_end and item.isEffective() and item.hasExpired()">
+                      <span i18n:translate="submission_period_ended">
+                        Submission period ended: 
+                      </span>
+                      <span tal:content="python: item.toLocalizedTime(item.getSubmission_period_end(), True)"/>
+                    </div>
+                  </tal:block>
+
+                  <div tal:condition="item_description"
+                       class="ec-description" tal:content="structure item_ref/Description | item_description"/>
+
+                  <tal:block tal:condition="python: ecab_utils.isAssignmentBoxType(item)">      
+
+                    <div class="field" tal:content="structure item_ref/getAssignment_text | item/getAssignment_text"/>
+
+                    <tal:block tal:condition="python: is_published and not item.hasExpired()">
+                      <p class="visualNoPrint">&#x25B6;
+                        <a href="/view" tal:attributes="href item/absolute_url" i18n:translate="label_work_on">
+                          Work on this assignment
+                        </a>
+                      </p>
+                    </tal:block>
+
+                    <tal:block tal:condition="python: is_published and item.hasExpired()">
+                      <p class="visualNoPrint">&#x25B6;
+                        <a href="/assignments"
+                            tal:attributes="href python: '%s/%s' % (item.getId(), item.getTypeInfo().getActionInfo('assignments'))"
+                           i18n:translate="label_view_submissions">
+                          View submissions
+                        </a>
+                      </p>
+                    </tal:block>
+
+                    <tal:block tal:condition="not: is_published">
+                      <p class="visualNoPrint">&#x25B6;
+                        <a href="/assignments"
+                            tal:attributes="href python: '%s/%s' % (item.getId(), item.getTypeInfo().getActionInfo('object/view'))"
+                           i18n:translate="label_view_assignment">
+                          View assignment
+                        </a>
+                      </p>
+                    </tal:block>
+                  </tal:block>
+                </dd>
+
+                <hr/>
+
+              </div>
+            </tal:block>
+          </dl>
+
+        </div>
+
+        <div metal:use-macro="here/document_byline/macros/byline"/>
+
+      </tal:main-macro>
+    </metal:main>
+
+  </body>
+</html>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

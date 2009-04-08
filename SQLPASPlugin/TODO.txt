@@ -1,0 +1,11 @@
+- cache invalidation does not work across plugins, which the current code
+  assumes to work. To fix this we will either need a global object which takes
+  care of all SQL queries or use a RAMCache directly. The latter can be done
+  via plone.memoize (see feedmixer).
+
+- use a CMF testcase for testing instead of PloneTestCase.
+
+- hook in PAS user deletion event and use that to invalidate caches.
+
+- extend the property provider tests to also test non-string properties.
+

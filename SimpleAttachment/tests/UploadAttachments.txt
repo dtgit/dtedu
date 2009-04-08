@@ -1,0 +1,134 @@
+==============================================================================
+Doctest for attachment upload 
+Based on the test tutorial: http://plone.org/documentation/tutorial/testing/doctests 
+and the AddMoveAndDeleteDocument.txt doc test from CMFPlone
+==============================================================================
+
+Create the browser object we'll be using.
+
+Don't use:
+from zope.testbrowser import Browser
+Use instead the Zope2 approach:
+from Products.Five.testbrowser import Browser
+
+
+This post can be enlightening:
+http://archives.free.net.ph/message/20070228.182248.6f759d28.en.html
+Philipp von Weitershausen writes:
+"... zope.testbrowser.browser.Browser opens real HTTP 
+connections. zope.testbrowser.Browser uses Zope 3's functional test 
+framework. 
+If you want to use the test browser for functional tests in Zope 2, use 
+Products.Five.testbrowser.Browser."
+
+Since we are in a Plone functional test case then use the correct url:
+http://nohost/plone
+Not:
+http://localhost
+
+    >>> from Products.Five.testbrowser import Browser
+    >>> browser = Browser()
+    >>> browser.open('http://nohost/plone')
+    >>> 'Welcome to Plone' in browser.contents
+    True
+    
+Log into Plone
+    
+    >>> browser.getControl('Login Name').value = 'test_user_1_'
+    >>> browser.getControl('Password').value = 'secret'
+    >>> browser.getControl('Log in').click()
+    >>> 'You are now logged in' in browser.contents
+    True
+    
+Go the member folder and add a Rich document    
+
+    >>> browser.getLink('My Folder').click()
+    >>> browser.getLink('Add new').click()
+    >>> 'Add new item' in browser.contents
+    True
+
+    >>> browser.getControl('Rich document').click()
+    >>> browser.getControl('Add').click()
+    >>> #'Edit Page' in browser.contents # ouch, Plone has <span> around 'Page'
+    >>> browser.url
+    'http://nohost/plone/Members/test_user_1_/portal_factory/RichDocument/.../edit'
+
+Edit simple stuff like title and description
+
+    >>> browser.getControl('Title').value = 'Rich document'
+    >>> browser.getControl('Description').value = 'This is a rich document'
+    >>> browser.getControl('Save').click()
+    >>> browser.open('http://nohost/plone/Members/test_user_1_/rich-document')
+    >>> 'Rich document' in browser.contents
+    True
+
+
+Prepare attachment upload, create a fake file.
+This is taken from an doc test of Infrae:
+https://svn.infrae.com/documentlibrary/trunk/src/documentlibrary/core/ftests/conversion_document_tests.txt
+
+    >>> from StringIO import StringIO
+    >>> file_contents = (r"""{\rtf1\ansi{\fonttbl\f0\fswiss Helvetica;}\f0
+    ...                      Hello!\par This is some {\b bold} text.\par
+    ...                      }""")
+
+Lets upload an attachment
+and don't use: browser.getControl('Upload').click()
+
+Which is output from the testrecorder, use instead:
+browser.getControl(name='form.button.UploadAttachment').click()
+
+As always FireBug dom inspect is your friend :)
+
+    >>> browser.getLink('Edit').click()
+    >>> browser.getControl(name='attachmentTitle').value = 'Attachment 1'
+    >>> upload = browser.getControl(name='attachmentFile')
+    >>> upload.add_file(StringIO(file_contents),
+    ...                 'text/rtf', 'test_file.rtf')
+    >>> browser.getControl(name='form.button.UploadAttachment').click()
+
+Lets check if the attachment was uploaded at all
+
+    >>> browser.open('http://nohost/plone/Members/test_user_1_/rich-document')
+    >>> 'Attachment 1' in browser.contents
+    True
+    
+And check that the attachment is available for download    
+    
+    >>> browser.getLink('Attachment 1').click()
+    >>> browser.url
+    'http://nohost/plone/Members/test_user_1_/rich-document/test_file.rtf'
+    
+ 
+Lets add a second attachment with an identical file name as the first attachment
+
+    >>> browser.open('http://nohost/plone/Members/test_user_1_/rich-document')
+    >>> browser.getLink('Edit').click()
+    >>> browser.getControl(name='attachmentTitle').value = 'Attachment 2'
+    >>> upload = browser.getControl(name='attachmentFile')
+    >>> upload.add_file(StringIO(file_contents),
+    ...                 'text/rtf', 'test_file.rtf')
+    >>> browser.getControl(name='form.button.UploadAttachment').click()
+
+Lets check if the attachment was uploaded at all
+
+    >>> browser.open('http://nohost/plone/Members/test_user_1_/rich-document')
+    >>> 'Attachment 2' in browser.contents
+    True
+
+And check that the attachment is available for download    
+    
+    >>> browser.getLink('Attachment 2').click()
+    >>> browser.url
+    'http://nohost/plone/Members/test_user_1_/rich-document/test_file.0.rtf'
+
+Lets add a third attachment with an identical file name as the first and second attachment
+This should crash the plone site / the test
+
+    >>> browser.open('http://nohost/plone/Members/test_user_1_/rich-document')
+    >>> browser.getLink('Edit').click()
+    >>> browser.getControl(name='attachmentTitle').value = 'Attachment 3'
+    >>> upload = browser.getControl(name='attachmentFile')
+    >>> upload.add_file(StringIO(file_contents),
+    ...                 'text/rtf', 'test_file.rtf')
+    >>> browser.getControl(name='form.button.UploadAttachment').click()

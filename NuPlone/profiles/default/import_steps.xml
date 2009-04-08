@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="nuplone_various"
+               version="20070817-01"
+               handler="Products.NuPlone.setuphandlers.importVarious"
+               title="NuPlone: miscellaneous import steps">
+    <dependency step="skins" />
+    Various import steps that are not handled by GS import/export
+    handlers.
+  </import-step>
+</import-steps>

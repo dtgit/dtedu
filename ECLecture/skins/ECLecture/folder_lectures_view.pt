@@ -1,0 +1,151 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+  xml:lang="en" lang="en"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  metal:use-macro="here/main_template/macros/master"
+  i18n:domain="eduComponents">
+
+  <body>
+    <metal:main fill-slot="main">
+      <tal:main-macro metal:define-macro="main">
+
+	<div metal:use-macro="here/document_actions/macros/document_actions"/>
+
+	<h1 class="documentFirstHeading" tal:content="here/title_or_id"/>
+
+	<a href=""
+	  class="link-parent visualNoPrint"
+	  tal:define="parent_url python:here.navigationParent(here, template_id)"
+	  tal:condition="parent_url"
+	  tal:attributes="href parent_url"
+	  i18n:domain="plone"
+	  i18n:translate="go_to_parent_url">
+	  Up one level
+	</a>
+
+	<p class="documentDescription"
+	  tal:content="structure here/Description"
+	  tal:condition="here/Description"/>
+
+	<div tal:define="
+	  auth_filter   nocall: modules/ZTUtils/LazyFilter;
+	  raw_items     python: here.contentValues(filter={'portal_type': 'ECLecture'});
+	  items         python: auth_filter(raw_items, skip='View');
+	  use_view_action site_properties/typesUseViewActionInListings;">
+
+	  <div tal:condition="not: items">
+	    <p i18n:translate="lectures_view_no_lectures"><strong>Note:</strong>
+	      The <em>lectures view</em> was selected for this folder.
+	      However, this folder doesn't contain any lecture items.  A
+	      standard folder listing is displayed instead.  You may want to
+	      select a different view mode from the <em>display</em> menu.</p>
+	    <div metal:use-macro="here/folder_listing/macros/listing"/>
+	  </div>
+
+	  <table class="listing" tal:condition="items">
+	    <thead>
+	      <th i18n:domain="plone" i18n:translate="title">Title</th>
+	      <th i18n:translate="label_course_type">Course type</th>
+	      <th i18n:translate="label_instructors">Instructors</th>
+	      <th i18n:translate="label_time">Time</th>
+	      <th i18n:translate="label_recurrence">Recurrence</th>
+	      <th i18n:translate="label_location">Location</th>
+	    </thead>
+	    <tbody>
+	      <tal:repeat repeat="item items">
+		<tr
+		  tal:define="oddrow              repeat/item/odd;
+			      item_wf_state       item/review_state | python: wtool.getInfoFor(item, 'review_state', '');
+			      item_wf_state_class python:'state-' + normalizeString(item_wf_state);
+			      is_published        python: item_wf_state == 'published';
+			      item_url            item/getURL|item/absolute_url;
+			      item_id             item/getId|item/id;
+			      item_title_or_id    item/pretty_title_or_id;
+			      item_description    item/Description | nothing;
+			      item_type           item/portal_type;
+			      item_type_class     python: 'contenttype-' + normalizeString(item_type);"
+		  tal:attributes="class python: test(oddrow, 'even', 'odd')">
+		  <td>
+		    <a href="#" 
+		      tal:attributes="href python:test(item_type in use_view_action, item_url+'/view', item_url+'/');
+		      class string:$item_wf_state_class"
+		      tal:content="item_title_or_id">
+		      Item Title
+		    </a>
+		  </td>
+
+		  <td tal:content="item/getCourseType"/>
+
+		  <td tal:define="instructors item/getInstructors"
+		    tal:condition="instructors">
+		    <tal:loop tal:repeat="userid python: instructors">
+		      <tal:if condition="userid">
+			<a href="#"
+			  tal:attributes="href python: mtool.getHomeUrl(userid)"
+			  tal:content="python: mtool.getMemberInfo(userid)
+			  and mtool.getMemberInfo(userid)['fullname']
+			  or userid">
+			  The instructors' fullnames or user IDs
+			</a><span tal:condition="not: repeat/userid/end"
+			  tal:replace="string:, "/>
+		      </tal:if>
+		    </tal:loop>
+		  </td>
+
+		  <td tal:define="weekday    item/getStartDateWeekday;
+		                  timePeriod item/getTimePeriod">
+		    <span tal:condition="weekday" tal:omit-tag="">
+		      <span tal:omit-tag="" i18n:translate="" tal:content="weekday"/>,
+		    </span>
+		    <span tal:condition="not: item/getRecurrence" tal:omit-tag="">
+		      <span tal:omit-tag=""
+			tal:content="python: item.toLocalizedTime(item.getStartDate())"/>,
+		    </span>
+		    <span tal:omit-tag=""
+		      tal:condition="timePeriod"
+		      tal:content="timePeriod"/>
+		  </td>
+
+		  <td>
+		    <span i18n:translate="recurrence_text">
+		      <span i18n:name="recurrence"
+			tal:content="python: item.getRecurrenceDisplayList().getValue(item.getRecurrence())"/>
+		      from
+		      <span i18n:name="start_date"
+			tal:content="python: item.toLocalizedTime(item.getStartDate())"/>
+		      until
+		      <span i18n:name="end_date"
+			tal:content="python: item.toLocalizedTime(item.getEndDate())"/>
+		    </span>
+		  </td>
+
+		  <td>
+		    <span 
+		      tal:condition="item/getLocation"
+		      tal:replace="item/getLocation"/>
+		  </td>
+
+		</tr>
+	      </tal:repeat>
+	    </tbody>
+	  </table>
+
+	</div>
+      </tal:main-macro>
+    </metal:main>
+
+  </body>
+</html>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

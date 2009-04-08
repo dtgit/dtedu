@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<tool-setup>
+	<required tool_id="ecab_utils" class="Products.ECAssignmentBox.ECABTool.ECABTool"/>
+</tool-setup>

@@ -1,0 +1,77 @@
+<dl i18n:domain="plone"
+     class="portlet documentActions">
+
+ <tal:docactions tal:condition="view/actions"
+     tal:define="normalizeString nocall: context/@@plone/normalizeString">
+
+
+    <h5 class="hiddenStructure" i18n:translate="heading_document_actions">Document Actions</h5>
+
+    <dt class="portletHeader" i18n:translate="">
+    	Options
+    </dt>
+
+    <tal:actions repeat="daction view/actions">
+
+        <tal:condition tal:condition="python:daction['id'] != 'bookmarklets'">
+	<dd class="portletItem">
+        <span tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
+            <a href=""
+               tal:attributes="href daction/url;">
+	        <img tal:attributes="alt daction/title;
+				     title daction/title;
+				     src daction/icon;" />
+            </a>
+        </span>
+	<span>
+	<a href="" tal:attributes="href daction/url" tal:content="daction/title">title</a>
+	</span>
+	</dd>	
+	</tal:condition>
+        <tal:condition tal:condition="python:daction['id'] == 'bookmarklets'">
+          <script language="javascript">
+            function showBookmarklets()
+            {
+               bm = document.getElementById('bookmarklet');
+               if (bm.style['display'] == 'none') {
+                   bm.style['display'] = 'block';
+               } else {
+                   bm.style['display'] = 'none';
+               }
+
+            }
+          </script>
+
+         <dd class="portletItem">
+         <span tal:attributes="id python:'document-action-' + normalizeString(daction['id'])" i18n:domain="PloneBookmarklets">
+            <a style="cursor:pointer;"
+               onclick="showBookmarklets()"
+               tal:define="title daction/title;
+                           icon daction/icon"
+               tal:condition="icon">
+
+                <img i18n:attributes="title" src="" alt="" title=""
+                     tal:attributes="src    daction/icon;
+                                     id     string:icon-${daction/id};
+                                     title  title;
+                                     alt    title;" />
+            </a>
+
+        </span>
+	<span>
+	<a style="cursor:pointer;" onClick="showBookmarklets()" tal:content="daction/title">title</a>
+	</span>
+        </dd>
+        <dd> 
+	   <span id="bookmarklet" style="display:none;"> 
+              <div tal:replace="structure here/@@bookmarklets" />
+            </span>
+	</dd>
+	</tal:condition>
+    </tal:actions>
+
+    </tal:docactions>
+
+    <div tal:replace="structure provider:plone.documentactions" />
+
+</dl>

@@ -1,0 +1,12 @@
+[default]
+title = View ECAssignment
+
+#COmmenting out for TWB
+#[security]
+#View = 0:Authenticated
+
+# security: This is the security area, which allows multiple lines of security 
+# settings. The key contains the name of the permission. The right side 
+# contains the acquisition setting, followed by the roles delimited by commas. 
+# For example, View = 0:Manager means only users with the member and manager 
+# role can see an object, and security settings aren't acquired for that permission.

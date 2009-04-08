@@ -1,0 +1,164 @@
+
+[ 2007-11-08 1.2.1 ]
+
+* Fix ordering bug when we tests plone workflows
+  Contributed by Jazkarta.  (rossp)
+
+[ 2007-10-01 1.2.0 ]
+
+[ 2007-07-02 1.2.0-rc1 ]
+
+* Add verbose debugging when adding the debug.txt file
+
+* Fix migration bug from plone 2.1 version (encolpe)
+
+* Fix policy config bug saving in ZMI
+
+* Move CMFPW control panel back to add-on panels (hannosch)
+
+[ 2007-03-24 - 1.2.0-beta1 ]
+
+* Switch from getToolByName to getUtility for Plone 3.0 integration (encolpe)
+
+[ 2007-02-27 - 1.0.3 ]
+
+* Fix tests initialization breakage and tests README (encolpe)
+
+* Move CMFPW control panel in plone panels (wichert)
+
+[ 2007-01-01 - 1.0.2 ]
+
+* Fixed templates for Plone 2.1.4 (jmgrimaldi)
+
+[ 2006-09-08 - 1.0.1 ]
+
+* Fixed breakage on policy creation in ZMI
+
+[ 2006-06-16 - 1.0.0-final ]
+
+* Some more better explanation texts. (optilude, hannosch, jrlewis)
+
+* Fixed None chain in getChainFor (encolpe)
+
+* Some small i18n corrections. (hannosch)
+
+* Fixed missing i18n chains (encolpe)
+
+[ 2006-06-02 - 1.0rc2]
+
+* New post modern icon (encolpe)
+
+* Fixed policy mapping error on backward compatibility (encolpe)
+
+* Fixed template that doesn't show '(Default)' (encolpe)
+
+[ 2006-05-24 - 1.0rc1]
+
+* Support of aquiring policy from another (encolpe)
+
+[ 2006-05-17 - 1.0beta3]
+
+* Fixed copy/paste bug (encolpe)
+
+* Fixed BTreeFolder bug => obj is not None but False (encolpe)
+
+* Removed unused i18n folder. (hannosch)
+
+* Fixed a simple i18n markup problem revealed by ZChecker. (hannosch)
+
+* Removed a noise log message at Zope startup. (hannosch)
+
+[ 2006-03-21 - 1.0alpha2 ]
+
+* Converted python scripts to use new MessageID / status messages. (hannosch)
+
+* Synced prefs templates with current Plone 2.5 ones. (hannosch)
+
+* Cleaned up all templates and added missing i18n statements. (hannosch)
+
+* Determine workflow policy only via containment not context (AM)
+
+* Removed bare except (AM)
+
+* Let user choose an empty default workflow in a policy (encolpe)
+
+* Cleaning installation schema (encolpe)
+
+* Uninstallation of the configlet (encolpe)
+
+* Fix reintallation looses defined policies (encolpe)
+
+* Code cleaning (encolpe)
+
+* fix unit test 7 and 10 (encolpe)
+
+* Better icon for configlet (encolpe)
+
+* Unit tests cleaning (encolpe)
+
+* Removing Custom Policy (encolpe)
+
+* Test for Bugfix: Default workflow policy chain is now taken into account (MR)
+
+* Test for Bugfix: Policy Container does not apply contained workflow policies (MR)
+
+* Test the case where a container itself is subject to a workflow policy
+
+* Bugfix: When getting the chain for a type the config must handle the case 
+  where there is no appropriate policy.
+
+* Bugfix: Policy Container does not apply contained workflow policies (MR)
+
+* Bugfix: Default workflow policy chain is now taken into account (MR)
+
+* remove unused toolbox import from Testcase (thanks to huron)
+
+* write missing dependancies in INSTALL.TXT
+
+[v0.4 - 20050829]
+
+* add global_contentmenu_2_1 for Plone 2.1 compatibility.
+
+* Support for workflow chains
+
+* Minor fixes on page templates
+
+* Use '(Default)' chain from Michael Davis' patch
+
+* Add a Customization Policy
+
+* Make testcase zopectl test compatible
+
+* Factory tool fix for Plone 2.0.x
+
+[v0.3 - 20050413]
+
+* Cleaned up the interface.
+
+* Added mini-howto to Readme.txt
+
+* Simplified Workflow Policy interface
+
+* Fixed a bug when adding a workflow policy through the Placeful Workflow
+  interface in Plone Setup thanks to a patch by Edward Muller.
+
+* Simplified access to the configuration from the policy action in the
+  workflow state menu in the case of a non-folderish object.
+
+* Installs fine in Plone 2.1 now.
+
+* Installation of a configlet
+
+* Installing a patch of getChainFor in Plone's WorkflowTool.py
+
+* It is no more necessary to replace workflow_tool
+
+* Removed content_status_history.cpt which had been added accidentally
+
+[v0.2 - 20041102]
+
+* Checking isPrincipiaFolderish to see if we can add a configuration locally
+
+[v0.1 - 20041102]
+
+* Initial version

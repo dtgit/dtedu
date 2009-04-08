@@ -1,0 +1,581 @@
+# Italian translations for mmbase package.
+# Copyright (C) 2005 THE mmbase'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the mmbase package.
+# Michiel Meeuwissen <EMAIL@ADDRESS>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mmbase 18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-02-06 14:05+0100\n"
+"PO-Revision-Date: 2005-06-09 00:45+0200\n"
+"Last-Translator: Michiel Meeuwissen <EMAIL@ADDRESS>\n"
+"Language-Team: Italian <tp@lists.linux.it>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: mmbase.js:141 mmbase.js:158 mmbase.js:159
+msgid "Saving body (kupu)"
+msgstr ""
+
+#: mmbase.js:144 mmbase.js:161 mmbase.js:162
+msgid "Saving fields (form)"
+msgstr ""
+
+#: mmbase.js:173 mmbase.js:191 mmbase.js:192
+msgid "saved"
+msgstr ""
+
+#: mmbase.js:202 mmbase.js:242 mmbase.js:243
+msgid "RELOAD"
+msgstr ""
+
+#: mmbase.js:223 mmbase.js:264
+msgid "Getting node fields for "
+msgstr ""
+
+#: mmbase.js:231 mmbase.js:275
+msgid "Loading node fields for "
+msgstr ""
+
+#: mmbase.js:243 mmbase.js:289
+msgid "Getting node body "
+msgstr ""
+
+#: mmbase.js:250 mmbase.js:300 mmbase.js:299
+msgid "Loading node body "
+msgstr ""
+
+#: mmbasetools.js:13 mmbasetools.js:14
+msgid "Div tool initialized"
+msgstr ""
+
+#: mmbasetools.js:39 mmbasetools.js:40 mmbasetools.js:48
+msgid "Found paragraph"
+msgstr ""
+
+#: mmbasetools.js:43 mmbasetools.js:44 mmbasetools.js:52
+msgid "Didn't find paragraph"
+msgstr ""
+
+#: mmbasetools.js:48 mmbasetools.js:50 mmbasetools.js:57
+msgid "Div inserted"
+msgstr ""
+
+#: phony.js:1 phony.js:117
+msgid "No node"
+msgstr ""
+
+#: phony.js:2 phony.js:4 phony.js:75
+msgid "Normal"
+msgstr ""
+
+#: phony.js:3 phony.js:5 phony.js:2 phony.js:1 phony.js:116 phony.js:118
+msgid "Richtext editor"
+msgstr ""
+
+#: phony.js:4 phony.js:5
+msgid "Heading 1"
+msgstr ""
+
+#: phony.js:6 phony.js:3 phony.js:2 phony.js:119
+msgid "default"
+msgstr ""
+
+#: phony.js:7 phony.js:4 phony.js:6 phony.js:110 phony.js:123
+msgid "Block"
+msgstr ""
+
+#: phony.js:8 phony.js:5 phony.js:7 phony.js:111 phony.js:124
+msgid "Block class"
+msgstr ""
+
+#: phony.js:9 phony.js:6 phony.js:8 phony.js:112 phony.js:125
+msgid "Note left"
+msgstr ""
+
+#: phony.js:10 phony.js:7 phony.js:9 phony.js:113 phony.js:126
+msgid "Note right"
+msgstr ""
+
+#: phony.js:11 phony.js:8 phony.js:10 phony.js:114 phony.js:127
+msgid "Insert block"
+msgstr ""
+
+#: override.js:2
+msgid "strong: alt-b"
+msgstr ""
+
+#: override.js:3
+msgid "emphasis: alt-i"
+msgstr ""
+
+#: mmbase.js:197 mmbase.js:198
+msgid "Not saved"
+msgstr ""
+
+#: mmbase.js:215 mmbase.js:216
+msgid "Reinited "
+msgstr ""
+
+#: phony.js:4 phony.js:88 phony.js:120
+msgid "Left (Big)"
+msgstr ""
+
+#: phony.js:5 phony.js:89 phony.js:121
+msgid "Right (Big)"
+msgstr ""
+
+#: phony.js:3
+msgid "Kupu SVN/unreleased"
+msgstr ""
+
+#: phony.js:3 phony.js:18 phony.js:19 phony.js:20 phony.js:21 phony.js:22
+#: phony.js:23 phony.js:26
+msgid "http://xml.zope.org/namespaces/i18n"
+msgstr ""
+
+#: phony.js:3 phony.js:18 phony.js:19 phony.js:20 phony.js:21 phony.js:22
+#: phony.js:23 phony.js:26
+msgid "button"
+msgstr ""
+
+#: phony.js:3
+msgid "kupu-logo"
+msgstr ""
+
+#: phony.js:3 phony.js:18 phony.js:19 phony.js:20 phony.js:21 phony.js:22
+#: phony.js:23 phony.js:26
+msgid "${_}"
+msgstr ""
+
+#: phony.js:3
+msgid "kupu-logo-button"
+msgstr ""
+
+#: phony.js:3 phony.js:18 phony.js:19 phony.js:20 phony.js:21 phony.js:22
+#: phony.js:23 phony.js:26
+msgid "title"
+msgstr ""
+
+#: phony.js:3
+msgid "window.open('http://kupu.oscom.org');"
+msgstr ""
+
+#: phony.js:6
+msgid "Heading 2"
+msgstr ""
+
+#: phony.js:7
+msgid "Heading 3"
+msgstr ""
+
+#: phony.js:8
+msgid "Heading 4"
+msgstr ""
+
+#: phony.js:9
+msgid "Heading 5"
+msgstr ""
+
+#: phony.js:10
+msgid "Heading 6"
+msgstr ""
+
+#: phony.js:11
+msgid "s"
+msgstr ""
+
+#: phony.js:12
+msgid "b"
+msgstr ""
+
+#: phony.js:13
+msgid "i"
+msgstr ""
+
+#: phony.js:14
+msgid "-"
+msgstr ""
+
+#: phony.js:15
+msgid "+"
+msgstr ""
+
+#: phony.js:16
+msgid "#"
+msgstr ""
+
+#: phony.js:17
+msgid "*"
+msgstr ""
+
+#: phony.js:18
+msgid "image"
+msgstr ""
+
+#: phony.js:18
+msgid "kupu-image"
+msgstr ""
+
+#: phony.js:18
+msgid "kupu-imagelibdrawer-button"
+msgstr ""
+
+#: phony.js:19
+msgid "link"
+msgstr ""
+
+#: phony.js:19
+msgid "kupu-inthyperlink"
+msgstr ""
+
+#: phony.js:19
+msgid "kupu-linklibdrawer-button"
+msgstr ""
+
+#: phony.js:20
+msgid "external link"
+msgstr ""
+
+#: phony.js:20
+msgid "kupu-exthyperlink"
+msgstr ""
+
+#: phony.js:20
+msgid "kupu-linkdrawer-button"
+msgstr ""
+
+#: phony.js:21
+msgid "Remove image"
+msgstr ""
+
+#: phony.js:21
+msgid "kupu-removeimage invisible"
+msgstr ""
+
+#: phony.js:21
+msgid "kupu-removeimage-button"
+msgstr ""
+
+#: phony.js:22
+msgid "Remove link"
+msgstr ""
+
+#: phony.js:22
+msgid "kupu-removelink invisible"
+msgstr ""
+
+#: phony.js:22
+msgid "kupu-removelink-button"
+msgstr ""
+
+#: phony.js:23
+msgid "Remove block"
+msgstr ""
+
+#: phony.js:23
+msgid "kupu-removediv invisible"
+msgstr ""
+
+#: phony.js:23
+msgid "kupu-removediv-button"
+msgstr ""
+
+#: phony.js:24
+msgid "z"
+msgstr ""
+
+#: phony.js:25
+msgid "y"
+msgstr ""
+
+#: phony.js:26
+msgid "Check spelling"
+msgstr ""
+
+#: phony.js:26
+msgid "kupu-spellchecker"
+msgstr ""
+
+#: phony.js:26
+msgid "kupu-spellchecker-button"
+msgstr ""
+
+#: phony.js:27
+msgid "list-disc"
+msgstr ""
+
+#: phony.js:28
+msgid "list-square"
+msgstr ""
+
+#: phony.js:29
+msgid "list-circle"
+msgstr ""
+
+#: phony.js:30
+msgid "list-nobullet"
+msgstr ""
+
+#: phony.js:31
+msgid "list-decimal"
+msgstr ""
+
+#: phony.js:32
+msgid "list-upperroman"
+msgstr ""
+
+#: phony.js:33
+msgid "list-lowerroman"
+msgstr ""
+
+#: phony.js:34
+msgid "list-upperalpha"
+msgstr ""
+
+#: phony.js:35
+msgid "list-loweralpha"
+msgstr ""
+
+#: phony.js:36
+msgid "External Link"
+msgstr ""
+
+#: phony.js:37 phony.js:81
+msgid "Link the highlighted text to this URL:"
+msgstr ""
+
+#: phony.js:38
+msgid "Preview"
+msgstr ""
+
+#: phony.js:39
+msgid "(none)"
+msgstr ""
+
+#: phony.js:40 phony.js:78
+msgid "Ok"
+msgstr ""
+
+#: phony.js:41 phony.js:79
+msgid "Cancel"
+msgstr ""
+
+#: phony.js:42
+msgid "tabledrawer_title"
+msgstr ""
+
+#: phony.js:43 phony.js:53
+msgid "tabledrawer_class_label"
+msgstr ""
+
+#: phony.js:44 phony.js:54
+msgid "Plain"
+msgstr ""
+
+#: phony.js:45 phony.js:55
+msgid "Listing"
+msgstr ""
+
+#: phony.js:46 phony.js:56
+msgid "Grid"
+msgstr ""
+
+#: phony.js:47 phony.js:57
+msgid "Data"
+msgstr ""
+
+#: phony.js:48
+msgid "tabledrawer_rows_label"
+msgstr ""
+
+#: phony.js:49
+msgid "tabledrawer_columns_label"
+msgstr ""
+
+#: phony.js:50
+msgid "tabledrawer_headings_label"
+msgstr ""
+
+#: phony.js:51
+msgid "tabledrawer_add_table_button"
+msgstr ""
+
+#: phony.js:52
+msgid "tabledrawer_fix_tables_button"
+msgstr ""
+
+#: phony.js:58
+msgid "tabledrawer_alignment_label"
+msgstr ""
+
+#: phony.js:59
+msgid "tabledrawer_left_option"
+msgstr ""
+
+#: phony.js:60
+msgid "tabledrawer_center_option"
+msgstr ""
+
+#: phony.js:61
+msgid "tabledrawer_right_option"
+msgstr ""
+
+#: phony.js:62
+msgid "tabledrawer_column_label"
+msgstr ""
+
+#: phony.js:63 phony.js:66
+msgid "tabledrawer_add_button"
+msgstr ""
+
+#: phony.js:64 phony.js:67
+msgid "tabledrawer_remove_button"
+msgstr ""
+
+#: phony.js:65
+msgid "tabledrawer_row_label"
+msgstr ""
+
+#: phony.js:68
+msgid "tabledrawer_fix_table_label"
+msgstr ""
+
+#: phony.js:69
+msgid "tabledrawer_fix_button"
+msgstr ""
+
+#: phony.js:70
+msgid "tabledrawer_close_button"
+msgstr ""
+
+#: phony.js:71
+msgid "anchordrawer_title"
+msgstr ""
+
+#: phony.js:72
+msgid "Link to anchor"
+msgstr ""
+
+#: phony.js:73
+msgid "Table of contents"
+msgstr ""
+
+#: phony.js:74
+msgid "Table style"
+msgstr ""
+
+#: phony.js:76
+msgid "toggle all"
+msgstr ""
+
+#: phony.js:77
+msgid "(optional 2nd style)"
+msgstr ""
+
+#: phony.js:80
+msgid "Links"
+msgstr ""
+
+#: phony.js:82
+msgid "Make Link"
+msgstr ""
+
+#: phony.js:83
+msgid "Images"
+msgstr ""
+
+#: phony.js:84
+msgid "Image class:"
+msgstr ""
+
+#: phony.js:85
+msgid "Inline"
+msgstr ""
+
+#: phony.js:86 phony.js:102
+msgid "Left"
+msgstr ""
+
+#: phony.js:87 phony.js:104
+msgid "Right"
+msgstr ""
+
+#: phony.js:90 phony.js:122
+msgid "Big"
+msgstr ""
+
+#: phony.js:91
+msgid "Insert image at the following URL:"
+msgstr ""
+
+#: phony.js:92
+msgid "Insert Image"
+msgstr ""
+
+#: phony.js:93
+msgid "Tables"
+msgstr ""
+
+#: phony.js:94
+msgid "Table Class:"
+msgstr ""
+
+#: phony.js:95
+msgid "Rows:"
+msgstr ""
+
+#: phony.js:96
+msgid "Columns:"
+msgstr ""
+
+#: phony.js:97
+msgid "Headings:"
+msgstr ""
+
+#: phony.js:98
+msgid "Create"
+msgstr ""
+
+#: phony.js:99
+msgid "Fix Table"
+msgstr ""
+
+#: phony.js:100
+msgid "Add Table"
+msgstr ""
+
+#: phony.js:101
+msgid "Col Align:"
+msgstr ""
+
+#: phony.js:103
+msgid "Center"
+msgstr ""
+
+#: phony.js:105
+msgid "Add Column"
+msgstr ""
+
+#: phony.js:106
+msgid "Remove Column"
+msgstr ""
+
+#: phony.js:107
+msgid "Add Row"
+msgstr ""
+
+#: phony.js:108
+msgid "Remove Row"
+msgstr ""
+
+#: phony.js:109
+msgid "Fix"
+msgstr ""
+
+#: phony.js:115
+msgid "Debug Log"
+msgstr ""

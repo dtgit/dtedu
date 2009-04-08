@@ -1,0 +1,1481 @@
+# Gettext Message File for ECQuiz.
+# -*- coding: utf-8 -*-
+msgid ""
+msgstr ""
+"Project-Id-Version: ECQuiz\n"
+"POT-Creation-Date: 2004-11-25 10:29 +0100\n"
+"PO-Revision-Date: 2007-06-27 19:32\n"
+"Last-Translator: Michael Piotrowski <mxp@iws.cs.uni-magdeburg.de>\n"
+"Language-Team: eduComponents <educomponents@uni-magdeburg.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: de\n"
+"Language-Name: Deutsch\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: ECQuiz\n"
+"X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
+
+#. <input class="context"
+#. tabindex="#"
+#. type="submit"
+#. name="export"
+#. value="Export"
+#. tal:attributes="tabindex tabindex/next;"
+#. i18n:attributes="value"
+#. />
+msgid "Export"
+msgstr "Exportieren"
+
+#. <input class="context"
+#. tabindex="#"
+#. type="submit"
+#. name="importTest:method"
+#. value="Import"
+#. tal:attributes="tabindex tabindex/next;"
+#. i18n:attributes="value"
+#. />
+#: skins\llsMultipleChoice\test_import_export.pt
+msgid "Import"
+msgstr "Importieren"
+
+# Original:
+#. Default: N/A
+#: ./skins/llsMultipleChoice/exportResults.py, 85
+msgid "N/A"
+msgstr "---"
+
+#. Default: Next
+#: skins/llsMultipleChoice/test_view.pt
+msgid "Next"
+msgstr "Vorwärts"
+
+#. Default: Previous
+#: skins/llsMultipleChoice/test_view.pt
+msgid "Previous"
+msgstr "Zurück"
+
+#. <input class="context" type="submit"
+#. name="sendButton" value="Repeat"
+#. i18n:attributes="value"/>
+msgid "Repeat"
+msgstr "Wiederholen"
+
+#. Default: Submit Quiz
+#: skins/llsMultipleChoice/test_view.pt
+msgid "Submit Quiz"
+msgstr "Test einreichen"
+
+#. Default: Upload
+#. <input class="context"
+#. tabIndex=""
+#. type="submit"
+#. value="Upload"
+#. tal:attributes="tabIndex tabIndex/next;"
+#. i18n:attributes="value"
+#. />
+#: skins/llsMultipleChoice/test_import_export.pt
+msgid "Upload"
+msgstr "Upload"
+
+#. Default: Do you really want to submit this test?
+#: skins/llsMultipleChoice/test_view.pt
+msgid "alert_really_submit"
+msgstr "Möchten Sie diesen Test wirklich einreichen?"
+
+#. <h2 i18n:translate="all_tests">All Tests</h2>
+msgid "all_tests"
+msgstr "Alle Tests"
+
+#. <p tal:condition="not: nonSubmitters" i18n:translate="all_tests_submitted">
+#. All tests have been submitted.
+#. </p>
+msgid "all_tests_submitted"
+msgstr "Alle Tests wurden eingereicht."
+
+#. BooleanField('allowMultipleSelection',
+#. # If 'allowMultipleSelection' is True, this is a multiple answer
+#. # question, i.e. one where more than one answer can be true. Otherwise
+#. # it is a multiple choice question, i.e. exactly only one answer is
+#. # correct.
+#. #   The question_view template is designed to support this. When
+#. # 'allowMultipleSelection' is True, radio buttons will be generated.
+#. # If not, check boxes will be shown.
+#. #   See also 'description' property of the widget.
+#. accessor='isAllowMultipleSelection',
+#. default=1,
+#. searchable=False,
+#. widget=BooleanWidget(
+#. label='Allow Multiple Selection',
+#. label_msgid='allow_multiple_selection_label',
+#. description='If the selection of multiple answers should be possible, mark this checkbox.',
+#. description_msgid='allow_multiple_selection_tool_tip',
+#. i18n_domain='llsMultipleChoice'),
+#. ),
+#. label_#msgid='allow_multiple_selection_label',
+#. description_#msgid='allow_multiple_selection_tool_tip',
+msgid "allow_multiple_selection_label"
+msgstr "Mehrfachauswahl erlauben"
+
+msgid "allow_multiple_selection_tool_tip"
+msgstr "Falls die Auswahl mehrerer Antworten möglich sein soll, wählen Sie diese Checkbox aus."
+
+#. BooleanField('allowRepetition',
+#. required=False,
+#. default=0,
+#. accessor='isAllowRepetition',
+#. widget=BooleanWidget(
+#. label='Allow Repetition',
+#. label_msgid='allow_repetition_label',
+#. description='If you want to allow repeated submission of the test'\
+#. + 'check this box.',
+#. description_msgid='allow_repetition_tool_tip',
+#. i18n_domain='llsMultipleChoice'),
+#. ),
+#. label_#msgid='allow_repetition_label',
+#. description='If you want to allow repeated submission of the test'#.                + 'check this box.',
+#. description_#msgid='allow_repetition_tool_tip',
+msgid "allow_repetition_label"
+msgstr "Mehrfacheinreichung erlauben"
+
+msgid "allow_repetition_tool_tip"
+msgstr "Wenn die Kandidaten den Test mehrmals einreichen dürfen, wählen Sie diese Option aus."
+
+#. errors.write('\n' + context.translate(
+#. msgid   = 'ambiguous_reference',
+#. domain  = I18N_DOMAIN,
+#. default = 'There is more than one resource with '
+#. 'the identifier "%s". Only the first one will '
+#. 'be imported.'
+#. ) % context.str(identifierref))
+#. #msgid   = 'ambiguous_reference',
+#: qti.py
+msgid "ambiguous_reference"
+msgstr "Es gibt mehrere Resourcen mit dem Identifier \"%s\". Nur die erste wird importiert."
+
+#. TextField('comment',
+#. searchable=True,
+#. required=False,
+#. widget=TextAreaWidget(
+#. label='Comment',
+#. label_msgid='answer_comment_label',
+#. description='A comment on the answer. If the test is set to "instant feedback", ' \
+#. + 'the candidate will see this text in case his/her answer was wrong.',
+#. description_msgid='answer_comment_tool_tip',
+#. i18n_domain='llsMultipleChoice'),
+#. label_#msgid='answer_comment_label',
+#. description='A comment on the answer. If the test is set to "instant feedback", ' #.            + 'the candidate will see this text in case his/her answer was wrong.',
+#. description_#msgid='answer_comment_tool_tip',
+msgid "answer_comment_label"
+msgstr "Kommentar"
+
+msgid "answer_comment_tool_tip"
+msgstr "Ein Kommentar zur Antwort. Wenn der Test auf \"Ergebnisse sofort anzeigen\" gestellt ist, wird dem Kandidaten dieser Text angezeigt, falls seine/ihre Antwort falsch war."
+
+#. widget=TextAreaWidget(
+#. label='Answer',
+#. label_msgid='answer_label',
+#. description='The answer text. This is what the candidate will see.',
+#. description_msgid='answer_tool_tip',
+#. i18n_domain='plone'),
+#. label_#msgid='answer_label',
+#. description_#msgid='answer_tool_tip',
+msgid "answer_label"
+msgstr "Antwort"
+
+#. Default: A Unicode checkmark character
+#. <tal:block condition="correct" i18n:translate="answer_mark_correct">
+#. <span style="color:green;">&#10003;</span>
+#. </tal:block>
+#: skins/llsMultipleChoice/multiplechoicequestion_view.pt
+msgid "answer_mark_correct"
+msgstr ""
+
+#. Default: A Unicode right arrow character
+#. <tal:block condition="python:correct and not checked"
+#. i18n:translate="answer_mark_correct_not_selected">
+#. <span style="color:gray;">&#x279C;</span>
+#. </tal:block>
+#: skins/llsMultipleChoice/multiplechoicequestion_view.pt
+msgid "answer_mark_correct_not_selected"
+msgstr ""
+
+#. Default: A Unicode ballot X character
+#. <tal:block condition="not: correct" i18n:translate="answer_mark_wrong">
+#. <span style="color:red;">&#10007;</span>
+#. </tal:block>
+#: skins/llsMultipleChoice/multiplechoicequestion_view.pt
+msgid "answer_mark_wrong"
+msgstr ""
+
+# Original:
+#. Default: Answer Template
+#: ./QuestionTypes/ExtendedTextQuestion.py, 54
+msgid "answer_template_label"
+msgstr "Antwortvorlage"
+
+# Original:
+#. Default: You can provide a template for the candidate's answer.
+#: ./QuestionTypes/ExtendedTextQuestion.py, 57
+msgid "answer_template_tool_tip"
+msgstr "Hier können Sie eine Vorlage für Antworten vorgeben."
+
+msgid "answer_tool_tip"
+msgstr "Der Antworttext. Dies ist, was dem Kandidaten präsentiert wird."
+
+#. msg = context.translate(\
+#. msgid   = 'answers_saved',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'Your answers have been saved.')
+#. msg = context.translate(#.     #msgid   = 'answers_saved',#.     domain  = I18N_DOMAIN,#.     default = 'Your answers have been saved.')
+#: Script (Python) "submitTest"
+msgid "answers_saved"
+msgstr "Ihre Antworten wurden gespeichert."
+
+#. <a tal:attributes="href string:test_results#overview_${submitterId}"
+#. i18n:translate="back_to_overview">Back to the overview</a>
+msgid "back_to_overview"
+msgstr "Zurück zur Übersicht"
+
+#. <th i18n:translate="candidate">Candidate</th>
+msgid "candidate"
+msgstr "Kandidat"
+
+#. widget=BooleanWidget(
+#. label='Correct',
+#. label_msgid='correct_label',
+#. description='The checkbox should be marked if this is a correct answer.',
+#. description_msgid='correct_tool_tip',
+#. i18n_domain='plone'),
+#. label_#msgid='correct_label',
+#. description_#msgid='correct_tool_tip',
+msgid "correct_label"
+msgstr "Korrekt"
+
+msgid "correct_tool_tip"
+msgstr "Die Checkbox sollte angewählt sein, wenn dies eine korrekte Antwort ist."
+
+#. msg = context.translate(
+#. msgid   = 'deleteResults_no_permission',
+#. domain  = 'llsMultipleChoice',
+#. default = 'You do not have permission to delete results.')
+#. #msgid   = 'deleteResults_no_permission',
+msgid "deleteResults_no_permission"
+msgstr "Sie haben nicht die nötigen Rechte, um Ergebnisse zu löschen."
+
+#. <span i18n:translate="delete_results" tal:omit-tag="">Delete results of candidate</span>
+msgid "delete_results"
+msgstr "Lösche Ergebnis von Kandidat"
+
+#. <span i18n:translate="directions" tal:omit-tag="">Directions:</span>
+msgid "directions"
+msgstr "Lösungshinweise:"
+
+#. widget=TextAreaWidget(
+#. label='Directions',
+#. label_msgid='directions_label',
+#. description='Some content that all the questions in this folder refer to. You can also '\
+#. + 'enter a text which helps the candidates to better understand the questions.',
+#. description_msgid='directions_tool_tip',
+#. i18n_domain='plone'),
+#. label_#msgid='directions_label',
+#. description='Some content that all the questions in this folder refer to. You can also '#.     + 'enter a text which helps the candidates to better understand the questions.',
+#. description_#msgid='directions_tool_tip',
+msgid "directions_label"
+msgstr "Lösungshinweise"
+
+msgid "directions_tool_tip"
+msgstr "Inhalt, auf den sich alle Fragen in diesem Ordner beziehen. Es kann auch ein Text eingegeben werden, der den Kandidaten hilft, die Fragen besser zu verstehen."
+
+#. <span i18n:translate="edit_evaluation_scripts_delete"
+#. tal:omit-tag="">Delete custom scoring script for type</span>
+#. tal:omit-tag="">Delete custom evaluation script for type</span>
+msgid "edit_evaluation_scripts_delete"
+msgstr "Lösche Bewertungsskript für"
+
+#. <label for="archetype_names" i18n:translate="edit_evaluation_scripts_label">Scoring Scripts</label>
+#. <label for="archetype_names" i18n:translate="edit_evaluation_scripts_label">Evaluation Scripts</label>
+msgid "edit_evaluation_scripts_label"
+msgstr "Bewertungsskripte"
+
+#. <div class="formHelp" id="archetype_names_help" i18n:translate="edit_evaluation_scripts_tool_tip">
+#. The classes which use custom scoring scripts.
+#. </div>
+#. The classes which use custom evaluation scripts.
+msgid "edit_evaluation_scripts_tool_tip"
+msgstr "Die Klassen, die Bewertungsskripte benutzen."
+
+# Original:
+#. Default: The <%s> element must not be empty. Skipping invalid <%s> element.
+#: ./qti.py, 1455
+msgid "error_empty"
+msgstr "Das Element <%s> darf nicht leer sein, überspringe ungültiges <%s>-Element."
+
+#. msg = context.translate(\
+#. msgid   = 'errors_occurred',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'The following error(s) occurred:') + ' ' + errors
+#. msg = context.translate(#.     #msgid   = 'errors_occurred',#.     domain  = I18N_DOMAIN,#.     default = 'The following error(s) occurred:') + ' ' + errors
+#: Script (Python) "importTest"
+msgid "errors_occurred"
+msgstr "Der folgende Fehler ist aufgetreten:"
+
+#. widget=BooleanWidget(
+#. label='Exam Mode'
+#. label_msgid='exam_mode_label',
+#. description='If you want to use this test as an exam, this box has to be checked. If you '\
+#. + 'want to give the candidates immediate feedback and enable them to repeat the test, '\
+#. + 'uncheck this box.',
+#. description_msgid='exam_mode_tool_tip',
+#. i18n_domain='plone'),
+#. label_#msgid='exam_mode_label',
+#. description='If you want to use this test as an exam, this box has to be checked. If you '#.     + 'want to give the candidates immediate feedback and enable them to repeat the test, '#.     + 'uncheck this box.',
+#. description_#msgid='exam_mode_tool_tip',
+msgid "exam_mode_label"
+msgstr "Klausur-Modus"
+
+msgid "exam_mode_tool_tip"
+msgstr "Wenn Sie diesen Test für eine Klausur verwenden möchten, muss diese Checkbox angewählt sein. Wenn die Kandidaten sofort Ihre Ergebnisse sehen und den Test wiederholen können sollen, entfernen Sie das Häkchen."
+
+# Original:
+#. Default: Expected Length
+#: ./QuestionTypes/ExtendedTextQuestion.py, 71
+msgid "expected_length_label"
+msgstr "Erwartete Antwortlänge"
+
+# Original:
+#. Default: You can set the number of words you expect the candidate's answer to have.
+#: ./QuestionTypes/ExtendedTextQuestion.py, 74
+msgid "expected_length_tool_tip"
+msgstr "Die erwartete Länge der Antwort (in Wörtern). Diese Angabe beeinflusst die Größe des Eingabefelds."
+
+#. errors.write( '\n' + multipleChoiceTestInstance.translate(
+#. msgid   = 'expected_string', \
+#. domain  = 'llsMultipleChoice', \
+#. default = 'Input must be str or unicode, not %s.') \
+#. % str(type(string)) )
+#. #msgid   = 'expected_string', #.     domain  = 'llsMultipleChoice', #.     default = 'Input must be str or unicode, not %s.') #.     % str(type(string)) )
+#: qti.py
+msgid "expected_string"
+msgstr "Eingabe muss str oder unicode sein, nicht %s."
+
+#. errors.write( '\n' + multipleChoiceTestInstance.translate(\
+#. msgid   = 'expected_zip', \
+#. domain  = 'llsMultipleChoice', \
+#. default = 'Input must be ZipFile, not %s.') \
+#. % str(type(zipFileObject)) )
+#. errors.write( '\n' + multipleChoiceTestInstance.translate(#.     #msgid   = 'expected_zip', #.     domain  = 'llsMultipleChoice', #.     default = 'Input must be ZipFile, not %s.') #.     % str(type(zipFileObject)) )
+#: qti.py
+msgid "expected_zip"
+msgstr "Eingabe muss ZipFile sein, nicht %s."
+
+#. msg = context.translate(
+#. msgid   = 'exportResults_no_permission',
+#. domain  = 'llsMultipleChoice',
+#. default = 'You do not have permission to export results.')
+#. #msgid   = 'exportResults_no_permission',
+msgid "exportResults_no_permission"
+msgstr "Sie haben nicht die nötigen Rechte, um Ergebnisse zu exportieren."
+
+#. errors.write('\n' + context.translate(
+#. msgid   = 'export_assessment_item_type_error',
+#. domain  = I18N_DOMAIN,
+#. default = 'Cannot export item "%s". Unsupported type "%s".'
+#. ) % (context.str(obj.title_or_id()), context.str(obj.archetype_name)))
+#. #msgid   = 'export_assessment_item_type_error',
+#: qti.py
+msgid "export_assessment_item_type_error"
+msgstr "Kann \"%s\" nicht exportieren. Nicht unterstützter Typ \"%s\"."
+
+# Original:
+#. Default: Ignore errors during export.
+#: ./skins/llsMultipleChoice/test_import_export.pt, 113
+msgid "export_ignore_errors"
+msgstr "Fehler beim Export ignorieren."
+
+#. <span i18n:translate="export_test_legend"
+#. tal:omit-tag="">
+#. <span i18n:name="itemtype">
+#. <span i18n:domain="plone"
+#. i18n:translate=""
+#. tal:content="here/archetype_name"
+#. tal:omit-tag="">Item type</span>
+#. </span>
+#. Export
+#: skins/llsMultipleChoice/test_import_export.pt
+msgid "export_test_legend"
+msgstr "${itemtype} Export"
+
+#. errors.write( '\n' + ( multipleChoiceTestInstance.translate(\
+#. msgid   = 'extraction_error', \
+#. domain  = 'llsMultipleChoice', \
+#. default = 'Cannot extract the file "%s". An error occurred: %s') \
+#. % (manifestFnList[0], str(e)) ) )
+#. errors.write( '\n' + ( multipleChoiceTestInstance.translate(#.     #msgid   = 'extraction_error', #.     domain  = 'llsMultipleChoice', #.     default = 'Cannot extract the file "%s". An error occurred: %s') #.         % (manifestFnList[0], str(e)) ) )
+#: qti.py
+msgid "extraction_error"
+msgstr "Kann die Datei \"%s\" nicht entpacken. Ein Fehler ist aufgetreten: %s"
+
+#. <tal:block tal:condition="not: answer/isCorrect"><span
+#. i18n:translate="false"
+#. tal:omit-tag="">false</span></tal:block>
+msgid "false"
+msgstr "falsch"
+
+# Original:
+#. Default: Your results are not displayed because feedback is disabled.
+#: ./skins/llsMultipleChoice/result_view.pt, 136
+msgid "feedback_not_allowed"
+msgstr "Sie können Ihr Ergebnis nicht ansehen, da die Rückmeldung ausgeschaltet ist."
+
+#. errors.write( '\n' + ( multipleChoiceTestInstance.translate(\
+#. msgid   = 'file_exists', \
+#. domain  = 'llsMultipleChoice', \
+#. default = 'A file named "%s" already exits.') % fileName ) )
+#. errors.write( '\n' + ( multipleChoiceTestInstance.translate(#.     #msgid   = 'file_exists', #.     domain  = 'llsMultipleChoice', #.     default = 'A file named "%s" already exits.') % fileName ) )
+#: qti.py
+msgid "file_exists"
+msgstr "Eine Datei mit dem Namen \"%s\" existiert bereits."
+
+#. msg = context.translate(\
+#. msgid   = 'file_imported',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'The file has been imported.')
+#. msg = context.translate(#.     #msgid   = 'file_imported',#.     domain  = I18N_DOMAIN,#.     default = 'The file has been imported.')
+#: Script (Python) "importTest"
+msgid "file_imported"
+msgstr "Die Datei wurde importiert."
+
+#. msg = context.translate(\
+#. msgid   = 'file_read_error',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'The file could not be read.')
+#. msg = context.translate(#.     #msgid   = 'file_read_error',#.     domain  = I18N_DOMAIN,#.     default = 'The file could not be read.')
+#: Script (Python) "uploadEvaluationScript"
+#: MultipleChoiceTest.processQTIImport()
+msgid "file_read_error"
+msgstr "Die Datei konnte nicht gelesen werden."
+
+#. errors.write( context.str('\n') + context.translate(\
+#. msgid   = 'file_unexpected_error',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'Could not import file "%s". An unexpected error has occurred: %s') % (context.str(fileName), context.str(e)) )
+#. errors.write( context.str('\n') + context.translate(#.     #msgid   = 'file_unexpected_error',#.     domain  = I18N_DOMAIN,#.     default = 'Could not import file "%s". An unexpected error has occurred: %s') % (context.str(fileName), context.str(e)) )
+#: qti.py
+msgid "file_unexpected_error"
+msgstr "Konnte Datei \"%s\" nicht importieren. Ein unerwarteter Fehler ist aufgetreten: %s"
+
+#. errors.write( context.str('\n') + context.translate(\
+#. msgid   = 'file_unicode_error',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'The file name "%s" contains non-ASCII characters. The file will be imported under the id "%s".') % (context.str(oldId), context.str(id)) )
+#. errors.write( context.str('\n') + context.translate(#.     #msgid   = 'file_unicode_error',#.     domain  = I18N_DOMAIN,#.     default = 'The file name "%s" contains non-ASCII characters. The file will be imported under the id "%s".') % (context.str(oldId), context.str(id)) )
+#: qti.py
+msgid "file_unicode_error"
+msgstr "Der Dateiname \"%s\" enthält nicht-ASCII-Zeichen. Die Datei wird unter der id \"%s\" importiert."
+
+#. <th i18n:translate="finished">Finished</th>
+msgid "finished"
+msgstr "Ende"
+
+#. <span tal:replace="intPoints"/><span i18n:translate="fraction_delimiter" tal:omit-tag="">.</span><span tal:replace="fracPoints"/>
+msgid "fraction_delimiter"
+msgstr ","
+
+# Original:
+#. Default: Grade
+#: ./MultipleChoiceTest.py, 107
+msgid "grade"
+msgstr "Note"
+
+#. Default: Grading Scale
+#: MultipleChoiceTest.py
+msgid "grading_scale_label"
+msgstr "Notenskala"
+
+#. Default: Grades are issued according to the following scale of point values.  The minimum score can be specified as a percentage or as an absolute value.  Leave the minimum score column of the last row empty; this grade will be used for all scores which are not covered by one of the other entries.
+#: MultipleChoiceTest.py
+msgid "grading_scale_tool_tip"
+msgstr "In der folgenden Tabelle kann definiert werden, welche Note ab welcher Punktzahl vergeben wird. Die Mindestpunktzahl kann als Prozentwert oder absolut angegeben werden. Geben Sie in der letzten Zeile keine Mindestpunktzahl an; diese Note wird für Ergebnisse vergeben, die durch keinen der anderen Einträge abgedeckt werden."
+
+#. <h1 i18n:translate="heading_import_export">
+#. Import/Export
+#. <span i18n:name="itemtype">
+#. <span i18n:domain="plone"
+#. i18n:translate=""
+#. tal:content="here/archetype_name"
+#. tal:omit-tag="">Item type</span>
+#. </span>
+#. </h1>
+#: skins\llsMultipleChoice\test_import_export.pt
+msgid "heading_import_export"
+msgstr "${itemtype} importieren/exportieren"
+
+#. <span style="color:red;" i18n:translate="i_dont_know">I don't know. (The question will be evaluated as if you had given no answer.)</span>
+msgid "i_dont_know"
+msgstr "Weiß ich nicht. (Die Frage wird als nicht beantwortet gewertet.)"
+
+#. errors.write( context.str('\n') + context.translate(\
+#. msgid   = 'identifier_unicode_error',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'The identifier "%s" contains non-ASCII characters. The item will be imported under the id "%s".') % (context.str(oldId), context.str(id)) )
+#. q = createObject(context, typeName, id=id)
+#. errors.write( context.str('\n') + context.translate(#.     #msgid   = 'identifier_unicode_error',#.     domain  = I18N_DOMAIN,#.     default = 'The identifier "%s" contains non-ASCII characters. The item will be imported under the id "%s".') % (context.str(oldId), context.str(id)) )
+#: qti.py
+msgid "identifier_unicode_error"
+msgstr "Der Identifier \"%s\" enthält nicht-ASCII-Zeichen. Der Eintrag wird unter der id \"%s\" importiert."
+
+#. <label for="file" i18n:translate="import_file_label">QTI File</label>
+#: skins\llsMultipleChoice\test_import_export.pt
+msgid "import_file_label"
+msgstr "QTI Datei"
+
+#. <span i18n:translate="import_test_legend"
+#. tal:omit-tag="">
+#. <span i18n:name="itemtype">
+#. <span i18n:domain="plone"
+#. i18n:translate=""
+#. tal:content="here/archetype_name"
+#. tal:omit-tag="">Item type</span>
+#. </span>
+#. Import
+#: skins\llsMultipleChoice\test_import_export.pt
+msgid "import_test_legend"
+msgstr "${itemtype} Import"
+
+# <div class="formHelp" i18n:translate="import_test_tool_tip">The
+# name of the assessment item or package you want to import.</div>
+#: skins\llsMultipleChoice\test_import_export.pt
+msgid "import_test_tool_tip"
+msgstr "Der Name des Assessment Items oder des Packages, das Sie importieren möchten."
+
+#. BooleanField('instantFeedback',
+#. required=False,
+#. default=0,
+#. accessor='isInstantFeedback',
+#. widget=BooleanWidget(
+#. label='Instant Feedback',
+#. label_msgid='instant_feedback_label',
+#. description='If you want to give the candidates instant feedback '\
+#. + 'check this box.',
+#. description_msgid='instant_feedback_tool_tip',
+#. i18n_domain='llsMultipleChoice'),
+#. ),
+#. label_#msgid='instant_feedback_label',
+#. description='If you want to give the candidates instant feedback '#.                + 'check this box.',
+#. description_#msgid='instant_feedback_tool_tip',
+msgid "instant_feedback_label"
+msgstr "Ergebnisse sofort anzeigen"
+
+msgid "instant_feedback_tool_tip"
+msgstr "Wenn die Kandidaten ihre Test-Ergebnisse sofort sehen sollen, wählen Sie diese Option aus."
+
+# Original:
+#. Default: The quiz was modified after these answers had been submitted. These test results are therefore invalid.
+#: ./skins/llsMultipleChoice/result_view.pt, 41
+msgid "invalid"
+msgstr "Der Test wurde geändert, nachdem diese Lösungen eingereicht wurden. Diese Testergebnisse sind daher ungültig."
+
+# Original:
+#. Default: The expected length "%s" is invalid.
+#: ./qti.py, 785
+msgid "invalid_expected_length"
+msgstr "Die erwartete Länge \"%s\" ist ungültig."
+
+# Original:
+#. Default: Not a percentage or an absolute value: %s
+#: ./MultipleChoiceTest.py, 131
+msgid "invalid_minimum_score"
+msgstr "\"%s\" ist keine gültige prozentuale oder absolute Mindestpunktzahl."
+
+# Original:
+#. Default: Not a percentage or an absolute value: %s. Skipping invalid <%s> element.
+#: ./qti.py, 1484
+msgid "invalid_minimum_score_qti"
+msgstr "\"%s\" ist keine gültige prozentuale oder absolute Mindestpunktzahl. Überspringe ungültiges Element <%s>."
+
+# Original:
+#. Default: Please enter a number or leave the field empty.
+#: ./skins/llsMultipleChoice/result_grade_validate.vpy, 50
+msgid "invalid_score"
+msgstr "Bitte geben Sie eine Zahl an oder lassen Sie das Feld leer."
+
+# Original:
+#. Default: The select count "%s" is invalid.
+#: ./qti.py, 1245
+msgid "invalid_select_count"
+msgstr "\"%s\" als Anzahl der Auswahlmöglichkeiten ist ungültig."
+
+#. errors.write('\n' + context.translate(
+#. msgid   = 'invalid_weight',
+#. domain  = I18N_DOMAIN,
+#. default = 'The weight "%s" is invalid.'
+#. ) % context.str(weight))
+#. #msgid   = 'invalid_weight',
+#: qti.py
+msgid "invalid_weight"
+msgstr "Das Gewicht \"%s\" ist ungültig."
+
+#. msg = context.translate(\
+#. msgid   = 'item_deleted',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'Item deleted.')
+#. msg = context.translate(#.     #msgid   = 'item_deleted',#.     domain  = I18N_DOMAIN,#.     default = 'Item deleted.')
+#: Script (Python) "deleteResults"
+msgid "item_deleted"
+msgstr "Eintrag gelöscht."
+
+#. errors.write( '\n' + ( context.translate(\
+#. msgid   = 'item_exists', \
+#. domain  = I18N_DOMAIN, \
+#. default = 'An item named "%s" already exits.') \
+#. % (context.str(assessmentItemIdentifier)) ) )
+#. errors.write( '\n' + ( context.translate(#.     #msgid   = 'item_exists', #.     domain  = I18N_DOMAIN, #.     default = 'An item named "%s" already exits.') #.     % (context.str(assessmentItemIdentifier)) ) )
+#: qti.py
+msgid "item_exists"
+msgstr "Ein Eintrag mit dem Namen \"%s\" existiert bereits."
+
+#. msg = context.translate(\
+#. msgid   = 'items_deleted',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'Items deleted.')
+#. msg = context.translate(#.     #msgid   = 'items_deleted',#.     domain  = I18N_DOMAIN,#.     default = 'Items deleted.')
+#: Script (Python) "deleteResults"
+msgid "items_deleted"
+msgstr "Einträge gelöscht."
+
+# Original:
+#. Default: [Download]
+#: ./skins/llsMultipleChoice/test_results.pt, 208
+msgid "label_action_download"
+msgstr "[Herunterladen]"
+
+# Original:
+#. Default: [Grade]
+#: ./skins/llsMultipleChoice/test_results.pt, 202
+msgid "label_action_grade"
+msgstr "[Benoten]"
+
+# Original:
+#. Default: [View]
+#: ./skins/llsMultipleChoice/test_results.pt, 196
+msgid "label_action_view"
+msgstr "[Anzeigen]"
+
+#. Default: Actions
+#: ./skins/llsMultipleChoice/test_results.pt, 91
+msgid "label_actions"
+msgstr "Aktionen"
+
+#. Default: Grade
+#: ./skins/llsMultipleChoice/test_results.pt, 86
+msgid "label_grade"
+msgstr "Note"
+
+#. Default: "Released"
+#: Result.py
+msgid "label_released"
+msgstr "Freigegeben"
+
+#. <th i18n:translate="link_to_test">Link to test</th>
+msgid "link_to_test"
+msgstr "Link zum Test"
+
+#: MultipleChoiceTest.py
+msgid "mean"
+msgstr "Durchschnitt"
+
+#: MultipleChoiceTest.py
+msgid "median"
+msgstr "Median"
+
+# Original:
+#. Default: The minimum score column of the last row must be empty.
+#: ./MultipleChoiceTest.py, 121
+msgid "minimum_score_not_empty"
+msgstr "Die Mindestpunktzahl in der letzten Zeile muss leer sein."
+
+# Original:
+#. Default: The minimum score column of the last row of the <%s> element must be empty. Ignoring last score.
+#: ./qti.py, 1466
+msgid "minimum_score_not_empty_qti"
+msgstr "Die Mindestpunktzahl in der letzten Zeile des Elements <%s> muss leer sein. Die Mindespunktzahl wird ignoriert."
+
+#. errors.write( '\n' + ( multipleChoiceTestInstance.translate(\
+#. msgid   = 'multiple_manifest', \
+#. domain  = 'llsMultipleChoice', \
+#. default = 'The package contains more than one file called "%s".') % MANIFEST_FILE_NAME ) )
+#. errors.write( '\n' + ( multipleChoiceTestInstance.translate(#.     #msgid   = 'multiple_manifest', #.     domain  = 'llsMultipleChoice', #.     default = 'The package contains more than one file called "%s".') % MANIFEST_FILE_NAME ) )
+#: qti.py
+msgid "multiple_manifest"
+msgstr "Das Package enthält mehr als eine Datei mit dem Namen \"%s\"."
+
+#. <th i18n:translate="name">Name</th>
+msgid "name"
+msgstr "Name"
+
+#. errors.write( '\n' + multipleChoiceTestInstance.translate(\
+#. msgid   = 'no_choiceInteraction',\
+#. domain  = 'llsMultipleChoice',\
+#. default = 'Expected a <%s> element. Got "%s".') % (CHOICE_INTERACTION, choiceInteractionElement.toxml() ))
+#. errors.write( '\n' + multipleChoiceTestInstance.translate(#.     #msgid   = 'no_choiceInteraction',#.     domain  = 'llsMultipleChoice',#.     default = 'Expected a <%s> element. Got "%s".') % (CHOICE_INTERACTION, choiceInteractionElement.toxml() ))
+#: qti.py
+msgid "no_choiceInteraction"
+msgstr "<%s> Element erwartet. \"%s\" bekommen."
+
+#. errors.write( '\n' + multipleChoiceTestInstance.translate(\
+#. msgid   = 'no_choice_interaction',\
+#. domain  = 'llsMultipleChoice',\
+#. default = 'Did not find any <%s> elements.') % CHOICE_INTERACTION )
+#. errors.write( '\n' + multipleChoiceTestInstance.translate(#.     #msgid   = 'no_choice_interaction',#.     domain  = 'llsMultipleChoice',#.     default = 'Did not find any <%s> elements.') % CHOICE_INTERACTION )
+#: qti.py
+msgid "no_choice_interaction"
+msgstr "Keine <%s> Elemente gefunden."
+
+#. <p tal:condition="not: participants" i18n:translate="no_graded_results">
+#. There are no graded results for this test.
+#. </p>
+msgid "no_graded_results"
+msgstr "Es gibt für diesen Test keine benoteten Ergebnisse."
+
+# Original:
+#. Default: Did not find any elements of type %s.
+#: ./qti.py, 960
+msgid "no_interaction"
+msgstr "Keine Elemente vom Typ %s gefunden."
+
+#. errors.write( '\n' + ( multipleChoiceTestInstance.translate(\
+#. msgid   = 'no_interaction_type', \
+#. domain  = 'llsMultipleChoice', \
+#. default = 'Resource specifies no interaction type. Skipping item "%s (%s)".') \
+#. % (resourceTitle, resourceFileName) ) )
+#. errors.write( '\n' + ( multipleChoiceTestInstance.translate(#.     #msgid   = 'no_interaction_type', #.     domain  = 'llsMultipleChoice', #.     default = 'Resource specifies no interaction type. Skipping item "%s (%s)".') #.     % (resourceTitle, resourceFileName) ) )
+#: qti.py
+msgid "no_interaction_type"
+msgstr "Ressource gibt keinen Interaktionstyp an. Überspringe Ressource \"%s (%s)\"."
+
+#. errors.write( '\n' + multipleChoiceTestInstance.translate(\
+#. msgid   = 'no_item_body',\
+#. domain  = 'llsMultipleChoice',\
+#. default = 'Expected exactly one <%s> element.') % ITEM_BODY )
+#. errors.write( '\n' + multipleChoiceTestInstance.translate(#.     #msgid   = 'no_item_body',#.     domain  = 'llsMultipleChoice',#.     default = 'Expected exactly one <%s> element.') % ITEM_BODY )
+#: qti.py
+msgid "no_item_body"
+msgstr "Genau ein <%s> Element erwartet."
+
+#. errors.write( '\n' + ( multipleChoiceTestInstance.translate(\
+#. msgid   = 'no_manifest', \
+#. domain  = 'llsMultipleChoice', \
+#. default = 'The package must contain a manifest file called "%s".') % MANIFEST_FILE_NAME ) )
+#. errors.write( '\n' + ( multipleChoiceTestInstance.translate(#.     #msgid   = 'no_manifest', #.     domain  = 'llsMultipleChoice', #.     default = 'The package must contain a manifest file called "%s".') % MANIFEST_FILE_NAME ) )
+#: qti.py
+msgid "no_manifest"
+msgstr "Das Package muss eine Manifest-Datei mit dem Namen \"%s\" enthalten."
+
+#. errors.write( '\n' + ( context.translate(\
+#. msgid   = 'no_qti',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'Invalid QTI document. The name of the root element has to '\
+#. + 'be "%s", not "%s".') % (ASSESSMENT_ITEM, dom.documentElement.localName) ) )
+#. errors.write( '\n' + ( context.translate(#.     #msgid   = 'no_qti',#.     domain  = I18N_DOMAIN,#.     default = 'Invalid QTI document. The name of the root element has to '#.         + 'be "%s", not "%s".') % (ASSESSMENT_ITEM, dom.documentElement.localName) ) )
+#: qti.py
+msgid "no_qti"
+msgstr "Ungültiges QTI-Dokument. Der Name des Wurzelelements muss \"%s\" sein, nicht \"%s\"."
+
+#. <p tal:condition="isEmpty" i18n:translate="no_questions">
+#. This test contains no questions.</p>
+msgid "no_questions"
+msgstr "Dieser Test enthält keine Fragen."
+
+#. <span i18n:translate="no_repetition"
+#. tal:omit-tag="">
+#. You may not submit it again.
+#. </span>
+msgid "no_repetition"
+msgstr "Sie dürfen ihn nicht noch einmal einreichen."
+
+# Original:
+#. Default: There are no results for this test.
+#: ./skins/llsMultipleChoice/test_results.pt, 276
+msgid "no_results"
+msgstr "Für diesen Test liegen keine Ergebnisse vor."
+
+# Original:
+#. Default: Not graded
+#: ./skins/llsMultipleChoice/pointsquestion_view.pt, 42
+msgid "not_graded"
+msgstr "Nicht benotet"
+
+#. msg = context.translate(\
+#. msgid   = 'not_submit_again',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'You may not submit the test again.')
+#. msg = context.translate(#.     #msgid   = 'not_submit_again',#.     domain  = I18N_DOMAIN,#.     default = 'You may not submit the test again.')
+#: Script (Python) "submitTest"
+msgid "not_submit_again"
+msgstr "Sie dürfen den Test nicht erneut einreichen."
+
+#. <tal:condition condition="not: hasSubmitted"><span
+#. i18n:translate="not_submitted" style="color:red;">Not submitted</span></tal:condition>
+msgid "not_submitted"
+msgstr "Noch nicht eingereicht"
+
+#. msg += '\n' + context.translate(\
+#. msgid   = 'nothing_added',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'Nothing has been added.')
+#. msg += '\n' + context.translate(#.     #msgid   = 'nothing_added',#.     domain  = I18N_DOMAIN,#.     default = 'Nothing has been added.')
+#: Script (Python) "importTest"
+msgid "nothing_added"
+msgstr "Es wurde nichts hinzugefügt."
+
+#. IntegerField("numberOfRandomAnswers",
+#. default=-1,
+#. read_permission=PERMISSION_INTERROGATOR,
+#. widget=IntegerWidget(
+#. label='Number of Random Answers',
+#. label_msgid='number_of_random_answers_label',
+#. description='The number of answers which are randomly selected when a new test is '\
+#. + 'generated for a candidate. (This only works if &quot;Randomize Answer Order&quot; '\
+#. + 'is checked.)  A value &lt;= 0 means that all answers will be used.',
+#. description_msgid='number_of_random_answers_tool_tip',
+#. i18n_domain='llsMultipleChoice'),
+#. ),
+#. label_#msgid='number_of_random_answers_label',
+#. description='The number of answers which are randomly selected when a new test is '#.        + 'generated for a candidate. (This only works if &quot;Randomize Answer Order&quot; '#.        + 'is checked.)  A value &lt;= 0 means that all answers will be used.',
+#. description_#msgid='number_of_random_answers_tool_tip',
+msgid "number_of_random_answers_label"
+msgstr "Anzahl zufällig ausgewählter Antworten"
+
+msgid "number_of_random_answers_tool_tip"
+msgstr "Die Anzahl der Antworten, die zufällig ausgewählt werden, wenn für einen Kandidaten ein neuer Test generiert wird. (Das funktioniert nur, wenn &quot;Zufällige Reihenfolge der Antworten&quot; ausgewählt ist.) Ein Wert &lt;= 0 bewirkt, dass alle Antworten verwendet werden."
+
+#. IntegerField("numberOfRandomQuestions",
+#. required=False,
+#. default=-1,
+#. widget=IntegerWidget(
+#. label='Number of Random Questions',
+#. label_msgid='number_of_random_questions_label',
+#. description='The number of questions which are randomly selected when a new test is '\
+#. + 'generated for a candidate. (This only works if &quot;Randomize Question Order&quot; '\
+#. + 'is checked.) A value &lt;= 0 means that all questions will be used.',
+#. description_msgid='number_of_random_questions_tool_tip',
+#. i18n_domain='llsMultipleChoice'),
+#. ),
+#. label_#msgid='number_of_random_questions_label',
+#. description='The number of questions which are randomly selected when a new test is '#.        + 'generated for a candidate. (This only works if &quot;Randomize Question Order&quot; '#.        + 'is checked.) A value &lt;= 0 means that all questions will be used.',
+#. description_#msgid='number_of_random_questions_tool_tip',
+msgid "number_of_random_questions_label"
+msgstr "Anzahl zufällig ausgewählter Fragen"
+
+msgid "number_of_random_questions_tool_tip"
+msgstr "Die Anzahl der Fragen, die zufällig ausgewählt werden, wenn für einen Kandidaten ein neuer Test generiert wird. (Das funktioniert nur, wenn &quot;Zufällige Reihenfolge der Fragen&quot; ausgewählt ist.) Ein Wert &lt;= 0 bewirkt, dass alle Fragen verwendet werden."
+
+#. msg += '\n' + context.translate(\
+#. msgid   = 'objects_added',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'The following objects have been added:') + ' '
+#. msg += '\n' + context.translate(#.     #msgid   = 'objects_added',#.     domain  = I18N_DOMAIN,#.     default = 'The following objects have been added:') + ' '
+#: Script (Python) "importTest"
+msgid "objects_added"
+msgstr "Die folgenden Objekte wurden hinzugefügt:"
+
+#. Default: One Question per Page
+#: MultipleChoiceTest.py
+msgid "one_per_page_label"
+msgstr "Eine Frage pro Seite"
+
+#. Default: Allow Navigation
+#: MultipleChoiceTest.py
+msgid "one_per_page_nav_label"
+msgstr "Navigation erlauben"
+
+#. Default: Lets candidates answer questions in an arbitrary order when the test is in one-question-per-page-mode.
+#: MultipleChoiceTest.py
+msgid "one_per_page_nav_tool_tip"
+msgstr "Erlaubt Kandidaten, Fragen in beliebiger Reihenfolge zu beantworten, wenn der Test sich im Eine-Frage-pro-Seite-Modus befindet."
+
+#. Default: If checked, each question/question group is displayed on a separate page.
+#: MultipleChoiceTest.py
+msgid "one_per_page_tool_tip"
+msgstr "Wählen Sie die Option aus, um jede Frage bzw. Fragegruppe auf einer eigenen Seite anzeigen zu lassen."
+
+#. <h2 i18n:translate="overview">Overview</h2>
+msgid "overview"
+msgstr "Übersicht"
+
+#. errors.write( '\n' + multipleChoiceTestInstance.translate(\
+#. msgid   = 'parse_error',\
+#. domain  = 'llsMultipleChoice',\
+#. default = 'A parse error occurred in "%s": %s') \
+#. % (str(string), str(e) ) )
+#. errors.write( '\n' + multipleChoiceTestInstance.translate(#.     #msgid   = 'parse_error',#.     domain  = 'llsMultipleChoice',#.     default = 'A parse error occurred in "%s": %s') #.     % (str(string), str(e) ) )
+#: qti.py
+msgid "parse_error"
+msgstr "Ein Parser-Fehler ist in \"%s\" aufgetreten: %s"
+
+#. <label for="participants" i18n:translate="participants_label">Candidates</label>
+msgid "participants_label"
+msgstr "Kandidaten"
+
+#. <div class="formHelp" id="participants_help" i18n:translate="participants_tool_tip">
+#. The user IDs of the candidates who have already seen or taken this test.
+#. </div>
+msgid "participants_tool_tip"
+msgstr "Die User IDs der Kandidaten, die den Test bereits geöffnet oder absolviert haben."
+
+#. <span tal:condition="python:question.getPoints() == 1"
+#. i18n:translate="point"
+#. tal:omit-tag="">Point</span>
+msgid "point"
+msgstr "Punkt"
+
+#. <span tal:condition="python:question.getPoints() != 1"
+#. i18n:translate="points"
+#. tal:omit-tag="">Points</span>
+msgid "points"
+msgstr "Punkte"
+
+# Original: The number of points awarded for this answer. You can leave the field empty if you want to review the answer later.
+#: ./skins/llsMultipleChoice/pointsquestion_view.pt, 92
+msgid "points_help"
+msgstr "Die Punktzahl, die sie für diese Antwort vergeben wollen. Sie können das Feld auch leer lassen, wenn Sie die Antwort erst später bewerten wollen."
+
+#. widget=IntegerWidget(
+#. label='Points',
+#. label_msgid='points_label',
+#. description='The number of points assigned to this question.',
+#. description_msgid='points_tool_tip',
+#. i18n_domain='plone'),
+#. label_#msgid='points_label',
+#. description_#msgid='points_tool_tip',
+msgid "points_label"
+msgstr "Punkte"
+
+msgid "points_tool_tip"
+msgstr "Die Punktzahl für diese Frage."
+
+#. widget=TextAreaWidget(
+#. label='Question',
+#. label_msgid='question_label',
+#. description='The question text. This is what the candidate will see.',
+#. description_msgid='question_tool_tip',
+#. i18n_domain='plone'),
+#. label_#msgid='question_label',
+#. description_#msgid='question_tool_tip',
+msgid "question_label"
+msgstr "Frage"
+
+msgid "question_tool_tip"
+msgstr "Der Fragetext. Dies ist, was dem Kandidaten präsentiert wird."
+
+#. <h2 i18n:translate="questions">Questions</h2>
+msgid "questions"
+msgstr "Fragen"
+
+#. BooleanField("randomOrder",
+#. accessor='isRandomOrder',
+#. required=False,
+#. default=1,
+#. widget=BooleanWidget(
+#. label='Randomize Answer Order',
+#. label_msgid='randomize_answer_order_label',
+#. description='Check this box if you want the answers to this question '\
+#. + 'to appear in a different, random order for each candidate. Otherwise the '\
+#. + 'same order as in the &quot;contents&quot;-view will be used.',
+#. description_msgid='randomize_answer_order_tool_tip',
+#. i18n_domain='llsMultipleChoice'),
+#. ),
+#. label_#msgid='randomize_answer_order_label',
+#. description='Check this box if you want the answers to this question '#.        + 'to appear in a different, random order for each candidate. Otherwise the '#.        + 'same order as in the &quot;contents&quot;-view will be used.',
+#. description_#msgid='randomize_answer_order_tool_tip',
+msgid "randomize_answer_order_label"
+msgstr "Zufällige Reihenfolge der Antworten"
+
+msgid "randomize_answer_order_tool_tip"
+msgstr "Wählen Sie die Option aus, wenn die Antworten auf diese Frage für jeden Kandidaten in einer anderen, zufälligen Reihenfolge angezeigt werden sollen. Andernfalls wird dieselbe Ordnung wie in der &quot;Inhalte&quot;-Ansicht verwendet."
+
+#. BooleanField("randomOrder",
+#. accessor='isRandomOrder',
+#. required=False,
+#. default=0,
+#. widget=BooleanWidget(
+#. label='Randomize Question Order',
+#. label_msgid='randomize_question_order_label',
+#. description='Check this box if you want the questions in this container '\
+#. + 'to appear in a different, random order for each candidate. Otherwise the '\
+#. + 'same order as in the &quot;contents&quot;-view will be used.',
+#. description_msgid='randomize_question_order_tool_tip',
+#. i18n_domain='llsMultipleChoice'),
+#. ),
+#. label_#msgid='randomize_question_order_label',
+#. description='Check this box if you want the questions in this container '#.        + 'to appear in a different, random order for each candidate. Otherwise the '#.        + 'same order as in the &quot;contents&quot;-view will be used.',
+#. description_#msgid='randomize_question_order_tool_tip',
+msgid "randomize_question_order_label"
+msgstr "Zufällige Reihenfolge der Fragen"
+
+msgid "randomize_question_order_tool_tip"
+msgstr "Wählen Sie die Option aus, wenn die Fragen in diesem Container für jeden Kandidaten in einer anderen, zufälligen Reihenfolge angezeigt werden sollen. Andernfalls wird dieselbe Ordnung wie in der &quot;Inhalte&quot;-Ansicht verwendet."
+
+#. errors.write( '\n' + ( multipleChoiceTestInstance.translate(\
+#. msgid   = 'read_error', \
+#. domain  = 'llsMultipleChoice', \
+#. default = 'Cannot read the file "%s". An error occurred: %s') \
+#. % (fileName, str(e)) ) )
+#. errors.write( '\n' + ( multipleChoiceTestInstance.translate(#.     #msgid   = 'read_error', #.     domain  = 'llsMultipleChoice', #.     default = 'Cannot read the file "%s". An error occurred: %s') #.         % (fileName, str(e)) ) )
+#: qti.py
+msgid "read_error"
+msgstr "Kann die Datei \"%s\" nicht lesen. Ein Fehler ist aufgetreten: %s"
+
+#. Default: Reference
+#: MultipleChoiceReference.py
+msgid "reference_label"
+msgstr "Referenz"
+
+#. Default: "Select a question or a question group from another test."
+#: MultipleChoiceReference.py
+msgid "reference_tool_tip"
+msgstr "Wählen Sie eine Frage oder eine Fragegruppe aus einem anderen Test."
+
+#. resultsString = context.translate(\
+#. msgid   = 'results',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'results')
+#. filename = quote(context.title_or_id()) + SPACE_REPLACER + resultsString + '.' + format
+#. resultsString = context.translate(#.     #msgid   = 'results',#.     domain  = I18N_DOMAIN,#.     default = 'results')
+#: Script (Python) "exportResults"
+msgid "results"
+msgstr "Ergebnisse"
+
+#. <h1>
+#. <span i18n:translate="results_for" tal:omit-tag="">Results for</span>
+#. <span tal:replace="here/title_or_id"/>
+#. </h1>
+msgid "results_for"
+msgstr "Ergebnisse für"
+
+#. <h2><span i18n:translate="results_of" tal:omit-tag="">Results of</span> <span tal:replace="submitterId"/></h2>
+msgid "results_of"
+msgstr "Ergebnis von"
+
+#. Default: <h2 i18n:translate="results_of_name">Results of ${candidateName}:</h2>
+#: skins/llsMultipleChoice/result_view.pt
+msgid "results_of_name"
+msgstr "Ergebnisse von ${candidateName}:"
+
+#. msg = context.translate(\
+#. msgid   = 'results_reset',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'Your results have been reset.')
+#. msg = context.translate(#.     #msgid   = 'results_reset',#.     domain  = I18N_DOMAIN,#.     default = 'Your results have been reset.')
+#: Script (Python) "resetResult"
+msgid "results_reset"
+msgstr "Ihre Ergebnisse wurden zurückgesetzt."
+
+#. <p>
+#. <span i18n:translate="score"
+#. tal:omit-tag="">Score:</span>
+#. <strong><span tal:replace="python:here.getCandidatePoints(submitterId);">candidate's points</span>/<span tal:replace="python:here.getPossiblePoints(submitterId);">possible points</span></strong>
+#. </p>
+msgid "score"
+msgstr "Erreichte Punktzahl:"
+
+# Original:
+#. Default: This score is higher than the maximum score for this question, %s.
+#: ./skins/llsMultipleChoice/result_grade_validate.vpy, 61
+msgid "score_too_high"
+msgstr "Die angegebene Punktzahl ist höher als die Höchstpunktzahl für diese Frage (%s)."
+
+#. MultipleChoiceTest.py
+#. Default: "All or Nothing"
+msgid "scoring_fun_cruel_label"
+msgstr "Alles oder nichts"
+
+#. MultipleChoiceTest.py
+#. Default: "Guessing Correction"
+msgid "scoring_fun_guessing_correction_label"
+msgstr "Zufallskorrektur"
+
+#. MultipleChoiceTest.py
+#. Default: "Scoring Function"
+msgid "scoring_fun_label"
+msgstr "Bewertungsfunktion"
+
+#. MultipleChoiceTest.py
+#. Default: "The way the score for a question is calculated."
+msgid "scoring_fun_tool_tip"
+msgstr "Die Methode, die für die Berechnung der Punktzahl für Fragen verwendet wird."
+
+#. msg = context.translate(
+#. #msgid   = 'scoring_scripts_deleted',
+#. domain  = I18N_DOMAIN,
+#. default = 'Deleted custom scoring scripts for types: '
+#: Script (Python) "deleteEvaluationScript"
+msgid "scoring_scripts_deleted"
+msgstr "Die Bewertungsskripte für folgende Klassen wurden gelöscht: "
+
+#. msg = context.translate(\
+#. msgid   = 'script_invalid',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'The script is invalid. The following error occurred:') + ' ' + uploadErrorMessage
+#. msg = context.translate(#.     #msgid   = 'script_invalid',#.     domain  = I18N_DOMAIN,#.     default = 'The script is invalid. The following error occurred:') + ' ' + uploadErrorMessage
+#: Script (Python) "uploadEvaluationScript"
+msgid "script_invalid"
+msgstr "Das Skript ist ungültig. Der folgende Fehler ist aufgetreten:"
+
+#. msg = context.translate(\
+#. msgid   = 'script_uploaded',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'The script has been uploaded.')
+#. msg = context.translate(#.     #msgid   = 'script_uploaded',#.     domain  = I18N_DOMAIN,#.     default = 'The script has been uploaded.')
+#: Script (Python) "uploadEvaluationScript"
+msgid "script_uploaded"
+msgstr "Das Skript wurde hochgeladen."
+
+#. <a
+#. tal:condition="hasSubmitted"
+#. tal:attributes="href string:test_results#result_${participantId}"
+#. i18n:translate="see_test" >See test</a>
+msgid "see_test"
+msgstr "Zum Test"
+
+#. selectMsg  python:here.translate(
+#. msgid   = 'select',
+#. domain  = 'llsMultipleChoice',
+#. default = 'Select %s')
+#. #msgid   = 'select',
+msgid "select"
+msgstr "%s auswählen"
+
+#. msg = context.translate(\
+#. msgid   = 'select_item_delete',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'Please select one or more items to delete first.')
+#. msg = context.translate(#.     #msgid   = 'select_item_delete',#.     domain  = I18N_DOMAIN,#.     default = 'Please select one or more items to delete first.')
+#: Script (Python) "deleteResults"
+msgid "select_item_delete"
+msgstr "Bitte wählen Sie einen oder mehrere Einträge aus, um sie zu löschen."
+
+#. msg = context.translate(\
+#. msgid   = 'select_item_export',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'Please select one or more items to export first.')
+#. msg = context.translate(#.     #msgid   = 'select_item_export',#.     domain  = I18N_DOMAIN,#.     default = 'Please select one or more items to export first.')
+#: Script (Python) "exportResults"
+msgid "select_item_export"
+msgstr "Bitte wählen Sie einen oder mehrere Einträge aus, um sie zu exportieren."
+
+#. <th i18n:translate="started">Started</th>
+msgid "started"
+msgstr "Beginn"
+
+# this is part of the filename of the exported statistics file
+#. Default: statistics
+#: skins/llsMultipleChoice/exportItemStatistics.py
+msgid "statistics"
+msgstr "statistik"
+
+#. <h1>
+#. <span i18n:translate="statistics_for" tal:omit-tag="">Results for</span>
+#. <span tal:replace="here/title_or_id"/>
+#. </h1>
+msgid "statistics_for"
+msgstr "Statistiken für"
+
+#: MultipleChoiceTest.py
+msgid "stddev"
+msgstr "Standardabweichung"
+
+#. msg = context.translate(\
+#. msgid   = 'string_not_file',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'Got a string, not a file to read.')
+#. msg = context.translate(#.     #msgid   = 'string_not_file',#.     domain  = I18N_DOMAIN,#.     default = 'Got a string, not a file to read.')
+#: Script (Python) "importTest" "uploadEvaluationScript"
+msgid "string_not_file"
+msgstr "Das Argument muss eine Datei sein, kein String."
+
+# Original:
+#. Default: This test has not been submitted yet.
+#: ./skins/llsMultipleChoice/result_view.pt, 128
+msgid "test_not_submitted"
+msgstr "Dieser Test wurde noch nicht abgegeben."
+
+#. <th i18n:translate="test_results_max_score">Max. Score</th>
+msgid "test_results_max_score"
+msgstr "Max. Punktzahl"
+
+#. <th i18n:translate="test_results_score">Score</th>
+msgid "test_results_score"
+msgstr "Punktzahl"
+
+#. <span i18n:translate="test_taken"
+#. tal:omit-tag="">You have already taken this quiz.
+#. </span>
+msgid "test_taken"
+msgstr "Sie haben diesen Test bereits absolviert."
+
+#. Default: %H:%M:%S
+#: ECQuizTool.py
+msgid "time_delta_fmt"
+msgstr ""
+
+#. Default: Time Spent:
+#: skins/llsMultipleChoice/basequestion_view.pt
+msgid "time_spent"
+msgstr "Benötigte Zeit:"
+
+#. errors.write( '\n' + multipleChoiceTestInstance.translate(\
+#. msgid   = 'too_many_elements',\
+#. domain  = 'llsMultipleChoice',\
+#. default = 'Expected at most one <%s> element. Skipping the following <%s> elements.') \
+#. % (PROMPT, PROMPT) )
+#. errors.write( '\n' + multipleChoiceTestInstance.translate(#.     #msgid   = 'too_many_elements',#.     domain  = 'llsMultipleChoice',#.     default = 'Expected at most one <%s> element. Skipping the following <%s> elements.') #.         % (PROMPT, PROMPT) )
+#: qti.py
+msgid "too_many_elements"
+msgstr "Höchstens ein <%s> Element erwartet. Überspringe folgende <%s> Elemente."
+
+#. Default: "These test results have been released for viewing"
+#: Result.py
+msgid "tooltip_released_icon"
+msgstr "Dieses Testergebnis ist zur Ansicht freigegeben"
+
+#. <tal:block tal:condition="answer/isCorrect"><span
+#. i18n:translate="true"
+#. tal:omit-tag="">true</span></tal:block>
+msgid "true"
+msgstr "wahr"
+
+#. Default: Tutor-Graded
+#: QuestionTypes/PointsQuestion.py
+msgid "tutor_graded_label"
+msgstr "Manuell bewertet"
+
+#. Default: If answers to this question are graded manually, mark this checkbox.
+#: QuestionTypes/PointsQuestion.py
+msgid "tutor_graded_tool_tip"
+msgstr "Wählen Sie die Option aus, wenn die Antworten zu dieser Frage manuell bewertet werden."
+
+# Original: Layout
+#: QuestionTypes/ECQScaleQuestion.py
+msgid "layout_label"
+msgstr "Anordnung der Antwortmöglichkeiten"
+
+# Original: Select &quot;vertical&quot; if you want the choices to be listed from to top to bottom. Select &quot;horizontal&quot; if you want them to appear in a single row.
+#: QuestionTypes/ECQScaleQuestion.py
+msgid "layout_tool_tip"
+msgstr "Senkrecht: Von oben nach unten. Waagerecht: Auf einer Zeile von links nach rechts."
+
+# Original: No selection.
+#: skins/ECQuiz/ecq_scalequestion_view.cpt
+msgid "no_selection"
+msgstr "Keine Auswahl"
+
+# Original: Vertical
+#: QuestionTypes/ECQScaleQuestion.py
+msgid "layout_vertical_label"
+msgstr "Senkrecht"
+
+# Original: Horizontal
+#: QuestionTypes/ECQScaleQuestion.py
+msgid "layout_horizontal_label"
+msgstr "Waagerecht"
+
+#. errors.write( '\n' + multipleChoiceTestInstance.translate(\
+#. msgid   = 'unexpected_error',\
+#. domain  = 'llsMultipleChoice',\
+#. default = 'An unexpected error has occurred in "%s": %s'\
+#. ) % (functionName, str(e)))
+#. errors.write( '\n' + multipleChoiceTestInstance.translate(#.                         #msgid   = 'unexpected_error',#.                         domain  = 'llsMultipleChoice',#.                         default = 'An unexpected error has occurred in "%s": %s'#.                     ) % (functionName, str(e)))
+#: qti.py
+msgid "unexpected_error"
+msgstr "Ein unerwarteter Fehler ist in \"%s\" aufgetreten: %s"
+
+# Original:
+#. Default: An an unexpected has occurred.  The test could not be exported.
+#: ./skins/llsMultipleChoice/exportTest.py, 59
+msgid "unexpected_export_error"
+msgstr "Ein unvorhergesehener Fehler ist aufgetreten. Der Test konnte nicht exportiert werden."
+
+#. ERROR_FORMAT_MSG = context.translate(\
+#. msgid   = 'unknown_format_export',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'Unknown format. Cannot export.')
+#. ERROR_FORMAT_MSG = context.translate(#.     #msgid   = 'unknown_format_export',#.     domain  = I18N_DOMAIN,#.     default = 'Unknown format. Cannot export.')
+#: Script (Python) "exportResults"
+msgid "unknown_format_export"
+msgstr "Unbekanntes Format. Export nicht möglich."
+
+#. errors.write('\n' + context.translate(
+#. msgid   = 'unresolved_reference',
+#. domain  = I18N_DOMAIN,
+#. default = 'There is no resource with the identifier "%s".'
+#. 'The item cannot be imported.'
+#. ) % context.str(identifierref))
+#. #msgid   = 'unresolved_reference',
+#: qti.py
+msgid "unresolved_reference"
+msgstr "Es gibt keine Resource mit dem Identifier \"%s\". Die Datei kann nicht importiert werden."
+
+#. errors.write( '\n' + ( multipleChoiceTestInstance.translate(\
+#. msgid   = 'unsupported_interaction_type', \
+#. domain  = 'llsMultipleChoice', \
+#. default = 'Unsupported interaction type "%s". Skipping item "%s (%s)".') \
+#. % (interactionType, resourceTitle, resourceFileName) ) )
+#. errors.write( '\n' + ( multipleChoiceTestInstance.translate(#.     #msgid   = 'unsupported_interaction_type', #.     domain  = 'llsMultipleChoice', #.     default = 'Unsupported interaction type "%s". Skipping item "%s (%s)".') #.     % (interactionType, resourceTitle, resourceFileName) ) )
+#: qti.py
+msgid "unsupported_interaction_type"
+msgstr "Nicht unterstützter Interaktionstyp \"%s\". Überspringe Ressource \"%s (%s)\"."
+
+#. # We don't know how to handle this kind of resource
+#. errors.write( '\n' + context.translate( \
+#. msgid   = 'unsupported_resource_type', \
+#. domain  = I18N_DOMAIN, \
+#. default = 'Unsupported resource type "%s". Skipping resource "%s".') \
+#. % (context.str(resourceType), context.str(resourceIdentifier)) )
+#. errors.write( '\n' + context.translate( #.     #msgid   = 'unsupported_resource_type', #.     domain  = I18N_DOMAIN, #.     default = 'Unsupported resource type "%s". Skipping resource "%s".') #.     % (context.str(resourceType), context.str(resourceIdentifier)) )
+#: qti.py
+msgid "unsupported_resource_type"
+msgstr "Nicht unterstützter Ressourcentyp \"%s\". Überspringe Ressource \"%s\"."
+
+#. resourceTitle = multipleChoiceTestInstance.translate( \
+#. msgid   = 'untitled_resource', \
+#. domain  = 'llsMultipleChoice', \
+#. default = 'Untitled resource')
+#. resourceTitle = multipleChoiceTestInstance.translate( #.     #msgid   = 'untitled_resource', #.     domain  = 'llsMultipleChoice', #.     default = 'Untitled resource')
+#: qti.py
+msgid "untitled_resource"
+msgstr "Unbenannte Ressource"
+
+#. self.translate(\
+#. msgid   = 'uploadEvaluationScript_no_function_definition',\
+#. domain  = I18N_DOMAIN,\
+#. default = 'The script does not define a function called "%s"') % CUSTOM_EVALUATION_FUNCTION_NAME
+#. self.translate(#.    #msgid   = 'uploadEvaluationScript_no_function_definition',#.    domain  = I18N_DOMAIN,#.    default = 'The file does not define a function called "%s"') % CUSTOM_EVALUATION_FUNCTION_NAME
+msgid "uploadEvaluationScript_no_function_definition"
+msgstr "Das Skript definiert keine Funktion mit Namen \"%s\"."
+
+#. <label for="file" i18n:translate="upload_evaluation_scripts_class_name_label">Class Name</label>
+msgid "upload_evaluation_scripts_class_name_label"
+msgstr "Klassenname"
+
+#. <div class="formHelp" i18n:translate="upload_evaluation_scripts_class_name_tool_tip">
+#. Name of the class to be customized.
+#. </div>
+msgid "upload_evaluation_scripts_class_name_tool_tip"
+msgstr "Name der Klasse, die angepasst werden soll."
+
+#. <p i18n:translate="upload_evaluation_scripts_description">
+#. Specify the class from the drop-down list.
+#. Then enter the name of the source file or click <strong>browse</strong>
+#. to get a file dialog box to select it. Start by clicking
+#. <strong>upload</strong>.
+#. </p>
+msgid "upload_evaluation_scripts_description"
+msgstr "Wählen Sie die Klasse aus der Drop-Down-Liste aus. Geben Sie dann den Namen der Skriptdatei an oder clicken Sie auf <strong>Durchsuchen</strong>, um einen Datei-Öffnen-Dialog angezeigt zu bekommen. Starten Sie durch Click auf <strong>Upload</strong>."
+
+#. <label for="file" i18n:translate="upload_evaluation_scripts_file_label">Script File</label>
+msgid "upload_evaluation_scripts_file_label"
+msgstr "Skriptdatei"
+
+#. <div class="formHelp" i18n:translate="upload_evaluation_scripts_file_tool_tip">
+#. The name of the script file.
+#. </div>
+msgid "upload_evaluation_scripts_file_tool_tip"
+msgstr "Name der Skriptdatei."
+
+#. <legend tal:define="iconName python: here.getIcon(1);
+#. iconURL  python: here.portal_url() + '/' + iconName">
+#. <img alt="" tal:attributes="src iconURL"/>
+#. <span i18n:translate="upload_evaluation_scripts_legend"
+#. tal:omit-tag="">
+#. ${itemtype}
+#. Upload Scoring Scripts
+#. </span>
+#. </legend>
+#. Upload Evaluation Scripts
+msgid "upload_evaluation_scripts_legend"
+msgstr "${itemtype} Bewertungsskripte hochladen"
+
+# Original:
+#. Default: User ID
+#: ./MultipleChoiceTest.py, 876
+msgid "user_id"
+msgstr "Benutzername"
+
+#. <p i18n:translate="your_results">Your results:</p>
+msgid "your_results"
+msgstr "Ihre Ergebnisse:"
+
+# Original: Minimum Score
+#: MultipleChoiceTest.py
+msgid "minscore"
+msgstr "Mindestpunktzahl"
+
+# BEGIN OF I18N FOR WIKI EDIT
+
+msgid "heading_wiki_edit"
+msgstr "Anpassen mit Lisp-Syntax"
+
+msgid "description_wiki_edit"
+msgstr "Hier kann das gesamte Layout des Quiz geändert werden. Veränderungen werden mit einer Lisp-ähnlichen Syntax gemacht. Eine Beschreibung der Syntax befindet sich in der Dokumentation zu diesem Produkt." 
+
+msgid "legend_wiki_edit"
+msgstr "bearbeiten"
+
+msgid "label_wiki_textarea"
+msgstr "Bearbeiten sie hier das Layout."
+msgid "import_wiki_file_label"
+msgstr "Quick-Edit-Datei"
+
+msgid "import_wiki_test_tooltip"
+msgstr "Der Name der Datei, die Sie importieren möchten."
+
+msgid "update_wiki_success"
+msgstr " wurde erfolgreich auf den neusten Stand gebracht!"
+
+msgid "update_wiki_error"
+msgstr " konnte nicht bearbeitet werden, eventuell sind Syntax-Fehler vorhanden!"
+
+msgid "export_wiki_error"
+msgstr "Ein Fehler ist aufgetreten, dass Quiz konnte nicht exportiert werden!"
+
+msgid "import_wiki_error"
+msgstr "Ein Fehler ist aufgetreten, dass Quiz konnte nicht importiert werden!"
+
+msgid "import_wiki_success"
+msgstr "Das quiz wurde erfolgreich importiert."
+
+msgid "update_wiki_params"
+msgstr "Ein Quiz muss mindenstens einen Titel haben."
+
+msgid "update_wiki_quiz_begin"
+msgstr "Die Syntax muss mit '(quiz ...' beginnen."
+
+msgid "update_wiki_args"
+msgstr "Fehler bei den Parametern: "
+
+msgid "update_wiki_answer_unknown"
+msgstr "Unbekannter Fragetyp: "
+
+msgid "update_wiki_element_unknown"
+msgstr "Unbekannter Elementtyp: "
+
+msgid "update_wiki_element_nested"
+msgstr "Nur eingebettete Elemente sind erlaubt, nicht: "
+
+msgid "update_wiki_element_group"
+msgstr "Eine Gruppe innerhalb einer Gruppe ist nicht erlaubt: "
+
+# END OF I18N FOR WIKI EDIT
+
+
+# Keep this comment at the end of the file
+
+# Local variables:
+# mode: apache
+# time-stamp-start: "\"PO-Revision-Date: "
+# time-stamp-end: "\\\\n\""
+# time-stamp-format: "%y-%02m-%02d %02H:%02M"
+# End:

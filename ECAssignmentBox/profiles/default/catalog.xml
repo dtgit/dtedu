@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="portal_catalog">
+	<index name="isAssignmentBoxType" meta_type="FieldIndex">
+		<indexed_attr value="isAssignmentBoxType"/>
+	</index>
+	<index name="isAssignmentType" meta_type="FieldIndex">
+		<indexed_attr value="isAssignmentType"/>
+	</index>
+	<column value="isAssignmentBoxType"/>
+	<column value="isAssignmentType"/>
+</object>

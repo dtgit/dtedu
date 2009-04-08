@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<export-steps>
+ <export-step id="action-icons"
+              handler="Products.CMFActionIcons.exportimport.exportActionIconsTool"
+              title="Action Icons">
+  Export action icon definitions
+ </export-step>
+</export-steps>

@@ -1,0 +1,9 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope">
+
+  <adapter
+      factory=".widgets.EmailInputWidget"
+      permission="zope.Public"
+      />
+
+</configure>

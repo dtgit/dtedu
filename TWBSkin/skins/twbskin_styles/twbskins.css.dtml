@@ -1,0 +1,173 @@
+//*
+  This file is based on the ploneCustom.css.dtml shipped with Plone.
+
+  <dtml-with base_properties> (do not remove this)
+  <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either)
+*/
+
+/* YOUR CSS RULES START HERE */
+
+
+#portal-searchbox {
+position: relative;
+top: 20px;
+height: 60px;
+margin-top: 0px;
+}
+
+ 
+#portal-logo img {
+padding: 1px 1em 0 1em;
+clear: left;
+display: inline;
+}
+
+
+#portal-personaltools-wrapper
+{
+background:#4B7041 url(none) repeat-x scroll 0 0;
+border-top: none;
+border-bottom: 1px solid white;
+font-size: 1em;
+padding-bottom: 2px;
+font-weight:bold;
+}
+
+li#siteaction-sitemap, li#siteaction-accessibility, li#siteaction-contact
+{
+display: none;
+}
+
+#portal-siteactions li a{
+margin-left:20px;
+font-size: 1em;
+font-weight:bold;
+}
+
+#portal-globalnav {
+border-top: none;
+background-color: transparent;
+background-image: none;
+border-bottom: none;
+float:left;
+}
+
+#portal-globalnav li a:link, #portal-globalnav li a:visited, #portal-globalnav li a:active
+{
+text-transform: none;
+}
+
+#portal-header {
+background:#4B7041 url(headerBackground.png) repeat-x scroll 0 100%;
+height: 1%;
+}
+
+#content h1, #portal-column-two .portletHeader
+{
+border-top: 3px solid #4B7041;
+border-bottom: 1px dotted lightgrey;
+color: black;
+font-size: 13px;
+line-height: 16px;
+font-family: verdana, arial, helvetica, sans-serif;
+}
+
+#content h2
+{
+color: black;
+font-size: 13px;
+line-height: 12px;
+font-family: verdana, arial, helvetica, sans-serif;
+}
+
+.documentActions ul li a
+{
+text-decoration: none !important;
+}
+
+.listingBar 
+{
+background-color: <dtml-var globalBorderColor missing="none">; 
+padding-bottom: 3px; 
+} 
+	 
+.listingNext, .listingPrevious { 
+color: <dtml-var portalHeaderLinkColor missing="black">; 
+}
+
+.listingBar a {
+color: <dtml-var portalHeaderLinkColor missing="white"> !important;
+}
+
+.documentContent ul
+{
+list-style-type: disc;
+list-style-image: none;
+}
+
+
+.documentActions
+{
+text-align: left;
+}
+
+.documentActions td {
+padding-bottom: 2px;
+}
+
+/* Start Styles for ECLecture Product */
+
+#archetypes-fieldname-courseType, #archetypes-fieldname-instructors,
+#archetypes-fieldname-timePeriod, #archetypes-fieldname-startDate,
+#archetypes-fieldname-endDate, #archetypes-fieldname-recurrence,
+#archetypes-fieldname-firstSession, #archetypes-fieldname-courseLanguage,
+#archetypes-fieldname-credits, #archetypes-fieldname-prereq,
+#archetypes-fieldname-target, #archetypes-fieldname-maxParticipants,
+#archetypes-fieldname-joinURL, #archetypes-fieldname-directoryEntry,
+#archetypes-fieldname-availableResources, #archetypes-fieldname-assignment_reference,
+#archetypes-fieldname-associatedGroup, #archetypes-fieldname-remarks,
+#contentview-metadata {
+    display: none;
+}
+
+/* End Styles for ECLecture Product */
+
+
+/* Start Styles for ECAssignment Product */
+
+
+form#ecassignment-base-edit ul.formTabs {
+    display: none;
+}
+
+form#ecassignment-base-edit fieldset#fieldset-default div#archetypes-fieldname-remarks,
+form#ecassignment-base-edit fieldset#fieldset-default div#archetypes-fieldname-feedback,
+form#ecassignment-base-edit fieldset#fieldset-default div#archetypes-fieldname-mark {
+    display: none;
+}
+
+form#ecassignment-base-edit #archetypes-fieldname-allowDiscussion {
+  display: block;
+}
+
+/* End Styles for ECAssignment Product */
+
+/* Start Styles for Course Object */
+
+#archetypes-fieldname-term, 
+#archetypes-fieldname-structure, #archetypes-fieldname-level {
+    display: none;
+}
+
+
+/* End Style for Course Object */
+
+
+
+
+/* YOUR CSS RULES STOP HERE */
+
+/* </dtml-with> */
+
+/* Latest version of the documentation on pre-defined properties from Plone 
+   can be found in CMFPlone/skins/plone_styles/ploneCustom.css.dtml */

@@ -1,0 +1,119 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    lang="en"
+    metal:use-macro="here/prefs_main_template/macros/master"
+    i18n:domain="sqlpasplugin">
+
+  <metal:block metal:fill-slot="top_slot"
+               tal:define="dummy python:request.set('disable_border', 1)" />
+
+  <body>
+
+    <div metal:fill-slot="prefs_configlet_content"
+         style="padding:2em;">
+
+      <div id="content" class="documentEditable"
+           tal:condition="python:checkPermission('Manage users', here)">
+
+        <div metal:use-macro="here/global_statusmessage/macros/portal_message">
+          Portal status message
+        </div>
+
+        <div class="configlet">
+          <h1 i18n:translate="heading_sqlauthsetup">SQL Authentication Setup</h1>
+          <a href=""
+             class="link-parent"
+             tal:attributes="href string: $portal_url/plone_control_panel"
+             i18n:translate="label_up_to_plone_setup"
+             i18n:domain="plone">
+            Up to Site Setup
+          </a>
+
+          <p i18n:translate="description_sqlauthsetup">
+            This form will set up a SQL Authentication for your Plone site.
+          </p>
+
+          <p class="error"
+             tal:condition="not:view/get_connections"
+             i18n:translate="description_connection_missing">
+
+            You have not yet set up a database to connect to.
+
+            <br/>
+
+            To set up a connection, you must visit the <a
+            href="./manage_main">Zope Management Interface</a>.  Once
+            you are there, choose the connection type that comes with
+            your Zope database adapter.  For instance, when you use
+            the ZSQLiteDA product, you'll have to choose "Z SQLite
+            Database Connection" from the dropdown.  After selection,
+            click "Add".  In the next screen, you'll define an Id for
+            your connection (the name of the database is a good
+            choice) and configure the database parameters.
+
+            <br/>
+
+            After you have done that, come back to this page to finish
+            installation.
+          </p>
+
+          <form action=""
+                method="post"
+                tal:condition="view/get_connections"
+                tal:attributes="action request/URL0"
+                >
+
+            <div>
+
+              <input type="hidden" name="form.submit" value="1" />
+
+              <p>Please select which database connection to use:</p>
+
+              <div tal:repeat="conn view/get_connections">
+
+                <input type="radio"
+                       name="form.conn"
+                       class="noborder"
+                       value=""
+                       tal:attributes="value conn/id;
+                                       id string:conn.${conn/id}"
+                       />
+
+                <label for="conn.id"
+                       tal:attributes="for string:conn.${conn/id}"
+                       tal:content="conn/title">Connection Title</label>
+
+              </div>
+
+              <br/>
+
+              <input type="submit"
+                     class="context"
+                     value="Apply Changes"
+                     i18n:domain="plone"
+                     i18n:attributes="value label_apply_changes;"
+                     />
+
+            </div>
+
+            <p style="margin: 3em; padding: 1em; background-color: #ddd;"
+               tal:define="plugins view/have_one_plugin;
+                           pluginslist python:', '.join([p.getId() for p in plugins])"
+                 tal:condition="plugins">
+              Warning!  Applying your changes will replace the
+              existing "<span
+              tal:replace="pluginslist">usermanager</span>" plugin.
+              Please rename any plugins that you want to be preserved
+              through the <a href="./acl_users/manage_main">Zope
+              Management Interface</a> and come back here to proceed.
+            </p>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    </body>
+  </html>

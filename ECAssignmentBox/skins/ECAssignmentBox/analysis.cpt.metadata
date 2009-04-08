@@ -1,0 +1,12 @@
+[default]
+title = Extended statistics on all assignments inside a folder or box
+
+[security]
+View = 0:Authenticated
+
+[validators]
+validators=
+
+[actions]
+action.success=traverse_to:string:analysis
+action.failure=traverse_to:string:analysis

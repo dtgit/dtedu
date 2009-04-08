@@ -1,0 +1,31 @@
+<tal:block define="charset here/portal_properties/site_properties/default_charset|here/portal_properties/default_charset|string:utf-8;
+        content_type python:request.RESPONSE.setHeader('Content-Type', 'text/xml;;charset=%s' % charset);"
+ replace='structure string:&lt;?xml version="1.0" encoding="${charset}" ?&gt;'>
+<?xml version="1.0"?>
+</tal:block>
+<libraries
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    i18n:domain="kupu"
+    >
+
+<tal:with define="
+    getToolByName nocall:modules/Products.CMFCore.utils/getToolByName;
+    kupu_tool     python:getToolByName(context, 'kupu_library_tool');
+    libraries     python:kupu_tool.getCookedLibraries(context);
+    pss modules/Products/PythonScripts/standard;
+">
+
+  <library tal:repeat="library libraries"
+           tal:attributes="id library/id;selected library/selected;">
+    <uri tal:content="library/uri" />
+    <title tal:define="title library/title"
+           tal:content="structure python:pss.html_quote(title)" />
+    <src tal:content="library/src" />
+    <icon tal:content="library/icon" />
+  </library>
+
+</tal:with>
+
+</libraries>

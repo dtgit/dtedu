@@ -1,0 +1,12 @@
+<tal:block define="charset here/portal_properties/site_properties/default_charset|here/portal_properties/default_charset|string:utf-8;
+        content_type python:request.RESPONSE.setHeader('Content-Type', 'text/xml;;charset=%s' % charset);"
+ replace='structure string:&lt;?xml version="1.0" encoding="${charset}" ?&gt;'>
+<?xml version="1.0"?>
+</tal:block>
+<library tal:define="kupu nocall:context/kupu_library_tool;
+        fldr kupu/getCurrentParent;
+        response request/response;
+        target string:${fldr/absolute_url}/kupucollection.xml;
+        target python:kupu.kupuUrl(target);
+        dummy python:response.redirect(target, status=301);"
+    />

@@ -1,0 +1,37 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    >
+
+  <!-- Using Zope3 adapters -->
+
+  <adapter
+      for=".interface.folder.IATFolder"
+      factory=".adapters.image.PhotoAlbum"
+      provides=".interface.image.IPhotoAlbum"
+      />
+
+  <adapter
+      for=".interface.folder.IATFolder"
+      factory=".adapters.archive.FolderishArchiver"
+      provides=".interface.archive.IArchiver"
+      />
+
+  <adapter
+      for=".interface.document.IATDocument"
+      factory=".adapters.archive.NonFolderishArchiver"
+      provides=".interface.archive.IArchiver"
+      />
+
+  <adapter
+      for=".interface.document.IATDocument"
+      factory=".adapters.document.DocumentRawDataExtractor"
+      provides=".interface.dataExtractor.IDataExtractor"
+      />
+
+  <adapter
+      for=".interface.folder.IATFolder"
+      factory=".adapters.folder.FolderFilter"
+      provides=".interface.folder.IFilterFolder"
+      />
+
+</configure>

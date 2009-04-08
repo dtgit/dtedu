@@ -1,0 +1,32 @@
+.. figure:: doc/small_menu.png
+   :scale: 30
+   :target: doc/menu.png
+
+   The way GRUF shows-up in the Zope Management Interface
+
+
+.. figure:: doc/small_tab_overview.png
+   :scale: 30
+   :target: doc/tab_overview.png
+
+   Detail of GRUF in ZMI
+
+.. figure:: doc/small_tab_groups.png
+   :scale: 30
+   :target: doc/tab_groups.png
+
+   The overview page with many users
+
+.. figure:: doc/small_tab_groups.png
+   :scale: 30
+   :target: doc/tab_groups.png
+
+   The groups management interface
+
+.. figure:: doc/small_tab_sources.png
+   :scale: 30
+   :target: doc/tab_sources.png
+
+   A sample security audit page
+ 
+

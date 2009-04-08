@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<export-steps>
+ <export-step id="kupu-setup" version="20061211-01"
+              handler="Products.kupu.plone.exportimport.exportKupuSettings"
+              title="Kupu Settings">
+  Export Kupu settings
+ </export-step>
+</export-steps>

@@ -1,0 +1,60 @@
+=================================
+Tests for data extractor
+=================================
+
+===========
+1. Document
+===========
+
+Create the document
+
+  >>> folder = self.folder
+  >>> folder.invokeFactory('Document', 'd1')
+  'd1'
+  
+Set some content
+
+  >>> folder.d1.setText('A nice text')
+  
+Import the interface
+
+  >>> from Products.ATContentTypes.interface.dataExtractor import IDataExtractor
+
+As specified in configure.zcml, here:
+
+  <adapter
+      for=".interface.interfaces.IATDocument"
+      factory=".adapters.document.DocumentRawDataExtractor"
+      provides=".interface.dataExtractor.IDataExtractor"
+      />
+                         
+invoking the IDataExtractor interface on a document will create a DocumentRawDataExtractor adapter
+A raw adapter applied to a document will retreive the raw body with no processing as would be performed by CookedBody
+
+  >>> extractor = IDataExtractor(folder.d1)
+  >>> extractor
+  <Products.ATContentTypes.adapters.document.DocumentRawDataExtractor object at
+  ...  
+  >>> extractor.getData()
+  'A nice text'
+  
+We cannot create a DocumentDataExtractor adapter from the Interface, because the default data extractor returned 
+is a DocumentRawDataExtractor adapter. Compare this with the case of IArchive where, based on content type, we 
+want one of the two Archivers (FolderishArchiver, or NonFolderishArchiver) to be created based solely on the 
+content type. In the case of Document, we have two different adapters for one content type and one Interface, 
+so we need to select between them based on our purpose. 
+
+
+  >>> from Products.ATContentTypes.adapters.document import DocumentDataExtractor
+  >>> extractor = DocumentDataExtractor(folder.d1)
+  >>> extractor
+  <Products.ATContentTypes.adapters.document.DocumentDataExtractor object at
+  ... 
+
+The the getData method will return a CookedBody of the content inside the document.
+
+  >>> extractor.getData()
+  '<p>A nice text</p>'
+  
+
+  

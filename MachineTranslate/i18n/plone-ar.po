@@ -1,0 +1,751 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Gettext Message File for Plone
+# Alexander Limi <limi@plone.org>, 2002-2004
+# Dorneles TremÃ©a <dorneles@x3ng.com.br>, 2003-2004
+msgid ""
+msgstr ""
+"Project-Id-Version: Plone 3.0.6\n"
+"POT-Creation-Date: 2006-12-11 21:57+0000\n"
+"PO-Revision-Date: 2008-04-14 16:05-0700\n"
+"Last-Translator: \n"
+"Language-Team: VIOLETTA CAVALLI-SFORZA <violettacavalli@yahoo.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: ar\n"
+"Language-Name: Arabic\n"
+"Preferred-Encodings: utf-8\n"
+"Domain: plone\n"
+"X-Poedit-Language: Arabic\n"
+
+msgid "About OCW"
+msgstr "حول OCW"
+
+msgid "Privacy Policy"
+msgstr "سياسة الخصوصيه"
+
+msgid "Terms of Use"
+msgstr "شروط الاستخدام"
+
+## Translations for worflow state
+msgid "Add a Comment Only"
+msgstr "اضف تعليقا فقط"
+
+#. Default: "Advanced Search"
+#: ../skins/eduCommons/search.pt
+msgid "Advanced Search"
+msgstr "بحث متقدم"
+
+msgid "All XHTML issues have been resolved. Press &#39;save&#39; to keep the changes."
+msgstr "جميع مسائل لغة النصوص التشعبيه القابلة للتمديد قد تم حلها. اضغط &#39;حفظ&#39;لحفظ الغييرات"
+
+msgid "An eduCommons course."
+msgstr "  دورة ميدان التعلم."
+
+msgid "An eduCommons department."
+msgstr "قسم ميدان التعلم."
+
+msgid "An eduCommons file."
+msgstr " ملف ميدان التعلم."
+
+msgid "An eduCommons folder."
+msgstr "مجلد ميدان التعلم."
+
+# eduCommons object type information
+msgid "An eduCommons image."
+msgstr " صورة ميدان التعلم."
+
+msgid "An eduCommons link."
+msgstr " رابط ميدان التعلم."
+
+msgid "An eduCommons page."
+msgstr "صفحة ميدان التعلم"
+
+msgid "Are you sure you want to delete the selected items?"
+msgstr "هل انت متأكد من انك تريد حذف العناصر المختاره؟"
+
+## Translation for eduCommons buttons
+msgid "Clear Copyright"
+msgstr "حذف حقوق الطبع والنشر "
+
+msgid "Copyright revoked"
+msgstr "حقوق الطبع والنشر لاغيه"
+
+msgid "Course"
+msgstr "درس"
+
+msgid "Courses"
+msgstr "دروس"
+
+msgid "eduCommons Skin Settings"
+msgstr "اعدادات واجهة ميدان التعلم"
+
+msgid "Department"
+msgstr "قسم"
+
+msgid "Document"
+msgstr "وثيقة"
+
+msgid "Error contacting server.  Please try again."
+msgstr "خطأ في الاتصال بالخادم. الرجاء اعادة المحاوله."
+
+msgid "Export"
+msgstr "تصدير"
+
+msgid "External Link"
+msgstr "رابط خارجي"
+
+msgid "FCKeditor configuration"
+msgstr "Fck محرر التهيئة"
+
+msgid "Feedback"
+msgstr "اقتراحات"
+
+msgid "File"
+msgstr "ملف"
+
+msgid "HTML has been updated, but may still contain errors. Press &#39;save&#39; to keep the changes."
+msgstr "تم تحديث لغة تأشير النص الفائق، ولكن ربما لا تزال تحتوي على اخطا. اضط&#39;حفظ&#39; لحفظ التغييراتء."
+
+msgid "HTML has been updated. Press &#39;save&#39; to keep the changes."
+msgstr "تم تحديث لغة HTML.اضغط&#39;حفظ&#39; لحفظ التغييراتء."
+
+msgid "Help"
+msgstr "مساعدة"
+
+msgid "Image"
+msgstr "صورة"
+
+msgid "Import"
+msgstr "استيراد"
+
+msgid "Import/Export"
+msgstr "استيراد-تصدير"
+
+msgid "InProgress"
+msgstr "في تقدم"
+
+msgid "Item(s) added to navigation."
+msgstr "عناصر مضافة الى الابحار."
+
+msgid "Item(s) copyright revoked."
+msgstr "عناصر حقوق الطبع والنشر لاغية."
+
+msgid "Item(s) removed from navigation."
+msgstr "عناصر ازيلت من الابحار."
+
+msgid "Logs"
+msgstr "سجلات"
+
+msgid "Metadata"
+msgstr "بيانات"
+
+msgid "Navigation Added"
+msgstr "اضافة الابحار"
+
+msgid "Navigation Removed"
+msgstr "ازلة الابحار"
+
+msgid "OLS Discussion Group Administration"
+msgstr "OSL مناقشة فريق الادارة"
+
+msgid "Order"
+msgstr "امر"
+
+msgid "Personal Preferences"
+msgstr "تفضيلات شخصيه"
+
+msgid "Please correct the following messages:"
+msgstr "الرجاء تصحيح الرسائل التالية :"
+
+msgid "Please select one or more items to clear copyright."
+msgstr "الرجاء اختيار عنصر  واحد أو أكثر لازالة حقوق الطبع والنشر"
+
+msgid "Please select one or more items to remove from navigation."
+msgstr "الرجاء اختيار عنصر واحد أو أكثر  لازالة من الابحار  "
+
+msgid "Please select one or more items to revoke copyright."
+msgstr "الرجاء اختيارعنصر واحد أو أكثر  لإلغاء حقوق النشر"
+
+#. Default: "Plone Powered"
+#: ../skins/eduCommons/index_template.pt
+msgid "Plone Powered"
+msgstr "بلون مدعوم"
+
+msgid "Publish Content"
+msgstr "نشر المحتوى"
+
+msgid "Publish Course"
+msgstr "نشر الدرس"
+
+msgid "Publish Department"
+msgstr "نشر القسم"
+
+msgid "Published Content"
+msgstr "نشر المحتوى"
+
+msgid "Quality Assurance"
+msgstr "ضمان الجوده"
+
+msgid "Release Content for Publication"
+msgstr "اطلاق المحتوى لنشر"
+
+msgid "Release Course for Publication"
+msgstr "اطلاق الدرس لنشر"
+
+msgid "Release Department for Publication"
+msgstr "اطلاق القسم لنشر"
+
+msgid "Released"
+msgstr "اطلاق"
+
+msgid "Released for Publication"
+msgstr "اطلاق لنشر"
+
+#. Default: "Relevance"
+#: ../skins/eduCommons/search.pt
+msgid "Relevance"
+msgstr "صلة"
+
+msgid "Remove From Navigation"
+msgstr "أزالة من الابحار"
+
+msgid "Retest Content"
+msgstr "اعادة اختبار المحتوى"
+
+msgid "Retest Department"
+msgstr "اعادة اختبار القسم"
+
+msgid "Retest Released Course"
+msgstr "اعادة اطلاق الدرس"
+
+msgid "Revoke Copyright"
+msgstr "الغاء حقوق النشر"
+
+msgid "Rework Content"
+msgstr "الغاء المحتوى"
+
+msgid "Rework Course"
+msgstr "الغاء الدرس"
+
+msgid "Rework Department"
+msgstr "الغاء القسم"
+
+msgid "Rework Published Content"
+msgstr "اعادة صياغه المحتوى المنشور"
+
+msgid "Rework Published Course"
+msgstr "اعادة صياغه الدرس المنشور"
+
+msgid "Rework Published Department"
+msgstr "اعادة صياغه القسم المنشور"
+
+msgid "Rework Released Content"
+msgstr "اعادة اطلاق المحتوى"
+
+msgid "Rework Released Course"
+msgstr "اعادة اطلاق الدرس"
+
+msgid "Rework Released Department"
+msgstr "اعادة اطلاق القسم"
+
+msgid "Show In Navigation"
+msgstr "ظاهر في الابحار"
+
+msgid "Site Settings"
+msgstr "اعدادات الموقع"
+
+msgid "Submit Content to QA"
+msgstr "تقديم المحتوى ل QA"
+
+msgid "Submit Course for QA"
+msgstr "تقديم الدرس ل QA"
+
+msgid "Submit Department to QA"
+msgstr "تقديم القسم ل QA"
+
+msgid "Tools"
+msgstr "ادوات"
+
+msgid "Unable to fix XHTML errors.  Please update html and try again."
+msgstr "لقد تعذر تصحيح أخطا XHTML. المرجو تحديث HTML و اعادة المحاولة."
+
+msgid "Warning: The following objects have not cleared copyright:"
+msgstr "تحذير:  لم تتم إزالة حقوق الطبع و النشر الخاصة بالعناصر التالية:"
+
+msgid "Work in progress"
+msgstr "عمل في تقدم"
+
+#. Default: "${number} items matching your criteria."
+#: ../skins/eduCommons/search.pt
+msgid "batch_x_items_matching_your_criteria"
+msgstr "${number} عناصر مطابقة للمعايير الخاصة بك "
+
+msgid "could not be added to navigation"
+msgstr "لم يكن ممكنا إضافته إلى الإبحار"
+
+msgid "could not be copyright revoked."
+msgstr "لم يكن ممكنا إلغاء حقوق الطبع والنشر."
+
+msgid "could not be removed from navigation."
+msgstr "لم يكن ممكنا إزالته من الإبحار."
+
+#. Default: "This search form enables you to find content on the site by specifying one or more search terms. <br/> Remember that you can use the quick search anytime, it's normally good enough, this search form is just if you want to be more specific."
+#: ../skins/eduCommons/search_form.pt
+msgid "description_advanced_search"
+msgstr "نموذج البحث هذا يمكنك من العثور على المحتوى على الموقع  بتحديد مصطلح واحد أو عدة مصطلحات للبحث.<br/>   تذكر أنه يمكنك استخدام البحث السريع في أي وقت ، فهو عادة جيد بما فيه الكفاية ، وهذا  مجرد نموذج بحث إذا أردت أن تكون أكثر تحديدا.  "
+
+#. Default: "Configuration area for eduCommons and add-on Products."
+#: ../skins/eduCommons/plone_control_panel.pt
+msgid "description_control_panel"
+msgstr " منطقة التشكيل و إضافة المنتجات لميدان التعلم."
+
+#. Default: "No results were found."
+#: ../skins/eduCommons/search.pt
+msgid "description_no_results_found"
+msgstr "لم يتم العثور على أية نتائج."
+
+#. Default: "This folder has no visible items. To add content, press the add button, or paste content from another location."
+#: ../skins/eduCommons/summary_contents.pt
+msgid "description_no_visible_items_add_paste"
+msgstr "هذا المجلد لا يتوفر على عناصر مرئية . لاإضافة محتوى ، اضغط على زر الإضافة ، أو الصق المحتوى من موقع آخر."
+
+#. Default: "Note: Some or all of your PAS user source plugins do not allow listing of users, so you may not see the users defined by those plugins unless doing a specific search."
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "description_pas_users_listing"
+msgstr "ملاحظة : بعض أو كل ملحقات المصدر لمستخدمي ال بي إي إس لا تسمح بتعداد المستخدمين ، فلا يمكنك رؤية المستخدمين المحددين  بتلك الملحقات  ما لم تقم ببحث محدد."
+
+#. Default: "Click the user's name to see and change the details of a specific user. Click the envelope icon to send a mail to the user. You can also edit the e-mail addresses, and add/remove users."
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "description_user_management"
+msgstr "انقر على اسم المستخدم لرؤية و تغيير تفاصيله. انقر على أيقونة الظرف لإرسال بريد الى المستخدم. يمكنك أيضا تحريرعناوين البريد الالكتروني ، وإضافة / إزالة المستخدمين."
+
+#. Default: "This area allows you to set your preferences."
+#: ../skins/eduCommons/plone_memberprefs_panel.pt
+msgid "description_user_panel"
+msgstr "هذا المجال يتيح لك ضبط تفضيلاتك."
+
+msgid "eduCommons Setup"
+msgstr "إعداد ميدان التعلم"
+
+#. Default: "Up one level"
+#: ../skins/eduCommons/summary_contents.pt
+msgid "go_to_parent_url"
+msgstr "مستوى واحد نحو الأعلى "
+
+msgid "have already been added to navigation."
+msgstr "تمت إضافته مسبقا إلى الإبحار"
+
+msgid "have already been removed from navigation."
+msgstr "تمت إزالته مسبقا من الإبحار"
+
+msgid "have already revoked copyright."
+msgstr "قد سبق الغاء حقوق الطبع والنشر"
+
+#. Default: "Actions"
+#: ../skins/eduCommons/global_contentviews.pt
+msgid "heading_actions"
+msgstr "إجراء ات"
+
+#. Default: "Advanced search for content"
+#: ../skins/eduCommons/search_form.pt
+msgid "heading_advanced_search"
+msgstr "بحث متقدم عن المحتوى"
+
+#. Default: "eduCommons Setup"
+#: ../skins/eduCommons/plone_control_panel.pt
+msgid "heading_control_panel"
+msgstr "اعداد ميدان التعلم "
+
+#. Default: "Search results"
+#: ../skins/eduCommons/search.pt
+msgid "heading_search_results"
+msgstr "نتائج البحث"
+
+#. Default: "My Preferences"
+#: ../skins/eduCommons/plone_memberprefs_panel.pt
+msgid "heading_user_panel"
+msgstr "تفضيلاتي"
+
+#. Default: "Users Overview"
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "heading_users_overview"
+msgstr "نظرة عامة على المستخدمين "
+
+#. Default: "Views"
+#: ../skins/eduCommons/global_contentviews.pt
+msgid "heading_views"
+msgstr "اراء"
+
+#. Default: "Return items matching this description. Multiple words may be found by combining them with <strong>AND</strong> and <strong>OR</strong>."
+#: ../skins/eduCommons/search_form.pt
+msgid "help_search_description"
+msgstr "إعادة العناصر المطابقه لهذا الوصف. يمكن إيجاد كلمات متعددة بربطها ب  <strong>و</strong> و <strong>أو</strong>."
+
+#. Default: "Return items taught be a particular instructor."
+#: ../skins/eduCommons/search_form.pt
+msgid "help_search_instructor"
+msgstr "عرض عناصر تم تدريسها من طرف موجه معين."
+
+#. Default: "Return items of a specific type."
+#: ../skins/eduCommons/search_form.pt
+msgid "help_search_item_type"
+msgstr "عرض عناصر من نوع محدد."
+
+#. Default: "Return items added since you were last logged on, the last week, etc."
+#: ../skins/eduCommons/search_form.pt
+msgid "help_search_new_items_since"
+msgstr "عرض العناصر المضافة منذ آخر تسجيل دخول لك، منذ الاسبوع الماضي ، الخ."
+
+#. Default: "As a reviewer, you may search for items based on their review state. If you wish to constrain results to items in certain states, select them from this list."
+#: ../skins/eduCommons/search_form.pt
+msgid "help_search_review_status"
+msgstr "كمراجع ، يمكنك البحث عن عناصراستنادا إلى حالة مراجعتها. إذا كنت ترغب في تقييد النتائج إلى عناصر في حالات معينة، اخترهم من هذه القائمة."
+
+#. Default: "For a simple text search, enter your search term here. Multiple words may be found by combining them with <strong>AND</strong> and <strong>OR</strong>. The text in this field will be matched with items' contents, title and description."
+#: ../skins/eduCommons/search_form.pt
+msgid "help_search_text"
+msgstr " للبحث عن نص بسيط أدخل مصطلح البحث الخاص بك هنا.. يمكن إيجاد كلمات متعددة بربطها ب <strong>و</strong> و  <strong>أو</strong>. النص في هذه المنطقة سيتطابق مع عناصر و عنوان و وصف المحتويات."
+
+#. Default: "Return items matching this title."
+#: ../skins/eduCommons/search_form.pt
+msgid "help_search_title"
+msgstr "عرض العناصر المطابقة لهذا العنوان."
+
+#. Default: "Add Item"
+#: ../skins/eduCommons/global_contentmenu.pt
+msgid "label_add_new_item"
+msgstr "إضافة عنصر "
+
+#. Default: "Add New User"
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "label_add_new_user"
+msgstr "إضافة مستخدم جديد  "
+
+#. Default: "Any Instructor"
+#: ../skins/eduCommons/search_form.pt
+msgid "label_any_instructor"
+msgstr "أي موجه"
+
+#. Default: "Apply Changes"
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "label_apply_changes"
+msgstr "تطبيق التغييرات"
+
+#. Default: "Valid CSS"
+#: ../skins/eduCommons/footer.pt
+msgid "label_css"
+msgstr "صالحة CSS "
+
+#. Default: "Description"
+#: ../skins/eduCommons/search_form.pt
+msgid "label_description"
+msgstr "وصف"
+
+#. Default: "Flags: - Cleared Copyright"
+#: ../skins/eduCommons/summary_contents.pt
+msgid "label_flags"
+msgstr " أعلام: --معفى من حقوق النشر و الطبع "
+
+#. Default: "Get Email List"
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "label_get_email_list"
+msgstr "احصل على قائمة البريد الالكتروني"
+
+#. Default: "History"
+#: ../skins/eduCommons/review_history.pt
+msgid "label_history"
+msgstr " تاريخ "
+
+#. Default: "Instructor"
+#: ../skins/eduCommons/search_form.pt
+msgid "label_instructor"
+msgstr "موجه"
+
+#. Default: "Item Type"
+#: ../skins/eduCommons/search_form.pt
+msgid "label_item_type"
+msgstr "نوع العنصر"
+
+#. Default: "New Items Since"
+#: ../skins/eduCommons/search_form.pt
+msgid "label_new_items_since"
+msgstr "عناصر جديدة منذ "
+
+#. Default: "No Preference Panels available."
+#: ../skins/eduCommons/plone_memberprefs_panel.pt
+msgid "label_no_panels_available"
+msgstr "لا توجد أية خيارات."
+
+#. Default: "effective"
+#: ../skins/eduCommons/review_history.pt
+msgid "label_publishing_effective"
+msgstr "فعال"
+
+#. Default: "Review Status"
+#: ../skins/eduCommons/search_form.pt
+msgid "label_review_status"
+msgstr "حالة المراجعة "
+
+#. Default: "RSS feed of these search results"
+#: ../skins/eduCommons/search.pt
+msgid "label_rss_feed"
+msgstr "تلقيم ال آر إس إس لنتائج البحث هذه "
+
+#. Default: "Search"
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "label_search"
+msgstr "بحث"
+
+#. Default: "Search Text"
+#: ../skins/eduCommons/search_form.pt
+msgid "label_search_text"
+msgstr "البحث في النص"
+
+#. Default: "Section 508"
+#: ../skins/eduCommons/footer.pt
+msgid "label_section_508"
+msgstr "قسم 508"
+
+#. Default: "Select all items"
+#: ../skins/eduCommons/summary_contents.pt
+msgid "label_select_all_items"
+msgstr "اختر كل العناصر"
+
+#. Default: "Show all"
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "label_showall"
+msgstr "اعرض الكل "
+
+#. Default: "Skip to content."
+#: ../skins/eduCommons/index_template.pt
+msgid "label_skiptocontent"
+msgstr "انتقل الى المحتوى"
+
+#. Default: "State"
+#: ../skins/eduCommons/global_contentmenu.pt
+msgid "label_state"
+msgstr "حالة"
+
+#. Default: "Title"
+#: ../skins/eduCommons/search_form.pt
+msgid "label_title"
+msgstr "عنوان"
+
+#. Default: "Select All/None"
+#: ../skins/eduCommons/search_form.pt
+msgid "label_toggle"
+msgstr "اختر الكل/ لا شيء "
+
+#. Default: "Up to Site Setup"
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "label_up_to_plone_setup"
+msgstr "الوصول إلى إعداد الموقع "
+
+#. Default: "User Search"
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "label_user_search"
+msgstr "البحث عن المستخدمين "
+
+#. Default: "Users"
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "label_users"
+msgstr "المستخدمين"
+
+#. Default: "WCAG"
+#: ../skins/eduCommons/footer.pt
+msgid "label_wcag"
+msgstr " WCAG"
+
+#. Default: "Valid XHTML"
+#: ../skins/eduCommons/footer.pt
+msgid "label_xhtml"
+msgstr "صحيح XHTML"
+
+#. Default: "Last log-in"
+#: ../skins/eduCommons/search_form.pt
+msgid "last_login"
+msgstr "اخر تسجيل دخول"
+
+#. Default: "Search Terms"
+#: ../skins/eduCommons/search_form.pt
+msgid "legend_search_terms"
+msgstr "شروط البحث"
+
+#. Default: "Action"
+#: ../skins/eduCommons/review_history.pt
+msgid "listingheader_action"
+msgstr "إجراء"
+
+#. Default: "Comment"
+#: ../skins/eduCommons/review_history.pt
+msgid "listingheader_comment"
+msgstr "تعليق"
+
+#. Default: "Date and Time"
+#: ../skins/eduCommons/review_history.pt
+msgid "listingheader_date_and_time"
+msgstr "التاريخ والوقت"
+
+#. Default: "E-mail Address"
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "listingheader_email_address"
+msgstr "عنوان البريد الإلكتروني"
+
+#. Default: "Flags"
+#: ../skins/eduCommons/summary_contents.pt
+msgid "listingheader_flags"
+msgstr "أعلام "
+
+#. Default: "Modified"
+#: ../skins/eduCommons/summary_contents.pt
+msgid "listingheader_modified"
+msgstr "معدل"
+
+#. Default: "Performed by"
+#: ../skins/eduCommons/review_history.pt
+msgid "listingheader_performed_by"
+msgstr "منجز من طرف"
+
+#. Default: "Remove user"
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "listingheader_remove_user"
+msgstr "إزالة المستخدم"
+
+#. Default: "Reset Password"
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "listingheader_reset_password"
+msgstr "إعادة ضبط كلمة السر"
+
+#. Default: "Roles"
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "listingheader_roles"
+msgstr "أدوار"
+
+#. Default: "Size"
+#: ../skins/eduCommons/summary_contents.pt
+msgid "listingheader_size"
+msgstr "حجم"
+
+#. Default: "State"
+#: ../skins/eduCommons/summary_contents.pt
+msgid "listingheader_status"
+msgstr "حالة"
+
+#. Default: "Title"
+#: ../skins/eduCommons/summary_contents.pt
+msgid "listingheader_title"
+msgstr "عنوان"
+
+#. Default: "Type"
+#: ../skins/eduCommons/summary_contents.pt
+msgid "listingheader_type"
+msgstr "نوع"
+
+#. Default: "User name"
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "listingheader_user_name"
+msgstr "اسم المستخدم"
+
+#. Default: "No comments."
+#: ../skins/eduCommons/review_history.pt
+msgid "no_comments"
+msgstr "لا يوجد تعليقات"
+
+#. Default: "Did you not find what you were looking for? Try the ${advanced_search} for more precise search options."
+#: ../skins/eduCommons/search.pt
+msgid "search_results_advanced"
+msgstr "ألم تجد ما تبحث عنه؟ جرب ${advanced_search} لبحث خيارات أكثر دقة."
+
+#. Default: "Advanced Search"
+#: ../skins/eduCommons/search.pt
+msgid "search_results_advanced_link"
+msgstr "بحث  متقدم"
+
+#. Default: "Review History"
+#: ../skins/eduCommons/review_history.pt
+msgid "summary_review_history"
+msgstr "تاريخ المراجعة"
+
+#. Default: "Enter a username to search for"
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "text_no_user_searchstring"
+msgstr "ادخل اسم المستخدم للبحث عنه"
+
+#. Default: "Enter a username to search for, or click 'Show All'"
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "text_no_user_searchstring_largesite"
+msgstr "ادخل اسم المستخدم للبحث عنه أو انقر 'اعرض الكل'"
+
+#. Default: "No matches"
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "text_nomatches"
+msgstr "لا مطابقات"
+
+#. Default: "Ever"
+#: ../skins/eduCommons/search_form.pt
+msgid "time_ever"
+msgstr "دائم"
+
+#. Default: "Last month"
+#: ../skins/eduCommons/search_form.pt
+msgid "time_last_month"
+msgstr "الشّهر الماضي"
+
+#. Default: "Last week"
+#: ../skins/eduCommons/search_form.pt
+msgid "time_last_week"
+msgstr "الأسبوع الماضي"
+
+#. Default: "Yesterday"
+#: ../skins/eduCommons/search_form.pt
+msgid "time_yesterday"
+msgstr "البارحة"
+
+#. Default: "Add new items inside this item"
+#: ../skins/eduCommons/global_contentmenu.pt
+msgid "title_add_new_items_inside_item"
+msgstr "اضف عناصر جديدة داخل هذا العنصر "
+
+#. Default: "This Plone site was built with valid CSS."
+#: ../skins/eduCommons/footer.pt
+msgid "title_built_with_css"
+msgstr " موقع بلون  تم بناؤه مع css صالح."
+
+#: ../skins/eduCommons/footer.pt
+msgid "title_built_with_plone"
+msgstr "مبني بي بلون "
+
+#. Default: "RSS feed of these search results"
+#: ../skins/eduCommons/search.pt
+msgid "title_rss_feed"
+msgstr "تلقيم ال آر إس إس لنتائج البحث هذه "
+
+#. Default: "This Plone site conforms to the US Government Section 508 Accessibility Guidelines."
+#: ../skins/eduCommons/footer.pt
+msgid "title_section_508"
+msgstr "موقع بلون مطابق للمبادئ التوجيهية لقابلية الوصول للقسم 508 لحكومة الولايات المتحدة الأمريكية."
+
+#. Default: "Send a mail to this user"
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "title_send_mail_to_user"
+msgstr "إرسال بريد الكتروني إلى هذا المستخدم"
+
+#. Default: "This Plone site is valid XHTML."
+#: ../skins/eduCommons/footer.pt
+msgid "title_valid_xhtml"
+msgstr " صحيح XHTML موقع بلون يحتوي على "
+
+#. Default: "This Plone site conforms to the W3C-WAI Web Content Accessibility Guidelines."
+#: ../skins/eduCommons/footer.pt
+msgid "title_wcag_conformance"
+msgstr "موقع بلون مطابق للمبادئ التوجيهية لمحتوى الويب W3C-WAI."
+
+#. Default: "Note that roles listed here apply directly to a user. They do not reflect additional roles users may have due to group memberships."
+#: ../skins/eduCommons/prefs_users_overview.cpt
+msgid "user_role_note"
+msgstr "اعلم أن الأدوار المذكورة هنا تنطبق مباشرة على المستخدم. ولا تعكس أدوارا إضافية يمكن للمستخدمين الحصول عليها نتيجة لعضوية في مجموعة."
+

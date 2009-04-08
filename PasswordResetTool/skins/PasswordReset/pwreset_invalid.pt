@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="passwordresettool">
+<body>
+
+<div metal:fill-slot="main">
+
+    <h1 i18n:translate="heading_pwreset_invalid">Error setting password</h1>
+
+    <p i18n:translate="message_pwreset_invalid">
+       Sorry, this appears to be an invalid request. Please make sure you copied
+       the URL exactly as it appears in your email and that you entered your
+       user name correctly.
+    </p>
+
+</div>
+
+</body>
+</html>

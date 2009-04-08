@@ -1,0 +1,22 @@
+
+Installation Instructions for PloneTestCase
+
+    Requires Python 2.1 and Zope 2.6 or higher.
+
+    Requires Plone 2.0 or higher.
+
+    Requires ZopeTestCase 0.9.9 or higher.
+
+    1. Extract the tarball into the 'Products' directory of a
+       Zope instance with Plone 2.0, 2.1, 2.5, or 3.0 installed.
+
+    2. Run the PloneTestCase tests
+
+       Zope 2.6::
+
+        python /path/to/Zope/utilities/testrunner.py -qid Products/PloneTestCase
+
+       Zope 2.7 and higher::
+
+        ./bin/zopectl test --dir Products/PloneTestCase
+

@@ -1,0 +1,20 @@
+validation (1.0.3-1) unstable; urgency=low
+
+  * New upstream release
+  * Added isEmpty validator
+
+ -- Christian Heimes <heimes@faho.rwth-aachen.de>  Tue, 20 Apr 2004 22:54:48 +0200
+
+validation (1.0.2-1) unstable; urgency=low
+
+  * New upstream version
+  * valiation is moved from python site-packages to zope Products
+
+ -- Christian Heimes <heimes@faho.rwth-aachen.de>  Sun, 21 Mar 2004 16:43:16 +0100
+
+validation (1.0-1) unstable; urgency=low
+
+  * Initial Release. 
+
+ -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed, 30 Jul 2003 14:42:05 +0200
+

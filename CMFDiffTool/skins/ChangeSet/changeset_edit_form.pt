@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+  <body>
+    
+    <div metal:fill-slot="main">
+      
+      <h1>Change Set</h1>
+      <p>
+          Compute the difference between two objects
+      </p>
+      
+      <form action="changeset_edit" method="post">
+    
+    <p>
+      <strong>Object 1:</strong> <input name="ob1_path" type="text" 
+                                            tal:attributes="value python:'/'.join(here.ob1_path)" />
+    </p>
+    <p>
+      <strong>Object 2:</strong> <input name="ob2_path" type="text" 
+                                            tal:attributes="value python:'/'.join(here.ob2_path)" />
+    </p>
+    
+    <input type="submit" name="compute" value="Compute Diff" class="standalone" />
+      </form>
+
+    </div>
+
+  </body>
+</html>

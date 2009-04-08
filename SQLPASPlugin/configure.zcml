@@ -1,0 +1,33 @@
+<!--
+
+At this point, this configure.zcml is specific to Plone.  Please remove it
+if you don't have Plone installed.
+
+-->
+
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:five="http://namespaces.zope.org/five">
+
+  <five:implements
+      class="Products.CMFPlone.Portal.PloneSite"
+      interface=".interfaces.IPortal"
+      />
+
+  <five:traversable
+      class="Products.CMFPlone.Portal.PloneSite"
+      />
+
+  <browser:page
+      for=".interfaces.IPortal"
+      class=".browser.ConfigletView"
+      name="sqlpas-configure.html"
+      permission="cmf.ManagePortal"
+      allowed_attributes="is_setup get_connections usertable usercol passcol
+                          have_one_plugin"
+      />
+
+  <include file="encrypt.zcml" />
+
+</configure>

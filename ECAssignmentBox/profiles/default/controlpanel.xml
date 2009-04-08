@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<object name="portal_controlpanel">
+	<configlet title="Assignment Box Settings" action_id="ecab_utils"
+		appId="ECAssignmentBox" category="Products" condition_expr=""
+		url_expr="string:${portal_url}/ecabtool_form" visible="True">
+		<permission>Manage portal</permission>
+	</configlet>
+</object>
+
+<!-- <object name="portal_controlpanel" meta_type="Plone Control Panel Tool">
+ <configlet title="Assignment Box Settings" action_id="ecab_utils"
+    appId="ECAssignmentBox" category="Products" condition_expr=""
+    url_expr="string:${portal_url}/ecabtool_form" visible="True">
+  <permission>Manage portal</permission>
+ </configlet>
+</object> -->

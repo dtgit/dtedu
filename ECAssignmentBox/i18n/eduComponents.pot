@@ -1,0 +1,934 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: ECAssignmentBox/n"
+"POT-Creation-Date: 2006-01-26 10:06+0000/n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE/n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>/n"
+"Language-Team: LANGUAGE <LL@li.org>/n"
+"MIME-Version: 1.0/n"
+"Content-Type: text/plain; charset=utf-8/n"
+"Content-Transfer-Encoding: 8bit/n"
+"Plural-Forms: nplurals=1; plural=0/n"
+"Language-Code: en/n"
+"Language-Name: English/n"
+"Preferred-Encodings: utf-8 latin1/n"
+"Domain: eduComponents/n"
+
+#: ./ECABTool.py
+msgid "decimal_separator"
+msgstr ""
+
+#: ./ECABTool.py
+msgid "."
+msgstr ""
+
+#: ./skins/ECAssignmentBox/ecabtool_form.cpt
+# Original: "Assignment Box Settings"
+msgid "heading_ecab_prefs"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/ecabtool_form.cpt
+# Original: "Settings that affect the behavior of all assignment boxes on this site."
+msgid "description_ecab_prefs"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/ecabtool_form.cpt
+# Original: "Student attributes mapping"
+msgid "legend_ecab_attr_mapping"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/ecabtool_form.cpt
+# Original: "Here you can specify user attributes which should be used
+# to retrieve additional student information.  The available user
+# attributes are listed in <code>portal_memberdata</code> in the Zope
+# Management Interface.  On your site, some of them are:
+# ${properties}".  Additional user attributes may be available, e.g.,
+# if the user data for your site is stored in an LDAP directory.
+msgid "help_ecab_attr_mapping"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/ecabtool_form.cpt
+# Original: "The user attribute which stores the student ID."
+msgid "help_student_id_attr"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/ecabtool_form.cpt
+# Original: "The user attribute which stores a student's major."
+msgid "help_major_attr"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/ecabtool_form.cpt
+# Original: "The user attribute which stores a student's personal title (such as &ldquo;Mr.&rdquo; or &ldquo;Ms.&rdquo;)."
+msgid "help_personal_title_attr"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/ecab_assignments_status.cpy
+msgid "Changing state for "${titles}" caused an exception."
+msgstr ""
+
+#: ./skins/ECAssignmentBox/eca_add.cpy
+msgid "Neither answer nor uploaded file found."
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecab_assignments_status.cpy
+msgid "Please select one or more items."
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecab_assignments_status.cpy
+msgid "State for ${itemCount} items has been changed."
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecab_assignments_status.cpy
+msgid "State for "${titles}" could not be changed."
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecab_assignments_status.cpy
+msgid "State for "${titles}" has been changed."
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecab_assignments_status.cpy
+msgid "State for "${titles}" has been changed."
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/eca_add_validate.vpy
+msgid "The submission period has expired. Your submission was rejected."
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/eca_add_validate.vpy
+msgid "You need to be logged in with your username and password."
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/eca_add.cpy
+msgid "Congratulations! Your assignment has been successfully submitted to the community for feedback!"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <a i18n:translate="assignment_of" tal:attributes="name here/getId">
+#.           Assignment of
+#. </a>
+# Original: "Assignment of"
+msgid "assignment_of"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <dt class="collapsibleHeader" i18n:translate="assignment_text">
+#.           Assignment text
+#. </dt>
+# Original: "Assignment text"
+msgid "assignment_text"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <a class="link-parent" i18n:translate="back_to_overview" tal:attributes="href string: #${here/aq_parent/id}">
+#.         Back to the assignment text
+#. </a>
+# Original: "Back to the assignment text"
+msgid "back_to_overview"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <span i18n:translate="go_to_submission">
+#.  Go to the submission of
+#. </span>
+# Original: "Go to the submission of"
+msgid "go_to_submission"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecab_assignments.cpt
+#. <p class="discreet" i18n:translate="grade_statistics_help" tal:condition="grades">
+#. 	          Average and median grades are calculated from all assignments
+#. 	          in this assignment box which are in the state
+#.  <em>
+#.   graded
+#.  </em>
+#.   and
+#. 	          which have a grade assigned.
+#. </p>
+# Original: "Average and median grades are calculated from all assignments in this assignment box which are in the state <em>graded</em> and which have a grade assigned."
+msgid "grade_statistics_help"
+msgstr ""
+
+
+#: ./ECAssignment.py
+msgid "help_answer"
+msgstr ""
+
+
+#: ./ECAssignment.py
+msgid "help_assignment_reference"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecat_view.pt
+msgid "label_ecat_folder_contents"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecat_backlinks.pt
+msgid "label_ecat_backlinks"
+msgstr ""
+
+
+#: ./ECAssignment.py
+msgid "label_assignment_reference"
+msgstr ""
+
+
+#: ./ECAssignmentBox.py
+msgid "help_assignment_text"
+msgstr ""
+
+
+#: ./ECFolder.py
+msgid "help_completed_states"
+msgstr ""
+
+
+#: ./ECFolder.py
+msgid "help_directions"
+msgstr ""
+
+
+#: ./ECAssignment.py
+msgid "help_feedback"
+msgstr ""
+
+
+#: ./ECAssignment.py
+msgid "help_grade"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/by_student.pt
+#. <p i18n:translate="help_overall_average_grade">
+#.  The following numbers are
+#. 	  based on
+#.  ${count}
+#. 	  submissions.
+#. </p>
+# Original: "The following numbers are based on ${count} submissions."
+msgid "help_overall_average_grade"
+msgstr ""
+
+
+#: ./ECFolder.py
+msgid "help_projected_assignments"
+msgstr ""
+
+
+#: ./ECAssignment.py
+msgid "help_remarks"
+msgstr ""
+
+
+#: ./ECAssignmentBox.py
+msgid "help_submission_period_end"
+msgstr ""
+
+
+#: ./ECAssignmentBox.py
+msgid "help_submission_period_start"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecab_view.cpt
+#. <div class="formHelp" i18n:translate="help_submit_answer">
+#.               Enter your answer for this assignment
+#. </div>
+# Original: "Enter your answer for this assignment"
+msgid "help_submit_answer"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecab_view.cpt
+#. <div class="formHelp" i18n:translate="help_upload_file">
+#.              or upload a file (existing content will be replaced).
+#. </div>
+# Original: "or upload a file (existing content will be replaced)."
+msgid "help_upload_file"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <a href="item_url" i18n:translate="label_action_download" tal:attributes="href python: '%s/at_download/file' % (item.getId(),)">
+#.  [Download]
+#. </a>
+# Original: "[Download]"
+msgid "label_action_download"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <a href="item_url" i18n:translate="label_action_grade" tal:attributes="href python: '%s/%s' % (item.getId(), item.getTypeInfo().getActionById('grade'))">
+#.                   [Grade]
+#. </a>
+# Original: "[Grade]"
+msgid "label_action_grade"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <a href="item_url" i18n:translate="label_action_view" tal:attributes="href python: '%s/%s' % (item.getId(), item.getTypeInfo().getActionById('view'))">
+#.  [View]
+#. </a>
+# Original: "[View]"
+msgid "label_action_view"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <th i18n:translate="label_actions">
+#.  Actions
+#. </th>
+# Original: "Actions"
+msgid "label_actions"
+msgstr ""
+
+
+#: ./ECAssignment.py
+msgid "label_answer"
+msgstr ""
+
+
+#: ./ECAssignmentBox.py
+msgid "label_assignment_text"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/by_student.pt
+#. <th i18n:translate="label_average_grade" tal:condition="grades">
+#.  Avg. Grade
+#. </th>
+#: ./skins/ECAssignmentBox/ecab_assignments.cpt
+#. <td colspan="4" i18n:translate="label_average_grade">
+#.  Average Grade
+#. </td>
+# Original: "Avg. Grade"
+msgid "label_average_grade"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/by_student.pt
+#. <th i18n:translate="label_completed">
+#.  Completed
+#. </th>
+# Original: "Completed"
+msgid "label_completed"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/by_student.pt
+#. <th i18n:translate="label_completed_curr">
+#.  %Curr.
+#. </th>
+# Original: "%Curr."
+msgid "label_completed_curr"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/by_student.pt
+#. <th i18n:translate="label_completed_proj" tal:condition="here/projectedAssignments">
+#.  %Proj.
+#. </th>
+# Original: "%Proj."
+msgid "label_completed_proj"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/by_student.pt
+#. <b i18n:translate="label_completed_states">
+#.  Completed States:
+#. </b>
+# Original: "Completed States:"
+msgid "label_completed_states"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <th i18n:translate="label_date">
+#.  Date
+#. </th>
+# Original: "Date"
+msgid "label_date"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <span i18n:translate="label_datetime">
+#.  submitted at
+#. </span>
+# Original: "submitted at"
+msgid "label_datetime"
+msgstr ""
+
+
+#: ./ECFolder.py
+msgid "label_directions"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <b i18n:translate="label_email">
+#.  E-Mail:
+#. </b>
+# Original: "E-Mail"
+msgid "label_email"
+msgstr ""
+
+
+#: ./ECAssignment.py
+msgid "label_feedback"
+msgstr ""
+
+
+#: ./ECAssignment.py
+msgid "label_grade"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <b i18n:translate="label_major">
+#.  Major:
+#. </b>
+# Original: "Major"
+msgid "label_major"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <th i18n:translate="label_mark">
+#.  Grade
+#. </th>
+# Original: "Grade"
+msgid "label_mark"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecab_assignments.cpt
+#. <td colspan="4" i18n:translate="label_median_grade">
+#.  Median Grade
+#. </td>
+# Original: "Median Grade"
+msgid "label_median_grade"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/all_assignments.pt
+#. <span i18n:translate="label_n_boxes">
+#.   Published assignment boxes inside this folder:
+#. </span>
+#. span tal:replace="n_boxes"/>
+#: ./skins/ECAssignmentBox/by_student.pt
+#. <b i18n:translate="label_n_boxes">
+#.  Published assignment boxes inside this folder:
+#. </b>
+# Original: "Published assignment boxes inside this folder:"
+msgid "label_n_boxes"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/all_assignments.pt
+# Original: "There are no submissions in this assignment box."
+msgid "no_submissions"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <b i18n:translate="label_name">
+#.  Name:
+#. </b>
+# Original: "Name"
+msgid "label_name"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/by_student.pt
+#. <input class="context"
+#.   tabindex="#"
+#.   type="submit"
+#.   name="exportStatistics:method"
+#.   value="Export"
+#.   tal:attributes="tabindex tabindex/next;"
+#.   i18n:attributes="value"/>
+# Original: "Export"
+msgid "Export"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/by_student.pt
+#. <span i18n:translate="label_overall_average_grade" tal:omit-tag="">
+#.  Overall average grade
+#. </span>
+# Original: "Overall average grade"
+msgid "label_overall_average_grade"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/by_student.pt
+#. <span i18n:translate="label_overall_median_grade">
+#.  Overall median grade
+#. </span>
+# Original: "Overall median grade"
+msgid "label_overall_median_grade"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/by_student.pt
+#. <b i18n:translate="label_projected_assignments">
+#.  Projected Number of Assignments:
+#. </b>
+# Original: "Projected Number of Assignments:"
+msgid "label_projected_assignments"
+msgstr ""
+
+
+#: ./ECAssignment.py
+msgid "label_remarks"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <input alt="Select all items" class="noborder" i18n:attributes="title label_select_all_items; alt label_select_all_items;" name="selectButton" onClick="toggleSelect(this, 'paths:list');" src="select_all_icon.gif" tal:attributes="src string:$portal_url/select_all_icon.gif" title="Select all items" type="checkbox"/>
+# Original: "Select all items"
+msgid "label_select_all_items"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <th i18n:translate="label_state">
+#.  State
+#. </th>
+# Original: "State"
+msgid "label_state"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <dt class="collapsibleHeader" i18n:translate="label_student_details">
+#.  Student details
+#. </dt>
+# Original: "Student details"
+msgid "label_student_details"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <b i18n:translate="label_student_id">
+#.  Student ID:
+#. </b>
+# Original: "Student ID"
+msgid "label_student_id"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+# Original: "Title"
+msgid "label_personal_title"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <img tal:attributes="src string: ec_shared.png"
+#.      alt="Released"
+#.      title="This assignment has been released for viewing"
+#.      i18n:attributes="alt   label_released;
+#. 		      title tooltip_released_icon"/>
+# Original: "Released"
+msgid "label_released"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <img tal:attributes="src string: ec_shared.png"
+#.      alt="Released"
+#.      title="This assignment has been released for viewing"
+#.      i18n:attributes="alt   label_released;
+#. 		      title tooltip_released_icon"/>
+# Original: "This assignment has been released for viewing"
+msgid "tooltip_released_icon"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <img tal:attributes="src string: ec_comment.png"
+#.   alt="Feedback"
+#.   title="Feedback available"
+#.   i18n:attributes="alt   label_feedback;
+#.                    title tooltip_feedback_icon"/>
+# Original: "Feedback available"
+msgid "tooltip_feedback_icon"
+msgstr ""
+
+
+#: ./ECAssignmentBox.py
+msgid "label_submission_period_end"
+msgstr ""
+
+
+#: ./ECAssignmentBox.py
+msgid "label_submission_period_start"
+msgstr ""
+
+
+#: ./ECAssignmentBox.py
+# Original: "Send notification e-mail messages"
+msgid "label_sendNotificationEmail"
+msgstr ""
+
+
+#: ./ECAssignmentBox.py
+# Original: "If selected, the owner of this assignment box will receive an e-mail message each time an assignment is submitted."
+msgid "help_sendNotificationEmail"
+msgstr ""
+
+
+#: ./ECAssignmentBox.py
+# Original: "Send grading notification e-mail messages"
+msgid "label_sendGradingNotificationEmail"
+msgstr ""
+
+
+#: ./ECAssignmentBox.py
+# Original: "If selected, students will receive an e-mail message when their submissions to this assignment box are graded."
+msgid "help_sendGradingNotificationEmail"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/by_student.pt
+#. <h1 class="documentFirstHeading" i18n:translate="label_submissions">
+#. 	  Students
+#. </h1>
+# Original: "Students"
+msgid "label_submissions"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecab_view.cpt
+#. <label for="answer" i18n:translate="label_submit_answer">
+#.  Answer
+#. </label>
+# Original: "Answer"
+msgid "label_submit_answer"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/base_macros.pt
+#. <th i18n:translate="label_user">
+#.  User
+#. </th>
+# Original: "User"
+msgid "label_user"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecfolder_view.pt
+#. <a href="/assignments" i18n:translate="label_view_submissions" tal:attributes="href python: '%s/%s' % (item.getId(), item.getTypeInfo().getActionById('assignments'))">
+#.                           View submissions
+#. </a>
+# Original: "View submissions"
+msgid "label_view_submissions"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecfolder_view.pt
+# Original: "View assignment"
+msgid "label_view_assignment"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecfolder_view.pt
+#. <a href="/view" i18n:translate="label_work_on" tal:attributes="href item/absolute_url">
+#.                           Work on this assignment
+#. </a>
+# Original: "Work on this assignment"
+msgid "label_work_on"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecab_view.cpt
+# Original: "Submission not permitted: You are not enrolled in this course."
+msgid "submission_cannot_participate"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecab_view.cpt
+#. <i i18n:translate="submission_cannot_resubmit" tal:condition="python: (not canResubmit) and (not hasExpired)">
+#.             Submission not permitted: An earlier submission is under review
+#.             or has already been accepted.
+#. </i>
+# Original: "Submission not permitted: An earlier submission is under review or has already been accepted."
+msgid "submission_cannot_resubmit"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecab_view.cpt
+# Original: "Submission not permitted: You have reached the maximum number of attempts."
+msgid "submission_max_tries_reached"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecfolder_view.pt
+#. <span i18n:translate="submission_period_ended">
+#.                         Submission period ended:
+#. </span>
+# Original: "Submission period ended:"
+msgid "submission_period_ended"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecab_view.cpt
+#. <span i18n:translate="submission_period_ends">
+#.             Submission period ends:
+#. </span>
+# Original: "Submission period ends:"
+msgid "submission_period_ends"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecab_view.cpt
+#. <i i18n:translate="submission_period_expired" tal:condition="hasExpired">
+#.             The submission period has expired.
+#. </i>
+# Original: "The submission period has expired."
+msgid "submission_period_expired"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecab_view.cpt
+#. <i i18n:translate="submission_period_not_effective" tal:condition="not: isEffective">
+#.             The submission period is not effective.
+#. </i>
+# Original: "The submission period is not effective."
+msgid "submission_period_not_effective"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecab_view.cpt
+# Original: "You have ${count} attempts left."
+msgid "tries_info"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/eca_add.cpy
+# Original: "Your submission has been saved."
+msgid "submission_saved"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecab_view.cpt
+#. <label for="file" i18n:translate="upload_file_label">
+#.  File
+#. </label>
+# Original: "File"
+msgid "upload_file_label"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ECAssignment.py
+# Original: "[${id}] Submission to "${box_title}" by ${student}"
+msgid "email_new_submission_subject"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ECAssignment.py
+# Original: "${student} has made a submission to the assignment "${box_title}".\n\n<${url}>\n\n-- \n${product} ${version}"
+msgid "email_new_submission_content"
+msgstr ""
+
+
+#: ./ECAssignment.py
+# Original: "Your submission to "${box_title}" has been graded"
+msgid "email_submission_graded_subject"
+msgstr ""
+
+
+#: ./ECAssignment.py
+# Original: "Your submission to the assignment box "${box_title}" has been graded.\n\nVisit the following URL to view your submission:\n\n<${url}>\n\n -- \n ${product} ${version}"
+msgid "email_submission_graded_content"
+msgstr ""
+
+
+#: ./skins/ECAssignmentBox/ecab_view.py
+#. <a href="" 
+#.          tal:attributes="href string:${here/absolute_url}/downloadAnswerTemplate"
+#.          i18n:translate="label_download_answer_template"
+#.          tal:condition="here/getAnswerTemplate">
+#.          Download answer template
+#.        </a>
+# Original: Download answer template
+msgid "label_download_answer_template"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/ecf_modify_boxes.cpt
+# Original: You need to select at least one assignment box for this action.
+msgid "err_select_box"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/ecf_modify_boxes.cpt
+# Original: The settings below are applied if the box next to the title is checked.
+msgid "description_selective_application"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/modify_boxes.cpy
+# Original: The options for the following assignment boxes were changed: "${titles}".
+msgid "modify_boxes_success"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/modify_boxes.cpy
+# Original: The settings of the following assignment boxes could not be changed: "${titles}".
+msgid "modify_boxes_failure"
+msgstr ""
+
+#: ./ECAssignmentBox.py
+# Original: "Enable word wrap in the Answer text area"
+msgid "label_wrapAnswer"
+msgstr ""
+
+#: ./ECAssignmentBox.py
+# Original: "If selected, text entered in the Answer field will be word-wrapped.  Disable word wrap if students are supposed to enter program code or similar notations."
+msgid "help_wrapAnswer"
+msgstr ""
+
+#: ./ECAssignmentBox.py
+# Original: "Answer template"
+msgid "label_answer_template"
+msgstr ""
+
+#: ./ECAssignmentBox.py
+# Original: "You can provide a template for the students\' answers"
+msgid "help_answer_template"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/all_assignments.cpy
+# Original: "Show superseded"
+msgid "Show superseded"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/all_assignments.cpy
+# Original: "Hide superseded"
+msgid "Hide superseded"
+msgstr ""
+
+#: ./ECAssignmentBox.py
+# Original: "Maximum number of attempts"
+msgid "label_max_tries"
+msgstr ""
+
+#: ./ECAssignmentBox.py
+# Original: "Maximum number of attempts, 0 means unlimited"
+msgid "help_max_tries"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/analysis.cpt
+# Original: "Totals"
+msgid "label_totals"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/analysis.cpt
+# Original: "Shows totals for several values."
+msgid "help_totals"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/analysis.cpt
+# Original: "Assignment boxes inside this folder:"
+msgid "label_n_boxes_not_pub"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/analysis.cpt
+# Original: "Superseded submissions:"
+msgid "label_total_superseeded"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/analysis.cpt
+# Original: "Submissions in all other states:"
+msgid "label_total_assignments_without"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/analysis.cpt
+# Original: "Submissions not in final states:"
+msgid "label_total_assignments_not_final"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/analysis.cpt
+# Original: "There are no submissions"
+msgid "warn_no_submissions"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/analysis.cpt
+# Original: "Submissions in final states"
+msgid "label_final_states"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/analysis.cpt
+# Original: "Shows the number of submissions in the states defined as 
+#            completed and the number of rejected submissions."
+msgid "help_final_states"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/analysis.cpt
+# Original: "There are no assignments in final states"
+msgid "warn_no_final_submissions"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/analysis.cpt
+# Original: "Number of attempts"
+msgid "label_superseded_stats"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/analysis.cpt
+# Original: "This table shows the number of attempts users needed 
+#            for this assignment."
+msgid "help_superseded_stats"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/analysis.cpt
+# Original: "Attempts"
+msgid "label_attempts"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/analysis.cpt
+# Original: "Students (%)"
+msgid "label_students"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/analysis.cpt
+# Original: "Submissions per day"
+msgid "label_date_stats"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/analysis.cpt
+# Original: "This table shows the number of submissions per day."
+msgid "help_date_stats"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/analysis.cpt
+# Original: "Submissions"
+msgid "label_submissions"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/all_assignments.cpy
+# Original: "Show submission text"
+msgid "Show submission text"
+msgstr ""
+
+#: ./skins/ECAssignmentBox/all_assignments.cpy
+# Original: "Hide submission text"
+msgid "Hide submission text"
+msgstr ""
+

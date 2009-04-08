@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<object name="portal_actions" meta_type="Plone Actions Tool"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <object name="portal_tabs" meta_type="CMF Action Category">
+  <property name="title"></property>
+
+  <object name="index_html" meta_type="CMF Action" i18n:domain="plone">
+   <property name="title" i18n:translate="">Home</property>
+   <property name="description" i18n:translate=""></property>
+   <property
+      name="url_expr">string:http://teacherswithoutborders.org/</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr"></property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+
+  <object name="groups_action" meta_type="CMF Action" i18n:domain="TWBSkin">
+   <property name="title" i18n:translate="">Groups</property>
+   <property name="description" i18n:translate=""></property>
+   <property
+      name="url_expr">string:http://www.teacherswithoutborders.org/groups</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr"></property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+
+  <object name="people_action" meta_type="CMF Action" i18n:domain="TWBSkin">
+   <property name="title" i18n:translate="">Members</property>
+   <property name="description" i18n:translate=""></property>
+   <property
+      name="url_expr">string:http://www.teacherswithoutborders.org/profiles</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr"></property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+
+  <object name="news_action" meta_type="CMF Action" i18n:domain="TWBSkin">
+   <property name="title" i18n:translate="">News</property>
+   <property name="description" i18n:translate=""></property>
+   <property
+      name="url_expr">string:http://teacherswithoutborders.org/news</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr"></property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+
+  <object name="courses_action" meta_type="CMF Action" i18n:domain="TWBSkin">
+   <property name="title" i18n:translate="">Courses</property>
+   <property name="description" i18n:translate=""></property>
+   <property
+      name="url_expr">string:http://courses.teacherswithoutborders.org</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr"></property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+
+  <object name="courses_action" meta_type="CMF Action" i18n:domain="TWBSkin">
+   <property name="title" i18n:translate="">Donate</property>
+   <property name="description" i18n:translate=""></property>
+   <property
+      name="url_expr">string:http://teacherswithoutborders.org/donate</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr"></property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+
+ </object>
+</object>

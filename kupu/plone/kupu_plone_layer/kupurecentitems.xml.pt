@@ -1,0 +1,32 @@
+<tal:block define="charset here/portal_properties/site_properties/default_charset|here/portal_properties/default_charset|string:utf-8;
+        content_type python:request.RESPONSE.setHeader('Content-Type', 'text/xml;;charset=%s' % charset);"
+ replace='structure string:&lt;?xml version="1.0" encoding="${charset}" ?&gt;'>
+<?xml version="1.0"?>
+</tal:block>
+<library
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="kupu"
+    tal:define="kupu context/kupu_library_tool;">
+  <uri tal:content="template/absolute_url" />
+  <icon
+       tal:content="string:${here/portal_url}/kupuimages/kupusearch_icon.gif" />
+  <title i18n:translate="heading_recentitems">Recent Items</title>
+  <description i18n:translate="descr_recentitems">Recently published items.</description>
+  <src tal:define="url string:${context/absolute_url}/${template/getId};"
+       tal:content="python:kupu.kupuUrl(url)" />
+
+  <breadcrumbs class="kupu-locate">
+    <crumb tal:define="locator here/kupulocate.xml/absolute_url;
+                       url python:kupu.kupuUrl(locator);"
+      tal:attributes="href string:$url&amp;src=$$src$$" i18n:translate="locate_content">
+      Locate
+    </crumb>
+  </breadcrumbs>
+  <items metal:use-macro="here/kupucollection.xml/macros/collectionItems">
+    <metal:slot fill-slot="defineItems">
+       <tal:var define="global items context/kupu_library_tool/getRecentItems"/>
+    </metal:slot>
+  </items>
+</library>

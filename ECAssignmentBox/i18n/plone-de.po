@@ -1,0 +1,210 @@
+# Mario Amelung <amelung@iws.cs.uni-magdeburg.de>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: ECAssignmentBox\n"
+"POT-Creation-Date: Wed Jan 25 09:51:00 2006\n"
+"PO-Revision-Date: Wed Jan 25 09:51:00 2006\n"
+"Last-Translator: Mario Amelung <amelung@iws.cs.uni-magdeburg.de>\n"
+"Language-Team: eduComponents <educomponents@uni-magdeburg.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: de\n"
+"Language-Name: Deutsch\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: plone\n"
+"X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
+
+#: ECAssignment.py
+# Original: "A submission to an assignment box."
+msgid "description_edit_eca"
+msgstr "Eine Einreichung zu einer Aufgabe."
+
+#: ECAssignment.py
+# Original: "A submission to an assignment box"
+msgid "A submission to an assignment box"
+msgstr "Eine Einreichung zu einer Aufgabe"
+
+#: ECAssignment.py
+# Original: "Assignment"
+msgid "Assignment"
+msgstr "Einreichung"
+
+
+#: ECAssignmentBox.py
+# Original: "Allows the creation, submission and grading of online assignments."
+msgid "description_edit_ecab"
+msgstr "Ermöglicht die Erstellung, Einreichung und Benotung von Aufgaben."
+
+#: ECAssignmentBox.py
+# Original: "Allows the creation, submission and grading of online assignments"
+msgid "Allows the creation, submission and grading of online assignments"
+msgstr "Ermöglicht die Erstellung, Einreichung und Benotung von Aufgaben"
+
+#: ECAssignmentBox.py
+# Original: "Assignment Box"
+msgid "Assignment Box"
+msgstr "Aufgabe"
+
+
+#: ECFolder.py
+# Original: "A container for assignment boxes."
+msgid "description_edit_ecf"
+msgstr "Bietet die Möglichkeit, Aufgaben zu gruppieren."
+
+#: ECFolder.py
+# Original: "A container for assignment boxes"
+msgid "A container for assignment boxes"
+msgstr "Bietet die Möglichkeit, Aufgaben zu gruppieren"
+
+#: ECFolder.py
+# Original: "ECFolder"
+msgid "ECFolder"
+msgstr "EC-Ordner"
+
+
+#: ECFolder.py
+#. Assignments
+# Original: "Assignments"
+msgid "Assignments"
+msgstr "Einreichungen"
+
+
+#: ECFolder.py
+#. Assignments (full)
+# Original: "Assignments (full)"
+msgid "Assignments (full)"
+msgstr "Einreichungen (vollständig)"
+
+
+#: ECFolder.py
+# Original: "Statistics"
+msgid "Statistics"
+msgstr "Statistiken"
+
+
+#: ECFolder.py, ECAssignmentBox
+# Original: "Analysis"
+msgid "Analysis"
+msgstr "Analyse"
+
+
+#: ECFolder.py
+# Original: Set Assignment Box Options
+msgid "Set Assignment Box Options"
+msgstr "Einstellungen von Aufgaben ändern"
+
+
+#: ECAssignmentTask.py
+# Original: "Assignment Task"
+msgid "Assignment Task"
+msgstr "Aufgabenstellung"
+
+#: ECAssignmentTask.py
+# Original: Defines the task for an assignment box
+msgid "Defines the task for an assignment box"
+msgstr "Aufgabenstellung zur Verwendung in einer Aufgabe"
+
+#: ECAssignmentTask.py
+# Original: Defines the task for an assignment box.
+msgid "description_edit_ecat"
+msgstr "Aufgabenstellung zur Verwendung in einer Aufgabe."
+
+#: ECAssignmentTask.py
+# Original: Backlinks
+msgid "Backlinks"
+msgstr "Rückverweise"
+
+
+#: ECAssignmentWorkflow.py
+#. Submitted
+# Original: "Submitted"
+msgid "Submitted"
+msgstr "Eingereicht"
+
+
+#: ECAssignmentWorkflow.py
+#. Pending
+# Original: "Pending"
+msgid "Pending"
+msgstr "In Prüfung"
+
+
+#: ECAssignmentWorkflow.py
+#. Superseded
+# Original: "Superseded"
+msgid "Superseded"
+msgstr "Ersetzt"
+
+
+#: ECAssignmentWorkflow.py
+#. Rejected
+# Original: "Rejected"
+msgid "Rejected"
+msgstr "Abgewiesen"
+
+
+#: ECAssignmentWorkflow.py
+#. Accepted
+# Original: "Accepted"
+msgid "Accepted"
+msgstr "Akzeptiert"
+
+
+#: ECAssignmentWorkflow.py
+#. Graded
+# Original: "Graded"
+msgid "Graded"
+msgstr "Benotet"
+
+
+#: ECAssignmentWorkflow.py
+#. Review
+# Original: "Review"
+msgid "Review"
+msgstr "Prüfen"
+
+
+#: ECAssignmentWorkflow.py
+#. Accept
+# Original: "Accept"
+msgid "Accept"
+msgstr "Akzeptieren"
+
+
+#: ECAssignmentWorkflow.py
+#. Grade
+# Original: "Grade"
+msgid "Grade"
+msgstr "Benoten"
+
+
+#: ECAssignmentWorkflow.py
+#. Supersede
+# Original: "Supersede"
+msgid "Supersede"
+msgstr "Ersetzen"
+
+
+#: .\skins\ECAssignmentBox\ecab_view.cpt
+#: .\skins\ECAssignmentBox\eca_grade.cpt
+msgid "Cancel"
+msgstr "Abbrechen"
+
+
+#: .\skins\ECAssignmentBox\ecab_view.cpt
+msgid "Submit"
+msgstr "Einreichen"
+
+
+#: .\skins\ECAssignmentBox\eca_grade.cpt
+msgid "Save"
+msgstr "Speichern"
+
+#: From PloneTranslations/i18n/plone-de.po
+#. Default: "A short summary of the content"
+#: widget description of TextAreaWidget for label Description
+msgid "help_description"
+msgstr "Eine kurze Beschreibung des Inhalts"
+

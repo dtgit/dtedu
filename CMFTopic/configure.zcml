@@ -1,0 +1,61 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="cmf_default">
+
+  <permission
+      id="cmf.AddPortalTopics"
+      title="Add portal topics"
+      />
+
+  <!-- Topic -->
+
+  <five:registerClass
+      class=".Topic.Topic"
+      meta_type="Portal Topic"
+      permission="cmf.AddPortalTopics"
+      />
+
+  <utility
+      component=".Topic.TopicFactory"
+      name="cmf.topic"
+      />
+
+  <!-- directories -->
+
+  <cmf:registerDirectory name="zpt_topic"/>
+
+  <!-- profiles -->
+
+  <genericsetup:registerProfile
+      name="default"
+      title="CMFTopic"
+      description="Adds topic portal type."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFCore.interfaces.ISiteRoot"
+      />
+
+  <!-- exportimport -->
+
+  <adapter
+      factory=".exportimport.TopicExportImport"
+      provides="Products.GenericSetup.interfaces.IFilesystemExporter"
+      for="Products.CMFTopic.interfaces.ITopic"
+      />
+
+  <adapter
+      factory=".exportimport.TopicExportImport"
+      provides="Products.GenericSetup.interfaces.IFilesystemImporter"
+      for="Products.CMFTopic.interfaces.ITopic"
+      />
+
+  <adapter
+      factory=".exportimport.SubtopicFactory"
+      provides="Products.GenericSetup.interfaces.IContentFactory"
+      for="Products.CMFTopic.interfaces.ITopic"
+      name="Topic"
+      />
+
+</configure>

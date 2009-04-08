@@ -1,0 +1,112 @@
+***************
+*** 282,288 ****
+  #. Default: Only selection fields are eligible for this use because they
+  #. Default: may be validated against your specified options.
+  msgid "help_formmailer_to_extract"
+- msgstr "Choisissez un champ du formulaire que vous souhaitez extraire pour le destinataire. Si vous choisissez tout autre que valeur que \"None\", cela écrasera le paramètre \"Adresses électronques des destinataires\"."
+  
+  #. Mailer Adapter
+  #. Default """
+--- 282,288 ----
+  #. Default: Only selection fields are eligible for this use because they
+  #. Default: may be validated against your specified options.
+  msgid "help_formmailer_to_extract"
++ msgstr "Choisissez un champ du formulaire que vous souhaitez extraire pour le destinataire. Si vous choisissez tout autre valeur que \"Rien\", cela écrasera le paramètre \"Adresse mél du destinataire\"."
+  
+  #. Mailer Adapter
+  #. Default """
+***************
+*** 295,301 ****
+  #. Default template to plain text if you're using encryption.
+  #. Default TEST THIS FEATURE BEFORE GOING PUBLIC!
+  msgid "help_gpg_key_id"
+- msgstr "Donnez votre key-id, l'adresse électronique ou ce qui permettra de valider votre clé publique courante. Il sera utilisé pour encrypter le corps du message. Contactez votre administrateur du site si vous avez besoin d'installer une clé publique.Note : Vous devrez probablement modifier votre gabarit du message en texte plein si vous utilisez l'encryptage.CETTE FONCTIONNALITE EST EN TEST !"
+  
+  #. Thanks Page
+  #. Default: Check this to display fields titles
+--- 295,301 ----
+  #. Default template to plain text if you're using encryption.
+  #. Default TEST THIS FEATURE BEFORE GOING PUBLIC!
+  msgid "help_gpg_key_id"
++ msgstr "Donnez votre key-id, l'adresse mél ou ce qui permettra de valider votre clé publique courante. Il sera utilisé pour encrypter le corps du message. Contactez votre administrateur du site si vous avez besoin d'installer une clé publique.Note : Vous devrez probablement modifier votre gabarit du message en texte plein si vous utilisez l'encryptage.CETTE FONCTIONNALITE EST EN TEST !"
+  
+  #. Thanks Page
+  #. Default: Check this to display fields titles
+***************
+*** 433,439 ****
+  #. Selection Field
+  #. Default: "Presentation Widget"
+  msgid "label_fgformat_text"
+- msgstr "Widget de présentation"
+  
+  #. Lines Field
+  #. Default: "Default"
+--- 433,439 ----
+  #. Selection Field
+  #. Default: "Presentation Widget"
+  msgid "label_fgformat_text"
++ msgstr "Type de présentation"
+  
+  #. Lines Field
+  #. Default: "Default"
+***************
+*** 448,459 ****
+  #. Multi-Select Field
+  #. Default: "Presentation Widget"
+  msgid "label_fgmsformat_text"
+- msgstr "Widget de présentation"
+  
+  #. Date/Time Field
+  #. Default: "Show Time Selection Options"
+  msgid "label_fgshowhm_text"
+- msgstr "Afficher les options de selection de temps"
+  
+  #. String Field
+  #. Default: "Size"
+--- 448,459 ----
+  #. Multi-Select Field
+  #. Default: "Presentation Widget"
+  msgid "label_fgmsformat_text"
++ msgstr "Type de présentation"
+  
+  #. Date/Time Field
+  #. Default: "Show Time Selection Options"
+  msgid "label_fgshowhm_text"
++ msgstr "Afficher les champs de selection de l'heure"
+  
+  #. String Field
+  #. Default: "Size"
+***************
+*** 553,559 ****
+  #. Mailer Adapter
+  #. Default: "Recipient's e-mail address"
+  msgid "label_formmailer_recipient_email"
+- msgstr "Adresse électroinque du destinataire"
+  
+  #. Mailer Adapter
+  #. Default: "Recipient's full name"
+--- 553,559 ----
+  #. Mailer Adapter
+  #. Default: "Recipient's e-mail address"
+  msgid "label_formmailer_recipient_email"
++ msgstr "Adresse mél du destinataire"
+  
+  #. Mailer Adapter
+  #. Default: "Recipient's full name"
+***************
+*** 682,688 ****
+  
+  # default="Checkbox list"
+  msgid "vocabulary_checkbox_text"
+- msgstr "Liste Checkbox"
+  
+  # default='Comma-Separated Values'
+  msgid "vocabulary_csv_text"
+--- 682,688 ----
+  
+  # default="Checkbox list"
+  msgid "vocabulary_checkbox_text"
++ msgstr "Cases à cocher"
+  
+  # default='Comma-Separated Values'
+  msgid "vocabulary_csv_text"

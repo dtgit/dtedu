@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types
+END
+FormRichTextField.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FormRichTextField.xml
+END
+FormCustomScriptAdapter.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FormCustomScriptAdapter.xml
+END
+FormIntegerField.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FormIntegerField.xml
+END
+FormMultiSelectionField.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FormMultiSelectionField.xml
+END
+FormPasswordField.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FormPasswordField.xml
+END
+FieldsetFolder.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FieldsetFolder.xml
+END
+FormMailerAdapter.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FormMailerAdapter.xml
+END
+FormStringField.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FormStringField.xml
+END
+FormFolder.xml
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FormFolder.xml
+END
+FormFixedPointField.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FormFixedPointField.xml
+END
+FormLinesField.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FormLinesField.xml
+END
+FormDateField.xml
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FormDateField.xml
+END
+FormLabelField.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FormLabelField.xml
+END
+FormFileField.xml
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FormFileField.xml
+END
+FormBooleanField.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FormBooleanField.xml
+END
+FormThanksPage.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FormThanksPage.xml
+END
+FormTextField.xml
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FormTextField.xml
+END
+FormSaveDataAdapter.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FormSaveDataAdapter.xml
+END
+FormRichLabelField.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FormRichLabelField.xml
+END
+FormSelectionField.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/collective/!svn/ver/73312/Products.PloneFormGen/branches/1.2-Maintenance/Products/PloneFormGen/profiles/typesonly/types/FormSelectionField.xml
+END

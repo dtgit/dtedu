@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<kupu:feature
+    name="spellchecker"
+    implementation="plone"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:kupu="http://kupu.oscom.org/namespaces/dist"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    i18n:domain="kupu"
+    >
+  <kupu:part name="buttons">
+    <span class="kupu-tb-buttongroup kupu-spellchecker-span"
+        id="kupu-spellchecker" tal:condition="filter/spellchecker">
+      <button type="button"
+              class="kupu-spellchecker"
+              id="kupu-spellchecker-button"
+              title="Check spelling"
+              i18n:attributes="title title_spelling;"
+              >&#160;</button>
+    </span>
+  </kupu:part>
+
+</kupu:feature>

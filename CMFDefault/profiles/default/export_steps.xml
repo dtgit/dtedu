@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<export-steps>
+ <export-step id="actions"
+              handler="Products.CMFCore.exportimport.actions.exportActionProviders"
+              title="Action Providers">
+  Export actions tool's action providers and their actions.
+ </export-step>
+ <export-step id="caching_policy_mgr"
+              handler="Products.CMFCore.exportimport.cachingpolicymgr.exportCachingPolicyManager"
+              title="Caching Policies">
+  Export caching policy manager's policies.
+ </export-step>
+ <export-step id="catalog"
+              handler="Products.CMFCore.exportimport.catalog.exportCatalogTool"
+              title="Catalog Tool">
+  Export catalog tool's sub-objects, indexes and columns.
+ </export-step>
+ <export-step id="componentregistry"
+              handler="Products.GenericSetup.components.exportComponentRegistry"
+              title="Local Component Registry">
+    Export local component registry configuration.
+ </export-step>
+ <export-step id="content_type_registry"
+              handler="Products.CMFCore.exportimport.contenttyperegistry.exportContentTypeRegistry"
+              title="Content Type Registry">
+  Export content type registry's predicates / bindings.
+ </export-step>
+ <export-step id="cookieauth"
+              handler="Products.CMFCore.exportimport.cookieauth.exportCookieCrumbler"
+              title="Cookie Authentication">
+  Export cookie crumbler settings
+ </export-step>
+ <export-step id="mailhost"
+              handler="Products.CMFCore.exportimport.mailhost.exportMailHost"
+              title="MailHost">
+  Export the mailhost's settings and properties
+ </export-step>
+ <export-step id="properties"
+              handler="Products.CMFCore.exportimport.properties.exportSiteProperties"
+              title="Site Properties">
+  Export site properties.
+ </export-step>
+ <export-step id="rolemap"
+              handler="Products.GenericSetup.rolemap.exportRolemap"
+              title="Role / Permission Map">
+  Export custom roles and non-default role-permission mappings.
+ </export-step>
+ <export-step id="skins"
+              handler="Products.CMFCore.exportimport.skins.exportSkinsTool"
+              title="Skins Tool">
+  Export skins tool's filesystem directory views and skin path definitions.
+ </export-step>
+ <export-step id="step_registries"
+              handler="Products.GenericSetup.tool.exportStepRegistries"
+              title="Step Registries">
+  Export current contents of import step registry and export step registry.
+ </export-step>
+ <export-step id="toolset"
+              handler="Products.GenericSetup.tool.exportToolset"
+              title="Required Tools">
+  Export required / forbidden tools.
+ </export-step>
+ <export-step id="typeinfo"
+              handler="Products.CMFCore.exportimport.typeinfo.exportTypesTool"
+              title="Types Tool">
+  Export types tool's type information objects.
+ </export-step>
+ <export-step id="workflows"
+              handler="Products.CMFCore.exportimport.workflow.exportWorkflowTool"
+              title="Workflow Tool">
+  Export workflow tool's workflow definitions and supporting scripts.
+ </export-step>
+</export-steps>

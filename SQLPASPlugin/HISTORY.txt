@@ -1,0 +1,123 @@
+Changelog for SQLPASPlugin
+
+    (name of developer listed in brackets)
+
+SQLPASPlugin 1.0  - November 8, 2007
+
+    - Cleanup and extend the caching support.
+      [wichert]
+
+    - Remove the fullname user property hack. This should not be done in
+      SQLPASPlugin.
+      [wichert]
+
+    - No longer expose the userid and password as user properties.
+      [wichert]
+
+    - Added the HISTORY.txt file.
+      [fschulze] [deo]
+
+    - Merged the topia-roles branch, which completed the roles management
+      plugin implementation.
+      [deo]
+
+    - Added caching to the usermanager plugin authentication and
+      ICredentialsResetPlugin interface for invalidating cache.
+      [chopin]
+
+    - Merged the chopin-cached-auth branch, which added initial cache support.
+      [deo]
+
+
+SQLPASPlugin 0.7 - October 18, 2007
+
+    - Fixed the IUserManagement implementation for the SQLUserManager class.
+      [deo]
+
+    - Fixed delSQLQueries method to remove the correct content type.
+      [deo]
+
+    - Fixed the property provider to only set 'fullname' if it's not there
+      before.
+      [deo]
+
+    - Changed the properties DTML query to use a safer construction.
+      [deo]
+
+    - Implemented the doDeleteUser method in the usermanager plugin.
+      [deo]
+
+    - Implemented the Delete/PasswordSet PlonePAS capabilities in the
+      usermanager plugin.
+      [deo]
+
+    - Fixed the SQL wrappers to work via ZMI for all plugins.
+      [deo]
+
+    - Fixed tests to work again.
+      [rocky]
+
+    - Refactored encryption support out into an extensible pluggable mechanism
+      and added MD5 digest/encryption support.
+      [rocky]
+
+    - Replaced the old zLOG with the new logging mechanism.
+      [deo]
+
+    - Added option to set the wrapping char, which fixed the MySQL support.
+      [redcor]
+
+    - Fixed the connection id creation for the MutablePropertySheet.
+      [regebro]
+
+    - Added support for skipping properties when there is no match. This allows
+      you to fetch properties from SQL for SQL users and ZODB for ZODB users.
+      [regebro]
+
+    - Splitted the test config into its own module.
+      [deo]
+
+    - Simplifyied both the base testcase and the PAS setup. Removed the old
+      test framework.
+      [deo]
+
+    - Factored out getSQLQueries and getSchemaConfig to the SQLBase class.
+      [deo]
+
+    - Add a SSHA encryption option.
+      [smcmahon]
+
+
+SQLPASPlugin 0.6b2 - August 10, 2006
+
+    - Fixed Python 2.3 compatibility.
+      [nouri]
+
+
+SQLPASPlugin 0.6b1 - August 8, 2006
+
+    - Merged in the inital support for both groups and roles from
+      ruda-porto-groups-and-roles branch.
+      [nouri]
+
+    - Added a Plone explanatory form for set up of the user manager and
+      the property provider plugins.
+      [nouri]
+
+    - Added installer to register the form as a configlet.
+      [nouri]
+
+    - Fixed the problem where a wrongly configured plug-in in the PAS
+      would no longer lock you out of the site.
+      [nouri]
+
+    - Added DEPENDENCIES.txt for a detailed listing of dependencies and
+      where you can get them.
+      [nouri]
+
+
+SQLPASPlugin 0.5 - November 17, 2005
+
+    - First import of SQLPASPlugin into the collective.
+      [rocky]
+

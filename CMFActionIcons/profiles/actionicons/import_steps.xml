@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<import-steps>
+ <import-step id="action-icons" version="20051015-01"
+              handler="Products.CMFActionIcons.exportimport.importActionIconsTool"
+              title="Action Icons">
+  <dependency step="componentregistry"/>
+  Import action icon definitions
+ </import-step>
+</import-steps>

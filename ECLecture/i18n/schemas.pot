@@ -1,0 +1,198 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: ECLecture\n"
+"POT-Creation-Date: 2006-04-03 13:38+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: eduComponents\n"
+#. Default: "Course type"
+#: content/ECLecture.py
+msgid = "label_course_type"
+msgstr = ""
+
+#. Default: "Enter the type of this course (e.g., Lecture or Lab Exercise)"
+#: content/ECLecture.py
+msgid = "help_course_type"
+msgstr = ""
+
+#. Default: "Instructor"
+#: content/ECLecture.py
+msgid = "label_instructor"
+msgstr = ""
+
+#. Default: "Enter user name of the instructor"
+#: content/ECLecture.py
+msgid = "help_instructor"
+msgstr = ""
+
+#. Default: "Time period"
+#: content/ECLecture.py
+msgid = "label_time_period"
+msgstr = ""
+
+#. Default: "Start and end times of this course"
+#: content/ECLecture.py
+msgid = "help_time_period"
+msgstr = ""
+
+#. Default: "Start date"
+#: content/ECLecture.py
+msgid = "label_start_date"
+msgstr = ""
+
+#. Default: "First regular date"
+#: content/ECLecture.py
+msgid = "help_start_date"
+msgstr = ""
+
+#. Default: "End date"
+#: content/ECLecture.py
+msgid = "label_end_date"
+msgstr = ""
+
+#. Default: "Last regular date"
+#: content/ECLecture.py
+msgid = "help_end_date"
+msgstr = ""
+
+#. Default: "Recurrence"
+#: content/ECLecture.py
+msgid = "label_recurrence"
+msgstr = ""
+
+#. Default: "How often this course takes place"
+#: content/ECLecture.py
+msgid = "help_recurrence"
+msgstr = ""
+
+#. Default: "First session"
+#: content/ECLecture.py
+msgid = "label_first_session"
+msgstr = ""
+
+#. Default: "Date for the first session for this course"
+#: content/ECLecture.py
+msgid = "help_first_session"
+msgstr = ""
+
+#. Default: "Location"
+#: content/ECLecture.py
+msgid = "label_location"
+msgstr = ""
+
+#. Default: "Location for this course"
+#: content/ECLecture.py
+msgid = "help_location"
+msgstr = ""
+
+#. Default: "Language of instruction"
+#: content/ECLecture.py
+msgid = "label_course_language"
+msgstr = ""
+
+#. Default: "The language used for teaching this course"
+#: content/ECLecture.py
+msgid = "help_course_language"
+msgstr = ""
+
+#. Default: "Credits"
+#: content/ECLecture.py
+msgid = "label_credits"
+msgstr = ""
+
+#. Default: "Credits which can be gained in this course"
+#: content/ECLecture.py
+msgid = "help_credits"
+msgstr = ""
+
+#. Default: "Prerequisites"
+#: content/ECLecture.py
+msgid = "label_prereq"
+msgstr = ""
+
+#. Default: "Describe which prerequisites are required for this course"
+#: content/ECLecture.py
+msgid = "help_prereq"
+msgstr = ""
+
+#. Default: "Target group"
+#: content/ECLecture.py
+msgid = "label_target"
+msgstr = ""
+
+#. Default: "Describe for which audience this course is intended"
+#: content/ECLecture.py
+msgid = "help_target"
+msgstr = ""
+
+#. Default: "Maximum number of participants"
+#: content/ECLecture.py
+msgid = "label_max_participants"
+msgstr = ""
+
+#. Default: "If there is an enrollment limit, specify the maximum number of participants"
+#: content/ECLecture.py
+msgid = "help_max_participants"
+msgstr = ""
+
+#. Default: "Registration link"
+#: content/ECLecture.py
+msgid = "label_join_url"
+msgstr = ""
+
+#. Default: "Link to the registration for this course"
+#: content/ECLecture.py
+msgid = "help_join_url"
+msgstr = ""
+
+#. Default: "Directory entry"
+#: content/ECLecture.py
+msgid = "label_directory_entry"
+msgstr = ""
+
+#. Default: "Link to the directory entry for this course"
+#: content/ECLecture.py
+msgid = "help_directory_entry"
+msgstr = ""
+
+#. Default: "Associated group"
+#: content/ECLecture.py
+msgid = "label_associated_group"
+msgstr = ""
+
+#. Default: "You can associate a group with this course to represent its participants"
+#: content/ECLecture.py
+msgid = "help_associated_group"
+msgstr = ""
+
+#. Default: "Available resources"
+#: content/ECLecture.py
+msgid = "label_available_resourcess"
+msgstr = ""
+
+#. Default: "Enter available resources for this course. Title  is the name of a resource as shown to the user; URL must be a path inside this site or an URL to an external source; Icon is optional."
+#: content/ECLecture.py
+msgid = "help_available_resources"
+msgstr = ""
+
+#. Default: "Body Text"
+#: content/ECLecture.py
+msgid = "label_body_text"
+msgstr = ""
+
+#. Default: "Enter course information"
+#: content/ECLecture.py
+msgid = "help_body_text"
+msgstr = ""
+

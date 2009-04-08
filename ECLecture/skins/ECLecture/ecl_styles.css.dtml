@@ -1,0 +1,58 @@
+/* <dtml-with base_properties> (do not remove this :) 
+   <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
+
+.ec-hint {
+  background-color: &dtml-backgroundColor;;
+  border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+  color: &dtml-fontColor;;
+  font-size: &dtml-fontSmallSize;;
+  font-weight: bold;
+  margin: 1em 0em;
+  padding: 0.5em 1em 0.5em 3em;
+  vertical-align: middle;
+  background-image: url(&dtml-portal_url;/info_icon.gif);
+  background-repeat: no-repeat;
+  background-position: 5px 50%;
+}
+
+.link-down {
+  display: block;
+  background: transparent url(&dtml-portal_url;/arrowDown.gif) 4px 5px no-repeat
+;
+  padding: 1px 0px 10px 16px;
+  font-size: &dtml-fontSmallSize;;
+  text-decoration: none;
+}
+
+thead tr td {
+  border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+}
+
+tfoot {
+  border-width: 1px 0px 0px 0px;
+  border-style: solid;
+  border-color: &dtml-globalBorderColor;;
+}
+
+tfoot tr {
+  border-width: 1px 0px 0px 0px;
+  border-style: dotted;
+  border-color: &dtml-globalBorderColor;;
+}
+
+dd.ec-listing {
+  margin-left: 16px
+}
+
+.ec-description {
+  font-style: italic;
+  /* background-color: rgb(250, 250, 250);
+  padding-left: 0.5ex;
+  border-bottom: 1px dotted gray; */
+  margin-bottom: 1em;
+}
+
+/* </dtml-with> */
+/* Local variables: */
+/* mode: css */
+/* End: */

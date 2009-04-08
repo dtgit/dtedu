@@ -1,0 +1,51 @@
+Dependancies
+
+    CMF 1.4.7 or CMF 1.5 series
+
+Installation
+
+    Installation was tested with Plone 2.0.5 and Plone 2.1.1.
+    Just use the Plone Installation configlet to install
+    CMFPlacefulWorkflow.
+
+    We are patching Plone's Workflow Tool automatically when 
+    Zope starts. 
+
+    Read the "Extending Zope Dynamically" Howto if you are interested
+    in the way Zope is patched:
+
+    http://www.zope.org/Members/Caseman/Dynamic_HotFix_News/Dynamic_Hotfix
+
+Working with the product
+
+    To access the workflow settings, access the Plone Setup.
+    
+    There is a configlet called "Placeful Workflow".
+
+    Click on the configlet, and you directly add your own policy.
+    Just give it a name like "private_policy", then on the next
+    screen enter a title, description and your mapping.
+
+    Go to your Plone site and go to the following URL:
+
+    http://localhost:8080/Plone/placeful_workflow_configuration
+
+    Another way to access this URL is by going to 
+
+    http://localhost:8080/Plone/
+
+    and then clicking on the "state" dropdown->policy.
+
+    Click on "Add a workflow policy in this folder".
+
+    You have the choice between your policy and the default policy.
+
+    Choose your policy, and when you add content to the folder,
+    it should be added with the workflow defined in your workflow
+    policy.
+
+Roadmap:
+
+    The product will be integrated in Plone 2.5. See the Roadmap:
+
+    http://plone.org/development/roadmap

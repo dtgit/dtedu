@@ -1,0 +1,111 @@
+/* <dtml-with base_properties> (do not remove this :) 
+   <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
+
+.state-unsubmitted {
+  color: rgb(77, 77, 77) !important;
+}
+.state-pending {
+  color: orange !important;
+}
+.state-superseded {
+  color: gray !important;
+}
+.state-graded {
+  color: green !important;
+}
+.state-invalid {
+  color: rgb(255,  99,  71) !important;
+}
+
+.editControls {
+  background: &dtml-contentViewBackgroundColor;;
+  padding: 1px;
+}
+
+span.editControls a {
+  border-style: none;
+  text-decoration: none;
+}
+
+.answerComment {
+  font-style: italic;
+  color: &dtml-discreetColor;;
+}
+
+thead {
+  border-width: 0px 0px 1px 0px;
+  border-style: solid;
+  border-color: &dtml-globalBorderColor;;
+}
+
+tfoot {
+  border-width: 1px 0px 0px 0px;
+  border-style: solid;
+  border-color: &dtml-globalBorderColor;;
+}
+
+input.navigation, input.navigation-visited, input.navigation-disabled, input.navigation-visited-disabled, input.navigation-active {
+  font-size: &dtml-fontSmallSize;;
+  padding: 1px 1px 1px 1px;
+  text-transform: &dtml-textTransform;;
+}
+
+input.navigation, input.navigation-visited {
+  cursor: pointer;
+}
+
+input.navigation, input.navigation-active {
+  background: &dtml-backgroundColor;;
+}
+
+input.navigation {
+  color: &dtml-linkColor;;
+}
+
+input.navigation-visited, input.navigation-visited-disabled {
+  color: &dtml-backgroundColor;;
+  background: &dtml-linkColor;;
+}
+
+input.navigation-disabled {
+  color: &dtml-fontColor;;
+  background: #ddd;
+}
+
+input.navigation-active {
+  color: &dtml-linkActiveColor;;
+}
+
+/* Directions in question containers */
+
+.questionContainerDirectionsLabel {
+  float: left;
+  padding-right: 1em;
+  background-color: &dtml-helpBackgroundColor;;
+}
+
+.questionContainerDirections {
+  background-color: &dtml-helpBackgroundColor;;
+  border-bottom: 1px dotted &dtml-globalBorderColor;;
+  margin-bottom: 1em;
+}
+
+/* Tweaks to make question group titles look better in multipage mode */
+
+fieldset {
+  padding-top: 1em !important;
+}
+
+fieldset > h2:first-child {
+  padding-bottom: 0.33em !important;
+  border: none !important;
+  font-size: larger;
+}
+
+/* Keep this comment (turns on syntax highlighting in XEmacs)
+Local variables:
+mode:css
+End:
+*/
+
+/* </dtml-with> */

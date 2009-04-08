@@ -1,0 +1,144 @@
+<div class="portlet"
+     i18n:domain="eduCommons">
+
+  <tal:block>
+    <p class="portletHeader" i18n:translate="">Assignment Info</p>
+
+    <div class="portletBody">
+      <table class="coursesummary" summary="Statiscal information" align="center" cellpadding="0" cellspacing="3">
+        <tbody>	  
+          <tal:items define="inpro view/getInprogressCount;
+			     subm view/getSubmittedCount;
+			     grad view/getGradedCount;
+			     nonc view/getUnsubmittedCount;
+			     total view/getTotalCount;">
+            <tr>
+              <td>
+                <a tal:attributes="title string:NotStarted;
+                                   href string:assignment_contents?state=unsubmitted"
+                   tal:content="string:Not Started">NotStarted</a>
+              </td>
+              <td class="statecolumn">
+                <a tal:attributes="href string:assignment_contents?state=unsubmitted">
+                  <img alt="barchart" class="statecolumnimage"
+                       tal:attributes="width python:view.getStatePercent('Unsubmitted');
+                                       src string:bargraphic.gif" />
+                </a>
+                </td>
+              <td class="coursetotals">
+                <a tal:attributes="title string:Unsubmitted;
+                                   href string:assignment_contents?state=unsubmitted"
+                   tal:content="python:nonc">0</a>
+                </td>
+              </tr>
+
+            <tr>
+              <td>
+                <a tal:attributes="title string:InProgress;
+				   href string: assignment_contents?state=inprogress"
+		   tal:content="string:In Progress">InProgress</a>
+              </td>
+              <td class="statecolumn">
+                <a tal:attributes="href string:assignment_contents?state=inprogress">
+		  <img alt="barchart" class="statecolumnimage"
+		       tal:attributes="width python:view.getStatePercent('Inprogress');
+				       src string:bargraphic.gif" />
+                </a>                               
+                </td>
+              <td class="coursetotals">
+                <a tal:attributes="title string:InProgress;
+				   href string:assignment_contents?state=inprogress"
+		   tal:content="python:inpro">0</a>
+                </td>
+              </tr>
+
+            <tr>
+              <td>
+                <a tal:attributes="title string:Submitted;
+				   href string:assignment_contents?state=submitted"
+		   tal:content="string:Submitted">Submitted</a>
+              </td>
+              <td class="statecolumn">
+                <a tal:attributes="href string:assignment_contents?state=submitted">
+		  <img alt="barchart" class="statecolumnimage"
+		       tal:attributes="width python:view.getStatePercent('Submitted');
+				       src string:bargraphic.gif" />
+                </a>                               
+                </td>
+              <td class="coursetotals">
+                <a tal:attributes="title string:Submitted;
+				   href string:assignment_contents?state=submitted"
+		   tal:content="python:subm">0</a>
+                </td>
+              </tr>
+
+            <tr>
+              <td>
+                <a tal:attributes="title string:Graded;
+				   href string:assignment_contents?state=graded"
+		   tal:content="string:Reviewed">Graded</a>
+              </td>
+              <td class="statecolumn">
+                <a tal:attributes="href string:assignment_contents?state=graded">
+		  <img alt="barchart" class="statecolumnimage"
+		       tal:attributes="width python:view.getStatePercent('Graded');
+				       src string:bargraphic.gif" />
+                </a>                               
+                </td>
+              <td class="coursetotals">
+                <a tal:attributes="title string:Graded;
+				   href string:assignment_contents?state=graded"
+		   tal:content="python:grad">0</a>
+                </td>
+              </tr>
+
+              <tr>
+		<td id="total" colspan="3" i18n:translate="">Total: <tal:total i18n:name="total" replace="python:total">total</tal:total></td>
+              </tr>
+	      <tr><td colspan="3"><br /><a href="" onClick="window.open('documentation/',null,'height=525, width=1000, scrollbars=yes, resizeable=yes')">View the CTM Tutorial</a>
+	      </td></tr>
+
+	      <tr><td colspan="3"><a tal:condition="python:view.getCtmUrl()" tal:attributes="href python:view.getCtmUrl()">CTM Bookmark</a>
+	      </td></tr>
+
+	      <tr><td colspan="3"><a tal:condition="python:view.getCtmCohort()" tal:attributes="href python:'http://www.teacherswithoutborders.org/groups/%s' %(view.getCtmCohort())">My Cohort</a>
+	      </td></tr>
+
+              <tr>
+                <td id="paypal" style="text-transform: none"  colspan="3"
+                    i18n:translate=""
+                    tal:condition="python: grad == total"
+                    tal:define="current_url here/absolute_url">
+                    <br />
+                    All of your assignment have been submitted. You may now purchase CTM certification via PayPal. The fee is $185 USD.
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post"> 
+                      <input name="cmd" value="_cart" type="hidden" /> 
+                      <input name="business" value="ctm@teacherswithoutborders.org" type="hidden" /> 
+                      <input name="item_name" value="Certificate of Teaching Mastery Fee" type="hidden" /> 
+                      <input name="item_number" value="Certificate of Teaching Mastery Fee" type="hidden" /> 
+                      <input name="amount" type="hidden" value="185.00" />
+                      <input name="return" 
+                             tal:attributes="value current_url"
+                             type="hidden" /> 
+                      <input name="cancel_return" 
+                             tal:attributes="value current_url"
+                             type="hidden" /> 
+                      <input name="currency_code" value="USD" type="hidden" /> 
+                      <input name="add" value="1" type="hidden" /> 
+                      <input name="submit" value="Pay for Certification Fee" type="submit" /> 
+                    </form>
+                </td>
+              </tr>
+	   
+ 
+          </tal:items>
+	  
+        </tbody>
+          </table>
+    </div>
+    
+  </tal:block>
+</div>	
+
+
+

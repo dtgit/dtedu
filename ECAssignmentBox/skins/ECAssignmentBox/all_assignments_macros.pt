@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+                      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xml:lang="en" lang="en"
+      i18n:domain="eduComponents">
+
+<body>
+
+	<!-- headline in all assignments templates -->
+	<metal:define define-macro="all_assignments_heading">
+		<h1 class="documentFirstHeading">
+			<span tal:content="here/pretty_title_or_id" tal:omit-tag=""/>
+			<span tal:define="userName request/userName | nothing;"
+				  tal:condition="userName" 
+				  tal:replace="python: '(%s)' % ecab_utils.getFullNameById(userName)" 
+				  tal:omit-tag="" />
+		</h1>
+	</metal:define>
+
+	<!-- table's head in all_assignments -->
+	<metal:define define-macro="all_assignments_thead">
+		<thead>
+			<tr>
+				<th class="nosort visualNoPrint">
+					<!-- item is the current assignment box -->
+					<input type="checkbox" onclick="toggleSelect" name="xxx_toggle"
+						 value="#" id="xxx_toggle" class="noborder" tabindex=""
+						 tal:attributes="tabindex tabindex/next;
+								name     string:${item/id}_toggle;
+								id       string:${item/id}_toggle;
+								onclick  string:javascript:toggleSelect(this, '${item/id}:list');"/>
+					<input type="hidden" name="" value="" 
+						 tal:attributes="name  string:ecabox:list; 
+										 value string:${item/id};"/>
+				</th>
+				<th class="nosort">&nbsp;</th>
+				<th i18n:translate="label_date">Date</th>
+				<th i18n:translate="label_user">User</th>
+				<th i18n:translate="label_state">State</th>
+				<th i18n:translate="label_mark">Grade</th>
+				<th class="nosort visualNoPrint" i18n:translate="label_actions">Actions</th>
+			</tr>
+		</thead>
+	</metal:define>
+
+    <!-- table's foot in all_assignments -->
+    <metal:define define-macro="all_assignments_tfoot">
+      <tfoot tal:condition="grades">
+          <tr>
+            <td colspan="5"
+              i18n:translate="label_average_grade">Average Grade</td>
+            <td
+              style="text-align: right"
+              tal:content="python: ecab_utils.localizeNumber('%.2f',
+                                   ecab_utils.calculateMean(grades))"/>
+            <td/>
+          </tr>
+          <tr>
+            <td colspan="5"
+              i18n:translate="label_median_grade">Median Grade</td>
+            <td
+              style="text-align: right"
+              tal:content="python: ecab_utils.localizeNumber('%.2f',
+                                   ecab_utils.calculateMedian(grades))"/>
+            <td/>
+          </tr>
+          <tr>
+            <td colspan="7" i18n:translate="grade_statistics_help"
+              class="discreet">
+              Average and median grades are calculated from all assignments
+              in this assignment box which are in the state <em>graded</em> and
+              which have a grade assigned.</td>
+          </tr>
+      </tfoot>
+    </metal:define>
+
+    <!-- table's body all_assignments -->
+    <metal:define define-macro="all_assignments_tbody">
+      <tbody>
+        <!-- hint: remember that all items are catalog brains, each representing an single assignment object -->
+        <tal:block tal:repeat="brain brains">
+          <!--  <tr tal:condition="python: ecab_utils.isAssignmentBoxType(assignment) and ((not userName) or (assignment.Creator() == userName))" -->
+          <tr
+              tal:define="assignment                python: brain.getObject();
+                          oddrow                    repeat/brain/odd;
+                          assignment_type           brain/portal_type;
+                          assignment_wf_state       brain/review_state;
+                          assignment_state_title    python: wtool.getTitleForStateOnType(assignment_wf_state, assignment_type);
+                          assignment_wf_state_class python: 'state-' + normalizeString(assignment_wf_state);
+                          assignment_id             brain/id;
+                          assignment_title          brain/Title;
+                          assignment_url            brain/getURL;
+                          assignment_path           brain/getPath;
+                          assignment_date           python: here.toLocalizedTime(brain.CreationDate, True);
+                          assignment_creator        brain/Creator;
+                          assignment_grade          assignment/getGradeDisplayValue;"
+              tal:attributes="class python: test(oddrow, 'odd', 'even')">
+
+            <td class="visualNoPrint">
+              <!-- item is the current assignment box -->
+              <input type="checkbox"
+                  class="noborder"
+                  tal:attributes="
+                      value   assignment_path;
+                      name    string:${item/id}:list;
+                      id      string:${item/id}_$assignment_id;
+                      checked python:test(request.get('ids_checked', False), 'checked', None);
+                      alt     string:Select $assignment_title;
+                      title   string:Select $assignment_title;" 
+              />
+            </td>
+
+            <td>
+              <!-- FIXME: indicators are only available by the real object (not by the brain) -->
+              <tal:repeat repeat="indicator python: assignment.getIndicators()">
+                  <!-- image -->
+                  <img tal:condition="indicator/icon|nothing"
+                       tal:attributes="src   indicator/icon|nothing;
+                                       title indicator/title|nothing;
+                                       alt   indicator/alt|nothing;" />
+                  <!-- text only -->
+                  <span tal:condition="indicator/text|nothing"
+                       tal:replace="indicator/text" />
+              </tal:repeat>
+            </td>
+
+            <td tal:content="assignment_date"/>
+
+            <td>
+              <a tal:attributes="href python: mkUrl({'user_id' : assignment_creator});"
+                 tal:content="python: ecab_utils.getFullNameById(assignment_creator)"/>
+            </td>
+
+            <td>
+              <a i18n:domain="plone"
+                 i18n:translate=""
+                 tal:condition="assignment_state_title"
+                 tal:content="assignment_state_title"
+                 tal:attributes="class assignment_wf_state_class;
+                                href   python: mkUrl({'state' : assignment_wf_state});"
+              />
+              <span tal:condition="not: assignment_state_title">&nbsp;</span>
+            </td>
+
+            <td style="text-align: right">
+              <!-- FIXME: field 'mark' is only available by the real object (not by the brain) -->
+              
+              <tal:if tal:condition="assignment_grade">
+              
+                <tal:if condition="python:assignment_wf_state=='graded'">
+                  <tal:append define="dummy python:grades.append(assignment.mark);" />
+                  <span tal:content="python:assignment_grade" />
+                </tal:if>
+
+                <tal:if condition="python:assignment_wf_state!='graded'">                
+                  <span tal:condition="python:ecab_utils.isGrader(assignment)" 
+                      tal:content="python:assignment_grade" />
+                </tal:if>
+
+              </tal:if>
+            </td>
+
+            <td class="visualNoPrint" style="text-align: center">
+              <a href="assignment_url"
+                  title=""
+                  tal:attributes="href python: '%s/%s' % (assignment_url, 'view');"
+                  i18n:translate="label_action_view">[View]</a>
+
+              <tal:block condition="isGrader">
+                <a href="assignment_url"
+                    tal:attributes="href python: '%s/%s' % (assignment_url, 'eca_grade')"
+                    i18n:translate="label_action_grade">[Grade]</a>
+              </tal:block>
+<!--
+                <a href="assignment_url"
+                    tal:attributes="href python: '%s/at_download/file' % (assignment_url,)"
+                    i18n:translate="label_action_download">[Download]</a>
+-->
+            </td>
+          </tr>
+        </tal:block>
+      </tbody>
+    </metal:define>
+
+    <!-- all_assignments full mode macros --------------------------------- -->
+
+    <!-- header of table in all_assignments_full templates -->
+    <metal:define define-macro="all_assignments_full_thead">
+      <thead>
+        <tr>
+          <th class="nosort visualNoPrint">
+            <input 
+                type="checkbox"
+                onclick="toggleSelect"
+                name="xxx_toggle"
+                value="#"
+                id="xxx_toggle"
+                class="noborder"
+                tabindex=""
+                tal:attributes="tabindex tabindex/next;
+                                name     string:${item/id}_toggle;
+                                id       string:${item/id}_toggle;
+                                onclick  string:javascript:toggleSelect(this, '${item/id}:list');"
+            />
+            <input type="hidden" 
+                   name="" 
+                   value="" 
+                   tal:attributes="name  string:ecabox:list;
+                                   value string:${item/id};"
+            />
+          </th>
+          <th class="nosort">&nbsp;</th>
+          <th i18n:translate="label_info">Info</th>
+          <th i18n:translate="label_assignment">Assignment</th>
+        </tr>
+      </thead>
+    </metal:define>
+
+    <!-- body of table in all_assignments_ex templates -->
+    <metal:define define-macro="all_assignments_full_tbody">
+      <tbody>
+        <!-- hint: remember that all items are catalog brains, each representing an single assignment object -->
+        <tal:block tal:repeat="brain brains">
+          <!--  <tr tal:condition="python: ecab_utils.isAssignmentBoxType(assignment) and ((not userName) or (assignment.Creator() == userName))" -->
+          <tr
+              tal:define="assignment                python: brain.getObject();
+                          oddrow                    repeat/brain/odd;
+                          assignment_type           brain/portal_type;
+                          assignment_wf_state       brain/review_state;
+                          assignment_state_title    python: wtool.getTitleForStateOnType(assignment_wf_state, assignment_type);
+                          assignment_wf_state_class python: 'state-' + normalizeString(assignment_wf_state);
+                          assignment_id             brain/id;
+                          assignment_title          brain/Title;
+                          assignment_url            brain/getURL;
+                          assignment_path           brain/getPath;
+                          assignment_date           python: here.toLocalizedTime(brain.CreationDate, True);
+                          assignment_creator        brain/Creator;
+                          assignment_grade          assignment/getGradeDisplayValue;
+                          assignment_icon           brain/getIcon;"
+              tal:attributes="class python: test(oddrow, 'odd', 'even')">
+
+            <td class="visualNoPrint">
+              <!-- item is the current assignment box -->
+              <input type="checkbox"
+                  class="noborder"
+                  tal:attributes="
+                      value   assignment_path;
+                      name    string:${item/id}:list;
+                      id      string:${item/id}_$assignment_id;
+                      checked python:test(request.get('ids_checked', False), 'checked', None);
+                      alt     string:Select $assignment_title;
+                      title   string:Select $assignment_title;" 
+              />
+            </td>
+
+            <td>
+              <!-- FIXME: indicators are only available by the real object (not by the brain) -->
+              <tal:repeat repeat="indicator python: assignment.getIndicators()">
+                  <!-- image -->
+                  <img tal:condition="indicator/icon|nothing"
+                       tal:attributes="src indicator/icon|nothing;
+                                       title indicator/title|nothing;
+                                       alt indicator/alt|nothing;"/>
+                  <!-- text only -->
+                  <span tal:condition="indicator/text|nothing"
+                       tal:replace="indicator/text" />
+              </tal:repeat>
+            </td>
+
+            <td>
+              <div tal:content="assignment_date" />
+
+              <div>              
+                <a tal:attributes="href python: mkUrl({'user_id' : assignment_creator});"
+                   tal:content="python: ecab_utils.getFullNameById(assignment_creator)" />
+              </div>
+
+              <div>
+                <a i18n:domain="plone"
+                   i18n:translate=""
+                   tal:condition="assignment_state_title"
+                   tal:content="assignment_state_title"
+                   tal:attributes="class assignment_wf_state_class;
+                                   href   python: mkUrl({'state' : assignment_wf_state});"
+                />
+              </div>
+
+              <div tal:condition="not: assignment_state_title">&nbsp;</div>
+            </td>
+            
+            <td>
+
+              <div tal:define="
+                  fieldName string:answer;
+                  field     python:assignment.getField(fieldName);
+                  text  python:field.getAccessor(assignment);">
+
+
+
+
+                <tal:view define="mode string:view;
+                          use_label python:False;"
+                    condition="text | nothing">
+
+                  <pre
+                      tal:content="structure text">
+                  </pre>
+
+
+<!--
+                  <tal:block define="
+                          size unit/get_size | python:unit and len(unit) or 0;
+                          filename unit/filename | nothing"
+                      condition="python:size &gt; 0">
+                    <a href="" tal:attributes="href string:${assignment_url}/at_download/$fieldName">
+                      <img tal:condition="assignment_icon" src=""
+                           tal:attributes="src string:${assignment_icon}"/>
+                      <tal:filename tal:replace="filename | fieldName"/>
+                      (<span tal:content="python:assignment.lookupMime(field.getContentType(assignment))">ContentType</span>
+                      <tal:size content="python:'%sKb' % (size / 1024)">0Kb</tal:size>)
+                    </a>
+
+                  </tal:block>
+-->
+                </tal:view>
+
+              </div>
+
+              <div class="visualNoPrint" style="text-align: right;">
+                <a href="assignment_url"
+                    title=""
+                    tal:attributes="href python: '%s/%s' % (assignment_url, 'view');"
+                    i18n:translate="label_action_view">[View]</a>
+
+                <tal:block condition="isGrader">
+                  <a href="item_url"
+                      tal:attributes="href python: '%s/%s' % (assignment_url, 'eca_grade')"
+                      i18n:translate="label_action_grade">[Grade]</a>
+                </tal:block>
+              </div>
+
+            </td>
+          </tr>
+        </tal:block>
+      </tbody>
+    </metal:define>
+
+</body>
+</html>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

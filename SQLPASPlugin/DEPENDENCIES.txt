@@ -1,0 +1,15 @@
+SQLPASPlugin requires `Zope 2.9 or higher`_.  It works with both
+Plone_ 2.5 and Plone 3.0.
+
+In addition to these Zope products, you need to install the `Zope
+database adapter`_ product that matches your database.  There's a
+variety of these products available.  Three examples would be
+ZPsycopgDA_ for using PostgreSQL, ZSQLiteDA_ for SQLite and
+ZMySQLDA_ for MySQL databases.
+
+.. _Zope 2.9 or higher: http://zope.org/Products
+.. _Plone: http://plone.org/products/plone
+.. _Zope database adapter: http://www.zope.org/Products/DA
+.. _ZPsycopgDA: http://www.initd.org/
+.. _ZSQLiteDA: http://www.zope.org/Members/nakagami/ZSQLiteDA
+.. _ZMySQLDA: http://sourceforge.net/projects/mysql-python

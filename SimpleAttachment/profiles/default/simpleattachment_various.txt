@@ -1,0 +1,2 @@
+Having this file here means that the specific setup step for SimpleAttachment
+in setuphandlers.py is run.

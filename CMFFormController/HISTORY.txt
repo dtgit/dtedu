@@ -1,0 +1,178 @@
+Changelog for CMFFormController
+
+    (name of developer listed in brackets)
+
+CMFFormController 2.1.1 - Released October 7, 2007
+
+    - Removed two __traceback_info__'s from ControllerBase which where both
+      causing too much speed cost and optimized some Acquisition handling.
+      [hannosch]
+
+    - Fixed #7027 : ControllerState.__str__ loaded files in memory
+      [zegor]
+
+    - Made tests pass without Plone being installed.
+      [hannosch]
+
+CMFFormController 2.1 - Released August 9, 2007
+
+    - No changes.
+      [hannosch]
+
+CMFFormController 2.1rc1 - Released July 9, 2007
+
+   - Removed utility registration - the formcontroller tool uses self.REQUEST
+     which is not available in utilities.
+     [wichert[
+
+CMFFormController 2.1b4 - Released May 5, 2007
+
+    - Removed five:registerPackage again, as it is causing problems in ZEO
+      environments.
+      [hannosch]
+
+CMFFormController 2.1b3 - Released May 1, 2007
+
+    - Back to getToolByName we go.
+      [wichert]
+
+CMFFormController 2.1b2 - Released March 23, 2007
+
+    - Converted installation code to be based on a GenericSetup extension
+      profile.
+      [hannosch]
+
+    - Let the form controller tool implement and interface and added a bbb
+      registerToolInterface call.
+      [hannosch]
+
+    - Replaced getToolByName by getUtility calls.
+      [hannosch]
+
+CMFFormController 2.1b1 - Released March 5, 2007
+
+    - Converted to a regular Python package in the Products namespace.
+      [hannosch]
+
+    - Fixed deprecation warnings for minimalpath and expandpath methods. These
+      weren't needed at all anymore, as the stored filepath is absolut anyways.
+      [hannosch]
+
+    - Removed all occurrences of portal_status_message.
+      [hannosch]
+
+CMFFormController 2.0.7 - Released January 27, 2006
+
+    - Fixed the combineArgs method of BaseFormAction to decode Unicode values
+      in the query string to a defined encoding. You can specify this encoding
+      in config.py and it defaults to utf-8.
+      [hannosch]
+
+    - Fixed the import of XML files where the context_type/button attributes
+      are missing. It's not exported when the value is None, which means any
+      button or any content-type.
+      [deo]
+
+CMFFormController 2.0.6 - Released November 4, 2006
+
+    - General code cleaned, removed unused imports.
+      [hannosch]
+
+    - Converted log functions to use the logging package instead of zLOG.
+      [hannosch]
+
+CMFFormController 2.0.5 - Released September 8, 2006
+
+    - Modernized type checking to use isinstance() instead of type() as the
+      latter does not recognize derived types. As an example checking for
+      UnicodeType or unicode with type() does not recognize Zope3 Messages,
+      which are derived from unicode. Usually for checking for stringish types
+      you want to do isinstance(foo, basestring) nowadays. This fixes
+      http://dev.plone.org/plone/ticket/5741.
+      [hannosch]
+
+    - Fixed some deprecation warnings for CompilerError.
+      [hannosch]
+
+    - Cleaned up test infrastructure, removed custom testrunner.
+      [hannosch]
+
+CMFFormController 2.0.4 - Released June 17, 2006
+
+    - Fix issue with usage of relative urls for action traversal, rather than
+      actual physical paths, which are necessary.
+      [alecm]
+
+CMFFormController 2.0.3 - Released June 9, 2006
+
+    - Fix issue with redirecting/traversing to FTI actions which are defined
+      in the folder category. Also, made action traversal/redirection less
+      error prone.
+      [alecm]
+
+CMFFormController 2.0.2 - Released May 15, 2006
+
+    - Only export ZODB controller scripts and validators, not FS versions.
+      [rafrombrc]
+
+    - Changed exportimport handlers to depend on GenericSetup directly instead
+      of the soon to be removed CMFSetup.
+      [hannosch]
+
+    - RedirectToActions call to getActionObject on objects would always fail.
+      Fixed http://dev.plone.org/plone/ticket/5446.
+      [regebro]
+
+    - Avoid DeprecationWarning for manageAddDelete.
+      [hannosch]
+
+    - Update tests to comply with PloneTestCase 0.8 API.
+      [hannosch]
+
+CMFFormController 2.0.1 - Released March 28, 2006
+
+    - Fix method alias lookup on TraverseToAction, so that the conversion of
+      urls to aliases doesn't cause empty pages to be returned. Remove the alias
+      lookup on RedirectToAction because it is entirely unnecessary and
+      counter-intuitive. Removed some useless print statements.
+      [alecm]
+
+    - Fix two typos in documentation.
+      [vinsci]
+
+    - Shut down DeprecationWarning for product_name of ToolInit.
+      [hannosch]
+
+CMFFormController 2.0 - Released February 25, 2006
+
+    - Moved xml folder into exportimport module, as tests were expecting it in
+      this location.
+      [hannosch]
+
+    - Changed exportimport module to a package, added some interfaces
+      and configure.zcml in order to register separate import / export
+      handlers for .vpy and .cpy, since snapshot exports were breaking
+      when these were handled like default .py files
+      [RaFromBRC]
+
+    - renamed importexport.py to exportimport.py
+      [RaFromBRC]
+
+    - Added importexport.py for CMFSetup
+      [plonista]
+
+    - Moved to new ZODB transaction API, fixed import locations of
+      format_stx and expandPath
+      [hannosch]
+
+CMFFormController 1.0.7 - Released December 18, 2005
+
+    - Correct some wrong security settings.
+      [hannosch]
+
+    - Made tests compatible with Zope 2.9 (transaction module)
+      [hannosch]
+
+CMFFormController 1.0.6 - Released October 9, 2005
+
+    - For details see the ChangeLog file

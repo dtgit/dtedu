@@ -1,0 +1,903 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: eduCommons 2.0\n"
+"POT-Creation-Date: 2008-10-20 16:36+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: tr\n"
+"Language-Name: Turkish\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: eduCommons\n"
+
+#: ../portlet/coursebuilderform.py:103
+msgid "(Choose one)"
+msgstr "(Birini seç)"
+
+#: ../browser/controlpanel.py:43
+msgid "A descriptor that describes courses in your institution."
+msgstr "Anahtar sözcük, kurumunuzdaki kursları açıklar."
+
+#: ../browser/controlpanel.py:37
+msgid "A descriptor that describes how your academic institution is divided. Typically this will be 'Departments' or 'Divisions.'"
+msgstr "Bir anahtar sözcük akademik kurumunuzun nasıl bölümlendiğini açıklar.Tipik olarak 'Departmanlar' ya da 'Bölümler' şeklinde olacaktır."
+
+#: ../browser/adaview.py:19
+msgid "ADA Compliant set to False"
+msgstr "ADA Compliant yanlış başladı."
+
+#: ../browser/adaview.py:16
+msgid "ADA Compliant set to True"
+msgstr "ADA Compliant doğru başladı."
+
+#. Default: "About Page"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "About Page"
+msgstr "Sayfa Hakkında"
+
+#. Default: "About Professor"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "About Professor"
+msgstr "Profesör Hakkında"
+
+#: ../browser/accessibilityview.py:20
+msgid "Accessibility Compliant set to False"
+msgstr "Ulaşılabilirlik uyumu yanlış başladı."
+
+#: ../browser/accessibilityview.py:17
+msgid "Accessibility Compliant set to True"
+msgstr "Ulaşılabilirlik uyumu doğru başladı."
+
+#. Default: "Accessibility Status"
+#. ../skins/eduCommons/change_accessibility.cpt
+#: ../skins/eduCommons/change_accessibility.cpt:79
+msgid "Accessibility Status"
+msgstr "Erişilebilir durum"
+
+#. ../skins/eduCommons/change_accessibility.cpt
+#. Default: "Accessibility process"
+#: ../skins/eduCommons/change_accessibility.cpt:26
+#, fuzzy
+msgid "Accessibility process"
+msgstr "Ulaşılabilirlik süreci"
+
+#. Default: "Accessible"
+#: ../browser/accessibility_compliant.pt:14
+msgid "Accessible"
+msgstr "Ulaşılabilir"
+
+#. <a href="" i18n:attributes="title link_title_advanced_search;" i18n:translate="text_advanced_search" tal:attributes="href string:${here/absolute_url}/olssearch" title="Advanced Search">
+#. Advanced Search
+#. </a>
+#. Default: "Advanced..."
+#: ../browser/menu.py:244
+#, fuzzy
+msgid "Advanced..."
+msgstr "Gelişmiş."
+
+#: ../browser/controlpanel.py:52
+msgid "Allow Reuse Course Export"
+msgstr "Yeniden kullanmak için kursun dışa aktarımına izin ver."
+
+#: ../browser/ctmcopy.py:62
+msgid "An object with that id already exists. Cannot copy to your home folder"
+msgstr ""
+
+#. Default: "Apply Template"
+#: ../browser/menu.py:40
+msgid "Apply Template"
+msgstr "Şablonu Onayla"
+
+#. Default: "Available Feeds"
+#: ../browser/rss_questions.pt:40
+msgid "Available Feeds"
+msgstr "Uygun Beslemeler"
+
+#. Default: "Body Text"
+#: ../content/course.py:38
+msgid "Body Text"
+msgstr "Body Text"
+
+#. Default: "Build a Course"
+#: ../portlet/coursebuilder.pt:10
+msgid "Build a Course"
+msgstr "Kurs oluştur"
+
+#. Default: "Building a Course"
+#: ../skins/openocw/login_success.pt:91
+msgid "Building a Course"
+msgstr "Kurs oluştur"
+
+#. Default: "By using RSS you can stay on top of the news and information you need without using your e-mail system and without repeatedly checking multiple Web sites to see if they have been updated. RSS simplifies the way you stay informed and helps you take control of overloaded email inboxes."
+#: ../browser/rss_questions.pt:80
+msgid "By using RSS you can stay on top of the news and information you need without using your e-mail system and without repeatedly checking multiple Web sites to see if they have been updated. RSS simplifies the way you stay informed and helps you take control of overloaded email inboxes."
+msgstr "e-mailini kullanmadan ve sürekli sitenin güncelleştirilip güncelleştirilmediğini kontrol etmeden,RSS kullanarak ihtiyacın olan haberleri ve bilgileri alabilirsin. RSS, senin, Bilgi aldığın yolu basitleştirir, ve senin fazla yüklenen e-mail gelen kutunu kontrol etmene yardım eder."
+
+#. Default: "Captcha"
+#. ../skins/eduCommons/join_form.cpt
+#: ../skins/eduCommons/join_form.cpt:231
+msgid "Captcha"
+msgstr "Captcha"
+
+#. Default: "Change Copyright"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Change Copyright"
+msgstr "Telif Hakkını Değiştir"
+
+#: ../portlet/coursebuilderform.py:147
+msgid "Choose from the following templates:"
+msgstr "Şablonlardan birini seçiniz."
+
+#. Default: "Choose to clear copyright, or revoke copyright for the item(s) selected above."
+#: ../skins/eduCommons/change_copyright.cpt:75
+msgid "Choose to clear copyright, or revoke copyright for the item(s) selected above."
+msgstr "Yukarıda seçtiğin madde için, telif hakkını açmayı seç, veya telif hakkını iptal et"
+
+#. ../skins/eduCommons/change_accessibility.cpt
+#. Default: "Choose to set the accessibility flag, or revoke accessibility."
+#: ../skins/eduCommons/change_accessibility.cpt:80
+#, fuzzy
+msgid "Choose to set the accessibility flag, or revoke accessibility."
+msgstr "Erişilen bayrağı kurun ya da erişilirliği feshetmeyi seçin."
+
+## Translation for eduCommons buttons
+#. Default: "Clear Copyright"
+#: ../skins/eduCommons/change_copyright.cpt:88
+msgid "Clear Copyright"
+msgstr "Telif Hakları"
+
+#. Default: "Cleared Copyright"
+#: ../browser/cc_table.pt:81
+msgid "Cleared Copyright"
+msgstr "Temizlenmiş Telif Hakkı"
+
+#. Default: "Click on the <a href=\"${DYNAMIC_CONTENT}\">courses</a> link to see what courses others are building."
+#: ../skins/openocw/login_success.pt:76
+msgid "Click on the <a href=\"${DYNAMIC_CONTENT}\">courses</a> link to see what courses others are building."
+msgstr "Başkalarının oluşturduğu kursları görmek için şu linke tıklayınız, <a href=\"${DYNAMIC_CONTENT}\">courses</a>"
+
+#. Default: "Content View"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Content View"
+msgstr "İçerik Görüntüsü"
+
+#. Default: "Content listing"
+#: ../browser/cc_table.pt:30
+msgid "Content listing"
+msgstr "İçerik Listeleme"
+
+#. Default: "Copy Item To My User Folder"
+#: ../profiles/default/actionicons.xml
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actionicons.xml
+msgid "Copy Item To My User Folder"
+msgstr "Kullanıcı klasörüme öğeyi kopyala"
+
+#: ../browser/copyrightview.py:17
+msgid "Copyright Cleared"
+msgstr "Telif Hakkı temizlendi."
+
+#: ../browser/copyrightview.py:20
+msgid "Copyright Revoked"
+msgstr "Telif hakkı iptal edildi."
+
+#. Default: "Copyright Status"
+#: ../skins/eduCommons/change_copyright.cpt:74
+msgid "Copyright Status"
+msgstr "Telif hakkı durumu"
+
+#. Default: "Copyright process"
+#: ../skins/eduCommons/change_copyright.cpt:26
+msgid "Copyright process"
+msgstr "Telif hakları süreci"
+
+#: ../portlet/coursebuilderform.py:233
+msgid "Could not create course."
+msgstr "Kurs yaratılamıyor."
+
+#: ../portlet/coursebuilderform.py:221
+msgid "Could not create/find existing division."
+msgstr "Mevcut bölüm yaratılamıyor/bulunamıyor."
+
+#. Default: "Course"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Course"
+msgstr "Kurs"
+
+#. Default: "Course Builder"
+#: ../portlet/coursebuilder.pt:4
+msgid "Course Builder"
+msgstr "Kurs Yaratıcısı"
+
+#: ../portlet/coursebuilder.py:45
+msgid "Course Builder Portlet"
+msgstr "Kurs yapım Portlet'i"
+
+#: ../browser/controlpanel.py:42
+msgid "Course Descriptor"
+msgstr "Kurs Anahtar Sözcüğü"
+
+#. Default: "Course ID"
+#: ../content/course.py:45
+msgid "Course ID"
+msgstr "Kurs ID"
+
+#: ../portlet/courseinfoportlet.py:17
+msgid "Course Info Portlet"
+msgstr "Kurs bilgi Portlet'i"
+
+#. Default: "Course Schedule"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Course Schedule"
+msgstr "Kurs Takvimi"
+
+#. <span i18n:domain="eduCommons" i18n:translate="heading_course_summary">
+#. Course Summary
+#. </span>
+#. Default: "Course Summary"
+#: ../portlet/courseinfo.pt:5
+msgid "Course Summary"
+msgstr "Kurs özeti"
+
+#: ../browser/packagecourseview.py:18
+msgid "Course has been packaged"
+msgstr "Kurs paketlendi."
+
+#. Default: "Courses in all departments"
+#: ../browser/rss_questions.pt:53
+msgid "Courses in all departments"
+msgstr "Tüm departmanlardaki kurslar"
+
+#: ../portlet/coursebuilderform.py:176
+msgid "Create a new course using the fields below."
+msgstr "Aşağıdakileri kullanarak kurs yarat."
+
+#. Default: "Cross Listing(s)"
+#: ../content/course.py:124
+msgid "Cross Listing(s)"
+msgstr "Çapraz Listeleme (ler)"
+
+#. Default: "Department Feeds"
+#: ../browser/rss_questions.pt:62
+msgid "Department Feeds"
+msgstr "Departman Beslemeleri"
+
+#. Default: "Different news readers work on different operating systems, so you will need to choose one that will work with your computer."
+#: ../browser/rss_questions.pt:101
+msgid "Different news readers work on different operating systems, so you will need to choose one that will work with your computer."
+msgstr "Farklı işletim sistemlerinde farklı haber okuyucuları calışır.Bu yüzden senin bilgisayrında çalışan bir tanesini seçmen gerekecek."
+
+#. Default: "Display Instructor Email Address"
+#: ../content/course.py:105
+msgid "Display Instructor Email Address"
+msgstr "Eğitmenin e-posta adresini görüntüle"
+
+#. Default: "Division"
+#: ../portlet/coursebuilderform.py:132
+msgid "Division"
+msgstr "Bölüm"
+
+#: ../browser/controlpanel.py:36
+msgid "Division Descriptor"
+msgstr "Bölüm Anahtar Sözcüğü"
+
+#: ../portlet/coursebuilderform.py:79
+msgid "Division with the same title already exists."
+msgstr "Aynı başlıkta yer alan bölümler zaten mevcut."
+
+#. Default: "Download this course"
+#: ../portlet/reusecourse.pt:11
+msgid "Download this course"
+msgstr "Bu kursu indir"
+
+#: ../browser/controlpanel.py:48
+msgid "Enable the display of the OER Recommender Portlet for Course objects and sub-objects."
+msgstr "OER Recommender Portlet'i kurs nesneleri için görüntülenmesine izin verin."
+
+#: ../browser/controlpanel.py:53
+msgid "Enable the display of the course export link for Course objects and sub-objects."
+msgstr "Kurs objeleri için kursu dışa aktarma bağlatısının görüntülenmesine izin verin."
+
+#. Default: "Enter the text displayed below."
+#. ../skins/eduCommons/join_form.cpt
+#: ../skins/eduCommons/join_form.cpt:239
+msgid "Enter the text displayed below."
+msgstr "Aşağıda gösterilen yere metni gir"
+
+#: ../browser/reusecourse.py:127
+msgid "Export a Course to OpenOCW"
+msgstr "OpenOCW için kursu dışa aktar."
+
+#. Default: "Export into OpenOCW"
+#: ../portlet/reusecourse.pt:18
+msgid "Export into OpenOCW"
+msgstr "OpenOCW içine dışa aktar"
+
+#. Default: "FAQ"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "FAQ"
+msgstr "SSS"
+
+#: ../browser/feedbackform.py:103
+msgid "Feedback request failed."
+msgstr "Geribildirim talebi başarısız oldu."
+
+#. Default: "Flags"
+#: ../browser/cc_table.pt:75
+msgid "Flags"
+msgstr "bayraklar"
+
+#. Default: "Flags:"
+#: ../browser/cc_table.pt:81
+msgid "Flags:"
+msgstr "Bayraklar"
+
+#. Default: "Front Page"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Front Page"
+msgstr "Ön Sayfa"
+
+#. Default: "Get Email List"
+#: ../skins/eduCommons/prefs_users_overview.cpt:96
+msgid "Get Email List"
+msgstr "e-mail listesini al"
+
+#: ../content/course.py:77
+msgid "Graduate"
+msgstr "Mezun"
+
+#. Default: "Here is one <a href=\"http://www.google.com/alpha/Top/Reference/Libraries/Library_and_Information_Science/Technical_Services/Cataloguing/Metadata/RDF/Applications/RSS/News_Readers/\">x</a> of available readers from Google."
+#: ../browser/rss_questions.pt:104
+#, fuzzy
+msgid "Here is one <a href=\"http://www.google.com/alpha/Top/Reference/Libraries/Library_and_Information_Science/Technical_Services/Cataloguing/Metadata/RDF/Applications/RSS/News_Readers/\">x</a> of available readers from Google."
+msgstr "Bu google okuyucuları tarafIndan kullanılan okuyucuların bir listesi ${RSS listesi}"
+
+#. Default: "How do I get a news reader?"
+#: ../browser/rss_questions.pt:97
+msgid "How do I get a news reader?"
+msgstr "Nasıl bir haber okuyucusu olurum ?"
+
+#. Default: "How to I start using RSS feeds?"
+#: ../browser/rss_questions.pt:82
+msgid "How to I start using RSS feeds?"
+msgstr "RSS kullanmaya nasıl başlarım ?"
+
+#: ../portlet/coursebuilderform.py:153
+msgid "IMS File Import"
+msgstr "IMS Dosya Aktarma"
+
+#. ../skins/eduCommons/change_accessibility.cpt
+#. Default: "If checked, eduCommons will attempt to change the accessibility status of all content in any selected folders and their subfolders.<br />"
+#: ../skins/eduCommons/change_accessibility.cpt:65
+#, fuzzy
+msgid "If checked, eduCommons will attempt to change the accessibility status of all content in any selected folders and their subfolders.<br />"
+msgstr "Eğer kontrol edilmişse, eduCommons, bütünüyle memnun içeride herhangi bir seçilen dosya ve onların alt dosyalarının erişilebilirlik durumunu değiştirmeyi deneyecek"
+
+#. Default: "If checked, eduCommons will attempt to change the copyright status of all content in any selected folders and their subfolders.<br />"
+#: ../skins/eduCommons/change_copyright.cpt:60
+msgid "If checked, eduCommons will attempt to change the copyright status of all content in any selected folders and their subfolders.<br />"
+msgstr "Eğer işaretlenirse, eduCommons seçili dosyalarda ve alt dosyalardaki içeriklerin telif hakkı durumunu değiştirmeyi deneyecek."
+
+#: ../portlet/coursebuilderform.py:118
+msgid "If not found, type in the name below to create a new one:"
+msgstr "İsim altında bulunmuyorsa,yenisini yaratın:"
+
+#. Default: "If this is your first time logging into OpenOCW, please be sure to read the <a href=\"${DYNAMIC_CONTENT}\" title=\"Terms of Use\">Terms of Use</a> page before you start using your account."
+#: ../skins/openocw/login_success.pt:71
+msgid "If this is your first time logging into OpenOCW, please be sure to read the <a href=\"${DYNAMIC_CONTENT}\" title=\"Terms of Use\">Terms of Use</a> page before you start using your account."
+msgstr "Eğer OpenOCW'ye ilk bağlanışınız ise, lütfen hesabınızı kullanmadan önce <a href=\"${DYNAMIC_CONTENT}\" title=\"Terms of Use\">Terms of Use</a> linkinde bulunan kullanım koşullarını okuyunuz."
+
+#. Default: "If you click on the button you can subscribe to the feed in various ways, including by dragging the URL of the RSS feed into your news reader or by cutting and pasting the same URL into a new feed in your news reader. Most sites that offer RSS feeds use a similar orange RSS button, but some may just have a normal web link to the feed."
+#: ../browser/rss_questions.pt:93
+msgid "If you click on the button you can subscribe to the feed in various ways, including by dragging the URL of the RSS feed into your news reader or by cutting and pasting the same URL into a new feed in your news reader. Most sites that offer RSS feeds use a similar orange RSS button, but some may just have a normal web link to the feed."
+msgstr "Eğer butona tıkladıysanız bir kaç yolla beslemeye kaydolabilirsiniz, RSS beslemesinin URL'sini haber okuyucunuza sürükleyerek ya da RSS beslemesinin URL'sini kes - yapıştır yoluyla haber okuyucunuza kaydederek. Çoğu web sitesi RSS beslemesi için turuncu RSS butonunu kullanır fakat bazı siteler RSS beslemesi için link verebilir."
+
+#. Default: "Image of Document Actions"
+#: ../browser/rss_questions.pt:88
+msgid "Image of Document Actions"
+msgstr "Döküman eylemlerinin imajı"
+
+#. Default: "In general, the first thing you need is something called a news reader. This is a piece of software that checks RSS feeds and lets you read any new articles that have been added to them. There are many different versions, some of which are accessed using a browser, and some of which are downloadable applications. Browser-based news readers let you catch up with your RSS feed subscriptions from any computer, whereas downloadable applications let you store them on your main computer, in the same way that you either download your e-mail, or keep it on a web-based service."
+#: ../browser/rss_questions.pt:84
+msgid "In general, the first thing you need is something called a news reader. This is a piece of software that checks RSS feeds and lets you read any new articles that have been added to them. There are many different versions, some of which are accessed using a browser, and some of which are downloadable applications. Browser-based news readers let you catch up with your RSS feed subscriptions from any computer, whereas downloadable applications let you store them on your main computer, in the same way that you either download your e-mail, or keep it on a web-based service."
+msgstr "Genel olarak, ilk ihtiyacınız olan haber okuyucusudur. Bu yazılım RSS beslemelerini kontrol etmenize ve yeni eklenen makaleleri okumanıza imkan sağlar. Pek çok farklı sürümü mevcuttur, kimisi tarayıcınızı kullanarak bu işlevi yerine getirirken kimisi indirilebilir bazı uygulamalarla bu işlevi gerçekleştirmektedir. "
+
+#. Default: "In order to translate the content your were viewing into ${language} you must first translate the parent ${DYNAMIC_CONTENT} object into ${language}."
+#: ../skins/eduCommons/not_available_lang.pt:41
+#, fuzzy
+msgid "In order to translate the content your were viewing into ${language} you must first translate the parent ${DYNAMIC_CONTENT} object into ${language}."
+msgstr "GörmüŞ olduğunuz içeriği çevirmek için, ilk olarak ana nesneyi çevirmeniz gerekmektedir."
+
+#. Default: "Instructor Email"
+#: ../content/course.py:97
+msgid "Instructor Email"
+msgstr "Eğitmen E-postası"
+
+#. Default: "Instructor Name"
+#: ../content/course.py:88
+msgid "Instructor Name"
+msgstr "Eğitmen Adı"
+
+#. Default: "Instructor is Primary Author"
+#: ../content/course.py:113
+msgid "Instructor is Primary Author"
+msgstr "Eğitmen Birincil yazardır."
+
+#: ../browser/feedbackform.py:47
+msgid "Invalid email address"
+msgstr "Geçersiz e-posta adresi"
+
+#. Default: "Is the primary instructor also the primary author of the course materials?"
+#: ../content/course.py:115
+msgid "Is the primary instructor also the primary author of the course materials?"
+msgstr "Birincil eğitmen aynı zamanda kurs materyallerinin birincil yazarı mı?"
+
+#. Default: "Items should be copyright cleared before publication. This form allows for bulk copyright clearance, as well as bulk copyright revocation. To recursively change the copyright status, be sure to check the include folder items checkbox on the form below."
+#: ../skins/eduCommons/change_copyright.cpt:28
+msgid "Items should be copyright cleared before publication. This form allows for bulk copyright clearance, as well as bulk copyright revocation. To recursively change the copyright status, be sure to check the include folder items checkbox on the form below."
+msgstr ""
+
+#. Default: "Items should meet minimum accessibility requirements before publication. Please evaluate the content against the ${descr-accessibility-link}, and set the flag accordingly."
+#: ../skins/eduCommons/change_accessibility.cpt:30
+msgid "Items should meet minimum accessibility requirements before publication. Please evaluate the content against the ${descr-accessibility-link}, and set the flag accordingly."
+msgstr "Öğeler yayınlamadan önce min. ulaşılabilirlik gereklerini taşımalıdır. Lütfen içeriği ${descr-accessibility-link 'e doğru geliştirin ve bayrağı buna göre kurun. "
+
+#: ../content/course.py:78
+msgid "Level"
+msgstr ""
+
+#: ../portlet/coursebuilderform.py:85
+msgid "Missing course name."
+msgstr "Kurs adı eksik"
+
+#: ../portlet/coursebuilderform.py:69
+msgid "Missing division."
+msgstr "Bölüm eksik"
+
+#. Default: "My CTM Folder"
+#: ../portlet/myctmfolder.pt:4
+msgid "My CTM Folder"
+msgstr "CTM Klasörüm"
+
+#. Default: "My Courses"
+#: ../portlet/mycourses.pt:4
+msgid "My Courses"
+msgstr "Kurslarım"
+
+#: ../portlet/mycourses.py:41
+msgid "My Courses Portlet"
+msgstr "Kurslarımın Portlet'i"
+
+#. Default: "Not Accessible"
+#. ../skins/eduCommons/change_accessibility.cpt
+#: ../skins/eduCommons/change_accessibility.cpt:98
+msgid "Not Accessible"
+msgstr "Erişilebilir değil"
+
+#: ../browser/controlpanel.py:47
+msgid "OER Recommender"
+msgstr "OER Recommender"
+
+#: ../portlet/oerrecommenderportlet.py:17
+msgid "OER Recommender Portlet"
+msgstr "OER Recomender Portlet"
+
+#. Default: "Once you are ready to build your course, it is recommended that you use the Course Builder. You can get there by using the above link, or by clicking on the link on the right-hand side of the page. This link will take you to a form which will help you set up the basic structure of the course. The course will remain hidden from public view until the course, and all objects in it, are set to \"published\" status."
+#: ../skins/openocw/login_success.pt:93
+msgid "Once you are ready to build your course, it is recommended that you use the Course Builder. You can get there by using the above link, or by clicking on the link on the right-hand side of the page. This link will take you to a form which will help you set up the basic structure of the course. The course will remain hidden from public view until the course, and all objects in it, are set to \"published\" status."
+msgstr "Kurs oluşturmaya hazırsanız, Kus oluşturucuyu kullamanız tavsiye edilir.Kurs oluşturucuya yukarıdaki linki kullanarak ya da sayfanın sağ tarafındaki linki tıklayarak ulaşabilirsiniz. Bu link sizi kursun temel yapılarını oluşturmanıza yardım edecek bir forma götürecektir. Kurs içeriği siz \"yayınlandı\" statüsünü ayaralayana kadar gizli kalacaktır."
+
+#. Default: "Once you have chosen a news reader, all you have to do is to decide what content you want to receive in your news reader, by finding and subscribing to the relevant RSS feeds. For example, if you would like the latest courses added to ${portal_title} OCW, simply visit the Course List page or this page and you will notice an orange RSS button."
+#: ../browser/rss_questions.pt:86
+msgid "Once you have chosen a news reader, all you have to do is to decide what content you want to receive in your news reader, by finding and subscribing to the relevant RSS feeds. For example, if you would like the latest courses added to ${portal_title} OCW, simply visit the Course List page or this page and you will notice an orange RSS button."
+msgstr "Bir kere haber okuyucusunu seçtiniz mi, tek yamanız gereken haber okuyucunuza ne tür içeriğin gelmesini istediğinize karar vermek ve bu doğrultuda ilgili RSS beslemelerini bulmak ve kaydolmaktır. Örneğin, OCW ${portal_title} portalına eklenen son kurslardan bilgi almak istiyorsanız, basit olarak kurs listesi sayfasını ya da bu sayfayı ziyaret edin ve turuncu RSS butonuna tıklayın."
+
+#. Default: "Order"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Order"
+msgstr "Düzen"
+
+#. Default: "Ordering tab"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Ordering tab"
+msgstr "Komut sekmesi"
+
+#: ../content/course.py:126
+msgid "Other Divisions that this Course should be listed in. To select multiple options, SHIFT click for adjacent items, or CTRL/CMD click for non-adjacent items."
+msgstr ""
+
+#. Default: "Package Course"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Package Course"
+msgstr "Kursu Paketle"
+
+#: ../portlet/coursebuilderform.py:157
+msgid "Package Type"
+msgstr "Paketleme Türü"
+
+#. Default: "Privacy Policy"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Privacy Policy"
+msgstr "Güvenlik Politikası"
+
+#. Default: "Producer"
+#: ../browser/localroles.py:12
+msgid "Producer"
+msgstr "Üretici"
+
+#. Default: "Publisher"
+#: ../browser/localroles.py:24
+msgid "Publisher"
+msgstr "Yayıncı"
+
+#. Default: "QA"
+#: ../browser/localroles.py:18
+msgid "QA"
+msgstr "QA"
+
+#. Default: "RSS Feed"
+#: ../skins/eduCommons/search.pt:55
+msgid "RSS Feed"
+msgstr "RSS Beslemesi"
+
+#. Default: "RSS feed of these search results"
+#: ../skins/eduCommons/search.pt:55
+msgid "RSS feed of these search results"
+msgstr "RSS bu aramayı besler."
+
+#. Default: "RSS stands for Really Simple Syndication. RSS is a time-saving way for you to receive news and information updates (often called \"RSS feeds\", \"news feeds\" or simply \"feeds\") from your favorite Web sites and blogs."
+#: ../browser/rss_questions.pt:74
+msgid "RSS stands for Really Simple Syndication. RSS is a time-saving way for you to receive news and information updates (often called \"RSS feeds\", \"news feeds\" or simply \"feeds\") from your favorite Web sites and blogs."
+msgstr "RSS, haberleri almak için ve favori blog ve web sitelerindeki güncelleştirmeleri almak için zaman kazandırıcı bir yoldur."
+
+#. Default: "Read <a href=\"http://cosl.usu.edu/projects/educommons/documentation/tutorial/educommons-a-guide-to-getting-started\">documentation</a> on how to build a course."
+#: ../skins/openocw/login_success.pt:85
+msgid "Read <a href=\"http://cosl.usu.edu/projects/educommons/documentation/tutorial/educommons-a-guide-to-getting-started\">documentation</a> on how to build a course."
+msgstr "Nasıl kurs oluşturulacağına ilişkin <a href=\"http://cosl.usu.edu/projects/educommons/documentation/tutorial/educommons-a-guide-to-getting-started\">documentation</a> okuyunuz."
+
+#. Default: "Receive notification of new ${portal_title} OCW courses on your desktop, or add them to your blog or website."
+#: ../browser/rss_questions.pt:37
+msgid "Receive notification of new ${portal_title} OCW courses on your desktop, or add them to your blog or website."
+msgstr "Yeni OCW ${portal_title} kursları hakkında masaüstünüze uyarıları alın, ya da bunlaru bloğunuza ya da web sitenize ekleyin."
+
+#. Default: "Remove from navigation"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Remove from navigation"
+msgstr "Bağlantı çubuğundan kaldırın"
+
+#. Default: "Report Content"
+#: ../profiles/openocw/actionicons.xml
+#: ../profiles/openocw/actions.xml
+msgid "Report Content"
+msgstr "İçeriği Raporla"
+
+#: ../browser/reportcontentform.py:82
+msgid "Report Content request failed."
+msgstr "İçeriği rapor etme talebi başarısız oldu."
+
+#. <a href="#top" i18n:attributes="title link_title_top;" i18n:translate="text_discussion_top" title="Return to Top">
+#. Return to Top
+#. </a>
+#. Default: "Return to Top"
+#: ../browser/rss_questions.pt:111
+msgid "Return to Top"
+msgstr "Başa dön."
+
+#. Default: "Reuse"
+#: ../browser/reusecourse.py:134
+msgid "Reuse"
+msgstr "Tekrar kullan"
+
+#. Default: "Reuse Course"
+#: ../portlet/reusecourse.pt:5
+msgid "Reuse Course"
+msgstr "Kursu Tekrar Kullan"
+
+#: ../browser/controlpanel.py:58
+msgid "Reuse Course Portal"
+msgstr "Kurs Portalını Tekrar Kullan"
+
+#: ../browser/reusecourse.py:128
+msgid "Reuse this course on OpenOCW. In order to do so, you must have an account at OpenOCW.org."
+msgstr "OpenOCW üzerinde bu kursu tekrar kullan. Bunu yapmak için OpenOCW.org üzerinde bir hesaba sahip olmalısınız."
+
+#. Default: "Revoke Copyright"
+#: ../skins/eduCommons/change_copyright.cpt:99
+msgid "Revoke Copyright"
+msgstr "Telif Hakkını Reddet"
+
+#. Default: "S5 Presentation"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "S5 Presentation"
+msgstr "S5 sunumu"
+
+#: ../portlet/coursebuilderform.py:114
+msgid "Select from below:"
+msgstr "Aşağıdan seçiniz:"
+
+#. Default: "Set cleared copyright if content object has been correctly licensed from the author, and is free from copyright violations."
+#: ../browser/clear_copyright.pt:19
+msgid "Set cleared copyright if content object has been correctly licensed from the author, and is free from copyright violations."
+msgstr "Eğer içerik yazar tarafından doğru biçimde lisanslanmışsa ve telif hakkı sınırlamasından muafsa temizlenmiş telif hakkını kurunuz"
+
+#. ../skins/eduCommons/accessibility_compliant.cpt
+#. Default: "Set the accessibility flag if your content meets the criteria outlined ${link_accessibility}."
+#: ../browser/accessibility_compliant.pt:23
+#, fuzzy
+msgid "Set the accessibility flag if your content meets the criteria outlined ${link_accessibility}."
+msgstr "ZIP arşivinde her dosyaya verilecek olan bir tanımlama"
+
+#. Default: "Set the accessibility flag if your content meets the criteria outlined *LINK HERE*"
+#: ../browser/ada_compliant.pt:19
+msgid "Set the accessibility flag if your content meets the criteria outlined *LINK HERE*"
+msgstr "Eğer içeriğiniz *Link buraya* özetlenen kriterleri karşılıyorsa ulaşılabilirklik bayrağı kurun"
+
+#: ../browser/controlpanel.py:117
+msgid "Settings which control how eduCommons looks and functions."
+msgstr "eduCommons görünümünü ve fonksiyonlarını kontrol eden ayarlar."
+
+#. Default: "Should the primary instructor's Email address be publically displayed?"
+#: ../content/course.py:107
+msgid "Should the primary instructor's Email address be publically displayed?"
+msgstr "Birincil eğitmenin e-posta adresi alenen görüntülensin mi?"
+
+#. Default: "Show in navigation"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Show in navigation"
+msgstr "Bağlantı çubuğunda göster"
+
+#. Default: "Some browsers, including Firefox and Safari, automatically check for RSS feeds for you when you visit a Web site, and display an icon when they find one. This can make subscribing to RSS feeds much easier. For more details on these, please check their Web sites."
+#: ../browser/rss_questions.pt:95
+msgid "Some browsers, including Firefox and Safari, automatically check for RSS feeds for you when you visit a Web site, and display an icon when they find one. This can make subscribing to RSS feeds much easier. For more details on these, please check their Web sites."
+msgstr "Firefox ve safariyi içerien bazı web tarayıcılar,siteye girdiğiniz anda, sizin için RSS beslemelerini kontrol ederler ve bir simge bulduklarında görüntülerler. Bu da RSS beslemelerini taahhut etmeyi kolaylaştırır. Bu konuda daha fazla detay için lütfen diğer siteleri kontrol ediniz.  "
+
+#. Default: "Structure"
+#: ../content/course.py:66
+msgid "Structure"
+msgstr "Yapı"
+
+#. Default: "Syllabus"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Syllabus"
+msgstr "Müfredat"
+
+#: ../portlet/coursebuilderform.py:146
+msgid "Templates"
+msgstr "Şablonlar"
+
+#. Default: "Templates for the current content item."
+#: ../browser/menu.py:41
+msgid "Templates for the current content item."
+msgstr "Şu anki içerik öğesi için şablonlar"
+
+#. Default: "Term"
+#: ../content/course.py:54
+msgid "Term"
+msgstr "Koşul"
+
+#. Default: "Terms of Use"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Terms of Use"
+msgstr "Kullanım Koşulları"
+
+#: ../browser/controlpanel.py:59
+msgid "The URL to the eduCommons instance utilized by the Reuse Course portlet."
+msgstr "eduCommons örneği URL'sinden Kursu tekrar Kullanım Portlet' faydalanmaktadır."
+
+#. Default: "The course identifier or catalog number."
+#: ../portlet/coursebuilderform.py:139
+msgid "The course identifier or catalog number."
+msgstr "Kurs kimliği veya katalog numarası"
+
+#: ../content/course.py:47
+msgid "The course identifier or catalog number. Also can be used to sequence courses (1.0, 2.0, etc)."
+msgstr ""
+
+#. Default: "The email address of the primary instructor teaching this course."
+#: ../content/course.py:99
+msgid "The email address of the primary instructor teaching this course."
+msgstr "Bu kursu öğreten birincil eğitmenin e-posta adresi"
+
+#. Default: "The level at which the course is taught."
+#: ../content/course.py:80
+msgid "The level at which the course is taught."
+msgstr "Öğrenilen kursun düzeyi"
+
+#: ../portlet/coursebuilderform.py:154
+msgid "The name of the ims package on your local machine."
+msgstr "Bilgisayarınızda bulunan ims paketinin adı"
+
+#. Default: "The name of the primary instructor teaching this course."
+#: ../content/course.py:90
+msgid "The name of the primary instructor teaching this course."
+msgstr "Bu kursu öğreten birincil eğitmenin adı"
+
+#: ../browser/reusecourse.py:94
+msgid "The remote site is unavailable of configured incorrectly. Please contact an administrator."
+msgstr "Harici site yanlış olarak ayarlandığı için uygun değil. Lütfen yönetici ile irtibata geçiniz."
+
+#. Default: "The structure of the course."
+#: ../content/course.py:68
+msgid "The structure of the course."
+msgstr "Kursun yapısı"
+
+#. Default: "The term the course was taught in."
+#: ../content/course.py:56
+msgid "The term the course was taught in."
+msgstr "Öğrenilen kursun koşulları"
+
+#: ../portlet/coursebuilderform.py:158
+msgid "The type of the ims package being uploaded"
+msgstr "ims paket biçimi yüklendi"
+
+#. Default: "There is a range of different news readers available and new versions are appearing all the time."
+#: ../browser/rss_questions.pt:99
+msgid "There is a range of different news readers available and new versions are appearing all the time."
+msgstr "Bu alanda bir cok haber okuyucu kullanılır ve yeni versiyonları da sürekli tezahür eder."
+
+#: ../skins/eduCommons/validate_join_form_captcha.vpy:19
+msgid "This field is required, please enter the word below."
+msgstr "Bu alan zorunludur, lütfen aşağıya bir veri giriniz."
+
+#. Default: "To start building a new course, use the <a href=\"${DYNAMIC_CONTENT}\" title=\"Course Builder\">Build a Course</a> link that appears to the right of any page."
+#: ../skins/openocw/login_success.pt:80
+msgid "To start building a new course, use the <a href=\"${DYNAMIC_CONTENT}\" title=\"Course Builder\">Build a Course</a> link that appears to the right of any page."
+msgstr "Yeni bir kurs oluşturmak için, herahngi bir sayfanın sağında görünen <a href=\"${DYNAMIC_CONTENT}\" title=\"Course Builder\">Build a Course</a> linkini tıklayınız. "
+
+#. <td colspan="3" i18n:translate="text_total_obj">
+#. Total Objects:
+#. ${total}
+#. </td>
+#. Default: "Total Objects: ${total}"
+#: ../portlet/courseinfo.pt:39
+msgid "Total Objects: ${total}"
+msgstr "Bütün Objeler: ${total}"
+
+#. Default: "Translated created."
+#: ../browser/translate.py:63
+msgid "Translated created."
+msgstr "Çeviriler yaratıldı."
+
+#. Default: "Translation already exists"
+#: ../browser/translate.py:52
+msgid "Translation already exists"
+msgstr "Çeviri zaten mevcut."
+
+#. Default: "Typically RSS feeds consist of headlines and short summaries of new articles, blog entries or search results, though some Web sites and blogs offer the full text of articles or blog entrees as feeds."
+#: ../browser/rss_questions.pt:76
+msgid "Typically RSS feeds consist of headlines and short summaries of new articles, blog entries or search results, though some Web sites and blogs offer the full text of articles or blog entrees as feeds."
+msgstr "Her ne kadar websiteleri ve bloglar tüm metni ve blog entrilerinin gösterilmesini teklif  etse de,tipik olarak RSS beslemeleri, manşetlerden  ve yeni makalelerin kısa özetlerinden, blog girişleri veya arama sonuçlarından oluşur."
+
+#: ../content/course.py:77
+msgid "Undergraduate"
+msgstr "Mezuniyet durumunda"
+
+#. Default: "Use this action to report inappropriate content to the site administrator."
+#: ../profiles/openocw/actions.xml
+msgid "Use this action to report inappropriate content to the site administrator."
+msgstr "Uygunsuz içerği yöneticiye rapor etmek için bu eylemi kullanın."
+
+#. Default: "Viewer"
+#: ../browser/localroles.py:30
+msgid "Viewer"
+msgstr "İzleyici"
+
+#. Default: "Welcome to OpenOCW"
+#: ../skins/openocw/login_success.pt:63
+msgid "Welcome to OpenOCW"
+msgstr "OpenOCW'ye hoşgeldiniz."
+
+#. Default: "Welcome to OpenOCW! Here are some things you may want to do:"
+#: ../skins/openocw/login_success.pt:64
+msgid "Welcome to OpenOCW! Here are some things you may want to do:"
+msgstr "OpenOCW'ye hoşgeldiniz. İşte yapmak isteyebileceğiniz bir kaç şey:"
+
+#. Default: "What is RSS?"
+#: ../browser/rss_questions.pt:72
+msgid "What is RSS?"
+msgstr "RSS nedir ?"
+
+#. Default: "Why use RSS?"
+#: ../browser/rss_questions.pt:78
+msgid "Why use RSS?"
+msgstr "RSS'i neden kullanmalıyım ?"
+
+#: ../browser/reusecourse.py:112
+msgid "Your user name on OpenOCW"
+msgstr "OpenOCW deki kullanıcı adınız"
+
+#: ../browser/reusecourse.py:116
+msgid "Your user password on OpenOCW"
+msgstr "OpenOCW'deki kullanıcı şifreniz."
+
+#. Default: "[audio]"
+#. ../skins/eduCommons/join_form.cpt
+#: ../skins/eduCommons/join_form.cpt:257
+msgid "[audio]"
+msgstr "[ses]"
+
+#. Default: "accessibility"
+#: ../browser/footer.pt:10
+msgid "accessibility"
+msgstr "Ulaşılabilirlik"
+
+#. Default: "accessibility guidelines"
+#. ../skins/eduCommons/change_accessibility.cpt
+#: ../skins/eduCommons/change_accessibility.cpt:31
+msgid "accessibility guidelines"
+msgstr "erişilebilir rehberler"
+
+#. Default: "eduCommons"
+#: ../profiles/default/actionicons.xml
+#: ../profiles/openocw/actionicons.xml
+msgid "eduCommons"
+msgstr "eduCommons"
+
+#: ../portlet/simplenavportlet.py:43
+msgid "eduCommons Navigation"
+msgstr "eduCommons Bağlantısı"
+
+#: ../browser/controlpanel.py:116
+msgid "eduCommons Settings"
+msgstr "eduCommons Ayarları"
+
+#. Default: "feedback"
+#: ../browser/footer.pt:6
+msgid "feedback"
+msgstr "Geri bildirim"
+
+#. Default: "here"
+#. ../skins/eduCommons/accessibility_compliant.cpt
+#: ../browser/accessibility_compliant.pt:24
+msgid "here"
+msgstr "Burada"
+
+#. Default: "list"
+#: ../browser/rss_questions.pt:104
+msgid "list"
+msgstr "Liste"
+
+#. Default: "powered by eduCommons"
+#: ../browser/footer.pt:16
+msgid "powered by eduCommons"
+msgstr "eduCommons tarafından desteklenmeketdir."
+
+#. Default: "privacy policy"
+#: ../browser/footer.pt:14
+msgid "privacy policy"
+msgstr "Gizlilik Politikası"
+
+#. Default: "site map"
+#: ../browser/footer.pt:8
+msgid "site map"
+msgstr "Site haritası"
+
+#. Default: "terms of use"
+#: ../browser/footer.pt:12
+msgid "terms of use"
+msgstr "Kullanım koşulları"
+

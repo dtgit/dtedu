@@ -1,0 +1,33 @@
+# Gettext Message File for ECQuiz.
+# Wolfram Fenske <wfenske@cs.uni-magdeburg.de>, 2004
+msgid ""
+msgstr ""
+"Project-Id-Version: ECQuiz\n"
+"POT-Creation-Date: 2004-11-25 10:29 +0100\n"
+"PO-Revision-Date: 2004-11-25 10:29 +0100\n"
+"Last-Translator: Wolfram Fenske <wfenske@cs.uni-magdeburg.de>\n"
+"Language-Team: eduComponents <educomponents@uni-magdeburg.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: ECQuiz\n"
+"X-Is-Fallback-For: en-au en-bz en-ca en-ie en-jm en-nz en-ph en-za en-tt en-gb en-us en-zw\n"
+
+# This is just a blank dummy file so translators will have english in
+# their language lists, but let the original message strings through.
+#
+# For an english template to base your translation on, check out
+# ECQuiz.pot.
+
+# Keep this comment at the end of the file
+
+# Local variables:
+# mode: apache
+# time-stamp-start: "\"PO-Revision-Date: "
+# time-stamp-end: "\\\\n\""
+# time-stamp-format: "%y-%02m-%02d %02H:%02M"
+# End:

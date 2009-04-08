@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:tal="http://xml.zope.org/namespaces/tal"
+	xmlns:metal="http://xml.zope.org/namespaces/metal"
+	xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+	lang="en" xml:lang="en"
+	metal:use-macro="here/main_template/macros/master"
+	i18n:domain="eduComponents">
+  <body>
+    <metal:block fill-slot="css_slot">
+      <style type="text/css" media="screen" tal:content="string: @import url($portal_url/ecabstyles.css);"/>
+    </metal:block>
+    <metal:main fill-slot="main">
+      <tal:main-macro metal:define-macro="main">
+	<div metal:use-macro="here/document_actions/macros/document_actions"/>
+	<h1 class="documentFirstHeading" tal:content="here/title_or_id"/>
+
+	<a class="link-parent visualNoPrint" href="#"
+	  tal:define="parent_url python:here.navigationParent(here, template_id)"
+	  tal:condition="parent_url"
+	  tal:attributes="href parent_url"
+	  i18n:domain="plone"
+	  i18n:translate="go_to_parent_url">Up one level</a>
+
+	<div class="ec-description"
+	  tal:content="structure here/Description"
+	  tal:condition="here/Description"/>
+
+	<div class="field">
+	  <label for="answer" i18n:translate="label_assignment_text">Assignment</label>
+	  <div tal:content="structure here/getAssignment_text"/>
+	</div>
+
+	<div class="field" tal:condition="here/getAnswerTemplate">
+	  <label for="answer" i18n:translate="label_answer_template">Answer template</label>
+	  <div tal:content="structure here/getAnswerTemplate"/>
+	</div>
+
+	<tal:define
+	  define="brains python: here.portal_catalog(path={'query':'/'.join(here.getPhysicalPath()), 'depth':1, }, )">
+	  <p class="ec-listing visualNoPrint" tal:condition="python: len(brains)">
+	    <a href="folder_contents" 
+	      i18n:translate="label_ecat_folder_contents">Note: This object is a
+	      folder and contains other items.</a>
+	  </p>
+	</tal:define>
+
+	<hr/>
+	<div metal:use-macro="here/document_byline/macros/byline"/>
+      </tal:main-macro>
+    </metal:main>
+  </body>
+</html>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

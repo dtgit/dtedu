@@ -1,0 +1,49 @@
+ZopeVersionControl Product Changelog
+
+  ZopeVersionControl 0.3.4 (2007/02/05)
+
+    - Add omitted 'tests/common.py' module.
+
+  ZopeVersionControl 0.3.3 (2006/09/20)
+
+    - __init__.py, nonversioned.py:  Fixed compatibility with Zope 2.8
+      and new-style objects (http://www.zope.org/Collectors/Zope/2137)
+
+  ZopeVersionControl 0.3.2 (2006/06/02)
+
+    - ZopeRepository.py:  make ZR addable via GenericSetup toolset
+      (http://www.zope.org/Collectors/CMF/438).
+
+    - Utility.py:  Import cleanup, including compatibility with ZODB 3.3+
+      location of 'refrencesf'.
+
+  ZopeVersionControl 0.3.1 (2004/05/03)
+
+    - IVersionControl.py:  Added a module-scope alias for the benefit
+      of older software which depended on the old name.
+
+    - Hardened unit tests against the absence of the References product.
+
+  ZopeVersionControl 0.3 (2004/04/20)
+
+    - Refined the pattern for maintaining parts of objects independently
+      of version control.  This is a generalization of the mechanism for
+      versioning container items.  IVersionedContainer is now named
+      INonVersionedData and has more descriptive method names.
+
+    - 'updateResource' and 'uncheckoutResource' now retain the identity
+      of the object being versioned.  That is, they never replace an
+      object with a new object, but instead change the state of an
+      existing object.
+
+      'updateResource' and 'uncheckoutResource' used to replace the
+      object in its container, but this strategy had two flaws:
+
+        1. It required ZopeVersionControl to use the ObjectManager API.
+           Version control should not require versionable objects to be
+           contained in ObjectManagers.
+
+        2. It assumes that versionable objects are simply wrapped using
+           acquisition.  References (symlink-like objects) break this
+           assumption.
+

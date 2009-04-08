@@ -1,0 +1,760 @@
+========================
+Installing Kupu in Plone
+========================
+
+.. contents:: Table of Contents
+   :depth: 2
+   :backlinks: top
+
+.. sectnum::
+   :depth: 2
+
+Requirements
+------------
+
+* Zope 2.7.3 and Python 2.3.3 or greater
+
+* Plone 2.0 or greater
+
+* CMF 1.4 or greater
+
+* Archetypes 1.3.9 or greater
+
+If you plan on customizing kupu by editing the '.kupu' files then
+you also need:
+
+* An XSLT processor with XInclude support, such as xsltproc from
+  Gnome's libxml/libxslt.
+
+You do not require an XSLT processor if you are installing a released
+version of Kupu, or simply checking it out from SVN to use in Plone.
+
+Installation
+------------
+
+Drop the 'kupu' directory into your instance home's Products
+directory.
+
+If you are installing from a release tar bundle, or simply checking
+out kupu to use in Plone and not to edit then the following build
+steps may be skipped. Skip down to the paragraph starting `Now restart
+the Zope instance`_.
+
+If you edit any of the files with .kupu extensions then you must
+re-generate the Plone template by typing::
+
+  $ make plonemacros
+
+If you see xsltproc throw an error about not being able to load
+external entities, ignore it.
+
+Windows users need to first get a copy of xsltproc.exe from
+http://www.zlatkovic.com/pub/libxml/. As a minimum you need to
+download the zipfiles for libxslt, libxml2, iconv and zlib.
+Extracting all of the .dll and .exe files into ``c:\libxslt`` is
+sufficient for the make command to work (ignore subdirectories in the
+zipfiles). Then just start a command prompt in the kupu directory and
+run the same command as for other users (on windows it runs make.bat
+so you don't need a separate make program)::
+
+   C:\>cd \Plone 2\Data\Products\kupu
+   C:\Plone 2\Data\Products\kupu>make plonemacros
+
+.. _Now restart the Zope instance:
+
+Now restart the Zope instance. Now go to the Plone Control Panel,
+section Add/remove Products and select 'kupu' for installation.
+
+Usually, every user has to explicitly set their preferred editor to
+'kupu' in 'My Preferences' in order to use kupu. Kupu and recent
+versions of Epoz may both be installed on the same Plone site allowing
+users to choose whichever they prefer. You can specify Kupu as the
+default editor for new users from the ZMI::
+
+  "portal_memberdata" -> "Properties" -> "wysiwyg_editor" = "Kupu"
+
+Upgrading
+=========
+If you are upgrading from an earlier version of Kupu then be aware
+that some of the default settings for Plone may have changed.
+
+If you have not changed any of the default settings, then you should
+run the new 'sample-kupu-customisation-policy' script in the
+kupu-plone skin folder. This will reset all configuration options to
+their defaults.
+
+If you have customised your own setting then you should create your
+own 'kupu-customisation-policy' script based on the sample. The script
+has been written such that in most cases only the data declarations at
+the beginning of the script will need changing.
+
+Installation Problems
+=====================
+
+Macro Nesting
+~~~~~~~~~~~~~
+
+When attempting to use Kupu, if you see the message::
+
+       Kupu not installed correctly: macro nesting limit (100) exceeded ...
+
+it probably means that the ``make`` command was not run, or failed to
+run for some reason.
+
+Zoom
+~~~~
+
+If zooming the Kupu window leaves parts of the underlying page still
+visible it is possible that some part of the page is specifying an
+explicit z-index. Try customising kupustyles.css and increasing the
+setting for z-index in::
+
+    div.kupu-fulleditor-zoomed {
+       z-index: 1;
+       margin: 0; border: none;
+       position: fixed;
+       top: 0; left: 0;
+    }
+
+
+This function requires better XML support in your browser.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can get this alert in Firefox and Mozilla if your Plone site has
+an incompatible copy of Sarissa installed. Check your Plone skin
+folders to see if there is a second copy of sarissa.js present and
+if so ensure that the kupu skin folders are higher priority.
+
+Plone Configlet
+---------------
+
+When logged in as a Manager use the 'Plone Setup' to get to the Plone
+control panel. Kupu appears as a configurable product on the control
+panel.
+
+You can also define a customisation policy script called
+`kupu-customisation-policy` in a skin folder. If there is a script of
+this name then it will be run automatically every time you install (or
+reinstall) kupu in your plone site. This script should use the
+kupu_library_tool to set up the configuration as you wish it for your
+site.
+
+Creating a customisation policy script is optional, but is a simple
+way to ensure that you do not lose customised configuration settings
+when upgrading. A sample script is in the kupu_plone_layer folder.
+
+config tab
+==========
+
+.. contents:: config tab
+        :depth: 1
+        :local:
+        :backlinks: top
+
+Link options
+~~~~~~~~~~~~
+When this is checked:
+
+ - If you insert an image, or create an internal link to an Archetypes
+   object, then the link will indirect through Archetypes catalog. This
+   means that you can move the target object to a different location, or
+   even rename it, and the link will continue to work.
+
+ - the URL used for the link would require an extra hit on the server,
+   and will contain the internal UID so a transform is installed for any
+   field which has text/x-safe-html or text/x-html-captioned as its
+   output format.  (`see below`__).
+
+__ captioning_
+
+ - Links to non-Archetypes objects are not affected by this option.
+
+When this is not checked:
+
+ - Links to all objects simply link to the current URL of the object.
+
+Links which are redirected use Kupu's transform to correct the URL
+when the page is rendered in view mode, but in edit mode the links use
+the resolveuid script to resolve as they are accessed. This involves
+an additional hit through the server.
+
+If a UID link does not have a UID which is currently valid then Kupu
+will look for an additional script kupu_resolveuid_hook. This script
+may be used to lookup the UIDs in an external system, or to provide a
+customised error page for broken UID links.
+
+To point all broken links to a specific URL you could for example
+invent a dummy object::
+
+   from Products.PythonScripts.standard import Object
+   def absurl():
+        return '[insert url of broken link page here]'
+   def Title():
+        return 'This link is broken'
+   return Object(absolute_url=absurl,
+       absolute_url_path=absurl,
+       Title=Title, Description=Description,)
+
+
+Warn before losing changes
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When this is checked:
+
+ - Kupu installs its own support to detect changes to any form
+   containing Kupu. It will warn before leaving the page if any
+   controls appear to have changed.
+
+When this is not checked:
+
+ - Kupu does not install its own code, but it will use the code if it
+   installed by anything else. For example, if your copy of Plone
+   includes the support by default for all main forms Kupu you might
+   turn this option off and Kupu would continue to work with the
+   default code.
+
+Styles
+~~~~~~
+
+Tables
+::::::
+Enter a list of styles to be used for tables. The classname in the CSS
+must exactly match the style displayed in the table style pulldown.
+
+The default list of table styles is ``plain``, ``listing``, ``grid``,
+``data``. Only ``listing`` is defined in the default Plone css, you
+should add suitable rules for the other styles to ``ploneCustom.css``.
+
+Styles
+::::::
+Enter a list of styles to be added to the style pulldown. See `Custom
+Styles`_.
+
+
+HTML Filter
+~~~~~~~~~~~
+
+Tags & Attributes
+:::::::::::::::::
+
+This section lists combinations of tags and attributes which are
+stripped out of documents when they are being saved. By default all
+combinations of tags and attributes which are defined for
+xhtml-transitional are permitted (except for the event attributes such
+as ``onload``). Any other combination of tags and attributes will be
+removed.
+
+You may further restrict the permitted combination of tags and
+attributes by entering a combination to be blacklisted in the two
+textareas. If you leave the tag box blank then any attributes listed
+are blacklisted for all tags. If you leave the attribute box blank,
+then any tags entered are removed entirely. If you enter both tags and
+attributes then the attributes are removed when they occur on those
+specific tags.
+
+To delete a filter rule remove the checkmark next to any existing line
+of tags and attributes, then save the form.
+
+Style Whitelist
+:::::::::::::::
+
+CSS style elements may be embedded in the style attribute, but by
+default these are all removed by filtering. Add any style elements you
+wish to have preserved to the style whitelist.
+
+The styles ``text-align`` and ``list-style-type`` are set by Kupu, so
+if you remove them from the whitelist you should also hide the
+relevant toolbar buttons to prevent users setting styles which are
+lost on saving. 
+
+Class Blacklist
+:::::::::::::::
+
+This box contains a list of CSS classnames which are to be stripped
+when a document is saved. You could, for example, fill the list with
+all the styles commonly used in Microsoft Word documents (MsoNormal
+etc.) to cleanup text pasted from Word.
+
+
+libraries tab
+=============
+
+This form supplies the list of libraries which form the leftmost
+column of the image and internal link drawers.
+
+resource types tab
+==================
+
+While libraries provide abstract locations for objects of any type,
+Kupu distinguishes objects by resource type. For example, a user might
+request a library showing objects to link to or a library showing
+objects to be inserted into a document. The abstract location
+(library) might be the same, but the former library would contain
+documents, the latter images.
+
+This management screen allows you to define resource types using a
+list of portal types.
+
+   linkable
+       This entry lists all of the content types which are
+       available in the internal link drawer.
+
+   mediaobject
+       This entry lists all of the content types which are available
+       in the image drawer.
+
+   collection
+       This entry lists all the folder types which may be used when
+       navigating in the drawers. collection types may be navigated
+       but not selected.
+
+   containsanchors
+       This entry lists content types which could contain internal HTML 
+       anchors. The link drawer will offer the 'anchors' button to retrieve
+       the anchors for content of this type.
+
+In addition, when used with Archetypes content, a resource type can
+be the name of an Archetypes field (in the form 'portal
+type.field name'). See `Reference Browser`_.
+
+Action urls
+~~~~~~~~~~~
+
+For any type (but mostly images) you may specify expressions to be
+used for the preview in the drawer properties panel, the url to be
+inserted for a normal image, and the field to be used to determine
+image scales. The defaults are:
+
+    preview
+        No preview shown by default. Set to
+        'string:${object_url}/image_thumb' for an image preview.
+        object_url for the preview is the actual url of the object.
+
+    normal image
+        Defaults to 'string:${object_url}'. object_url for the normal
+        url will be the resolveuid form if uids are being used,
+        otherwise the actual url.
+
+    fieldname
+        Defaults to 'image'. N.B. This is a literal string, not a tal
+        expression.
+
+    default scale
+        Defaults to 'image_preview'. Use either blank or 'original'
+        for full size images.
+
+    classes
+        An optional list of class names to be allowed for this media
+        type. The class names will be applied in addition to
+        left/inline/right and captioned class names.
+
+    type
+        This controls whether kupu inserts an img tag or an object
+        tag. Only images and flash objects are supported at this time.
+
+documentation tab
+=================
+
+This tab will display the file you are reading. If your Plone system
+has Portal Transforms and docutils installed the file will be
+formatted, otherwise it displays the reStructuredText source of the
+file.
+
+links tab
+=========
+
+This tab allows you to check and maintain links in kupu-editable
+fields.
+
+    Type (Field Name)
+        Lists content types and field names which are editable using
+        Kupu. Only those content types which are exist in the catalog
+        are listed.
+
+    Folders
+        You may use the popup to restrict the search to one or
+        more folders. If you do not select a folder the entire site
+        will be searched.
+
+    Info
+        This field lists the number of matching objects in the
+        catalog based on the current type and folder selection.
+
+There are three command buttons: check links, relative path -> uids,
+and uids -> relative path.
+
+You should convert relative path to uids if you are enabling the 'link
+by uid' option and have existing content, or if you have imported
+content from another source which contains relative links.
+
+The 'uid to relative path' conversion is useful if you have decided to
+stop using 'link by uid' or if you wish to transfer content to another
+system and uids might not preserved during the process. Also, if you
+want to copy a folder within Plone convert to relative paths before
+copying and convert both folders back to uids after copying will
+ensure wherever appropriate that any links within the copied folder
+point to the copy rather than the original.
+
+All commands look for links in the HREF attribute of A tags, and the
+SRC attribute of IMG tags in the selected field. Only relative URLs
+are processed: links to other sites or for other protocols are not
+checked.
+
+Pressing a command button should load the results page and then after
+a short pause should start searching. A progress bar indicates how the
+search is progressing.
+
+check links
+        This command does not modify any content. It simply lists all relative
+        links which are not obviously valid. It is possible that some of these
+        links are correct. Each potentially bad link is displayed with
+        a link to the URL to which Kupu believes it refers. You should review
+        the links individually within the documents and fix them as required.
+
+        Links to methods within objects (except for the difference
+        image sizes) may also be flagged as potential errors.
+
+relative path -> uids
+        This button searches for all relative path URLs which could be
+        replaced by references using the resolveuid form of link. Nothing is
+        actually changed at this point. Each title link has a checkbox and you
+        may de-select any which you wish to be left unchanged: you may only
+        control the changes at the field level, you cannot choose to apply
+        only some of the changes within a field. Changes will only be made
+        when you press the 'commit selected changes' button.
+
+        The proposed changes are displayed with deleted and inserted text
+        highlighted appropriately.
+
+        If you confirm the changes then the resulting text is displayed with
+        the change highlighted.
+
+uids -> relative path
+        This command searches for all resolveuid links and replaces them with
+        normal relative urls. As with the previous command you are given a
+        screen showing the proposed changes and may exclude any of them
+        before confirming the search.
+
+toolbar tab
+===========
+
+This tab allows you to control which buttons and groups of buttons are
+displayed on the kupu toolbar. N.B. Be carefule, some combinations of
+buttons may render kupu hard to use.
+
+You may hide a button or group completely simply by unchecking the
+appropriate ``visible`` checkbox in this page. A button can only be
+visible if the group which contains it is also visible.
+
+You may enter an expression to control whether a button should be
+visible, e.g. to restrict buttons based on the user's roles.
+If there is an expression for a button the setting of the checkbox is
+ignored. The following values are available within the expression
+context:
+
+    field object_url folder_url portal_url object folder portal 
+    nothing request modules member
+
+The visibility of buttons may be further controlled within the widget
+definition for a field, but the this can only hide buttons, it cannot
+force a button to display if the settings on this tab have made it
+invisible. The widget allows for either a whitelist ``allow_buttons``
+attribute or a blacklist ``filter_buttons``. Either attribute should
+contain a list or tuple of button or group ids. The available ids are
+listed on the toolbar tab.
+
+If the widget has an attribute ``allow_buttons`` then only buttons and
+groups listed in this attribute will be visible; all other buttons are
+hidden. If there is no ``allow_buttons`` attribute (or its value is
+``None`` then all buttons are allowed unless excluded by
+``filter_buttons``.
+
+This example would hide all buttons except for bold, italic, left and
+right justify::
+
+        TextField('text',
+            allowable_content_types=('text/html',),
+            default_output_type='text/x-html-safe',
+            required=1,
+            widget=RichWidget
+            (label='Content',
+                allow_buttons=(
+                'bg-basicmarkup',
+                'bold-button', 'italic-button',
+                'bg-justify',
+                'justifyleft-button',
+                'justifyright-button',
+                ),
+            ),
+        ),
+
+This example would hide only the zoom button::
+
+        TextField('text',
+            allowable_content_types=('text/html',),
+            default_output_type='text/x-html-safe',
+            required=1,
+            widget=RichWidget
+            (label='Content',
+                filter_buttons=('zoom',
+                ),
+            ),
+        ),
+
+Custom styles
+-------------
+Kupu allows you to specify styles for paragraphs (P or DIV tags),
+character styles (SPAN tags), and table elements (TABLE, THEAD, TBODY,
+TFOOT, TR, TH, TD tags). The table styles are only available while the
+cursor is inside a table, other styles are available at all times.
+
+Styles come from 3 sources:
+
+   a) The style ``Normal`` is always defined
+
+   b) Use the Plone control panel to add additional styles to be
+      available on all content types. ``Heading``, ``Subheading`` and 
+      ``Formatted`` are added automatically on installation.
+
+   c) For Archetypes content types additional styles may be defined for
+      individual fields.
+
+Styles defined under `Styles`_ in the control panel are in the format ``title|tag``
+or ``title|tag|class``. e.g.::
+
+    Heading|h2
+    Subheading|h3
+    Formatted|pre
+    Pull Quote|div|pullQuote
+    Highlight|span|highlight
+    Table Head|th
+
+Each rich text field can define its own set of styles to be
+made available in kupu. These are defined on the ``parastyles`` attribute
+of the ``RichWidget``. For example, a typical field definition might be::
+
+        TextField('bodyCopy',
+            allowable_content_types=('text/html',),
+            default_output_type='text/x-html-captioned', # see below
+            required=1,
+            searchable=1,
+            widget=RichWidget
+            (description='Please paste or type your article here',
+                label='Body Copy',
+                redefine_parastyles=False,
+                parastyles=(
+                 'Pull Quote|div|pullQuote',
+                 'Caption|div|caption',
+                 'Contact Information|div|contactInformation',
+                 'Notes to editors|div|notesToEditors',
+                ),
+            ),
+        ),
+
+``parastyles`` is a sequence of style definitions. Each definition
+should be a string as for the style definitions in the control panel
+containing the description that appears in the style pulldown, vertical
+bar, the tag to be added, vertical bar, class to be assigned to
+the tag.
+The class may be omitted, so description, vertical bar, tag is also valid.
+
+If the widget has an attribute ``redefine_parastyles`` which is true,
+then the styles defined for the field will replace the globally
+configured styles. If false or not set the field styles are added to
+the global styles.
+
+Images
+------
+
+The image drawer contains radio buttons to select left, inline or
+right alignment on pasted images. For this to work your CSS must
+define classes ``image-left``, ``image-inline`` and ``image-right``. You
+should add these as in the example below even if you do not require
+the optional captioning support.
+
+.. _captioning:
+
+Optionally kupu can automatically add captions to images. To enable
+this feature you must be linking to an Archetypes based image type and
+have 'link by uid' enabled in the configuration options,
+and the field you are editing must invoke the html-to-captioned output 
+transform.
+
+The field must have a default output type of text/x-html-safe or
+text/x-html-captioned otherwise image drawer will not include the
+caption option.
+
+If both of these conditions are filled, then the image drawer will
+include a checkbox for captioning an image. By default this is
+checked, turn it off to disable the caption on that image.
+
+There are (at least) 2 ways to arrange this. One way is that the field
+should have its ``default_output_type`` set to
+``text/x-html-captioned`` in the Archetypes schema. The problem with
+this is that the default ATContentTypes use an output type of
+'text/x-html-safe'. If either link by uid or captioning is enabled
+then Kupu will attempt to configure the Portal Transform engine to
+apply the transform automatically.
+
+If you have a version of Portal Transforms earlier than 1.3.9 then you
+may need to patch it to work correctly with the transform:
+
+Find the line::
+
+        requirements = self._policies.get(target_mt, [])
+
+and change it to::
+
+        requirements = self._policies.get(str(target_mt), [])
+
+Once you have done kupu will configure the portal_transforms tool as follows:
+
+   * add a new transform id 'captioned_to_html', module
+     'Products.PortalTransforms.transforms.identity' with input type
+     text/x-html-captioned and output type text/html.
+
+   * On the portal_transforms policy tab add a policy with output
+     type=text/x-html-safe, uses transforms='html-to-captioned'.
+
+This will force the captioning transform to be applied before the
+safe_html transform.
+
+The caption is added when the page is viewed. All img tags for
+captioned images are replaced by an img tag in nested divs. The class
+for the img tag is moved to the enclosing div, and the current image
+description is appended in a div with class ``image-caption``. If the
+original image was in a div or paragraph by itself then the enclosing
+tag is also removed. In other words::
+
+    <img class="image-left captioned" width="200" ... />
+
+is replaced by::
+
+    <div class="image-left captioned" style="width:200px;">
+      <div><img width="200" ... /></div>
+      <div class="image-caption">
+         ...description text...
+      </div>
+    </div>
+
+You need to add some styles to your ``ploneCustom.css``. At the least, you
+should set ``div.image-caption`` appropriately, you probably also want to
+set classes for displaying images floated left, inline or right::
+
+    div.image-caption {
+      background: #e0e0e0;
+      border: 0 none black;
+      overflow: hidden;
+    }
+    .image-left {
+       float: left;
+       clear: both;
+    }
+    .image-inline {
+       float: none;
+    }
+    .image-right {
+       float: right;
+       clear: both;
+    }
+
+Flash
+-----
+Kupu has some support for embedding Flash objects using the
+ATFlashMovie content type, but requires some configuration. Other
+Flash content types may also work but have not been tested.
+
+  1. Install ATFlashMovie.
+
+  2. Got to the resource types tab of the configlet.
+
+  3. Under the resource ``mediaobject`` add Flash Movie to the
+     selection and save.
+
+  4. In the action urls table at the bottom of the page, add a new
+     entry for the type Flash Movie. The preview may be left blank or be
+     the same as the 'normal' image. For 'normal image' you should enter
+     ``string:${object_url}/download``. Leave fieldname blank and in the
+     'type' field select 'Flash'.
+
+Flash movies should now appear in the image drawer and be insertable
+into the document. Using IE the Flash movie will appear in the
+document and may be edited or moved as desired. Firefox will not play
+the movie while you are editing, so a 'flash placeholder' image is
+displayed instead: you cannot select it in Firefox so if you need to
+delete a Flash movie you will need to include the image in a slightly
+larger selection (e.g. spaces before and after) and delete that.
+
+Known problems
+==============
+When selecting a flash object in IE you need to be sure to get a
+selection only with sizing handles (by clicking exactly on the edge).
+If the selection box also shows cross-hatched then you have clicked
+inside the Flash object and kupu will not be able to determine the
+current selection.
+
+In IE the Flash object sometimes appears over the top of the drawer.
+Workaround: close the drawer and try again.
+
+References from HTML text
+-------------------------
+Kupu can be made to store archetypes references for any HTML field.
+You can use these references for a variety of purposes, e.g. when
+publishing a document you could automatically publish all the
+contained images.
+
+To enable this feature for a particular field, you need to  change the
+type of the field from ``TextField`` to ``ReftextField``::
+
+    from Products.kupu.plone.ReftextField import ReftextField
+
+then define your field as::
+
+        Reftextfield('bodyCopy',
+            required=1,
+            searchable=1,
+            relationship='bodyCopy',
+            widget=RichWidget
+            (description='Please paste or type your article here',
+                label='Body Copy',
+                ),
+            ),
+        ),
+
+the ``ReftextField`` type is identical to the existing ``TextField``
+except that it also extracts references from the HTML text whenever
+the field is saved. The relationship used to hold the references may
+be specified as shown, but if omitted it defaults to the field name.
+
+If the HTML contains an invalid reference, e.g. a link to an object
+that has since been deleted, ``ReftextField`` will completely ignore
+that link.
+
+Reference Browser
+-----------------
+Kupu will replace the popup windows used by ATReferenceBrowser with 
+its own drawers. When used as a reference browser, the attributes of
+the field and widget are used as Kupu's resource type. The following
+attributes are recognised:
+
+    allowed_types
+        Direct equivalent of Kupu's own resource types. Lists
+        permitted types for the drawer.
+
+    allowed_types_method
+        The name of a method on the object which can be called to
+        return the list of types.
+
+    base_query
+        Either a dictionary, or the name of a method which returns a
+        dictionary. This dictionary contains search parameters used
+        by libraries.
+
+Migrating from Epoz
+-------------------
+
+Epoz and Kupu will coexist: simply install both products. If you are
+running an old version of Epoz you should either upgrade to a more
+recent version, or ensure that the Kupu skin folders are searched
+before the Epoz ones. Then encourage all your users to select Kupu as
+their default editor from their user preferences.

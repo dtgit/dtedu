@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<object name="portal_skins" meta_type="CMF Skins Tool">
+ <object name="kupu" meta_type="Filesystem Directory View"
+    directory="kupu/common"/>
+ <object name="kupu_plone" meta_type="Filesystem Directory View"
+    directory="kupu/plone/kupu_plone_layer"/>
+ <object name="kupu_references" meta_type="Filesystem Directory View"
+    directory="kupu/plone/kupu_references"/>
+ <object name="kupu_tests" meta_type="Filesystem Directory View"
+    directory="kupu/tests"/>
+ <skin-path name="*">
+  <layer name="kupu" insert-after="custom"/>
+  <layer name="kupu_plone" insert-before="kupu"/>
+  <layer name="kupu_tests" insert-after="kupu"/>
+ </skin-path>
+</object>

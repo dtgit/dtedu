@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="portal_factory">
+	<factorytypes>
+		<type portal_type="ECAssignmentBox" />
+		<type portal_type="ECAssignment" />
+		<type portal_type="ECAssignmentTask" />
+		<type portal_type="ECFolder" />
+	</factorytypes>
+</object>

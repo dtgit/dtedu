@@ -1,0 +1,655 @@
+
+  
+    
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:tal="http://xml.zope.org/namespaces/tal" tal:define="kupu_url here/absolute_url;                       document_url here/fulldoc/absolute_url;">
+
+      
+    <head>
+      <metal:macro xmlns:metal="http://xml.zope.org/namespaces/metal" define-macro="head">
+      
+      
+    <link rel="stylesheet" type="text/css" href="kupustyles.css" tal:attributes="href string:${kupu_url}/kupustyles.css"/>
+  
+      
+    <script type="text/javascript" src="sarissa.js" tal:attributes="src string:${kupu_url}/sarissa.js"> </script>
+    <script type="text/javascript" src="kupuhelpers.js" tal:attributes="src string:${kupu_url}/kupuhelpers.js"> </script>
+    <script type="text/javascript" src="kupueditor.js" tal:attributes="src string:${kupu_url}/kupueditor.js"> </script>
+    <script type="text/javascript" src="kupubasetools.js" tal:attributes="src string:${kupu_url}/kupubasetools.js"> </script>
+    <script type="text/javascript" src="kupuloggers.js" tal:attributes="src string:${kupu_url}/kupuloggers.js"> </script>
+    <script type="text/javascript" src="kupunoi18n.js" tal:attributes="src string:${kupu_url}/kupunoi18n.js"> </script>
+    <script type="text/javascript" src="kupucontentfilters.js" tal:attributes="src string:${kupu_url}/kupucontentfilters.js"> </script>
+    <script type="text/javascript" src="kupuspellchecker.js" tal:attributes="src string:${kupu_url}/kupuspellchecker.js"> </script>
+    <script type="text/javascript" src="kuputoolcollapser.js" tal:attributes="src string:${kupu_url}/kuputoolcollapser.js"> </script>
+    <script type="text/javascript" src="kupucleanupexpressions.js" tal:attributes="src string:${kupu_url}/kupucleanupexpressions.js"> </script>
+  
+      <metal:slot define-slot="saveonpart">
+        
+    <script type="text/javascript" src="kupusaveonpart.js" tal:attributes="src string:${kupu_url}/kupusaveonpart.js"> </script>
+  
+      </metal:slot>
+      <metal:slot define-slot="sourceedit">
+        
+    <script type="text/javascript" src="kupusourceedit.js" tal:attributes="src string:${kupu_url}/kupusourceedit.js"> </script>
+  
+      </metal:slot>
+      <metal:slot define-slot="contextmenu">
+        
+    <script type="text/javascript" src="kupucontextmenu.js" tal:attributes="src string:${kupu_url}/kupucontextmenu.js"> </script>
+  
+      </metal:slot>
+      <metal:slot define-slot="drawers">
+        
+    <link rel="stylesheet" type="text/css" href="kupudrawerstyles.css" tal:attributes="href string:${kupu_url}/kupudrawerstyles.css"/>
+  
+        
+    <script type="text/javascript" src="kupudrawers.js" tal:attributes="src string:${kupu_url}/kupudrawers.js"> </script>
+  
+      </metal:slot>
+      <metal:slot define-slot="bootstrap-editor">
+        
+    <script type="text/javascript" src="kupuinit.js" tal:attributes="src string:${kupu_url}/kupuinit.js"> </script>
+    <script type="text/javascript" src="kupustart.js" tal:attributes="src string:${kupu_url}/kupustart.js"> </script>
+  
+      </metal:slot>
+    </metal:macro>
+    </head>
+  
+    <body onload="kupu = startKupu()">
+      <h1 xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="testpage_title">Kupu Editor Test Page</h1>
+      <metal:macro xmlns:metal="http://xml.zope.org/namespaces/metal" define-macro="xmlconfig">
+      
+    <div style="display: none;">
+      <xml id="kupuconfig" class="kupuconfig">
+        <kupuconfig>
+          <metal:slot define-slot="config_default">
+      
+    <dst><metal:block define-slot="dst"/></dst>
+    <use_css>1</use_css>
+    <reload_after_save>0</reload_after_save>
+    <strict_output>1</strict_output>
+    <content_type>application/xhtml+xml</content_type>
+    <compatible_singletons>1</compatible_singletons>
+    <cleanup_expressions>
+      <set>
+        <name>Convert single quotes to curly ones</name>
+        <expression>
+          <reg>
+            (\W)'
+          </reg>
+          <replacement>
+            \1&#8216;
+          </replacement>
+        </expression>
+        <expression>
+          <reg>
+            '
+          </reg>
+          <replacement>
+            &#8217;
+          </replacement>
+        </expression>
+      </set>
+      <set>
+        <name>Reduce whitespace</name>
+        <expression>
+          <reg>
+            [\n\r\t]
+          </reg>
+          <replacement>
+            \x20
+          </replacement>
+        </expression>
+        <expression>
+          <reg>
+            [ ]{2}
+          </reg>
+          <replacement>
+            \x20
+          </replacement>
+        </expression>
+      </set>
+    </cleanup_expressions>
+  
+    </metal:slot><metal:slot define-slot="config_drawers">
+      
+    <image_xsl_uri tal:content="string:${kupu_url}/kupudrawers/drawer.xsl">kupudrawers/drawer.xsl</image_xsl_uri>
+    <link_xsl_uri tal:content="string:${kupu_url}/kupudrawers/drawer.xsl">kupudrawers/drawer.xsl</link_xsl_uri>
+    <image_libraries_uri tal:content="string:${kupu_url}/kupudrawers/imagelibrary.xml">kupudrawers/imagelibrary.xml</image_libraries_uri>
+    <link_libraries_uri tal:content="string:${kupu_url}/kupudrawers/linklibrary.xml">kupudrawers/linklibrary.xml</link_libraries_uri>
+    <search_images_uri> </search_images_uri>
+    <search_links_uri> </search_links_uri>
+  
+    </metal:slot><metal:slot define-slot="config_extra"/>
+        </kupuconfig>
+      </xml>
+    </div>
+  
+    </metal:macro><metal:macro xmlns:metal="http://xml.zope.org/namespaces/metal" define-macro="fulleditor">
+      
+    <div class="kupu-fulleditor">
+      <metal:slot define-slot="toolbar">
+      
+    <div class="kupu-tb" id="toolbar">
+      
+    <span id="kupu-tb-buttons" class="kupu-tb-buttons">
+      <metal:slot define-slot="buttongroup_logo">
+      
+    <span class="kupu-tb-buttongroup kupu-logo" style="float: right" id="kupu-logo">
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-logo" title="Kupu 1.4" i18n:attributes="title title_logo;" accesskey="k" onclick="window.open('http://kupu.oscom.org');">&#160;</button>
+    </span>
+  
+    </metal:slot><metal:slot define-slot="buttongroup_zoom">
+      
+    <span class="kupu-tb-buttongroup" style="float: right" id="kupu-zoom">
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-zoom" id="kupu-zoom-button" i18n:attributes="title title_zoom;" title="Zoom: Access key (Alt or Ctrl) + X" accesskey="x">&#160;</button>
+    </span>
+  
+    </metal:slot><metal:slot define-slot="tb_select_styles">
+      
+    <select id="kupu-tb-styles">
+      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" value="P" i18n:translate="Normal">
+        Normal paragraph
+      </option>
+      <option value="H1">
+        <span xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="Heading 1">Heading 1</span>
+      </option>
+      <option value="H2">
+        <span xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="Heading 2">Heading 2</span>
+      </option>
+      <option value="H3">
+        <span xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="Heading 3">Heading 3</span>
+      </option>
+      <option value="H4">
+        <span xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="Heading 4">Heading 4</span>
+      </option>
+      <option value="H5">
+        <span xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="Heading 5">Heading 5</span>
+      </option>
+      <option value="H6">
+        <span xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="Heading 6">Heading 6</span>
+      </option>
+      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" value="PRE" i18n:translate="Formatted">
+        Formatted
+      </option>
+    </select>
+  
+    </metal:slot><metal:slot define-slot="buttongroup_save">
+      
+    <span class="kupu-tb-buttongroup">
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-save" id="kupu-save-button" title="save: alt-s" i18n:attributes="title title_save_alts;" accesskey="s">&#160;</button>
+    </span>
+  
+    </metal:slot><metal:slot define-slot="buttongroup_basicmarkup">
+      
+    <span class="kupu-tb-buttongroup" id="kupu-bg-basicmarkup">
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-bold" id="kupu-bold-button" title="Bold: Access key (Alt or Ctrl) + B" i18n:attributes="title title_bold;" accesskey="b">&#160;</button>
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-italic" id="kupu-italic-button" title="Italic: Access key (Alt or Ctrl) + I" i18n:attributes="title title_italic;" accesskey="i">&#160;</button>
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-underline" id="kupu-underline-button" title="Underline: Access key (Alt or Ctrl) + U" i18n:attributes="title title_underline;" accesskey="u">&#160;</button>
+    </span>
+  
+    </metal:slot><metal:slot define-slot="buttongroup_subsuper">
+      
+    <span class="kupu-tb-buttongroup" id="kupu-bg-subsuper">
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-subscript" id="kupu-subscript-button" title="Subscript: Access key (Alt or Ctrl) + -" i18n:attributes="title title_subscript;" accesskey="-">&#160;</button>
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-superscript" id="kupu-superscript-button" title="Superscript: Access key (Alt or Ctrl) + +" i18n:attributes="title title_superscript;" accesskey="+">&#160;</button>
+    </span>
+  
+    </metal:slot><metal:slot define-slot="buttongroup_color">
+      
+    <span class="kupu-tb-buttongroup" id="kupu-bg-color">
+      
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-forecolor" id="kupu-forecolor-button" title="text color: alt-f" i18n:attributes="title title_text_color;" accesskey="f">&#160;</button>
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-hilitecolor" id="kupu-hilitecolor-button" title="background color: alt-h" i18n:attributes="title title_back_color;" accesskey="h">&#160;</button>
+    </span>
+  
+    </metal:slot><metal:slot define-slot="buttongroup_justify">
+      
+    <span class="kupu-tb-buttongroup" id="kupu-bg-justify">
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-justifyleft" id="kupu-justifyleft-button" title="Left justify: Access key (Alt or Ctrl) + L" i18n:attributes="title title_ljust;" accesskey="l">&#160;</button>
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-justifycenter" id="kupu-justifycenter-button" title="Center justify: Access key (Alt or Ctrl) + C" i18n:attributes="title title_center;" accesskey="c">&#160;</button>
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-justifyright" id="kupu-justifyright-button" title="Right justify: Access key (Alt or Ctrl) + R" i18n:attributes="title title_rjust;" accesskey="r">&#160;</button>
+    </span>
+  
+    </metal:slot><metal:slot define-slot="buttongroup_list">
+      
+              <span class="kupu-tb-buttongroup" id="kupu-bg-list">
+      
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-insertorderedlist" title="Numbered list: Access key (Alt or Ctrl) + #" id="kupu-list-ol-addbutton" i18n:attributes="title title_numlist;" accesskey="#">&#160;</button>
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-insertunorderedlist" title="Unordered list: Access key (Alt or Ctrl) + *" id="kupu-list-ul-addbutton" i18n:attributes="title title_unorderedlist;" accesskey="*">&#160;</button>
+              </span>
+  
+    </metal:slot><metal:slot define-slot="buttongroup_definitionlist">
+      
+    <span class="kupu-tb-buttongroup" id="kupu-bg-definitionlist">
+      
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-insertdefinitionlist" title="Definition list: Access key (Alt or Ctrl) + =" id="kupu-list-dl-addbutton" i18n:attributes="title title_deflist;" accesskey="=">&#160;</button>
+    </span>
+  
+    </metal:slot><metal:slot define-slot="buttongroup_indent">
+      
+    <span class="kupu-tb-buttongroup" id="kupu-bg-indent">
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-outdent" id="kupu-outdent-button" title="Decrease quote level: Access key (Alt or Ctrl) + &lt;" i18n:attributes="title title_decrease_quote;" accesskey="&lt;">&#160;</button>
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-indent" id="kupu-indent-button" title="Increase quote level: Access key (Alt or Ctrl) + &gt;" i18n:attributes="title title_increase_quote;" accesskey="&gt;">&#160;</button>
+    </span>
+  
+    </metal:slot><metal:slot define-slot="buttongroup_drawers">
+      
+    <span class="kupu-tb-buttongroup">
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-image" id="kupu-imagelibdrawer-button" title="Insert image" i18n:attributes="title title_insert_image;">&#160;</button>
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-inthyperlink" id="kupu-linklibdrawer-button" title="Insert internal link" i18n:attributes="title title_insert_internal_link;">&#160;</button>
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-exthyperlink" id="kupu-linkdrawer-button" title="Insert external link" i18n:attributes="title title_insert_external_link;">&#160;</button>
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-anchors" id="kupu-anchors" title="Insert anchors" i18n:attributes="title title_insert_anchors;">&#160;</button>
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-table" id="kupu-tabledrawer-button" title="Insert table" i18n:attributes="title title_insert_table;">&#160;</button>
+    </span>
+  
+    </metal:slot><metal:slot define-slot="buttongroup_remove">
+      
+    <span class="kupu-tb-buttongroup" id="kupu-bg-remove">
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-removeimage invisible" id="kupu-removeimage-button" title="Remove image" i18n:attributes="title title_removeimage;">&#160;</button>
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-removelink invisible" id="kupu-removelink-button" title="Remove link" i18n:attributes="title title_removelink;">&#160;</button>
+    </span>
+  
+    </metal:slot><metal:slot define-slot="buttongroup_undo">
+      
+    <span class="kupu-tb-buttongroup" id="kupu-bg-undo">
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-undo" id="kupu-undo-button" title="Undo: Access key (Alt or Ctrl) + Z" i18n:attributes="title title_undo;" accesskey="z">&#160;</button>
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-redo" id="kupu-redo-button" title="Redo: Access key (Alt or Ctrl) + Y" i18n:attributes="title title_redo;" accesskey="y">&#160;</button>
+    </span>
+  
+    </metal:slot><metal:slot define-slot="buttongroup_source">
+      
+    <span class="kupu-tb-buttongroup kupu-source-span" id="kupu-source">
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-source" id="kupu-source-button" title="Switch between visual editor and HTML view" i18n:attributes="title toggle_source_view;" accesskey="h">&#160;</button>
+    </span>
+  
+    </metal:slot><metal:slot define-slot="buttongroup_spellchecker">
+      
+    <span class="kupu-tb-buttongroup kupu-spellchecker-span" id="kupu-spellchecker">
+      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" class="kupu-spellchecker" id="kupu-spellchecker-button" title="Check spelling" i18n:attributes="title title_check_spelling;">&#160;</button>
+    </span>
+  
+    </metal:slot><metal:slot define-slot="buttongroup_extra"/>
+    </span>
+  <metal:slot define-slot="tb_select_liststyle">
+      
+    <select id="kupu-ulstyles" class="kupu-ulstyles">
+      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" value="disc" i18n:translate="list-disc">&#9679;</option>
+      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" value="square" i18n:translate="list-square">&#9632;</option>
+      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" value="circle" i18n:translate="list-circle">&#9675;</option>
+      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" value="none" i18n:translate="list-nobullet">no bullet</option>
+    </select>
+    <select id="kupu-olstyles" class="kupu-olstyles">
+      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" value="decimal" i18n:translate="list-decimal">1</option>
+      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" value="upper-roman" i18n:translate="list-upperroman">I</option>
+      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" value="lower-roman" i18n:translate="list-lowerroman">i</option>
+      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" value="upper-alpha" i18n:translate="list-upperalpha">A</option>
+      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" value="lower-alpha" i18n:translate="list-loweralpha">a</option>
+    </select>
+  
+    </metal:slot><metal:slot define-slot="drawers">
+      
+    <metal:slot define-slot="librarydrawer">
+      
+    <div style="display:block;" class="kupu-librarydrawer-parent">
+      <iframe style="display:none" class="kupu-anchorframe" src="javascript:''">
+      </iframe>
+    </div>
+  
+    </metal:slot><metal:slot define-slot="linkdrawer">
+      
+    <div id="kupu-linkdrawer" class="kupu-drawer kupu-linkdrawer">
+      <h1 xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-drawer-title" i18n:translate="title_external_link">External Link</h1>
+
+      <div id="kupu-linkdrawer-addlink" class="kupu-panels kupu-linkdrawer-addlink">
+         <ul class="kupu-tabs">
+            <li class="kupu-linkdrawer-addlink selected"><a xmlns:i18n="http://xml.zope.org/namespaces/i18n" href="#" i18n:translate="tab_link">Link to url</a></li>
+            <li class="kupu-linkdrawer-embed" tal:condition="filter/embed-tab|nothing"><a xmlns:i18n="http://xml.zope.org/namespaces/i18n" href="#" i18n:translate="tab_embed">Embed external object</a></li>
+         </ul>
+         <table class="kupu-tabbed">
+            <tbody class="kupu-addlink">
+               <tr>
+                  <td>
+                     <div class="kupu-toolbox-label">
+                        
+                        <span xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="label_link_text">
+                           Link the highlighted text to this URL:
+                        </span>
+                     </div>
+                     <input class="kupu-toolbox-st kupu-linkdrawer-input" type="text" onkeypress="return HandleDrawerEnter(event, 'linkdrawer-preview');"/>
+                  </td>
+                  <td class="kupu-preview-button">
+                     <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-dialog-button" type="button" id="linkdrawer-preview" onclick="drawertool.current_drawer.preview()" i18n:translate="button_preview">Preview</button>
+                  </td>
+               </tr>
+               <tr class="kupu-linkdrawer-anchors" style="display:none">
+                  <td colspan="2">
+                     <label xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="label_anchor" for="anchorselect">Anchor</label>
+                     <select id="anchorselect"><option xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="opt_top_of_page" value="">top of page (default)</option></select>
+                  </td>
+               </tr>
+               <tr><td colspan="2" align="center">
+                  <div class="watermark"><span xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="watermark_preview">Preview</span></div>
+                  <iframe frameborder="1" scrolling="auto" width="440" height="198" class="kupu-linkdrawer-preview" src="javascript:''">
+                  </iframe>
+                  </td>
+               </tr>
+            </tbody>
+            <tbody class="kupu-embed">
+               <tr>
+                  <td>
+                     <div class="kupu-toolbox-label">
+                        
+                        <span xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="help_paste_here">
+                           Paste &lt;object&gt; or &lt;embed&gt; tag here:
+                        </span>
+                     </div>
+                     <textarea xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-toolbox-st kupu-embed-input" i18n:translate="placeholder_html_code">[insert arbitrary HTML code here]</textarea>
+                  </td>
+               </tr>
+               <tr>
+                  <td xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="custom_html_help">
+                  You may use this box to insert custom snippets of
+                  HTML code. There is no guarantee that any code
+                  inserted in this way will be preserved when you save
+                  your edits. To select an existing object from IE click on
+                  the border, from Firefox double click it.
+                  </td>
+               </tr>
+            </tbody>
+        </table>
+
+        <div class="kupu-dialogbuttons">
+          <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-dialog-button" type="button" onclick="drawertool.current_drawer.save()" i18n:translate="button_ok">Ok</button>
+          <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-dialog-button" type="button" onclick="drawertool.closeDrawer()" i18n:translate="button_cancel">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+  
+    </metal:slot><metal:slot define-slot="tabledrawer">
+      
+    <div id="kupu-tabledrawer" class="kupu-drawer kupu-tabledrawer">
+    <h1 xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-drawer-title" i18n:translate="tabledrawer_title">Table</h1>
+    <div class="kupu-panels">
+      <table width="300">
+        <tr class="kupu-panelsrow">
+          <td class="kupu-panel">
+            
+            <div class="kupu-tabledrawer-addtable">
+              <table>
+                <tr>
+                  <th xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="tabledrawer_class_label" class="kupu-toolbox-label">Table Class</th>
+                  <td>
+                    <select class="kupu-tabledrawer-addclasschooser">
+                      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="Plain" value="plain">Plain</option>
+                      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="Listing" value="listing">Listing</option>
+                      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="Grid" value="grid">Grid</option>
+                      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="Data" value="data">Data</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="tabledrawer_rows_label" class="kupu-toolbox-label">Rows</th>
+                  <td><input type="text" class="kupu-tabledrawer-newrows" onkeypress="return HandleDrawerEnter(event);"/></td>
+                </tr>
+                <tr>
+                  <th xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="tabledrawer_columns_label" class="kupu-toolbox-label">Columns</th>
+                  <td><input type="text" class="kupu-tabledrawer-newcols" onkeypress="return HandleDrawerEnter(event);"/></td>
+                </tr>
+                <tr>
+                  <th class="kupu-toolbox-label"> </th>
+                  <td>
+                    <input class="kupu-tabledrawer-makeheader" type="checkbox" checked="checked" onkeypress="return HandleDrawerEnter(event);" id="tabledrawer_makeheader"/>
+                    <label xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="tabledrawer_headings_label" for="tabledrawer_makeheader">
+                      Create Headings
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="kupu-toolbox-label"> </th>
+                  <td>
+                      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-dialog-button" type="button" i18n:translate="tabledrawer_add_table_button" onclick="drawertool.current_drawer.createTable()">Add Table</button>
+                      <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-dialog-button" type="button" i18n:translate="tabledrawer_fix_tables_button" onclick="drawertool.current_drawer.fixAllTables()">Fix All Tables</button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            
+            <div class="kupu-tabledrawer-edittable">
+              <table>
+                <tr>
+                  <th xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-toolbox-label" i18n:translate="tabledrawer_class_label">Table Class</th>
+                  <td>
+                    <select class="kupu-tabledrawer-editclasschooser" onchange="drawertool.current_drawer.setTableClass(this.options[this.selectedIndex].value)">
+                      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="Plain" value="plain">Plain</option>
+                      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="Listing" value="listing">Listing</option>
+                      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="Grid" value="grid">Grid</option>
+                      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="Data" value="data">Data</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-toolbox-label" i18n:translate="tabledrawer_alignment_label">Current column alignment</th>
+                  <td>
+                    <select id="kupu-tabledrawer-alignchooser" class="kupu-tabledrawer-alignchooser" onchange="drawertool.current_drawer.tool.setColumnAlign(this.options[this.selectedIndex].value)">
+                      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="tabledrawer_left_option" value="left">Left</option>
+                      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="tabledrawer_center_option" value="center">Center</option>
+                      <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="tabledrawer_right_option" value="right">Right</option>
+                      </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-toolbox-label" i18n:translate="tabledrawer_column_label">Column</th>
+                  <td>
+                    <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-dialog-button" type="button" i18n:translate="tabledrawer_add_button" onclick="drawertool.current_drawer.addTableColumn()">Add</button>
+                    <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-dialog-button" type="button" i18n:translate="tabledrawer_remove_button" onclick="drawertool.current_drawer.delTableColumn()">Remove</button>
+                  </td>
+                </tr>
+                <tr>
+                  <th xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-toolbox-label" i18n:translate="tabledrawer_row_label">Row</th>
+                  <td>
+                    <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-dialog-button" type="button" i18n:translate="tabledrawer_add_button" onclick="drawertool.current_drawer.addTableRow()">Add</button> 
+                    <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-dialog-button" type="button" i18n:translate="tabledrawer_remove_button" onclick="drawertool.current_drawer.delTableRow()">Remove</button>
+                  </td>
+                </tr>
+                <tr>
+                  <th xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-toolbox-label" i18n:translate="tabledrawer_table_label">Table</th>
+                  <td>
+                    <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-dialog-button" type="button" i18n:translate="tabledrawer_fix_button" onclick="drawertool.current_drawer.fixTable()">Fix</button> 
+                    <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-dialog-button" type="button" i18n:translate="tabledrawer_remove_button" onclick="drawertool.current_drawer.delTable()">Remove</button> 
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div class="kupu-dialogbuttons">
+        <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-dialog-button" type="button" i18n:translate="tabledrawer_close_button" onclick="drawertool.closeDrawer(this)">Close</button>
+      </div>
+    </div>
+    </div>
+
+  
+    </metal:slot><metal:slot define-slot="extradrawer"/>
+  
+    </metal:slot>
+    </div>
+  
+    </metal:slot><metal:slot define-slot="toolboxes">
+      
+    <div class="kupu-toolboxes" id="kupu-toolboxes">
+      <metal:slot define-slot="toolbox_properties">
+      
+    <div class="kupu-toolbox" id="kupu-toolbox-properties">
+      <h1 xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-toolbox-heading" i18n:translate="title_properties">Properties</h1>
+
+      <div>
+        <div xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-toolbox-label" i18n:translate="label_title">Title:</div>
+        <input class="wide" id="kupu-properties-title"/>
+        <div xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-toolbox-label" i18n:translate="label_description">Description:</div>
+        <textarea class="wide" id="kupu-properties-description"> </textarea>
+      </div>
+    </div>
+  
+    </metal:slot><metal:slot define-slot="toolbox_links">
+      
+    <div class="kupu-toolbox" id="kupu-toolbox-links">
+      <h1 xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-toolbox-heading" i18n:translate="label_links">Links</h1>
+
+      <div id="kupu-toolbox-addlink">
+        <div class="kupu-toolbox-label">
+          
+          <span xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="label_link_text">
+            Link the highlighted text to this URL:
+          </span>
+        </div>
+
+        <input id="kupu-link-input" class="wide" type="text"/>
+        <div class="kupu-toolbox-buttons">
+          <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" id="kupu-link-button" class="kupu-toolbox-action" i18n:translate="button_makelink">Make Link</button>
+        </div>
+      </div>
+    </div>
+  
+    </metal:slot><metal:slot define-slot="toolbox_images">
+      
+    <div class="kupu-toolbox" id="kupu-toolbox-images">
+      <h1 xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-toolbox-heading" i18n:translate="title_images">Images</h1>
+
+      <div>
+        <div class="kupu-toolbox-label">
+          <span xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="label_image_class">Image class:</span>
+        </div>
+        <select class="wide" id="kupu-image-float-select">
+          <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" value="image-inline" i18n:translate="opt_inline">Inline</option>
+          <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" value="image-left" i18n:translate="opt_left">Left</option>
+          <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" value="image-right" i18n:translate="opt_right">Right</option>
+        </select>
+
+        <div class="kupu-toolbox-label">
+          <span xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="label_insert_image_url">Insert image at the following URL:</span>
+        </div>
+        <input id="kupu-image-input" value="kupuimages/kupu_icon.gif" class="wide" type="text"/>
+
+        <div class="kupu-toolbox-buttons">
+          <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" id="kupu-image-addbutton" class="kupu-toolbox-action" i18n:translate="button_insert_image">Insert Image</button>
+        </div>
+      </div>
+    </div>
+  
+    </metal:slot><metal:slot define-slot="toolbox_tables">
+      
+    <div class="kupu-toolbox" id="kupu-toolbox-tables">
+      <h1 xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-toolbox-heading" i18n:translate="title_tables">Tables</h1>
+
+      <div>
+      <div class="kupu-toolbox-label">
+        <span xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="label_table_class">Table Class:</span>
+        <select class="wide" id="kupu-table-classchooser"> </select>
+      </div>
+
+      <div id="kupu-toolbox-addtable" class="kupu-toolbox-addtable">
+        <div xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-toolbox-label" i18n:translate="label_rows">Rows:</div>
+        <input class="wide" type="text" id="kupu-table-newrows"/>
+
+        <div xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-toolbox-label" i18n:translate="label_columns">Columns:</div>
+        <input class="wide" type="text" id="kupu-table-newcols"/>
+
+        <div class="kupu-toolbox-label">
+          <span xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="label_headings">Headings:</span>
+          <input name="kupu-table-makeheader" id="kupu-table-makeheader" type="checkbox"/>
+          <label xmlns:i18n="http://xml.zope.org/namespaces/i18n" for="kupu-table-makeheader" i18n:translate="label_create">Create</label>
+        </div>
+
+        <div class="kupu-toolbox-buttons">
+          <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" id="kupu-table-fixall-button" i18n:translate="button_fix_table">Fix Table</button> 
+          <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" id="kupu-table-addtable-button" i18n:translate="button_add_table">Add Table</button> 
+        </div>
+
+      </div>
+
+      <div id="kupu-toolbox-edittable" class="kupu-toolbox-edittable">
+      
+          <div class="kupu-toolbox-label">
+            <span xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="label_col_align">Col Align:</span>
+            <select class="wide" id="kupu-table-alignchooser">
+              <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" value="left" i18n:translate="tabledrawer_left_option">Left</option>
+              <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" value="center" i18n:translate="tabledrawer_center_option">Center</option>
+              <option xmlns:i18n="http://xml.zope.org/namespaces/i18n" value="right" i18n:translate="tabledrawer_right_option">Right</option>
+            </select>
+          </div>
+      
+          <div class="kupu-toolbox-buttons">
+            <br/>
+            <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" id="kupu-table-addcolumn-button" i18n:translate="button_add_column">Add Column</button>
+            <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" id="kupu-table-delcolumn-button" i18n:translate="button_remove_column">Remove Column</button>
+            
+            <br/>
+            <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" id="kupu-table-addrow-button" i18n:translate="button_add_row">Add Row</button>
+            <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" id="kupu-table-delrow-button" i18n:translate="button_remove_row">Remove Row</button>
+          
+            <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" id="kupu-table-fix-button" i18n:translate="button_fix_table">Fix Table</button>
+            <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" id="kupu-table-del-button" i18n:translate="button_remove_table">Remove Table</button>
+          </div>
+          
+      </div>
+      </div>
+
+    </div>
+  
+    </metal:slot><metal:slot define-slot="toolbox_cleanup">
+      
+    <div class="kupu-toolbox" id="kupu-toolbox-cleanupexpressions">
+      <h1 xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-toolbox-heading" i18n:translate="title_cleanup_expressions">Cleanup expressions</h1>
+
+      <div>
+        <div class="kupu-toolbox-label">
+          <span xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:translate="label_select_cleanup">
+            Select a cleanup action:
+          </span>
+        </div>
+
+        <select id="kupucleanupexpressionselect" class="kupu-toolbox-st">
+        </select>
+        <div style="text-align: center">
+          <button xmlns:i18n="http://xml.zope.org/namespaces/i18n" type="button" id="kupucleanupexpressionbutton" class="kupu-toolbox-action" i18n:translate="perform_action">Perform action</button>
+        </div>
+      </div>
+    </div>
+  
+    </metal:slot><metal:slot define-slot="toolbox_extra"/><metal:slot define-slot="toolbox_debug">
+      
+    <div class="kupu-toolbox" id="kupu-toolbox-debug">
+      <h1 xmlns:i18n="http://xml.zope.org/namespaces/i18n" class="kupu-toolbox-heading" i18n:translate="title_debug_log">Debug Log</h1>
+      <div id="kupu-toolbox-debuglog" class="kupu-toolbox-label">
+      </div>
+    </div>
+  
+    </metal:slot>
+    </div>
+  
+    </metal:slot><metal:slot define-slot="colorchooser">
+      
+    <table id="kupu-colorchooser" class="kupu-colorchooser" cellpadding="0" cellspacing="0" style="position: fixed; border-style: solid; border-color: black; border-width: 1px;">
+    </table>
+  
+    </metal:slot>
+    <div class="kupu-editorframe">
+      <form>
+        
+        <iframe metal:define-slot="editorframe" class="kupu-editor-iframe" id="kupu-editor" frameborder="0" scrolling="auto" src="fulldoc" tal:attributes="src document_url">
+        </iframe>
+        <textarea class="kupu-editor-textarea" id="kupu-editor-textarea"> </textarea>
+      </form>
+    </div>
+  
+    </div>
+  
+    </metal:macro>
+    </body>
+  
+
+    </html>
+  

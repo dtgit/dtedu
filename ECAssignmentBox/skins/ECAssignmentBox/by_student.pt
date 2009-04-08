@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+                      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xml:lang="en"
+    lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    metal:use-macro="here/main_template/macros/master"
+    i18n:domain="eduComponents">
+
+  <body>
+    <metal:block fill-slot="css_slot">
+      <style type="text/css" media="screen" tal:content="string: @import url($portal_url/ecabstyles.css);" />
+    </metal:block>
+
+    <metal:main fill-slot="main">
+      <tal:main-macro metal:define-macro="main" define="
+          ecab_utils nocall:portal/ecab_utils;
+          n_boxes    python: here.countContainedBoxes();
+          states     python: ecab_utils.getWfStatesDisplayList();
+          grades     python: here.summarizeGrades();
+          userName   python: request.get('user_id', None);"
+      >
+      
+        <!-- debug -->
+        <!-- 
+        <div tal:content="python: '?%s' % ecab_utils.urlencode({})" />
+        <div tal:content="python: '?%s' % ecab_utils.urlencode({'state':'accepted', 'user_id':userName, })" />
+        -->
+
+        <div metal:use-macro="here/document_actions/macros/document_actions">
+          Document actions (print, sendto, etc.)
+        </div>
+    
+        <!-- 
+        <h1 class="documentFirstHeading" i18n:translate="label_submissions">
+          Students
+        </h1>
+        -->
+        <h1 class="documentFirstHeading">
+          <span tal:content="here/pretty_title_or_id" tal:omit-tag=""/>
+    
+          <span tal:condition="userName" 
+            tal:replace="python: '(%s)' % ecab_utils.getFullNameById(userName)" 
+                tal:omit-tag="" />
+        </h1>
+
+        <a class="link-parent visualNoPrint"
+           tal:define="
+              parent     python: here.aq_parent;
+              parent_url python:here.navigationParent(here, fallThroughDefaultPage=False)"
+           tal:condition="parent_url"
+           tal:attributes="href python: '%s' % (parent_url)"
+           i18n:domain="plone"
+           i18n:translate="go_to_parent_url">
+          Up one level
+        </a>
+
+        <p>
+          <b i18n:translate="label_n_boxes">Published assignment boxes inside this folder:</b>
+          <span tal:omit-tag="" tal:content="n_boxes"/>
+          <br/>
+    
+          <span tal:omit-tag="" tal:condition="here/completedStates">
+            <span tal:omit-tag="" tal:condition="here/projectedAssignments">
+              <b i18n:translate="label_projected_assignments">Projected Number of Assignments:</b>
+              <span tal:omit-tag="" tal:replace="here/projectedAssignments"/>
+              <br/>
+            </span>
+    
+            <b i18n:translate="label_completed_states">Completed States:</b>
+    
+            <tal:nothing define="statesDL here/getWfStatesDisplayList;"
+              repeat="state python: here.completedStates">
+              
+              <span
+                tal:content="python: statesDL.getValue(state, default=state)"
+                tal:attributes="class python: 'state-' + putils.normalizeString(state)"
+                i18n:domain="plone"
+                i18n:translate=""
+                /><span tal:condition="not:repeat/state/end"
+                tal:replace="string:,"/>
+            </tal:nothing>
+          </span>
+        </p>
+
+        <table class="listing">
+          <thead>
+            <tr>
+              <th i18n:translate="label_user">User</th>
+              <th tal:condition="grades" i18n:translate="label_average_grade">Avg. Grade</th>
+    
+              <tal:block tal:condition="here/completedStates">
+                  <th i18n:translate="label_completed">Completed</th>
+                  <th i18n:translate="label_completed_curr">%&nbsp;Curr.</th>
+                  <th tal:condition="here/projectedAssignments"
+                      i18n:translate="label_completed_proj">%&nbsp;Proj.</th>
+              </tal:block>
+    
+              <tal:block tal:repeat="state python: states.keys()">
+                <th tal:attributes="class python: 'state-' + putils.normalizeString(state)">
+                <!-- 
+                  <span tal:content="python: states.getValue(state, default=state)"
+                    tal:omit-tag=""
+                    i18n:domain="plone"
+                    i18n:translate=""/> (%)
+                -->
+                  <span tal:content="python: states.getValue(state, default=state)"
+                    tal:omit-tag=""
+                    i18n:domain="plone"
+                    i18n:translate=""/>
+                 </th>
+              </tal:block>
+            </tr>
+          </thead>
+
+          <tbody style="text-align: right"
+              tal:define="
+              summary    python: here.summarize();
+              items      python: here.rework(summary);
+              completed  python: here.summarizeCompletedAssignments(summary);">
+            <tal:block tal:repeat="student items">
+              <tr tal:define="oddrow repeat/student/odd;"
+                  tal:attributes="class python: test(oddrow, 'odd', 'even')">
+                <td style="text-align: left">
+                  <a tal:content="python: student[1]"
+                     tal:attributes="href python:
+                    here.getActionInfo('object/all_assignments')['url'] + '?%s' % ecab_utils.urlencode({'user_id' : student[0]});"/>
+                </td>
+                <tal:if condition="grades">
+                  <td tal:condition="python: grades.get(student[0], [])"
+                      tal:content="python: ecab_utils.localizeNumber('%d',
+                          ecab_utils.calculateMean(grades.get(student[0], [])))">
+                      3
+                  </td>
+                  <td tal:condition="python: not grades.get(student[0], [])"
+                    >&mdash;</td>
+                </tal:if>
+                <tal:block tal:condition="here/completedStates">
+                  <tal:block tal:define="c python: completed[student[0]]">
+                    <td>
+                      <!-- number of assignments in state grade -->
+                      <b tal:content="c"/>
+                    </td>
+                    <td>
+                      <span tal:replace="python:
+                          ecab_utils.localizeNumber('%.1f', round(float(c)/n_boxes * 100, 2))"/>
+                    </td>
+                    <td tal:condition="here/projectedAssignments">
+                      <b tal:content="python:
+                          ecab_utils.localizeNumber('%.1f', round(float(c)/here.projectedAssignments * 100, 2))"/>
+                    </td>
+                  </tal:block>
+                </tal:block>
+                <!-- number of assignments in typical assignment's states -->
+                <tal:block tal:repeat="state python: student[2]">
+                  <td>
+                    <span tal:replace="state" />
+                    <!-- 
+                    (<span tal:replace="python:
+                        ecab_utils.localizeNumber('%d', round(float(state)/n_boxes * 100, 2))"/>)
+                    -->
+
+                    <!-- 
+                      add link to all_assignments 
+                      e.g., aufgabenblatt-1/all_assignments?state=accepted&user_id=amelung
+                    -->
+                    <!-- 
+                    <a tal:content="state"
+                       tal:attributes="href python:
+                      here.getActionInfo('object/all_assignments')['url'] + '?%s' % ecab_utils.urlencode({'user_id':student[0], 'state':states,});"/>
+                    -->
+                  </td>
+                </tal:block>
+              </tr>
+            </tal:block>
+          </tbody>
+        </table>
+
+        <div class="formControls visualNoPrint">
+          <!-- Export Button -->
+          <form name="exportStatistics" 
+              action="#" 
+              method="post"
+              tal:attributes="action here_url">
+
+            <input class="context"
+                tabindex="#"
+                type="submit"
+                name="exportStatistics:method"
+                value="Export"
+                tal:attributes="tabindex tabindex/next;"
+                i18n:attributes="value"/>
+          </form>
+        </div>
+
+        <div tal:condition="grades"
+             tal:define="raw python: sum(grades.values(), [])">
+          <tal:comment replace="nothing">
+                The expression
+      
+                sum(grades.values(), [])
+      
+                is a clever way to flatten a list.  If "grades" looks like
+      
+                {'freddy': [3.0, 3.0], 'dina': [2.0, 2.0, 2.0]}
+      
+                then "grades.values()" returns:
+      
+                [[3.0, 3.0][2.0, 2.0, 2.0]]
+      
+                and "sum(grades.values(), [])" returns:
+      
+                [3.0, 3.0, 2.0, 2.0, 2.0]
+                
+                cf. http://groups.google.de/group/comp.lang.python/browse_thread/thread/383aab2c3467eb59/7acec64c9790a1ea?lnk=st
+          </tal:comment>
+    
+          <p i18n:translate="help_overall_average_grade">
+            The following numbers are based on 
+            <span i18n:name="count" tal:replace="python: len(raw)" />
+            submissions.
+          </p>
+          <p>
+            <b>
+              <span tal:omit-tag="" i18n:translate="label_overall_average_grade">
+                Overall average grade</span>:
+            </b>
+            <span tal:replace="python: ecab_utils.localizeNumber('%.2f', ecab_utils.calculateMean(raw))">
+              2.50
+            </span>
+
+            <br/>
+      
+            <b><span i18n:translate="label_overall_median_grade">Overall median grade</span>:</b>
+            <span tal:replace="python: ecab_utils.localizeNumber('%.2f', ecab_utils.calculateMedian(raw))">
+              3.00
+            </span>
+          </p>
+        </div>
+
+      </tal:main-macro>
+    </metal:main>
+  </body>
+</html>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

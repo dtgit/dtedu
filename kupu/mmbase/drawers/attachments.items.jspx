@@ -1,0 +1,32 @@
+<!--
+    Produces: 'items' for attachments
+    Needs: a request context 'drawer', containing a listcontainer 'query'.
+-->
+<mm:context
+    xmlns:jsp="http://java.sun.com/JSP/Page" 
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0" 
+    id="drawer" scope="request">
+  <jsp:output omit-xml-declaration="yes" />
+  <mm:import externid="surpressupload" />
+  <mm:content type="text/xml">
+    <mm:listnodescontainer referid="query">
+      <items>
+        <mm:context>
+          <mm:notpresent referid="surpressupload">
+            <uploadbutton>yes</uploadbutton>
+          </mm:notpresent>
+          <mm:listnodes id="attachment">
+            <resource id="${attachment.number}">          
+              <uri>mmbase://attachments/${attachment.number}</uri>
+              <title>[<mm:field name="mimetype" />: <mm:field name="title" />]</title>
+              <size><mm:field name="size" />b</size>
+              <icon>
+                <mm:function name="iconurl"/>
+              </icon>
+            </resource>
+          </mm:listnodes>
+        </mm:context>
+      </items>
+    </mm:listnodescontainer>
+  </mm:content>
+</mm:context>

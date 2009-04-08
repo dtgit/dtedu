@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+                      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="eduComponents">
+
+  <metal:block fill-slot="top_slot">
+    <metal:block
+      tal:define="dummy python:request.RESPONSE.setHeader('Cache-Control',
+                        'no-cache, no-store, must-revalidate, post-check=0,
+                        pre-check=0');
+                  dummy python:request.set('enable_border', 1);" />
+  </metal:block>
+
+  <metal:calendar fill-slot="javascript_head_slot">
+    <!-- ECMAScript calendar -->
+    <style type="text/css" media="all"
+            tal:content="string:@import url($portal_url/jscalendar/calendar-system.css);"></style>
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/jscalendar/calendar_stripped.js"></script>
+    <script type="text/javascript" charset="iso-8859-1"
+            tal:condition="exists: portal/jscalendar/calendar-en.js"
+            tal:attributes="src string:$portal_url/jscalendar/calendar-en.js"></script>
+  </metal:calendar>
+
+  <body>
+    <metal:block fill-slot="css_slot">
+      <style type="text/css" media="screen"
+          tal:content="string: @import url($portal_url/ecabstyles.css);" />
+    </metal:block>
+
+    <div metal:fill-slot="main"
+		tal:define="all_paths python:request.get('paths', []);
+				all_objects python:here.getObjectsFromPathList(all_paths, batch=True);
+				paths python:['/'.join(o.getPhysicalPath())
+						for o in all_objects if here.ecab_utils.isAssignmentBoxType(o)];
+				batch python:here.getObjectsFromPathList(paths, batch = True);
+				">
+
+	<h1 class="documentFirstHeading">Direct Comparison of Assignments</h1>
+
+	<!--Form-->
+	<form method="post" tal:attributes="action template/id;">
+
+	<!--Show dotplot image-->
+
+	<div>
+			 <label i18n:translate="label_dotplot">Dotplot Overview:</label>
+	 		 <div class="formHelp" i18n:translate="label_dotplot_help">
+			 			The Dotplot overview shows similarties between texts by plotting dots at the similar parts.<br/> 
+						One texts is horizontal (start:left, end:right) and the other vertical(start:top, end:bottom) aligned. Lines indicate longer similarities and therefore possible plagiarism. 
+	 		 </div>
+			 <tal:block tal:condition="request/assignments|nothing">
+			 <img src=""
+						tal:define="assignmentPaths python: ' '.join([here.restrictedTraverse(p).pretty_title_or_id() for p in request.get('assignments')])"
+			 			tal:attributes="src string: ${context/absolute_url}/createDotplotDirectCompare?paths=${assignmentPaths}"
+			 >
+			 </tal:block>
+	</div>
+	
+			<label i18n:translate="label_choosen_assignments_for_inspectation">Choosen Assignments For Inspectation:</label>
+	 		 <div class="formHelp" i18n:translate="label_choosen_assignments_for_inspectation_help">
+			 			 Select the two assignments you want to inspect and click compare to view the html-marked comparision.
+	 		 </div>
+	<table>
+		<tr>
+			<td>
+				
+					<!--Show all selected Assignments sorted according to their groups-->
+	<!--Using Assignments-->
+	<div tal:condition="assignmentPaths"
+			 tal:define="assignmentPaths request/assignments|nothing;"
+	>
+					 <table class="listing"
+					 				tal:define="items python:here.getObjectsFromPathList(assignmentPaths, batch = True);">
+				       <thead>
+							 				<tr>
+											 		 <th class="nosort">
+<!--																 		 <input class="noborder"
+                										 				type="checkbox"
+                										 				src="select_all_icon.gif"
+                														name="selectButton"
+                														title="Select all items"
+                														onClick="toggleSelect(this, 'paths:list');"
+                														tal:attributes="src string:$portal_url/select_all_icon.gif"
+                														alt="Select all items"
+                														i18n:attributes="title label_select_all_items; alt label_select_all_items;"
+            												 />-->
+          								 </th>
+          								 <th i18n:translate="label_date">Date</th>
+          								 <th i18n:translate="label_user">User</th>
+          								 <th i18n:translate="label_state">State</th>
+        						  </tr>
+           		</thead>
+							<tbody>
+        
+										 <tal:block tal:repeat="item items"
+										 						>	<!--and ((not userName) or (item.Creator() == userName))"-->
+      	  					 						<tr tal:condition="python: here.ecab_utils.isAssignmentBoxType(item)"
+   															   	    tal:define="oddrow      repeat/item/odd;
+								      	                						item_type           item/portal_type;
+      	                														item_wf_state       item/review_state | python: wtool.getInfoFor(item, 'review_state', '');
+      	                														item_state_title    python: wtool.getTitleForStateOnType(item_wf_state, item_type);
+      	                														item_wf_state_class python: 'state-' + putils.normalizeString(item_wf_state);
+                        														item_id             item/getId;
+                        														item_title_or_id    item/pretty_title_or_id;
+                        														item_url            item/getURL|item/absolute_url;
+                        														item_path           item/getPath | python:'/'.join(item.getPhysicalPath());
+                        														hasGetUrl           python:hasattr(item.aq_explicit, 'getURL');
+                        														item_rel_url        python: hasGetUrl and item.getURL(relative=1);"
+      	    												    tal:attributes="class python: test(oddrow, 'odd', 'even')">
+
+            <td>
+              <input type="checkbox"
+              		class="noborder"
+              		name="selectedAssignments:list" 
+              		id="#"
+              		value=""
+              		tal:attributes="value   item_path;
+  		                id      string:cb_$item_id;
+  		                checked python:test(request.get('ids_checked', False), 'checked', None);
+  		                alt     string:Select $item_title_or_id;
+  		                title   string:Select $item_title_or_id" />
+              
+              <input type="hidden" name="obj_paths:list" value=""
+		tal:attributes="value item_rel_url" />
+            </td>
+
+            <td tal:content="python: here.toLocalizedTime(item.CreationDate(), True)"/>
+
+            <td>
+              <a tal:attributes="href python: '%s?userName=%s' % (template.id, item.Creator())"
+                 tal:content="python: here.ecab_utils.getFullNameById(item.Creator())"/>
+            </td>
+
+            <td>
+              <span i18n:domain="plone"
+                  i18n:translate=""
+                  tal:condition="item_state_title"
+                  tal:content="item_state_title"
+                  tal:attributes="class item_wf_state_class" />
+              <span tal:condition="not: item_state_title">&nbsp;</span>
+            </td>
+          </tr>
+        </tal:block>
+      </tbody>
+				 </table>
+  </div>
+					
+				
+			</td>
+			<td>
+				<!--Compare Button-->
+				<input class="context"
+					type="submit"
+					name="form.button.compareButton"
+					value="Compare"
+				>
+			</td>
+			<td>
+				<!--Workflow State Selection-->
+<!--		            <select
+		                name="changeState_selection" 
+            		    size="1"
+		                tal:attributes="tabindex tabindex/next;"
+            		    tal:define="transitions here/ecab_utils/getWfTransitionsDisplayList"
+		            >
+              			<option tal:repeat="key python:transitions.keys()"
+			  	              tal:content="python: transitions.getValue(key)"
+      	      			  tal:attributes="value key"
+			              	  i18n:domain="plone"
+                				  i18n:translate="">
+    			        	  Workflow States
+		                  </option>
+		            </select>-->
+			</td>
+			<td>
+				<!--Change State Button-->
+<!--				<input class="context"
+					type="submit"
+					name="form.button.changeStateButton"
+					value="Change State"
+				>-->
+			</td>
+		</tr>
+	</table>
+
+	<hr/>
+
+	<!--TextFields for direct comparison-->
+
+	<table width="100%">
+		<tr>
+			<td align="center" width="50%">
+				<label tal:content="request/text1_name|nothing">Assignment 1</label><br/>
+				<div style="height: 250px; width: auto; overflow: auto; border-width:1px;
+  border-style:solid;  border-color:black;  padding:2.5em;  text-align:justify;"
+					tal:content="structure request/text1|nothing">
+					Text1
+				</div>
+			</td>
+			<td align="center" width="50%"
+					tal:define="text2 request/text2|nothing"
+			>
+				<label tal:content="request/text2_name|nothing">Assignment 2</label><br/>
+				<div style="height: 250px; width: auto; overflow: auto; border-width:1px;
+  border-style:solid;  border-color:black;  padding:2.5em;  text-align:justify;"
+					tal:content="structure text2">
+					Text2
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<hr/>
+
+	<!--Ok Button-->
+
+	<div class="formControls">
+		<!--Show OK Button-->
+		<input class="context"
+			type="submit"
+			name="form.button.OkButton"
+			value="Ok"
+		>
+	</div>
+	
+	<!-- DEBUG -->
+<!--  <h1>Debug information</h1>
+  <h2>CONTEXTS</h2>
+  <ul>
+    <tal:block
+        tal:repeat="item CONTEXTS">
+    <li
+        tal:condition="python: item != 'request'"
+        tal:define="context CONTEXTS;">
+            <b tal:content="item" />
+            <span tal:replace="python: context[item]" />
+    </li>
+    </tal:block>
+  </ul>
+  <h2>REQUEST</h2>
+  <p tal:replace="structure request" />-->
+
+	<!--Hidden Button-->
+	<tal:block tal:condition="python: request.get('assignments', None)"
+						 tal:repeat="item request/assignments">
+	<input type="hidden" name="assignments:list"
+				 tal:attributes="value item" />
+	</tal:block>
+	<tal:block tal:condition="python: request.get('paths', None)"
+						 tal:repeat="item request/paths">
+	<input type="hidden" name="paths:list"
+				 tal:attributes="value item" />
+	</tal:block>
+	<input type="hidden" name="form.submitted" value="1" />
+	</form>
+
+    </div>
+
+  </body>
+</html>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

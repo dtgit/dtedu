@@ -1,0 +1,21 @@
+<tal:nextPrevious define="enabled view/enabled | nothing;
+                          isViewTemplate view/isViewTemplate | nothing"
+                  condition="python:enabled and isViewTemplate">
+
+    <link rel="previous"
+          href=""
+          title="Go to previous item"
+          tal:define="previous view/previous"
+          tal:condition="previous"
+          i18n:attributes="title title_previous_item"
+          tal:attributes="href previous/url" />
+
+    <link rel="next"
+          href=""
+          title="Go to next item"
+          tal:define="next view/next"
+          tal:condition="next"
+          i18n:attributes="title title_next_item"
+          tal:attributes="href next/url" />
+
+</tal:nextPrevious>

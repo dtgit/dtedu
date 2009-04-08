@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+                      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xml:lang="en" lang="en"
+      i18n:domain="eduComponents">
+
+  <body>
+
+    <!-- base view macro -->
+    <metal:define define-macro="base_view">
+      <tal:condition condition="field">
+          <tal:view define="mode string:view;
+                    use_label python:True;
+                    accessor  python:field.getAccessor(here);
+                    object    python:accessor();"
+            condition="object | object/get_data | object/data | nothing" >
+            <metal:use use-macro="here/widgets/field/macros/view" />
+          </tal:view>
+      </tal:condition>
+    </metal:define>
+
+  
+    <!-- base edit macro -->
+    <metal:define define-macro="base_edit">
+      <tal:edit define="mode      string:edit;
+                        widget    python:field.widget;
+                        use_label python:True;">
+        <div tal:content="nocall:widget" />
+        <metal:use use-macro="here/widgets/field/macros/edit" />
+      </tal:edit>
+    </metal:define>
+
+    <!-- 
+      shows text of an assignment box in a collapsible box and further  
+      information about the student's submission
+    -->
+    <metal:define define-macro="eca_view_head">
+      <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+      <!-- show page title using parent's title -->    
+      <h1 class="documentFirstHeading">
+        <a tal:attributes="name here/aq_parent/id"
+           tal:content="here/aq_parent/title_or_id"/>
+      </h1>
+
+      <a class="link-parent visualNoPrint"
+         href=""
+         tal:define="parent_url python:here.navigationParent(here, template_id)"
+         tal:condition="parent_url"
+         tal:attributes="href python: '%s/%s' % (parent_url, 'all_assignments')"
+         i18n:domain="plone"
+         i18n:translate="go_to_parent_url">
+        Up one level
+      </a>
+
+      <div tal:replace="structure provider:plone.belowcontenttitle" />
+      <div tal:replace="structure provider:plone.abovecontentbody" />
+
+      <a class="link-down"
+         tal:attributes="href python: '#' + here.getId()">
+        <span i18n:translate="go_to_submission">Go to the submission of</span>
+        <span tal:replace="here/getCreatorFullName"/>
+      </a>
+
+      <!-- display assignmentbox text in a collapsible box-->
+      <dl class="collapsible collapsedBlockCollapsible"
+	tal:define="reference python: here.aq_parent.getReference();">
+        <dt class="collapsibleHeader"
+	  i18n:translate="assignment_text">Assignment text</dt>
+        <dd class="collapsibleContent">
+          <div class="documentDescription"
+	    tal:content="structure here/aq_parent/Description"
+	    tal:condition="here/aq_parent/Description"/>
+	  <div tal:replace="structure reference/getAssignment_text
+	    | here/aq_parent/getAssignment_text"/>
+        </dd>
+      </dl>
+
+      <p/>
+
+      <!-- show links and further information about this assignment -->
+      <h1>
+        <a i18n:translate="assignment_of"
+           tal:attributes="name here/getId">
+          Assignment of
+        </a>
+        <span tal:replace="here/getCreatorFullName"/>
+      </h1>
+
+      <div class="documentByLine"
+        tal:define="item_type here/portal_type;">
+        <span i18n:translate="label_datetime">submitted at</span>
+        <span tal:content="python: here.toLocalizedTime(here.CreationDate(), 1)"/>
+      </div>
+
+      <a class="link-parent visualNoPrint"
+         tal:attributes="href string: #${here/aq_parent/id}"
+         i18n:translate="back_to_overview">
+        Back to the assignment text
+      </a>
+    </metal:define>
+
+
+    <!-- shows user details -->
+    <metal:define define-macro="user_details">
+      <div tal:condition="userName">
+    <img src="ec_userinfo.png"/>
+    <dl class="collapsible inline collapsedInlineCollapsible">
+      <dt class="collapsibleHeader"
+        i18n:translate="label_student_details">Student details</dt>
+      <dd class="collapsibleContent">
+        <div class="card"
+          tal:define="
+          getHomeUrl          nocall: mtool/getHomeUrl;
+          getPersonalPortrait nocall: mtool/getPersonalPortrait;
+          home python:        getHomeUrl(userName, verifyPermission=1);
+          portrait            python: getPersonalPortrait(userName);">
+          <a href="#" tal:attributes="href home">
+        <img src="#" alt=""
+          tal:replace="structure python: portrait.tag(width=75, height=100, border=0)"/>
+          </a>
+        </div>
+
+        <table class="vertical listing">
+          <tbody tal:define="
+        perstitle python: ecab_utils.getUserPropertyById(userName,
+                  portal_properties.ecab_properties.personal_title_attr);
+        fullname  python: ecab_utils.getFullNameById(userName);
+        email     python: ecab_utils.getUserPropertyById(userName, 'email');
+        studentid python: ecab_utils.getUserPropertyById(userName,
+                  portal_properties.ecab_properties.student_id_attr);
+        major     python: ecab_utils.getUserPropertyById(userName,
+                  portal_properties.ecab_properties.major_attr);">
+        <tr>
+          <th i18n:translate="label_name">Name</th>
+          <td tal:content="fullname"/>
+        </tr>
+        <tr tal:condition="perstitle">
+          <th i18n:translate="label_personal_title">Title</th>
+          <td tal:content="perstitle"/>
+        </tr>
+        <tr>
+          <th i18n:translate="label_email">E-Mail</th>
+          <td><a href="" tal:attributes="href string: mailto:${email}" tal:content="email"/></td>
+        </tr>
+        <tr tal:condition="studentid">
+          <th i18n:translate="label_student_id">Student ID</th>
+          <td tal:content="studentid"/>
+        </tr>
+        <tr tal:condition="major">
+          <th i18n:translate="label_major">Major</th>
+          <td tal:content="major"/>
+        </tr>
+          </tbody>
+        </table>
+        <div class="visualClear"/>
+      </dd>
+    </dl>
+    <p/>
+      </div>
+    </metal:define>
+
+  </body>
+</html>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

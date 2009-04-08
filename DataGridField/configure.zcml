@@ -1,0 +1,34 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:cmf="http://namespaces.zope.org/cmf"
+   xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+   i18n_domain="plone">
+
+  <genericsetup:registerProfile
+     name="default"
+     title="DataGridField"
+     directory="profiles/default"
+     description="Profile for DataGridField."
+     provides="Products.GenericSetup.interfaces.EXTENSION"
+     for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+     />
+
+  <genericsetup:registerProfile
+     name="default_25x"
+     title="DataGridField (Plone 2.5 profile)"
+     directory="profiles/default_25x"
+     description="Profile for DataGridField (Plone 2.5.x only)."
+     provides="Products.GenericSetup.interfaces.EXTENSION"
+     for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+     />
+
+  <genericsetup:registerProfile
+     name="example"
+     title="DataGridField (Example DGF content types)"
+     directory="profiles/example"
+     description="Example content types for DataGridField."
+     provides="Products.GenericSetup.interfaces.EXTENSION"
+     for=".interfaces.DemoProfile"
+     />
+
+</configure>

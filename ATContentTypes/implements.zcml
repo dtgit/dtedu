@@ -1,0 +1,192 @@
+<configure
+    xmlns="http://namespaces.zope.org/five"
+    >
+  <!-- Using Zope3 interfaces  -->
+
+  <!-- Content Types -->
+
+    <implements
+        class=".content.folder.ATFolder"
+        interface=".interface.image.IPhotoAlbumAble"
+        />
+
+    <implements
+	class=".content.folder.ATFolder"
+	interface="OFS.interfaces.IOrderedContainer"/>
+
+    <implements
+        class=".content.folder.ATFolder"
+        interface=".interface.archive.IArchivable"
+        />
+
+    <implements
+        class=".content.document.ATDocument"
+        interface=".interface.archive.IArchivable"
+        />
+
+    <implements
+        class=".content.base.ATCTMixin"
+        interface=".interface.IATContentType"
+        />
+
+    <implements
+        class=".content.base.ATCTFolderMixin"
+        interface=".interface.ISelectableConstrainTypes"
+        />
+
+    <implements
+        class=".content.document.ATDocument"
+        interface=".interface.IATDocument"
+        />
+
+    <implements
+        class=".content.event.ATEvent"
+        interface=".interface.IATEvent"
+        />
+
+    <implements
+        class=".content.favorite.ATFavorite"
+        interface=".interface.IATFavorite"
+        />
+
+    <implements
+        class=".content.file.ATFile"
+        interface=".interface.IATFile"
+        />
+
+    <implements
+        class=".content.folder.ATFolder"
+        interface=".interface.IATFolder"
+        />
+
+    <implements
+        class=".content.folder.ATBTreeFolder"
+        interface=".interface.IATBTreeFolder"
+        />
+
+    <implements
+        class=".content.image.ATImage"
+        interface=".interface.IATImage"
+        />
+
+    <implements
+        class=".content.link.ATLink"
+        interface=".interface.IATLink"
+        />
+
+    <implements
+        class=".content.newsitem.ATNewsItem"
+        interface=".interface.IATNewsItem"
+        />
+
+    <implements
+        class=".content.topic.ATTopic"
+        interface=".interface.IATTopic"
+        />
+
+  <!-- Criteria -->
+
+    <implements
+        class=".criteria.base.ATBaseCriterion"
+        interface=".interface.IATTopicCriterion"
+        />
+
+    <implements
+        class=".criteria.boolean.ATBooleanCriterion"
+        interface=".interface.IATTopicCriterion"
+        />
+
+    <implements
+        class=".criteria.currentauthor.ATCurrentAuthorCriterion"
+        interface=".interface.IATTopicSearchCriterion"
+        />
+
+    <implements
+        class=".criteria.date.ATDateCriteria"
+        interface=".interface.IATTopicSearchCriterion"
+        />
+
+    <implements
+        class=".criteria.daterange.ATDateRangeCriterion"
+        interface=".interface.IATTopicSearchCriterion"
+        />
+
+    <implements
+        class=".criteria.list.ATListCriterion"
+        interface=".interface.IATTopicSearchCriterion"
+        />
+
+    <implements
+        class=".criteria.path.ATPathCriterion"
+        interface=".interface.IATTopicSearchCriterion"
+        />
+
+    <implements
+        class=".criteria.relativepath.ATRelativePathCriterion"
+        interface=".interface.IATTopicSearchCriterion"
+        />
+
+
+    <implements
+        class=".criteria.portaltype.ATPortalTypeCriterion"
+        interface=".interface.IATTopicSearchCriterion"
+        />
+
+    <implements
+        class=".criteria.reference.ATReferenceCriterion"
+        interface=".interface.IATTopicSearchCriterion"
+        />
+
+    <implements
+        class=".criteria.selection.ATSelectionCriterion"
+        interface=".interface.IATTopicSearchCriterion"
+        />
+
+    <implements
+        class=".criteria.simpleint.ATSimpleIntCriterion"
+        interface=".interface.IATTopicSearchCriterion"
+        />
+
+    <implements
+        class=".criteria.simplestring.ATSimpleStringCriterion"
+        interface=".interface.IATTopicSearchCriterion"
+        />
+
+  <!-- lib -->
+
+    <implements
+        class=".lib.autosort.AutoSortSupport"
+        interface=".interface.IAutoSortSupport"
+        />
+
+    <implements
+        class=".lib.autosort.AutoOrderSupport"
+        interface=".interface.IAutoOrderSupport"
+        />
+
+    <implements
+        class=".lib.calendarsupport.CalendarSupportMixin"
+        interface=".interface.ICalendarSupport"
+        />
+
+    <implements
+        class=".lib.constraintypes.ConstrainTypesMixin"
+        interface=".interface.ISelectableConstrainTypes"
+        />
+
+    <implements
+      class=".lib.historyaware.HistoryAwareMixin"
+      interface=".interface.IHistoryAware"
+      />
+
+    <implements
+        class=".tool.atct.ATCTTool"
+        interface=".interface.IATCTTool"
+        />
+
+    <implements
+        class=".tool.topic.ATTopicsTool"
+        interface=".interface.IATCTTopicsTool"
+        />
+
+</configure>

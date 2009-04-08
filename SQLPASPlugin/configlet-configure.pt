@@ -1,0 +1,124 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    lang="en"
+    metal:use-macro="here/prefs_main_template/macros/master"
+    i18n:domain="sqlpasplugin">
+
+  <metal:block metal:fill-slot="top_slot"
+             tal:define="dummy python:request.set('disable_border',1)" />
+
+  <body>
+
+    <div metal:fill-slot="prefs_configlet_content"
+         style="padding: 2em;">
+
+      <div metal:use-macro="here/global_statusmessage/macros/portal_message">
+        Portal status message
+      </div>
+
+      <div class="configlet">
+
+        <h1 i18n:translate="heading_sqlpasconfig">
+          SQL Authentication Configuration
+        </h1>
+
+        <a href=""
+           class="link-parent"
+           tal:attributes="href string: $portal_url/plone_control_panel"
+           i18n:translate="label_up_to_plone_setup">
+          Up to Site Setup
+        </a>
+
+        <p i18n:translate="description_sqlauthconfig">
+          Here you can configure your SQL Authentication for Plone.
+        </p>
+
+        <form action=""
+              method="post"
+              tal:condition="view/get_connections"
+              tal:attributes="action request/URL0"
+              >
+
+          <div>
+
+            <input type="hidden" name="form.submit" value="1" />
+
+            <label for="users_table">
+              The name of the user table:
+            </label>
+
+            <br/>
+
+            <input type="text"
+                   name="users_table"
+                   id="users_table"
+                   tal:attributes="value request/users_table|view/usertable"
+                   />
+
+            <br/> <br/>
+
+            <label for="users_col_username">
+              The usernames column:
+            </label>
+
+            <br/>
+
+            <input type="text"
+                   name="users_col_username"
+                   id="users_col_username"
+                   tal:attributes="value request/users_col_username|view/usercol"
+                   />
+
+            <br/> <br/>
+
+            <label for="users_col_password">
+              The passwords column:
+            </label>
+
+            <br/>
+
+            <input type="text"
+                   name="users_col_password"
+                   id="users_col_password"
+                   tal:attributes="value request/users_col_password|view/passcol"
+                   />
+
+            <br/> <br/>
+
+            <input type="submit"
+                   class="context"
+                   value="Apply Changes"
+                   i18n:domain="plone"
+                   i18n:attributes="value label_apply_changes;"
+                   />
+
+            <p style="margin: 3em; padding: 1em; background-color: #ddd;"
+               tal:define="plugin python:view.plugins[1];
+                           plugin_url string:${plugin/absolute_url}/manage_propertiesForm">
+              The mapping of columns to properties can be set in the
+              <a href="#" tal:attributes="href plugin_url">Properties
+              plugin</a>.  Under "col_mapping", you have to enter a
+              name pair for each column that you want mapped.  E.g. if
+              you want to map the "email_address" column in the table
+              to the "email" property, type in "email_address/email"
+              in the first line.  Enter one mapping per line.
+
+              <br/>
+              <br/>
+
+              If you want to use a different table for your user
+              properties, please change the "users_table" to the
+              name of your properties table in the <a href="#"
+              tal:attributes="href plugin_url">Properties
+              plugin</a>.
+            </p>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>

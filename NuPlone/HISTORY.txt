@@ -1,0 +1,12 @@
+Changelog for NuPlone
+
+    (name of developer listed in brackets)
+
+NuPlone 0.5 - Feb 25, 2007
+
+    - Tagged the first version to coincide with the 
+      Plone 3.0 beta release.
+      [limi]
+
+    - Generated skeleton product from DIYPloneStyle 2.5.
+      [generator]

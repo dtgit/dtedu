@@ -1,0 +1,39 @@
+<html metal:use-macro="context/main_template/macros/master">
+<head>
+
+<metal:slot fill-slot="base">
+<tal:span tal:replace="structure context/getBaseTag" />
+</metal:slot>
+
+</head>
+<body>
+
+<metal:slot metal:fill-slot="main" i18n:domain="cmf_default"
+   tal:define="batch options/batch">
+<tal:case tal:condition="options/listSubtopicInfos"
+><h4 i18n:translate="">Subtopics:</h4>
+ <div tal:repeat="item_info options/listSubtopicInfos">
+   <a href="" tal:attributes="href item_info/url"
+      tal:content="item_info/title">Topic Title</a>
+ </div
+></tal:case>
+
+<h4 i18n:translate="">Topic Matches:</h4>
+<div tal:repeat="item_info batch/listItemInfos">
+ <a href="" tal:attributes="href item_info/url"
+ ><tal:span tal:content="item_info/id">ID</tal:span>
+  <tal:case tal:condition="item_info/title"
+     tal:content="item_info/title">(Title)</tal:case></a>
+</div>
+
+<metal:macro metal:use-macro="context/batch_widgets/macros/navigation" />
+
+<h4 i18n:translate="">Query Parameters:</h4>
+
+<ul tal:condition="options/listQueries">
+ <li tal:repeat="item options/listQueries" tal:content="item">item</li>
+</ul>
+</metal:slot>
+
+</body>
+</html>

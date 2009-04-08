@@ -1,0 +1,4 @@
+* html #portal-personaltools-wrapper
+{
+padding-bottom: 3px;
+}

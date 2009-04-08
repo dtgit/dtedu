@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+lang="en"
+metal:use-macro="here/kupu_config/macros/master"
+i18n:domain="kupuconfig"
+xmlns:kj="http://kupu.oscom.org/namespaces/kjax">
+
+  <metal:cssslot fill-slot="style_slot">
+    <link href="kupustyles.css" rel="stylesheet" type="text/css" tal:attributes="href string:${portal_url}/kupustyles.css"/>
+    <link href="kupuplone.css" rel="stylesheet" type="text/css" tal:attributes="href string:${portal_url}/kupuplone.css"/>
+    <link href="kupudrawerstyles.css" rel="stylesheet" type="text/css" tal:attributes="href string:${portal_url}/kupudrawerstyles.css"/>
+      <tal:register define="getToolByName nocall:modules/Products.CMFCore.utils/getToolByName;
+       _ python:getToolByName(context, 'kupu_library_tool').ensureReferencesLayer()" />
+      <tal:if condition="not:exists:portal/portal_javascripts"
+        metal:use-macro="context/kupu_wysiwyg_support/macros/kupu_js_include">
+      </tal:if>
+      <script type="text/javascript"
+              tal:attributes="src portal/kupu_kjax.js/absolute_url_path"
+              ></script>
+      <script type="text/javascript"
+              tal:attributes="src portal/portal_skins/kupu_references/referencebrowser.js/absolute_url_path"
+              ></script>
+  </metal:cssslot>
+  <body>
+
+    <div class="documentContent" metal:fill-slot="kupu_content">
+      <metal:call use-macro="portal/portal_skins/kupu_references/referencebrowser/macros/kupudrawer" />
+      <div id="target" i18n:translate="loading_links_tab">
+        Loading kupu link maintenance...
+      </div>
+      <div id="start" kj:nexturi="kupu_migration.xml"></div>
+      <script type="text/javascript">
+       addEventHandler(window, 'load', function(){kj.newRequest('kupu_migration.xml');}, document);
+      </script>
+      <form action="kupu_migration.xml"
+            method="post"
+            name="changes_form"
+            onsubmit="return kj.submitForm(this);"
+            tal:define="infouri string:${context/absolute_url_path}/kupu_kjax_support.xml"
+            >
+        <div id="kupu-output"></div>
+      </form>
+<!--       <div id="log" style="height:100px;overflow:scroll;"> -->
+<!--       </div> -->
+    </div>
+  </body>
+</html>
+

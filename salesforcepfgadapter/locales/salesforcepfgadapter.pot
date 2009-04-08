@@ -1,0 +1,43 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# Salesforce PFG Adapter
+# David Glick <davidglick@onenw.org>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: salesforcepfgadapter\n"
+"POT-Creation-Date: 2007-11-16 21:35+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: salesforcepfgadapter\n"
+
+#. Default: "Salesforce Object Type"
+#: content/salesforcepfgadapter.py
+msgid "label_salesforce_type_text"
+msgstr ""
+
+#. Default: "Form fields to Salesforce fields mapping"
+#: content/salesforcepfgadapter.py
+msgid "label_salesforce_field_map"
+msgstr ""
+
+#. Default: "The following Form Fields are available with your Form Folder. Choose the appropriate Salesforce Field for each Form Field."
+#: content/salesforcepfgadapter.py
+msgid "help_salesforce_field_map"
+msgstr ""
+
+#. Default: "Form Fields"
+#: content/salesforcepfgadapter.py
+msgid "label_form_fields"
+msgstr ""
+
+#. Default: "Salesforce Fields"
+#: content/salesforcepfgadapter.py
+msgid "label_salesforce_fields"
+msgstr ""

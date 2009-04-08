@@ -1,0 +1,213 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="here/prefs_main_template/macros/master"
+    i18n:domain="plone">
+
+<metal:block metal:fill-slot="top_slot"
+             tal:define="dummy python:request.set('disable_border',1)" />
+
+<body>
+
+<div metal:fill-slot="prefs_configlet_content"
+    tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                b_start request/b_start | python:0;
+                b_size request/b_size | python:20;
+                searchstring request/searchstring | nothing;">
+
+      <div class="documentEditable"
+           tal:condition="python:checkPermission('Manage users', here)">
+
+            <ul class="contentViews">
+              <li>
+                <a href=""
+                   tal:attributes="href string:$portal_url/prefs_users_overview"
+                   i18n:translate="label_users">Users</a>
+              </li>
+              <li>
+                <a href=""
+                   tal:attributes="href string:$portal_url/prefs_groups_overview"
+                   i18n:translate="label_groups">Groups</a>
+              </li>
+              <li class="selected">
+                <a href=""
+                   tal:attributes="href string:$portal_url/prefs_ctmmentors_overview"
+                   i18n:translate="label_ctmmentors">CTM Mentors</a>
+              </li>
+              <li>
+                <a href=""
+                   tal:attributes="href string:$portal_url/@@usergroup-controlpanel"
+                   i18n:translate="label_usergroup_settings">Settings</a>
+              </li>
+            </ul>
+
+            <div class="contentActions">
+              &nbsp;
+            </div>
+
+            <div class="documentContent" id="content">
+                <a name="documentContent"></a>
+
+      <div metal:use-macro="here/global_statusmessage/macros/portal_message">
+        Portal status message
+      </div>
+
+      <div class="configlet">
+        <h1 class="documentFirstHeading"
+            i18n:translate="heading_ctmmentors_overview">CTM Mentors Overview</h1>
+
+        <a href=""
+           class="link-parent"
+           tal:attributes="href string: $portal_url/plone_control_panel"
+           i18n:translate="label_up_to_plone_setup">
+          Up to Site Setup
+        </a>
+
+        <p i18n:translate="description_ctmmentor_management">
+            Displays a list of approved mentors, including cohort assignment.  For those mentors who have yet to be assigned to a cohort,
+            select a cohort from the drop down list of existing cohorts without a mentor.
+        </p>
+
+        <form action=""
+              name="mentors_search"
+              method="post"
+              tal:attributes="action template/getId"
+              tal:define="findAll python:'form.button.FindAll' in request.keys();
+                          searchstring request/searchstring | nothing;
+                          connector context/portal_salesforcebaseconnector;
+                          ctm_mentors python:test(searchstring and not findAll,  
+                                                  connector.query(['Id', 'Remote_Login__c', 'Mentor_Approved__c', 'Mentor_Group__c', 'Name', 'Email'], 'Contact', 'Mentor_Approved__c = True AND Name LIKE \'' + str(searchstring) + '%\''),
+                                                  connector.query(['Id', 'Remote_Login__c', 'Mentor_Approved__c', 'Mentor_Group__c', 'Name', 'Email'], 'Contact', 'Mentor_Approved__c = True'));
+                          mentorless_cohorts python:here.restrictedTraverse('@@getCohortsWithoutMentor')();
+                          batch python:ctm_mentors['records']">
+          <input type="hidden" name="form.submitted" value="1" />
+
+        
+        <table class="listing" summary="Mentor Listing">
+                <tr>
+          <th colspan="2">
+            <span tal:omit-tag="" i18n:translate="label_mentor_search">Mentor Search</span>:
+                <input tabindex=""
+                       class="quickSearch"
+                       type="text"
+                       name="searchstring"
+                       value=""
+                       tal:attributes="value searchstring;"
+                  />
+
+            <input type="submit"
+                           class="searchButton"
+                           name="form.button.Search"
+                           value="Search"
+                           tabindex=""
+                           i18n:attributes="value label_search;"
+		   />
+
+
+            <input type="submit"
+                           class="searchButton"
+                           name="form.button.FindAll"
+                           value="Show all"
+                           tabindex=""
+                           i18n:attributes="value label_showall;"
+                           tal:condition="not:site_properties/many_users"
+                           tal:attributes="tabindex tabindex/next;" />
+                    </th>
+                </tr>
+                <tal:block tal:condition="ctm_mentors" >
+                  <tr>
+                    <th i18n:translate="listingheader_mentor_name">Mentor name</th>
+                    <th i18n:translate="listingheader_mentor_assignment">Cohort</th>
+                  </tr>
+                </tal:block>
+
+                <tal:block repeat="this_user batch">
+                  <tr tal:define="oddrow repeat/this_user/odd;"
+                      tal:condition="python:user is not None"
+                      tal:attributes="class python:test(oddrow,'odd','even')">
+
+                    <td>
+                      <span tal:replace="python:this_user['Name']" />
+                      <input type="hidden"
+                             name="mentors.sf_id:records"
+                             tal:attributes="value python:this_user['Id']" />
+
+                      <input type="hidden"
+                             name="mentors.id:records"
+                             tal:attributes="value python:this_user['Remote_Login__c']" />
+
+                      <input type="hidden"
+                             name="mentors.email:records"
+                             tal:attributes="value python:this_user['Email']" />
+
+                    </td>
+                    <td tal:condition="python:this_user['Mentor_Group__c'] != ''"
+                        tal:content="python:this_user['Mentor_Group__c']" />
+                    <td tal:condition="python:this_user['Mentor_Group__c'] == ''">
+                        <select name="mentors.cohort:records"
+                                tal:condition="python:len(mentorless_cohorts) > 0">
+                          <option value=''>-- Select a Cohort --</option>
+                          <option tal:repeat="cohort mentorless_cohorts"
+                                  tal:content="cohort"
+                                  tal:attributes="value cohort"/>
+                        </select>
+                        <span tal:condition="python:len(mentorless_cohorts) == 0">No Mentor assignments needed</span>
+                    </td>
+
+          </tr>
+        </tal:block>
+                <tr tal:condition="not:batch">
+                    <td tal:condition="searchstring"
+                        i18n:translate="text_nomatches"
+                        style="text-align:center;">No matches</td>
+                    <tal:block tal:condition="not:searchstring">
+                      <td tal:condition="site_properties/many_users"
+                          class="discreet"
+                          i18n:translate="text_no_user_searchstring"
+                          style="text-align:center; font-size: 100%;">
+                          Enter a username to search for
+                      </td>
+                      <td tal:condition="not:site_properties/many_users"
+                          class="discreet"
+                          i18n:translate="text_no_user_searchstring_largesite"
+                          style="text-align:center; font-size: 100%;">
+                          Enter a username to search for, or click 'Show All'
+                      </td>
+                    </tal:block>
+                </tr>
+          </table>
+
+
+
+          <input class="context"
+             tabindex=""
+             type="submit"
+             name="form.button.Modify"
+             value="Assign Mentor(s)"
+             i18n:attributes="value label_apply_changes;"
+             tal:attributes="tabindex tabindex/next;"
+             tal:condition="batch"
+        />
+
+ 
+        </form>
+
+      </div>
+
+
+
+    </div>
+      </div>
+
+      <div id="content" class="documentEditable"
+           tal:condition="python:not checkPermission('Manage users', here)">
+        <tal:block replace="here/raiseUnauthorized" />
+      </div>
+
+
+    </div>
+
+  </body>
+</html>

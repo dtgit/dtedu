@@ -1,0 +1,118 @@
+This is a reference for the various sections that can be set in the
+<kupuconfig> xml block at the top of your editing template. It is
+currently somewhat incomplete and could do with the attentions of an
+experienced Kupu developer ;)
+
+<dst>http://www.example.com/mysource.html</dst>
+
+  Value:    URI
+  Required: yes (for non-form mode), not used in form mode
+
+  This is the URL to which the contents of the editing <iframe> will
+  be sent by html POST when the save button is clicked in the editor.
+
+<use_css>1</use_css>
+
+  Value:    boolean ('0' or '1')
+  Required: no, false by default
+
+  If true, 'style' attributes are used for text alignment and list styles.
+
+<reload_after_save>0</reload_after_save>
+
+  Value:    boolean ('0' or '1')
+  Required: no, false by default
+
+  If true, the document is reloaded after saving.
+
+<strict_output>1</strict_output>
+
+  Value:    boolean ('0' or '1')
+  Required: no, false by default, not used in form mode
+
+  If true, XHTML 1.0 Strict declarations are added before saving the document.
+
+<content_type>text/html</content_type>
+
+  Value:    HTTP content type
+  Required: no, none by default, not used in form mode
+
+  Content type used for saving the document.
+
+<compatible_singletons>1</compatible_singletons>
+
+  Value:    boolean ('0' or '1')
+  Required: no, false by default
+
+  If true, singletons are made XHTML compatible.
+
+<image_xsl_uri>http://www.example.com/kupu/kupudrawers/drawer.xsl</image_xsl_uri>
+
+  Value:    URI
+  Required: yes (for image drawer)
+
+  ??
+
+<link_xsl_uri>http://www.example.com/kupu/kupudrawers/drawer.xsl</link_xsl_uri>
+
+  Value:    URI
+  Required: yes (for link drawer)
+
+  ??
+
+<image_libraries_uri>http://www.example.com/kupu/kupudrawers/imagelibrary.xml</image_libraries_uri>
+
+  Value:    URI
+  Required: yes (for image drawer)
+
+  ??
+
+<link_libraries_uri>http://www.example.com/kupu/kupudrawers/linklibrary.xml</link_libraries_uri>
+
+  Value:    URI
+  Required: yes (for link drawer)
+
+  ??
+
+<search_images_uri>...</search_images_uri>
+
+  Value:    URI
+  Required: yes (for search field of image drawer)
+
+  ??
+
+<search_links_uri>...</search_links_uri>
+
+  Value:    URI
+  Required: yes (for search field of link drawer)
+
+  ??
+
+<cleanup_expressions>...</cleanup_expressions>
+
+  Value:    various sub-elements
+  Required: yes (for cleanup tool)
+
+  This contains the expressions used by the cleanup tool. Their format
+  should be documented in kupucleanupexpressions.js.
+
+<table_classes>...</table_classes>
+
+  Value:   <class> sub-elements
+  Required: yes (for table tool)
+
+  Sets list of selectable table classes.
+
+<filtersourceedit>1</filtersourceedit>
+
+  Value:    boolean ('0' or '1')
+  Required: no, false by default
+
+  If true, content filters are applied before switching to source mode.
+
+<htmlfilter>...</htmlfilter>
+
+  Value:    various sub-elements
+  Required: no, uncustomized by default
+
+  Customizes XHTML cleanup and validation.

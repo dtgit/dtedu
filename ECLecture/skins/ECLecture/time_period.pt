@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+
+  <head><title></title></head>
+
+  <body>
+
+    <!-- Time Period Widgets -->
+
+    <metal:define define-macro="search">
+      <metal:use use-macro="here/widgets/field/macros/edit" />
+    </metal:define>
+
+    <metal:view_macro define-macro="view"
+		      tal:replace="structure accessor" />
+
+    <metal:define define-macro="edit">
+      <metal:use use-macro="field_macro | here/widgets/field/macros/edit">
+        <metal:fill fill-slot="widget_body">
+      	<input
+      	       type="text"
+      	       name=""
+      	       value=""
+      	       size="5"
+      	       maxlength="5"
+      	       tabindex="#"
+      	       tal:attributes="name fieldName;
+      	           value python:value and value[0] or '';
+      	           tabindex tabindex/next;"
+      	       />
+      	<span> - </span>
+      	<input
+      	       type="text"
+      	       name=""
+      	       value=""
+      	       size="5"
+      	       maxlength="5"
+      	       tabindex="#"
+      	       tal:attributes="name fieldName;
+      	           value python:value and value[1] or '';
+      	           tabindex tabindex/next;"
+      	       />
+        </metal:fill>
+      </metal:use>
+    </metal:define>
+
+  </body>
+
+</html>

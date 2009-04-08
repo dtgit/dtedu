@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="nuplone">
+
+  <genericsetup:registerProfile
+      name="nuplone"
+      title="NuPlone"
+      directory="profiles/default"
+      description="Extension profile for NuPlone Product."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      />
+
+</configure>

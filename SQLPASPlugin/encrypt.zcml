@@ -1,0 +1,24 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope">
+
+  <utility
+      factory=".encrypt.PlainEncrypter"
+      name="plain"
+      />
+
+  <utility
+      factory=".encrypt.SHAEncrypter"
+      name="sha"
+      />
+
+  <utility
+      factory=".encrypt.MD5Encrypter"
+      name="md5"
+      />
+
+  <utility
+      factory=".encrypt.SSHAEncrypter"
+      name="ssha"
+      />
+
+</configure>

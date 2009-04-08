@@ -1,0 +1,240 @@
+# Translation of cmfeditions.pot to German
+# Jan Ulrich Hasecke <jan.ulrich@hasecke.com>, 2003-2007
+# Hanno Schlichting <plone@hannosch.info>, 2003-2007
+msgid ""
+msgstr ""
+"Project-Id-Version: CMFEditions\n"
+"POT-Creation-Date: 2007-10-04 19:32+0000\n"
+"PO-Revision-Date: 2007-05-02 09:10+0100\n"
+"Last-Translator: Hanno Schlichting <plone@hannosch.info>\n"
+"Language-Team: Deutsch <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: de\n"
+"Language-Name: Deutsch\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: cmfeditions\n"
+"X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
+
+#: ./skins/CMFEditions/revertversion.py:24
+msgid "${title} has been reverted to version ${version}."
+msgstr ""
+
+#. Default: "History"
+#: ./profiles/default/actions.xml
+msgid "History"
+msgstr "Versionen"
+
+#. Default: "Working Copy"
+#: ./skins/CMFEditions/versions_history_form.pt:62
+msgid "Working Copy"
+msgstr "Arbeitskopie"
+
+#. Default: "Last modified"
+#: ./skins/CMFEditions/versions_history_form.pt:19
+msgid "box_last_modified"
+msgstr "Zuletzt verändert"
+
+#. Default: "Save as new revision"
+#: ./skins/CMFEditions/versions_history_form.pt:187
+#, fuzzy
+msgid "button_save_as_new_version"
+msgstr "Speichere als neue Version"
+
+#. Default: "You can have different settings for each content type. Content can be automatically versioned, and you can also opt to create a version when you revert a revision."
+#: ./skins/CMFEditions/versioning_config_form.pt:31
+msgid "description_version_settings"
+msgstr "Sie können unterschiedliche Einstellungen per Artikeltyp vornehmen. Artikel können automatisch versioniert werden und es können auch automatisch neue Versionen beim Zurückspringen zu einer alten Version erstellt werden."
+
+#. Default: "Select to make a version of the current content."
+#: ./skins/CMFEditions/edit_macros.pt:98
+msgid "help_save_new_version"
+msgstr "Soll eine neue Version des aktuellen Artikels erstellt werden?"
+
+#. Default: "Enter a comment that describes the changes you made."
+#: ./skins/CMFEditions/edit_macros.pt:110
+msgid "help_version_comment"
+msgstr "Geben Sie einen Kommentar ein, der die von Ihnen gemachten Änderungen beschreibt."
+
+#. Default: "At any moment you can save the content you just edited as a new revision. Enter below a comment to identify the version and hit the \"Save as new revision\" button."
+#: ./skins/CMFEditions/versions_history_form.pt:177
+msgid "help_versioncomment"
+msgstr "Sie können zu jeder Zeit eine neue Version des aktuell bearbeiteten Artikels speichern. Geben Sie einen Kommentar ein, um die Version zu identifizieren und klicken Sie auf \"Speichere als neue Version\"."
+
+#. Default: "Compare to current revision"
+#: ./skins/CMFEditions/versions_history_form.pt:132
+msgid "label_compare_current"
+msgstr "Vergleiche mit aktueller Version"
+
+#. Default: "Compare to previous revision"
+#: ./skins/CMFEditions/versions_history_form.pt:140
+msgid "label_compare_previous"
+msgstr "Vergleiche mit vorheriger Version"
+
+#. Default: "Compare to previous revision"
+#: ./skins/CMFEditions/versions_history_form.pt:92
+msgid "label_compare_to_previous_revision"
+msgstr ""
+
+#. Default: "Compare to revision ${version_id}"
+#: ./skins/CMFEditions/versions_history_form.pt:89
+msgid "label_compare_to_revision"
+msgstr ""
+
+#. Default: "(+) Added"
+#: ./skins/CMFEditions/diff_legend.pt:8
+msgid "label_diff_added"
+msgstr "(+) Hinzugefügt"
+
+#. Default: "Changed"
+#: ./skins/CMFEditions/diff_legend.pt:10
+msgid "label_diff_changed"
+msgstr "Verändert"
+
+#. Default: "(-) Deleted"
+#: ./skins/CMFEditions/diff_legend.pt:9
+msgid "label_diff_deleted"
+msgstr "(-) Entfernt"
+
+#. Default: "Legend"
+#: ./skins/CMFEditions/diff_legend.pt:7
+msgid "label_diff_legend"
+msgstr "Legende"
+
+#. Default: "Tag Added"
+#: ./skins/CMFEditions/diff_legend.pt:11
+msgid "label_diff_tag_added"
+msgstr "Marke hinzugefügt"
+
+#. Default: "Tag Deleted"
+#: ./skins/CMFEditions/diff_legend.pt:12
+msgid "label_diff_tag_deleted"
+msgstr "Marke entfernt"
+
+#. Default: "Versioning Enabled?"
+#: ./skins/CMFEditions/versioning_config_form.pt:67
+msgid "label_enable_versioning"
+msgstr "Versionierung aktiviert?"
+
+#. Default: "Item Type"
+#: ./skins/CMFEditions/versioning_config_form.pt:66
+msgid "label_item_type"
+msgstr "Artikeltyp"
+
+#. Default: "modifications from revision ${version_id}"
+#: ./skins/CMFEditions/versions_history_form.pt:73
+msgid "label_modifications_from_revision"
+msgstr ""
+
+#. Default: "New version"
+#: ./skins/CMFEditions/versions_history_form.pt:174
+msgid "label_newversion"
+msgstr "Neue Version"
+
+#. Default: "Preview of Revision ${version_id}"
+#: ./skins/CMFEditions/versions_history_form.pt:202
+msgid "label_preview_version"
+msgstr "Vorschau der Version ${version_id}"
+
+#. Default: "(jump down)"
+#: ./skins/CMFEditions/versions_history_form.pt:114
+msgid "label_preview_version_below"
+msgstr "(Springe nach unten)"
+
+#. Default: "(preview)"
+#: ./skins/CMFEditions/versions_history_form.pt:109
+msgid "label_preview_version_link"
+msgstr "(Vorschau)"
+
+#. Default: "(previously reverted)"
+#: ./skins/CMFEditions/versions_history_form.pt:75
+msgid "label_previously_reverted"
+msgstr ""
+
+#. Default: "Revert to this revision"
+#: ./skins/CMFEditions/versions_history_form.pt:150
+msgid "label_revert"
+msgstr "Gehe zu dieser Version zurück"
+
+#. Default: "Save as new version"
+#: ./skins/CMFEditions/edit_macros.pt:94
+msgid "label_save_new_version"
+msgstr "Speichere als neue Version"
+
+#. Default: "show revisions"
+#: ./skins/CMFEditions/versions_history.pt:29
+msgid "label_show_version"
+msgstr "Zeige Versionen"
+
+#. Default: "Versioning Settings"
+#: ./skins/CMFEditions/versioning_config_form.pt:29
+msgid "label_title_vers_config"
+msgstr "Versionierungseinstellungen"
+
+#. Default: "Change note"
+#: ./skins/CMFEditions/edit_macros.pt:109
+msgid "label_version_comment"
+msgstr "Änderungsnotiz"
+
+#. Default: "Versionable content types"
+#: ./skins/CMFEditions/versioning_config_form.pt:43
+msgid "label_versionable_content_types"
+msgstr "Versionsfähige Artikeltypen "
+
+#. Default: "Show all types"
+#: ./skins/CMFEditions/versioning_config_form.pt:48
+msgid "label_versioning_config_show_all"
+msgstr "Zeige alle Artikeltypen"
+
+#. Default: "Show only searchable types"
+#: ./skins/CMFEditions/versioning_config_form.pt:52
+msgid "label_versioning_config_show_friendly"
+msgstr "Zeige nur durchsuchbare Artikeltypen"
+
+#. Default: "Policies"
+#: ./skins/CMFEditions/versioning_config_form.pt:68
+msgid "label_versioning_policies"
+msgstr "Richtlinien"
+
+#. Default: "Recent Versions"
+#: ./skins/CMFEditions/versions_history.pt:9
+msgid "label_versions"
+msgstr "Aktuelle Versionen"
+
+#. Default: "Actions"
+#: ./skins/CMFEditions/versions_history_form.pt:50
+msgid "listingheader_actions"
+msgstr "Aktionen"
+
+#. Default: "Comment"
+#: ./skins/CMFEditions/versions_history.pt:20
+msgid "listingheader_comment"
+msgstr "Kommentar"
+
+#. Default: "Date and Time"
+#: ./skins/CMFEditions/versions_history.pt:19
+msgid "listingheader_date_and_time"
+msgstr "Datum und Uhrzeit"
+
+#. Default: "Revision"
+#: ./skins/CMFEditions/versions_history.pt:17
+msgid "listingheader_key"
+msgstr "Version"
+
+#. Default: "Performed by"
+#: ./skins/CMFEditions/versions_history.pt:18
+msgid "listingheader_performed_by"
+msgstr "Ausgeführt von"
+
+#. Default: "Versions History"
+#: ./skins/CMFEditions/versions_history.pt:12
+msgid "summary_versions_history"
+msgstr "Versionhistorie"
+
+#. Default: "Revisions of \"${title}\""
+#: ./skins/CMFEditions/versions_history_form.pt:15
+msgid "versions_of_title"
+msgstr "Versionen von \"${title}\""
+

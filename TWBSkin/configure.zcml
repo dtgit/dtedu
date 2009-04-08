@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+ <include package=".browser" />
+
+ <browser:viewlet
+         name="plone.personal_bar"
+ 	 manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+	 class="plone.app.layout.viewlets.common.PersonalBarViewlet"
+         permission="zope2.View" 
+         />			 
+
+ <include file="profiles.zcml" />
+
+</configure>

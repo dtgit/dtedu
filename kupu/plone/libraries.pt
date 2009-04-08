@@ -1,0 +1,172 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+lang="en"
+metal:use-macro="here/kupu_config/macros/master"
+i18n:domain="kupuconfig">
+
+   <body>
+
+      <div class="documentContent" metal:fill-slot="kupu_content">
+         <h1 class="documentFirstHeading"
+             i18n:translate="heading_kupu_libraries">Kupu Libraries</h1>
+         <p i18n:translate="text_kupu_drawers">
+            In the form below, you may manage the list of drawer libraries for
+            the Kupu editor. Each property of a library is dynamically expanded at
+            execution time using TALES expressions. That way it is possible, to
+            support libraries like <em>Current folder</em> or <em>My folder</em>
+            very easily.</p>
+         <p i18n:translate="text_kupu_drawers2">
+            Libraries with ids that begin with an underscore will not display in the initial library list.
+            <em>_search</em> will be used to set the icon and title for search results.
+            The first $ character in the title will be replaced by the search string.
+            <em>_selection</em> will be used to set the icon and title for the current selection.
+         </p>
+         <p i18n:translate="text_kupu_drawers3">
+            The title string may contain html &lt;br&gt; tags to put a line break in the title (not the xhtml &lt;br/&gt; form),
+            but otherwise tags are not interpreted.
+         </p>
+
+         <form action="" method="post" tal:attributes="action here/absolute_url">
+            <table>
+               <tal:loop repeat="library here/zmi_get_libraries">
+                  <tr>
+                     <td><input type="checkbox" name="indices:int:list"
+                     tal:attributes="value repeat/library/index"/></td>
+                     <th i18n:translate="heading_id">ID</th>
+                     <td><input type="text" name="libraries.id:records" size="60"
+                     tal:attributes="value library/id" /></td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                     <th i18n:translate="heading_title">Title</th>
+                     <td><input type="text" name="libraries.title:records" size="60"
+                     tal:attributes="value library/title" /></td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                     <th i18n:translate="heading_uri">URI</th>
+                     <td><input type="text" name="libraries.uri:records" size="60"
+                     tal:attributes="value library/uri" /></td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                     <th i18n:translate="label_source_uri">Source URI</th>
+                     <td><input type="text" name="libraries.src:records" size="60"
+                     tal:attributes="value library/src" /></td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                     <th i18n:translate="label_icon_uri">Icon URI</th>
+                     <td><input type="text" name="libraries.icon:records" size="60"
+                     tal:attributes="value library/icon" /></td>
+                  </tr>
+                  <tr>
+                     <td colspan="3">
+                        <hr />
+                     </td>
+                  </tr>
+               </tal:loop>
+            </table>
+
+            <p>
+               <input class="context" type="submit"
+                      name="zmi_update_libraries:method" value="Save"
+                      i18n:attributes="value button_save;" />
+               <input class="context" type="submit"
+                      name="zmi_delete_libraries:method"
+                      value="Delete"
+                      i18n:attributes="value button_delete;" />
+               <input class="context" type="submit"
+                      name="zmi_move_up:method" value="Move Up"
+                      i18n:attributes="value button_move_up;" />
+               <input class="context" type="submit"
+                      name="zmi_move_down:method" value="Move Down"
+                      i18n:attributes="value button_move_down;" />
+            </p>
+         </form>
+
+         <form action="" tal:attributes="action string:${here/absolute_url}/zmi_add_library" method="post">
+            <table>
+               <tr>
+                  <th i18n:translate="heading_id">ID</th>
+                  <td><input type="text" name="id" size="60" /></td>
+               </tr>
+               <tr>
+                  <th i18n:translate="heading_title">Title</th>
+                  <td><input type="text" name="title" size="60" /></td>
+               </tr>
+               <tr>
+                  <th i18n:translate="heading_uri">URI</th>
+                  <td><input type="text" name="uri" size="60" /></td>
+               </tr>
+               <tr>
+                  <th i18n:translate="heading_source_uri">Source URI</th>
+                  <td><input type="text" name="src" size="60" /></td>
+               </tr>
+               <tr>
+                  <th i18n:translate="heading_icon_uri">Icon URI</th>
+                  <td><input type="text" name="icon" size="60" /></td>
+               </tr>
+            </table>
+
+            <p>
+               <input class="context" type="submit" value="Add"
+                      i18n:attributes="value button_add;"/>
+            </p>
+         </form>
+
+         <form action="" tal:attributes="action string:${here/absolute_url}/zmi_set_default_library" method="post">
+            <table>
+
+               <tr>
+                  <th i18n:translate="heading_default">Default</th>
+                  <td><input type="text" name="defid" size="60" tal:attributes="value here/zmi_get_default_library;" /></td>
+               </tr>
+
+            </table>
+
+            <p>
+               <input class="context" type="submit" value="Set"
+                      i18n:attributes="value button_set;" />
+            </p>
+         </form>
+         <p>&nbsp;</p>
+         <p i18n:translate="available_tales">The following variables are available in the TALES expressions:</p>
+         <table>
+            <tr>
+               <td><code i18n:translate="object_variable">object</code></td>
+               <td i18n:translate="current_context">The current context object</td>
+            </tr>
+            <tr>
+               <td><code i18n:translate="object_url_variable">object_url</code></td>
+               <td i18n:translate="current_context_url">The URL of the current context object</td>
+            </tr>
+            <tr>
+               <td><code i18n:translate="folder_variable">folder</code></td>
+               <td i18n:translate="context_folder">The folder the context object is located in</td>
+            </tr>
+            <tr>
+               <td><code i18n:translate="folder_url_variable">folder_url</code></td>
+               <td i18n:translate="context_folder_uri">The URL of the folder the context object is located in</td>
+            </tr>
+            <tr>
+               <td><code i18n:translate="portal_variable">portal</code></td>
+               <td i18n:translate="portal_object">The portal object</td>
+            </tr>
+            <tr>
+               <td><code i18n:translate="portal_url_variable">portal_url</code></td>
+               <td i18n:translate="portal_object_url">URL of the portal</td>
+            </tr>
+            <tr>
+               <td><code i18n:translate="member_variable">member</code></td>
+               <td i18n:translate="authenticated_member">Authenticated member</td>
+            </tr>
+            <tr>
+               <td><code i18n:translate="request_variable">request</code></td>
+               <td i18n:translate="request">Request</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>
+
+

@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    lang="en"
+    metal:use-macro="here/kupu_config/macros/master"
+    i18n:domain="kupuconfig">
+<style metal:fill-slot="style_slot">
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+</style>
+<body>
+
+    <div class="documentContent" metal:fill-slot="kupu_content"
+ tal:define="convertTo nocall:here/portal_transforms/convertTo|nothing">
+<div tal:condition="nocall:convertTo"
+     tal:define="tpath template/absolute_url_path;
+        stream python:convertTo('text/html', here.docs(), mimetype='text/x-rst');
+        formatted python:str(stream).replace('href=\x22#','href=\x22'+tpath+'#');"
+     tal:content="structure formatted"
+     tal:on-error="structure string:Documentation formatting failed: ${error/value}&lt;pre&gt;${here/docs}&lt;/pre;&gt;">
+</div>
+<pre tal:condition="not:nocall:convertTo"
+     tal:content="here/docs">
+</pre>
+
+</div>
+</body>
+</html>
+

@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+                      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en" xml:lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="eduComponents">
+  
+  <body>
+    <metal:block fill-slot="css_slot">
+      <style type="text/css" media="screen" 
+             tal:content="string: @import url($portal_url/ecabstyles.css);" />
+    </metal:block>
+
+    <metal:main fill-slot="main">
+      <tal:main-macro metal:define-macro="main"
+          tal:define="Iterator      python: modules['Products.Archetypes'].IndexIterator;
+                      tabindex      python: Iterator();
+                      user_id       python: member.getId();
+                      item_wf_state here/review_state | python: wtool.getInfoFor(here, 'review_state', '');
+                      hasExpired    here/hasExpired;
+                      isEffective   here/isEffective;
+                      isPublished   python: item_wf_state == 'published';
+                      isOwner       python: user.has_role(['Owner', 'Reviewer', 'Manager'], here);
+                      canSupersed   python: here.canSupersed();
+                      canRetry      python: here.canRetry();
+		      tries_left    python: here.getMaxTries() - here.getTries();
+		      reference     python: here.getReference();
+                      needRegistration python: (hasattr(here, 'associatedGroup') and here.getAssociatedGroup()) or False;
+                      canParticipate python: (needRegistration and here.isParticipant(user_id)) or (not needRegistration);">
+                      
+        <!-- debug
+
+        <div tal:content="string:hasExpired:$hasExpired" />
+        <div tal:content="string:isEffective:$isEffective" />
+        <div tal:content="string:isPublished:$isPublished" />
+        <div tal:content="string:isOwner:$isOwner" />
+        <div tal:content="string:canSupersed:$canSupersed" />
+        <div tal:content="string:canRetry:$canRetry" />
+        <div tal:content="string:needRegistration:$needRegistration" />
+        <div tal:content="string:canParticipate:$canParticipate" />
+	
+	debug -->
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+      
+        <h1 class="documentFirstHeading" tal:content="here/title_or_id"/>
+  
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <div class="documentByLine"
+            tal:condition="python: here.submission_period_end and isEffective and hasExpired">
+          <span i18n:translate="submission_period_ends">
+            Submission period ends: 
+          </span>
+          <span tal:content="python: here.toLocalizedTime(here.getSubmission_period_end(), True)"/>
+        </div>
+
+        <div class="documentByLine"
+            tal:condition="python: here.submission_period_end and isEffective and hasExpired">
+
+          <span i18n:translate="submission_period_ended">
+            Submission period ended: 
+          </span>
+          <span tal:content="python: here.toLocalizedTime(here.getSubmission_period_end(), True)"/>
+        </div>
+
+        <div class="documentByLine"
+          tal:condition="python: isEffective and not hasExpired and here.getMaxTries()">
+          <span i18n:translate="tries_info">
+            You have <b i18n:name="count" tal:content="tries_left"/> attempts left.
+          </span>
+        </div>
+  
+        <!-- show a collapsible box with the directions text from ecfolder -->
+
+        <dl class="collapsible collapsedBlockCollapsible"
+            tal:define="parent nocall:here/aq_parent;"
+            tal:condition="python: hasattr(parent, 'directions') and parent.directions"
+        >
+          <dt class="collapsibleHeader"
+              i18n:translate="label_directions">
+            Directions
+          </dt>
+          <dd class="collapsibleContent">
+            <div tal:replace="structure parent/getDirections" />
+          </dd>
+        </dl>
+  
+        <p/>
+    
+        <div class="documentDescription"
+             tal:content="structure reference/Description | here/Description"/>
+
+
+		<div class="field"
+			tal:content="structure reference/getAssignment_text | here/getAssignment_text"/>
+      
+        <a href="" 
+          tal:attributes="href string:${here/absolute_url}/downloadAnswerTemplate"
+          i18n:translate="label_download_answer_template"
+		  tal:condition="reference/getAnswerTemplate | here/getAnswerTemplate">
+          Download answer template
+        </a>
+      
+        <hr class="visualNoPrint" />
+  
+        <!-- input field and upload field -->
+        <form action=""
+            name="eca_add"
+            method="post"
+            enctype="multipart/form-data"
+            tal:attributes="action string:${here/absolute_url}/${template/getId}"
+            tal:condition="python: isOwner or (canParticipate and not hasExpired 
+                           and isEffective and canSupersed and canRetry and 
+                           isPublished)">
+  
+         <!-- WYSIWYG support -->
+          <tal:editor define="portal_url     here/portal_url;
+                              inputname      string:answer;
+                              inputvalue     reference/getAnswerTemplate | here/getAnswerTemplate | nothing;
+                              here_url       here/absolute_url;
+                              member         here/portal_membership/getAuthenticatedMember;
+                              editor         python: member.getProperty('wysiwyg_editor','').lower();
+                              support            python: path('nocall:here/%s_wysiwyg_support|here/%s/wysiwyg_support|here/portal_skins/plone_wysiwyg/wysiwyg_support' % (editor, editor));
+                              tabindex       nothing">
+
+        <div metal:use-macro="here/wysiwyg_support/macros/wysiwygEditorBox">
+            The WYSIWYG code
+        </div>
+
+
+          </tal:editor>
+
+
+
+  
+          <!-- upload file button -->
+         <div class="field visualNoPrint">
+           <label for="file" i18n:translate="upload_file_label">File</label>
+           <div class="formHelp" i18n:translate="help_upload_file">
+             or upload a file (existing content will be replaced).
+           </div>
+           <input type="file"
+             name="file"
+             size="25"
+             tabindex=""
+             tal:attributes="tabindex tabindex/next;" />
+         </div>
+  
+         <!-- submit button -->
+         <div class="formControls visualNoPrint">
+           <input class="context"
+               tabindex=""
+               type="submit"
+               name="form.button.Submit"
+               value="Submit"
+               i18n:domain="plone"
+               i18n:attributes="value"
+               tal:attributes="tabindex tabindex/next;"/>
+  
+           <input class="standalone"
+               tabindex=""
+               type="submit"
+               name="form.button.Cancel"
+               i18n:domain="plone"
+               value="Cancel"
+               i18n:attributes="value"
+               tal:attributes="tabindex tabindex/next;"/>
+          </div>
+  
+          <!-- hidden fields -->
+          <!-- 
+          <input type="hidden" name="user_id" tal:attributes="value user_id"/>          
+          -->
+          <input type="hidden" name="form.submitted" value="1" />
+        </form>
+
+
+      
+        <div class="field visualNoPrint">
+	  <em tal:condition="python: isAnon">Please <a href="http://connect.teacherswithoutborders.org/signup">join</a> Teachers Without Borders so that
+            you can enroll in this course.</em><br />
+          <em tal:condition="python: not canParticipate"
+             i18n:translate="submission_cannot_participate">As a member of Teachers Without Borders, you can <a href="" tal:attributes="href here/joinURL">register</a> for this course.
+          </em><br />
+
+        </div> 
+           
+        <div class="field visualNoPrint">
+          <em tal:condition="python: not isPublished or not isEffective"
+             i18n:translate="submission_period_not_effective">
+            Submissions are not yet allowed.</em><br />
+
+          <em tal:condition="python: isPublished and hasExpired"
+             i18n:translate="submission_period_expired">
+            The submission period has expired.</em><br />
+        
+          <em tal:condition="python: isPublished and (not hasExpired) and (not canSupersed)"
+             i18n:translate="submission_cannot_resubmit">
+            Submission not permitted: An earlier submission is under review or has already been accepted.</em><br />
+
+          <em tal:condition="python: isPublished and (not hasExpired) and canSupersed and not canRetry"
+             i18n:translate="submission_max_tries_reached">
+            Submission not permitted: You have reached the maximum number of attempts.</em><br />
+        </div>
+  
+      </tal:main-macro>
+    </metal:main>
+  </body>
+</html>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

@@ -1,0 +1,43 @@
+Can I nest some GRUFs?
+    Maybe... but what for ?
+
+Does GRUF support nested groups ?
+    Nested groups in group-whithin-a-group feature.
+    And, yes, GRUF supports it since 1.3 version.
+
+Does GRUF support multiple user sources ?
+    Multiple user sources is a feature that would allow you to store users in several userfolders.
+    For example, you could have your regular admin users in a standard User Folder, your intranet
+    users in an LDAPUserFolder and your extranet users in an SQL-based user folder
+    GRUF supports this from version 2.0Beta1.
+
+Can I use GRUF outside Plone ?
+    Yes, yes, yes, yes and yes. This is a major design consideration for us.
+
+Is GRUF stable ?
+    It's used in a production environment for several major websites. Furthermore, it's qualified to be included
+    in Plone 1.1. It's considered reliable enough - except for "Beta" versions, of course.
+
+Is GRUF maintained ?
+    Yes, it is, actively. Features (especially regarding useablility) are often 
+    added to GRUF. Official releases are considered very stable.
+
+Can I help ?
+    Yes, for sure !
+    GRUF is an Open-Source project and we, at Ingeniweb, are always happy to help people getting involved
+    with our products. Just contact us to submit your ideas, patches or insults ! :-)
+    In any case, if you want to work on GRUF's CVS, please work in a branch, never on the HEAD!
+    I want this to ensure the latest CVS HEAD is always very stable.
+
+Why cannot I assign local roles to groups using Plone 2.0.x ?
+    There's a bug in Plone's folder_localroles_form in Plone 2.0.x, preventing it to work with
+    GRUF 3. That's because group name is passed to GRUF's methods instead of group id.
+    To solve this, you either have to fix the form by yourself (replace group_name by group_id),
+    or wait for Plone 2.1 ;)
+    A sample fixed form is provided in the gruf_plone_2_0 skin folder (which is NOT installed
+    by default).
+
+Does GRUF work with CASUserFolder
+    There are two CASUserFolder implementation. One made by a clown and one made by a megalomaniac ;)
+    I prefer the first one. He prefers me anyway ;) See this page for more information:
+    http://www.zope.org/Members/mrlex/CASUserFolder/CASUserFolder/CAS_and_Zope

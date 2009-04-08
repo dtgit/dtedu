@@ -1,0 +1,867 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: eduCommons\n"
+"POT-Creation-Date: 2008-10-20 16:36+0000\n"
+"PO-Revision-Date: 2008-03-31 19:14-0700\n"
+"Last-Translator: Chenyong(Jessie) Zhu <jessie0587@hotmail.com>\n"
+"Language-Team: PKUGSE <yzhuang@gse.pku.edu.cn>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: zh-cn\n"
+"Language-Name: Simplified Chinese\n"
+"Preferred-Encodings: utf-8\n"
+"Domain: eduCommons\n"
+
+#: ../portlet/coursebuilderform.py:103
+msgid "(Choose one)"
+msgstr ""
+
+#: ../browser/controlpanel.py:43
+msgid "A descriptor that describes courses in your institution."
+msgstr ""
+
+#: ../browser/controlpanel.py:37
+msgid "A descriptor that describes how your academic institution is divided. Typically this will be 'Departments' or 'Divisions.'"
+msgstr ""
+
+#: ../browser/adaview.py:19
+msgid "ADA Compliant set to False"
+msgstr ""
+
+#: ../browser/adaview.py:16
+msgid "ADA Compliant set to True"
+msgstr ""
+
+#. Default: "About Page"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "About Page"
+msgstr ""
+
+#. Default: "About Professor"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "About Professor"
+msgstr ""
+
+#: ../browser/accessibilityview.py:20
+msgid "Accessibility Compliant set to False"
+msgstr ""
+
+#: ../browser/accessibilityview.py:17
+msgid "Accessibility Compliant set to True"
+msgstr ""
+
+#. Default: "Accessibility Status"
+#. ../skins/eduCommons/change_accessibility.cpt
+#: ../skins/eduCommons/change_accessibility.cpt:79
+msgid "Accessibility Status"
+msgstr "访问状态 ../skins/eduCommons/change_accessibility.cpt"
+
+#. Default: "Accessibility process"
+#: ../skins/eduCommons/change_accessibility.cpt:26
+msgid "Accessibility process"
+msgstr ""
+
+#. Default: "Accessible"
+#. ../skins/eduCommons/change_accessibility.cpt
+#: ../browser/accessibility_compliant.pt:14
+msgid "Accessible"
+msgstr "访问 ../skins/eduCommons/change_accessibility.cpt"
+
+#: ../browser/menu.py:244
+msgid "Advanced..."
+msgstr ""
+
+#: ../browser/controlpanel.py:52
+msgid "Allow Reuse Course Export"
+msgstr ""
+
+#: ../browser/ctmcopy.py:62
+msgid "An object with that id already exists. Cannot copy to your home folder"
+msgstr ""
+
+#. Default: "Apply Template"
+#: ../browser/menu.py:40
+msgid "Apply Template"
+msgstr "应用模板"
+
+#. Default: "Available Feeds"
+#: ../browser/rss_questions.pt:40
+msgid "Available Feeds"
+msgstr "可用的阅读器"
+
+#: ../content/course.py:38
+msgid "Body Text"
+msgstr ""
+
+#. Default: "Build a Course"
+#: ../portlet/coursebuilder.pt:10
+msgid "Build a Course"
+msgstr ""
+
+#. Default: "Building a Course"
+#: ../skins/openocw/login_success.pt:91
+msgid "Building a Course"
+msgstr ""
+
+#. Default: "By using RSS you can stay on top of the news and information you need without using your e-mail system and without repeatedly checking multiple Web sites to see if they have been updated. RSS simplifies the way you stay informed and helps you take control of overloaded email inboxes."
+#: ../browser/rss_questions.pt:80
+msgid "By using RSS you can stay on top of the news and information you need without using your e-mail system and without repeatedly checking multiple Web sites to see if they have been updated. RSS simplifies the way you stay informed and helps you take control of overloaded email inboxes."
+msgstr "使用RSS，可以不用邮件系统或者反复进入若干网站查看是否已更新，您就可以最快地获得最新的新闻和信息"
+
+#. Default: "Captcha"
+#. ../skins/eduCommons/join_form.cpt
+#: ../skins/eduCommons/join_form.cpt:231
+msgid "Captcha"
+msgstr "Captcha  ../skins/eduCommons/join_form.cpt"
+
+#. Default: "Change Copyright"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Change Copyright"
+msgstr ""
+
+#: ../portlet/coursebuilderform.py:147
+msgid "Choose from the following templates:"
+msgstr ""
+
+#. Default: "Choose to clear copyright, or revoke copyright for the item(s) selected above."
+#: ../skins/eduCommons/change_copyright.cpt:75
+msgid "Choose to clear copyright, or revoke copyright for the item(s) selected above."
+msgstr "选择清除版权，或者为上面所选的项目废除版权"
+
+#. Default: "Choose to set the accessibility flag, or revoke accessibility."
+#: ../skins/eduCommons/change_accessibility.cpt:80
+msgid "Choose to set the accessibility flag, or revoke accessibility."
+msgstr ""
+
+#. Default: "Clear Copyright"
+#: ../skins/eduCommons/change_copyright.cpt:88
+msgid "Clear Copyright"
+msgstr "清除的版权"
+
+#. Default: "Cleared Copyright"
+#: ../browser/cc_table.pt:81
+msgid "Cleared Copyright"
+msgstr ""
+
+#. Default: "Click on the <a href=\"${DYNAMIC_CONTENT}\">courses</a> link to see what courses others are building."
+#: ../skins/openocw/login_success.pt:76
+msgid "Click on the <a href=\"${DYNAMIC_CONTENT}\">courses</a> link to see what courses others are building."
+msgstr ""
+
+#. Default: "Content View"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Content View"
+msgstr ""
+
+#. Default: "Content listing"
+#: ../browser/cc_table.pt:30
+msgid "Content listing"
+msgstr ""
+
+#. Default: "Copy Item To My User Folder"
+#: ../profiles/default/actionicons.xml
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actionicons.xml
+msgid "Copy Item To My User Folder"
+msgstr ""
+
+#: ../browser/copyrightview.py:17
+msgid "Copyright Cleared"
+msgstr ""
+
+#: ../browser/copyrightview.py:20
+msgid "Copyright Revoked"
+msgstr ""
+
+#. Default: "Copyright Status"
+#: ../skins/eduCommons/change_copyright.cpt:74
+msgid "Copyright Status"
+msgstr "版权状态"
+
+#. Default: "Copyright process"
+#: ../skins/eduCommons/change_copyright.cpt:26
+msgid "Copyright process"
+msgstr "版权认证"
+
+#: ../portlet/coursebuilderform.py:233
+msgid "Could not create course."
+msgstr ""
+
+#: ../portlet/coursebuilderform.py:221
+msgid "Could not create/find existing division."
+msgstr ""
+
+#. Default: "Course"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Course"
+msgstr ""
+
+#. Default: "Course Builder"
+#: ../portlet/coursebuilder.pt:4
+msgid "Course Builder"
+msgstr ""
+
+#: ../portlet/coursebuilder.py:45
+msgid "Course Builder Portlet"
+msgstr ""
+
+#: ../browser/controlpanel.py:42
+msgid "Course Descriptor"
+msgstr ""
+
+#. widget=StringWidget(label='Course ID',
+#. label_msgid='label_courseID',
+#. description='Enter the Course ID.',
+#. description_msgid='help_courseid',
+#. i18n_domain='eduCommons')),
+#. Default: "Course ID"
+#. ../content/ec_object.py
+#: ../content/course.py:45
+msgid "Course ID"
+msgstr "课程ID"
+
+#: ../portlet/courseinfoportlet.py:17
+msgid "Course Info Portlet"
+msgstr ""
+
+#. Default: "Course Schedule"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Course Schedule"
+msgstr ""
+
+#. <span i18n:domain="eduCommons" i18n:translate="heading_course_summary">
+#. Course Summary
+#. </span>
+#. Default: "Course Summary"
+#: ../portlet/courseinfo.pt:5
+msgid "Course Summary"
+msgstr "课程摘要"
+
+#: ../browser/packagecourseview.py:18
+msgid "Course has been packaged"
+msgstr ""
+
+#. Default: "Courses in all departments"
+#: ../browser/rss_questions.pt:53
+msgid "Courses in all departments"
+msgstr "所有院系的课程"
+
+#: ../portlet/coursebuilderform.py:176
+msgid "Create a new course using the fields below."
+msgstr ""
+
+#: ../content/course.py:124
+msgid "Cross Listing(s)"
+msgstr ""
+
+#. Default: "Department Feeds"
+#: ../browser/rss_questions.pt:62
+msgid "Department Feeds"
+msgstr ""
+
+#. Default: "Different news readers work on different operating systems, so you will need to choose one that will work with your computer."
+#: ../browser/rss_questions.pt:101
+msgid "Different news readers work on different operating systems, so you will need to choose one that will work with your computer."
+msgstr "不同的新闻阅读器在不同的操作系统中运行，选择一个适合您电脑的"
+
+#: ../content/course.py:105
+msgid "Display Instructor Email Address"
+msgstr ""
+
+#: ../portlet/coursebuilderform.py:132
+msgid "Division"
+msgstr ""
+
+#: ../browser/controlpanel.py:36
+msgid "Division Descriptor"
+msgstr ""
+
+#: ../portlet/coursebuilderform.py:79
+msgid "Division with the same title already exists."
+msgstr ""
+
+#. Default: "Download this course"
+#: ../portlet/reusecourse.pt:11
+msgid "Download this course"
+msgstr ""
+
+#: ../browser/controlpanel.py:48
+msgid "Enable the display of the OER Recommender Portlet for Course objects and sub-objects."
+msgstr ""
+
+#: ../browser/controlpanel.py:53
+msgid "Enable the display of the course export link for Course objects and sub-objects."
+msgstr ""
+
+#. Default: "Enter the text displayed below."
+#. ../skins/eduCommons/join_form.cpt
+#: ../skins/eduCommons/join_form.cpt:239
+msgid "Enter the text displayed below."
+msgstr "键入下面所显示的文字 ../skins/eduCommons/join_form.cpt"
+
+#: ../browser/reusecourse.py:127
+msgid "Export a Course to OpenOCW"
+msgstr ""
+
+#. Default: "Export into OpenOCW"
+#: ../portlet/reusecourse.pt:18
+msgid "Export into OpenOCW"
+msgstr ""
+
+#. Default: "FAQ"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "FAQ"
+msgstr ""
+
+#: ../browser/feedbackform.py:103
+msgid "Feedback request failed."
+msgstr ""
+
+#. Default: "Flags"
+#: ../browser/cc_table.pt:75
+msgid "Flags"
+msgstr ""
+
+#. Default: "Flags:"
+#: ../browser/cc_table.pt:81
+msgid "Flags:"
+msgstr ""
+
+#. Default: "Front Page"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Front Page"
+msgstr ""
+
+#. Default: "Get Email List"
+#: ../skins/eduCommons/prefs_users_overview.cpt:96
+msgid "Get Email List"
+msgstr ""
+
+#: ../content/course.py:77
+msgid "Graduate"
+msgstr ""
+
+#. Default: "Here is one <a href=\"http://www.google.com/alpha/Top/Reference/Libraries/Library_and_Information_Science/Technical_Services/Cataloguing/Metadata/RDF/Applications/RSS/News_Readers/\">x</a> of available readers from Google."
+#: ../browser/rss_questions.pt:104
+msgid "Here is one <a href=\"http://www.google.com/alpha/Top/Reference/Libraries/Library_and_Information_Science/Technical_Services/Cataloguing/Metadata/RDF/Applications/RSS/News_Readers/\">x</a> of available readers from Google."
+msgstr ""
+
+#. Default: "How do I get a news reader?"
+#: ../browser/rss_questions.pt:97
+msgid "How do I get a news reader?"
+msgstr "如何获得一个新的读本"
+
+#. Default: "How to I start using RSS feeds?"
+#: ../browser/rss_questions.pt:82
+msgid "How to I start using RSS feeds?"
+msgstr "如何开始使用RSS阅读器"
+
+#: ../portlet/coursebuilderform.py:153
+msgid "IMS File Import"
+msgstr ""
+
+#. Default: "If checked, eduCommons will attempt to change the accessibility status of all content in any selected folders and their subfolders.<br />"
+#: ../skins/eduCommons/change_accessibility.cpt:65
+msgid "If checked, eduCommons will attempt to change the accessibility status of all content in any selected folders and their subfolders.<br />"
+msgstr ""
+
+#. Default: "If checked, eduCommons will attempt to change the copyright status of all content in any selected folders and their subfolders.<br />"
+#: ../skins/eduCommons/change_copyright.cpt:60
+msgid "If checked, eduCommons will attempt to change the copyright status of all content in any selected folders and their subfolders.<br />"
+msgstr ""
+
+#: ../portlet/coursebuilderform.py:118
+msgid "If not found, type in the name below to create a new one:"
+msgstr ""
+
+#. Default: "If this is your first time logging into OpenOCW, please be sure to read the <a href=\"${DYNAMIC_CONTENT}\" title=\"Terms of Use\">Terms of Use</a> page before you start using your account."
+#: ../skins/openocw/login_success.pt:71
+msgid "If this is your first time logging into OpenOCW, please be sure to read the <a href=\"${DYNAMIC_CONTENT}\" title=\"Terms of Use\">Terms of Use</a> page before you start using your account."
+msgstr ""
+
+#. Default: "If you click on the button you can subscribe to the feed in various ways, including by dragging the URL of the RSS feed into your news reader or by cutting and pasting the same URL into a new feed in your news reader. Most sites that offer RSS feeds use a similar orange RSS button, but some may just have a normal web link to the feed."
+#: ../browser/rss_questions.pt:93
+msgid "If you click on the button you can subscribe to the feed in various ways, including by dragging the URL of the RSS feed into your news reader or by cutting and pasting the same URL into a new feed in your news reader. Most sites that offer RSS feeds use a similar orange RSS button, but some may just have a normal web link to the feed."
+msgstr "如果您点击此按钮您可以以不同的方式订阅阅读器"
+
+#. Default: "Image of Document Actions"
+#: ../browser/rss_questions.pt:88
+msgid "Image of Document Actions"
+msgstr "文件镜像效果"
+
+#. Default: "In general, the first thing you need is something called a news reader. This is a piece of software that checks RSS feeds and lets you read any new articles that have been added to them. There are many different versions, some of which are accessed using a browser, and some of which are downloadable applications. Browser-based news readers let you catch up with your RSS feed subscriptions from any computer, whereas downloadable applications let you store them on your main computer, in the same way that you either download your e-mail, or keep it on a web-based service."
+#: ../browser/rss_questions.pt:84
+msgid "In general, the first thing you need is something called a news reader. This is a piece of software that checks RSS feeds and lets you read any new articles that have been added to them. There are many different versions, some of which are accessed using a browser, and some of which are downloadable applications. Browser-based news readers let you catch up with your RSS feed subscriptions from any computer, whereas downloadable applications let you store them on your main computer, in the same way that you either download your e-mail, or keep it on a web-based service."
+msgstr "选择一个新闻阅读器"
+
+#. Default: "In order to translate the content your were viewing into ${language} you must first translate the parent ${DYNAMIC_CONTENT} object into ${language}."
+#: ../skins/eduCommons/not_available_lang.pt:41
+msgid "In order to translate the content your were viewing into ${language} you must first translate the parent ${DYNAMIC_CONTENT} object into ${language}."
+msgstr ""
+
+#: ../content/course.py:97
+msgid "Instructor Email"
+msgstr ""
+
+#: ../content/course.py:88
+msgid "Instructor Name"
+msgstr ""
+
+#: ../content/course.py:113
+msgid "Instructor is Primary Author"
+msgstr ""
+
+#: ../browser/feedbackform.py:47
+msgid "Invalid email address"
+msgstr ""
+
+#: ../content/course.py:115
+msgid "Is the primary instructor also the primary author of the course materials?"
+msgstr ""
+
+#. Default: "Items should be copyright cleared before publication. This form allows for bulk copyright clearance, as well as bulk copyright revocation. To recursively change the copyright status, be sure to check the include folder items checkbox on the form below."
+#: ../skins/eduCommons/change_copyright.cpt:28
+msgid "Items should be copyright cleared before publication. This form allows for bulk copyright clearance, as well as bulk copyright revocation. To recursively change the copyright status, be sure to check the include folder items checkbox on the form below."
+msgstr ""
+
+#. Default: "Items should meet minimum accessibility requirements before publication. Please evaluate the content against the ${descr-accessibility-link}, and set the flag accordingly."
+#: ../skins/eduCommons/change_accessibility.cpt:30
+msgid "Items should meet minimum accessibility requirements before publication. Please evaluate the content against the ${descr-accessibility-link}, and set the flag accordingly."
+msgstr "Items应该在发布前满足最小的访问的要求。请评价against ${descr-accessibility-link}内容，并相应设置标记"
+
+#: ../content/course.py:78
+msgid "Level"
+msgstr ""
+
+#: ../portlet/coursebuilderform.py:85
+msgid "Missing course name."
+msgstr ""
+
+#: ../portlet/coursebuilderform.py:69
+msgid "Missing division."
+msgstr ""
+
+#. Default: "My CTM Folder"
+#: ../portlet/myctmfolder.pt:4
+msgid "My CTM Folder"
+msgstr ""
+
+#. Default: "My Courses"
+#: ../portlet/mycourses.pt:4
+msgid "My Courses"
+msgstr ""
+
+#: ../portlet/mycourses.py:41
+msgid "My Courses Portlet"
+msgstr ""
+
+#. Default: "Not Accessible"
+#. ../skins/eduCommons/change_accessibility.cpt
+#: ../skins/eduCommons/change_accessibility.cpt:98
+msgid "Not Accessible"
+msgstr "不可访问 ../skins/eduCommons/change_accessibility.cpt"
+
+#: ../browser/controlpanel.py:47
+msgid "OER Recommender"
+msgstr ""
+
+#: ../portlet/oerrecommenderportlet.py:17
+msgid "OER Recommender Portlet"
+msgstr ""
+
+#. Default: "Once you are ready to build your course, it is recommended that you use the Course Builder. You can get there by using the above link, or by clicking on the link on the right-hand side of the page. This link will take you to a form which will help you set up the basic structure of the course. The course will remain hidden from public view until the course, and all objects in it, are set to \"published\" status."
+#: ../skins/openocw/login_success.pt:93
+msgid "Once you are ready to build your course, it is recommended that you use the Course Builder. You can get there by using the above link, or by clicking on the link on the right-hand side of the page. This link will take you to a form which will help you set up the basic structure of the course. The course will remain hidden from public view until the course, and all objects in it, are set to \"published\" status."
+msgstr ""
+
+#. Default: "Once you have chosen a news reader, all you have to do is to decide what content you want to receive in your news reader, by finding and subscribing to the relevant RSS feeds. For example, if you would like the latest courses added to ${portal_title} OCW, simply visit the Course List page or this page and you will notice an orange RSS button."
+#: ../browser/rss_questions.pt:86
+msgid "Once you have chosen a news reader, all you have to do is to decide what content you want to receive in your news reader, by finding and subscribing to the relevant RSS feeds. For example, if you would like the latest courses added to ${portal_title} OCW, simply visit the Course List page or this page and you will notice an orange RSS button."
+msgstr "选择后，由您决定想从读物中获得的内容"
+
+#. Default: "Order"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Order"
+msgstr ""
+
+#. Default: "Ordering tab"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Ordering tab"
+msgstr ""
+
+#: ../content/course.py:126
+msgid "Other Divisions that this Course should be listed in. To select multiple options, SHIFT click for adjacent items, or CTRL/CMD click for non-adjacent items."
+msgstr ""
+
+#. Default: "Package Course"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Package Course"
+msgstr ""
+
+#: ../portlet/coursebuilderform.py:157
+msgid "Package Type"
+msgstr ""
+
+#. Default: "Privacy Policy"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Privacy Policy"
+msgstr ""
+
+#: ../browser/localroles.py:12
+msgid "Producer"
+msgstr ""
+
+#: ../browser/localroles.py:24
+msgid "Publisher"
+msgstr ""
+
+#. Default: "QA"
+#: ../browser/localroles.py:18
+msgid "QA"
+msgstr "常见问题"
+
+#. Default: "RSS Feed"
+#: ../skins/eduCommons/search.pt:55
+msgid "RSS Feed"
+msgstr ""
+
+#. Default: "RSS feed of these search results"
+#: ../skins/eduCommons/search.pt:55
+msgid "RSS feed of these search results"
+msgstr ""
+
+#. Default: "RSS stands for Really Simple Syndication. RSS is a time-saving way for you to receive news and information updates (often called \"RSS feeds\", \"news feeds\" or simply \"feeds\") from your favorite Web sites and blogs."
+#: ../browser/rss_questions.pt:74
+msgid "RSS stands for Really Simple Syndication. RSS is a time-saving way for you to receive news and information updates (often called \"RSS feeds\", \"news feeds\" or simply \"feeds\") from your favorite Web sites and blogs."
+msgstr "RSS代表非常简单的企业联合组织"
+
+#. Default: "Read <a href=\"http://cosl.usu.edu/projects/educommons/documentation/tutorial/educommons-a-guide-to-getting-started\">documentation</a> on how to build a course."
+#: ../skins/openocw/login_success.pt:85
+msgid "Read <a href=\"http://cosl.usu.edu/projects/educommons/documentation/tutorial/educommons-a-guide-to-getting-started\">documentation</a> on how to build a course."
+msgstr ""
+
+#. Default: "Receive notification of new ${portal_title} OCW courses on your desktop, or add them to your blog or website."
+#: ../browser/rss_questions.pt:37
+msgid "Receive notification of new ${portal_title} OCW courses on your desktop, or add them to your blog or website."
+msgstr "在您的桌面收到新的OCW课程${portal_title}的通知，或者把它们加入你的博客或者网页里"
+
+#. Default: "Remove from navigation"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Remove from navigation"
+msgstr ""
+
+#. Default: "Report Content"
+#: ../profiles/openocw/actionicons.xml
+#: ../profiles/openocw/actions.xml
+msgid "Report Content"
+msgstr ""
+
+#: ../browser/reportcontentform.py:82
+msgid "Report Content request failed."
+msgstr ""
+
+#. <a href="#top" i18n:attributes="title link_title_top;" i18n:translate="text_discussion_top" title="Return to Top">
+#. Return to Top
+#. </a>
+#. Default: "Return to Top"
+#: ../browser/rss_questions.pt:111
+msgid "Return to Top"
+msgstr "返回页首"
+
+#: ../browser/reusecourse.py:134
+msgid "Reuse"
+msgstr ""
+
+#. Default: "Reuse Course"
+#: ../portlet/reusecourse.pt:5
+msgid "Reuse Course"
+msgstr ""
+
+#: ../browser/controlpanel.py:58
+msgid "Reuse Course Portal"
+msgstr ""
+
+#: ../browser/reusecourse.py:128
+msgid "Reuse this course on OpenOCW. In order to do so, you must have an account at OpenOCW.org."
+msgstr ""
+
+#. Default: "Revoke Copyright"
+#: ../skins/eduCommons/change_copyright.cpt:99
+msgid "Revoke Copyright"
+msgstr "废除版权"
+
+#. Default: "S5 Presentation"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "S5 Presentation"
+msgstr ""
+
+#: ../portlet/coursebuilderform.py:114
+msgid "Select from below:"
+msgstr ""
+
+#. Default: "Set cleared copyright if content object has been correctly licensed from the author, and is free from copyright violations."
+#: ../browser/clear_copyright.pt:19
+msgid "Set cleared copyright if content object has been correctly licensed from the author, and is free from copyright violations."
+msgstr ""
+
+#. Default: "Set the accessibility flag if your content meets the criteria outlined ${link_accessibility}."
+#: ../browser/accessibility_compliant.pt:23
+msgid "Set the accessibility flag if your content meets the criteria outlined ${link_accessibility}."
+msgstr ""
+
+#. Default: "Set the accessibility flag if your content meets the criteria outlined *LINK HERE*"
+#: ../browser/ada_compliant.pt:19
+msgid "Set the accessibility flag if your content meets the criteria outlined *LINK HERE*"
+msgstr ""
+
+#: ../browser/controlpanel.py:117
+msgid "Settings which control how eduCommons looks and functions."
+msgstr ""
+
+#: ../content/course.py:107
+msgid "Should the primary instructor's Email address be publically displayed?"
+msgstr ""
+
+#. Default: "Show in navigation"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Show in navigation"
+msgstr ""
+
+#. Default: "Some browsers, including Firefox and Safari, automatically check for RSS feeds for you when you visit a Web site, and display an icon when they find one. This can make subscribing to RSS feeds much easier. For more details on these, please check their Web sites."
+#: ../browser/rss_questions.pt:95
+msgid "Some browsers, including Firefox and Safari, automatically check for RSS feeds for you when you visit a Web site, and display an icon when they find one. This can make subscribing to RSS feeds much easier. For more details on these, please check their Web sites."
+msgstr "当您浏览一个网站时，一些浏览器自动为您选择RSS阅读器。当它们找到一个的时候会显示一个图标"
+
+#: ../content/course.py:66
+msgid "Structure"
+msgstr ""
+
+#. Default: "Syllabus"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Syllabus"
+msgstr ""
+
+#: ../portlet/coursebuilderform.py:146
+msgid "Templates"
+msgstr ""
+
+#: ../browser/menu.py:41
+msgid "Templates for the current content item."
+msgstr ""
+
+#: ../content/course.py:54
+msgid "Term"
+msgstr ""
+
+#. Default: "Terms of Use"
+#: ../profiles/default/actions.xml
+#: ../profiles/openocw/actions.xml
+msgid "Terms of Use"
+msgstr ""
+
+#: ../browser/controlpanel.py:59
+msgid "The URL to the eduCommons instance utilized by the Reuse Course portlet."
+msgstr ""
+
+#: ../portlet/coursebuilderform.py:139
+msgid "The course identifier or catalog number."
+msgstr ""
+
+#: ../content/course.py:47
+msgid "The course identifier or catalog number. Also can be used to sequence courses (1.0, 2.0, etc)."
+msgstr ""
+
+#: ../content/course.py:99
+msgid "The email address of the primary instructor teaching this course."
+msgstr ""
+
+#: ../content/course.py:80
+msgid "The level at which the course is taught."
+msgstr ""
+
+#: ../portlet/coursebuilderform.py:154
+msgid "The name of the ims package on your local machine."
+msgstr ""
+
+#: ../content/course.py:90
+msgid "The name of the primary instructor teaching this course."
+msgstr ""
+
+#: ../browser/reusecourse.py:94
+msgid "The remote site is unavailable of configured incorrectly. Please contact an administrator."
+msgstr ""
+
+#: ../content/course.py:68
+msgid "The structure of the course."
+msgstr ""
+
+#: ../content/course.py:56
+msgid "The term the course was taught in."
+msgstr ""
+
+#: ../portlet/coursebuilderform.py:158
+msgid "The type of the ims package being uploaded"
+msgstr ""
+
+#. Default: "There is a range of different news readers available and new versions are appearing all the time."
+#: ../browser/rss_questions.pt:99
+msgid "There is a range of different news readers available and new versions are appearing all the time."
+msgstr "这里有不同新闻阅读器的一个排列，并且新的版本一直会发表"
+
+#: ../skins/eduCommons/validate_join_form_captcha.vpy:19
+msgid "This field is required, please enter the word below."
+msgstr ""
+
+#. Default: "To start building a new course, use the <a href=\"${DYNAMIC_CONTENT}\" title=\"Course Builder\">Build a Course</a> link that appears to the right of any page."
+#: ../skins/openocw/login_success.pt:80
+msgid "To start building a new course, use the <a href=\"${DYNAMIC_CONTENT}\" title=\"Course Builder\">Build a Course</a> link that appears to the right of any page."
+msgstr ""
+
+#. <td colspan="3" i18n:translate="text_total_obj">
+#. Total Objects:
+#. ${total}
+#. </td>
+#. Default: "Total Objects: ${total}"
+#: ../portlet/courseinfo.pt:39
+msgid "Total Objects: ${total}"
+msgstr "全部对象：${total}"
+
+#: ../browser/translate.py:63
+msgid "Translated created."
+msgstr ""
+
+#: ../browser/translate.py:52
+msgid "Translation already exists"
+msgstr ""
+
+#. Default: "Typically RSS feeds consist of headlines and short summaries of new articles, blog entries or search results, though some Web sites and blogs offer the full text of articles or blog entrees as feeds."
+#: ../browser/rss_questions.pt:76
+msgid "Typically RSS feeds consist of headlines and short summaries of new articles, blog entries or search results, though some Web sites and blogs offer the full text of articles or blog entrees as feeds."
+msgstr "代表性的RSS信息包括大标题，新文章简短的总结，博客条目，搜索结果。 "
+
+#: ../content/course.py:77
+msgid "Undergraduate"
+msgstr ""
+
+#. Default: "Use this action to report inappropriate content to the site administrator."
+#: ../profiles/openocw/actions.xml
+msgid "Use this action to report inappropriate content to the site administrator."
+msgstr ""
+
+#: ../browser/localroles.py:30
+msgid "Viewer"
+msgstr ""
+
+#. Default: "Welcome to OpenOCW"
+#: ../skins/openocw/login_success.pt:63
+msgid "Welcome to OpenOCW"
+msgstr ""
+
+#. Default: "Welcome to OpenOCW! Here are some things you may want to do:"
+#: ../skins/openocw/login_success.pt:64
+msgid "Welcome to OpenOCW! Here are some things you may want to do:"
+msgstr ""
+
+#. Default: "What is RSS?"
+#: ../browser/rss_questions.pt:72
+msgid "What is RSS?"
+msgstr "什么是RSS？"
+
+#. Default: "Why use RSS?"
+#: ../browser/rss_questions.pt:78
+msgid "Why use RSS?"
+msgstr "为什么使用RSS？"
+
+#: ../browser/reusecourse.py:112
+msgid "Your user name on OpenOCW"
+msgstr ""
+
+#: ../browser/reusecourse.py:116
+msgid "Your user password on OpenOCW"
+msgstr ""
+
+#. Default: "[audio]"
+#. ../skins/eduCommons/join_form.cpt
+#: ../skins/eduCommons/join_form.cpt:257
+msgid "[audio]"
+msgstr "音频 ../skins/eduCommons/join_form.cpt"
+
+#. Default: "accessibility"
+#: ../browser/footer.pt:10
+msgid "accessibility"
+msgstr ""
+
+#. Default: "accessibility guidelines"
+#. ../skins/eduCommons/change_accessibility.cpt
+#: ../skins/eduCommons/change_accessibility.cpt:31
+msgid "accessibility guidelines"
+msgstr "访问指导 ../skins/eduCommons/change_accessibility.cpt"
+
+#. Default: "eduCommons"
+#: ../profiles/default/actionicons.xml
+#: ../profiles/openocw/actionicons.xml
+msgid "eduCommons"
+msgstr ""
+
+#: ../portlet/simplenavportlet.py:43
+msgid "eduCommons Navigation"
+msgstr ""
+
+#: ../browser/controlpanel.py:116
+msgid "eduCommons Settings"
+msgstr ""
+
+#. Default: "feedback"
+#: ../browser/footer.pt:6
+msgid "feedback"
+msgstr ""
+
+#. Default: "here"
+#. ../skins/eduCommons/accessibility_compliant.cpt
+#: ../browser/accessibility_compliant.pt:24
+msgid "here"
+msgstr "这里 ../skins/eduCommons/accessibility_compliant.cpt"
+
+#. Default: "list"
+#: ../browser/rss_questions.pt:104
+msgid "list"
+msgstr "目录"
+
+#. Default: "powered by eduCommons"
+#: ../browser/footer.pt:16
+msgid "powered by eduCommons"
+msgstr ""
+
+#. Default: "privacy policy"
+#: ../browser/footer.pt:14
+msgid "privacy policy"
+msgstr ""
+
+#. Default: "site map"
+#: ../browser/footer.pt:8
+msgid "site map"
+msgstr ""
+
+#. Default: "terms of use"
+#: ../browser/footer.pt:12
+msgid "terms of use"
+msgstr ""
+

@@ -1,0 +1,177 @@
+# Translation of linguaplone.pot to Vietnamese
+# Thanh Hai, Ha <thanhhai.ha@gmail.com>, 2005
+# Thien-Phuoc, Cao <phuoc.cao@caes.cnrs.fr>, 2005
+msgid ""
+msgstr ""
+"Project-Id-Version: LinguaPlone\n"
+"POT-Creation-Date: 2007-05-12 11:23+0000\n"
+"PO-Revision-Date: 2007-01-26 23:16+0700\n"
+"Last-Translator: Thanh Hai, Ha <thanhhai.ha@gmail.com>\n"
+"Language-Team: Vietnamese Translation Team <thanhhai.ha@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: vi\n"
+"Language-Name: Vietnamese\n"
+"Preferred-Encodings: utf-8\n"
+"Domain: linguaplone\n"
+"X-Poedit-Language: Vietnamese\n"
+"X-Poedit-Country: VIET NAM\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#. Default: "Select the language you want to change the content to."
+#: ./skins/LinguaPlone/manage_translations_form.pt:27
+msgid "description_change_language"
+msgstr "Chọn ngôn ngữ mà bạn muốn chuyển nội dung sang."
+
+#. Default: "The content you were viewing does not exist in the language you just selected. The site language has been switched to ${language} and you can keep browsing the site in this language."
+#: ./skins/LinguaPlone/not_available_lang.pt:35
+msgid "description_changed_translation_unavailable"
+msgstr "Nội dung mà bạn đã xem không tồn tại bằng ngôn ngữ mà bạn vừa chọn. Ngôn ngữ đã được chuyển sang ${language} và bạn có thể tiếp tục xem nội dung trên hệ thống bằng ngôn ngữ này."
+
+#. Default: "Create ${language} translation of this item."
+#: ./skins/LinguaPlone/not_available_lang.pt:86
+msgid "description_create_language_translation"
+msgstr "Tạo bản dịch ${language}."
+
+#. Default: "Here you can change the content language or remove existing translations."
+#: ./skins/LinguaPlone/manage_translations_form.pt:17
+msgid "description_manage_translations"
+msgstr "Bạn có thể thay đổi nội dung ngôn ngữ hoặc xóa bỏ các bản dịch hiện có."
+
+#. Default: "There are no translations to remove."
+#: ./skins/LinguaPlone/manage_translations_form.pt:219
+msgid "description_no_removable_translations"
+msgstr "Không có bản dịch nào để hủy bỏ."
+
+#. Default: "If you want to read the content of this document, you have to switch to one of the following languages:"
+#: ./skins/LinguaPlone/not_available_lang.pt:55
+msgid "description_read_translated_versions"
+msgstr "Nếu bạn muốn xem nội dung của tài liệu này, bạn phải chuyển sang một trong những ngôn ngữ sau đây:"
+
+#. Default: "Select translations to remove."
+#: ./skins/LinguaPlone/manage_translations_form.pt:214
+msgid "description_remove_translations"
+msgstr "Chọn bản dịch để hủy bỏ."
+
+#. Default: "Translating from ${from} to ${to}"
+#: ./skins/LinguaPlone/translate_item.cpt:95
+msgid "description_translating_from_to"
+msgstr "Dịch từ ${from} sang ${to}"
+
+#. Default: "This content does not exist in your current language, ${language}, but you can keep browsing the site in this language."
+#: ./skins/LinguaPlone/not_available_lang.pt:45
+msgid "description_translation_unavailable"
+msgstr "Nội dung này không tồn tại bằng ngôn ngữ hiện tại, ${language}, nhưng bạn có thể tiếp tục xem nội dung trên hệ thống bằng ngôn ngữ này"
+
+#. Default: "Add content translation"
+#: ./skins/LinguaPlone/not_available_lang.pt:75
+msgid "header_add_content_translation"
+msgstr "Thêm nội dung bản dịch"
+
+#. Default: "Change content language"
+#: ./skins/LinguaPlone/manage_translations_form.pt:23
+msgid "header_change_language"
+msgstr "Thay đổi ngôn ngữ hiển thị nội dung"
+
+#. Default: "Manage translations"
+#: ./skins/LinguaPlone/global_languagemenu.pt:57
+msgid "header_manage_translations"
+msgstr "Quản lý các bản dịch"
+
+#. Default: "Remove translations"
+#: ./skins/LinguaPlone/manage_translations_form.pt:210
+msgid "header_remove_translations"
+msgstr "Hủy bỏ bản dịch"
+
+#. Default: "Translation Unavailable"
+#: ./skins/LinguaPlone/not_available_lang.pt:27
+msgid "header_translation_unavailable"
+msgstr "Không có bản dịch."
+
+#. Default: "Add Translation"
+#: ./skins/LinguaPlone/not_available_lang.pt:103
+msgid "label_add_translation"
+msgstr "Thêm bản dịch"
+
+#. Default: "Change Language"
+#: ./skins/LinguaPlone/manage_translations_form.pt:73
+msgid "label_change_language"
+msgstr "Thay đổi Ngôn ngữ"
+
+#. Default: " (Content is language neutral)"
+#: ./skins/LinguaPlone/languageSelectorData.py:32
+msgid "label_content_is_language_neutral"
+msgstr "(Nội dung là ngôn ngữ trung lập)"
+
+#. Default: " (Content translation not available)"
+#: ./skins/LinguaPlone/languageSelectorData.py:37
+msgid "label_content_translation_not_available"
+msgstr "Không có nội dung bản dịch."
+
+#. Default: "Language settings..."
+#: ./skins/LinguaPlone/global_languagemenu.pt:50
+msgid "label_language_settings"
+msgstr "Thiết lập Ngôn ngữ..."
+
+#. Default: "Manage translations..."
+#: ./skins/LinguaPlone/global_languagemenu.pt:45
+msgid "label_manage_translations"
+msgstr "Quản lý các bản dịch..."
+
+#. Default: "Neutral"
+#: ./skins/LinguaPlone/manage_translations_form.pt:52
+msgid "label_neutral"
+msgstr "Trung lập"
+
+#. Default: "Switch language to ${language}"
+#: ./skins/LinguaPlone/languageSelectorData.py:24
+msgid "label_switch_language_to"
+msgstr "Chuyển ngôn ngữ sang ${language}"
+
+#. Default: "Translate into"
+#: ./skins/LinguaPlone/global_languagemenu.pt:22
+msgid "label_translate_into"
+msgstr "Bản dịch"
+
+#. Default: "Available languages"
+#: ./skins/LinguaPlone/manage_translations_form.pt:39
+msgid "legend_available_languages"
+msgstr "Các ngôn ngữ hiện có"
+
+#. Default: "Existing translations"
+#: ./skins/LinguaPlone/manage_translations_form.pt:234
+msgid "legend_existing_translations"
+msgstr "Các bản dịch hiện có"
+
+#. Default: "Changed content language to ${language}."
+#: ./skins/LinguaPlone/changeLanguage.cpy:13
+msgid "message_content_changed_language_to"
+msgstr "Nội dung đã được thay đổi sang ${language}."
+
+#. Default: "'${title}' linked as ${language} translation for the current content."
+#: ./skins/LinguaPlone/linkTranslation.cpy:33
+msgid "message_content_linked_to"
+msgstr "${title} đã được liên kết làm bản dịch ${language} của nội dung hiện tại."
+
+#. Default: "Translation content not found."
+#: ./skins/LinguaPlone/linkTranslation.cpy:11
+msgid "message_content_not_found"
+msgstr "Không tìm thấy nội dung bản dịch."
+
+#. Default: "Invalid language."
+#: ./skins/LinguaPlone/linkTranslation.cpy:17
+msgid "message_invalid_language"
+msgstr "Không đúng ngôn ngữ."
+
+#. Default: "Please select different values for each language."
+#: ./skins/LinguaPlone/validate_translate.vpy:14
+msgid "message_select_different_languages"
+msgstr "Hãy chọn các giá trị khác nhau cho mỗi ngôn ngữ."
+
+#. Default: "${type} has been created."
+#: ./skins/LinguaPlone/createTranslation.cpy:23
+msgid "message_type_has_been_created"
+msgstr "${type} đã được tạo."
+

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<object>
+  <order manager="plone.portalheader" skinname="Left Skin">
+    <viewlet name="plone.site_actions"
+             insert-after="plone.global_sections"/>
+  </order>
+  <hidden manager="plone.portaltop" skinname="Left Skin">
+    <viewlet name="plone.personal_bar" />     
+  </hidden>
+  <hidden manager="leftskin.contenttop" skinname="Left Skin">
+    <viewlet name="leftskin.personal_bar" />     
+  </hidden>
+
+</object>

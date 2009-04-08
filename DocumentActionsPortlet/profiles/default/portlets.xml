@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<portlets>
+
+ <!-- Portlet type registrations -->
+
+ <portlet
+   addview="DocumentActionsPortlet.DocumentActionsPortlet"
+   title="Document Actions Portlet"
+   description=""
+   />
+
+</portlets>
